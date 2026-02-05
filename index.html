@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax Invoice - TechNova Retail Solutions</title>
     <style>
+        /* Reset and Base */
         * {
             margin: 0;
             padding: 0;
@@ -13,560 +14,620 @@
 
         @page {
             size: A4;
-            margin: 10mm;
+            margin: 0;
         }
 
         body {
-            font-family: "Segoe UI", Arial, sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             font-size: 10pt;
-            line-height: 1.3;
+            line-height: 1.4;
             color: #000;
-            background: #fff;
+            background: #e8e8e8;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
-        .invoice-wrapper {
-            width: 190mm;
+        /* Main Container - Fixed for Print */
+        .invoice-page {
+            width: 210mm;
+            min-height: 297mm;
             margin: 0 auto;
-            padding: 0;
+            background: #fff;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
-        /* Header Section */
-        .top-header {
-            border-bottom: 3px solid #1a237e;
-            padding-bottom: 10px;
-            margin-bottom: 12px;
+        .invoice-content {
+            padding: 15mm;
+        }
+
+        /* Header - Professional Blue like Dell */
+        .main-header {
+            background: #0076CE; /* Dell Blue */
+            color: white;
+            padding: 20px;
+            margin: -15mm -15mm 20px -15mm;
             overflow: hidden;
         }
 
-        .company-info {
+        .header-brand {
             float: left;
-            width: 70%;
         }
 
-        .company-name {
-            font-size: 20pt;
-            font-weight: bold;
-            color: #1a237e;
+        .company-title {
+            font-size: 24pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
             margin-bottom: 5px;
         }
 
-        .gst-info {
+        .company-details {
             font-size: 8pt;
-            color: #555;
-            line-height: 1.4;
+            line-height: 1.5;
+            opacity: 0.95;
         }
 
-        .invoice-type {
+        .header-invoice-type {
             float: right;
             text-align: right;
         }
 
-        .invoice-type h1 {
-            font-size: 16pt;
-            color: #d32f2f;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
-
-        .original-copy {
-            background: #1a237e;
-            color: white;
-            padding: 3px 10px;
-            font-size: 8pt;
-            font-weight: bold;
-        }
-
-        /* Invoice Details Bar */
-        .invoice-bar {
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            padding: 8px 12px;
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .bar-item {
-            float: left;
-            width: 25%;
-            border-right: 1px solid #ddd;
-            padding: 0 10px;
-        }
-
-        .bar-item:last-child {
-            border-right: none;
-        }
-
-        .bar-label {
-            font-size: 7pt;
-            color: #666;
-            text-transform: uppercase;
-            margin-bottom: 2px;
-        }
-
-        .bar-value {
-            font-size: 10pt;
-            font-weight: bold;
-            color: #000;
-        }
-
-        /* Address Section */
-        .address-section {
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .address-box {
-            width: 48%;
-            float: left;
-            border: 1px solid #1a237e;
-            padding: 10px;
-        }
-
-        .address-box.bill-to {
-            margin-right: 4%;
-        }
-
-        .address-title {
-            background: #1a237e;
-            color: white;
-            padding: 4px 8px;
-            font-size: 8pt;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin: -10px -10px 8px -10px;
-        }
-
-        .customer-name {
-            font-size: 11pt;
-            font-weight: bold;
-            color: #1a237e;
-            margin-bottom: 5px;
-        }
-
-        .address-text {
-            font-size: 9pt;
-            line-height: 1.5;
-            color: #333;
-        }
-
-        .contact-phone {
-            margin-top: 5px;
-            font-weight: bold;
-            color: #d32f2f;
-        }
-
-        /* Product Table */
-        .product-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 12px;
-            font-size: 9pt;
-        }
-
-        .product-table thead {
-            background: #1a237e;
-            color: white;
-        }
-
-        .product-table th {
-            padding: 8px 6px;
-            text-align: left;
-            font-weight: bold;
-            font-size: 8pt;
-            text-transform: uppercase;
-            border: 1px solid #1a237e;
-        }
-
-        .product-table th:last-child,
-        .product-table td:last-child {
-            text-align: right;
-        }
-
-        .product-table th:nth-child(2),
-        .product-table td:nth-child(2) {
-            text-align: center;
-        }
-
-        .product-table td {
-            padding: 10px 6px;
-            border: 1px solid #ddd;
-            vertical-align: top;
-        }
-
-        .product-cell {
-            line-height: 1.4;
-        }
-
-        .product-name {
-            font-weight: bold;
-            font-size: 10pt;
-            color: #1a237e;
-            margin-bottom: 6px;
-        }
-
-        .product-specs {
-            font-size: 8pt;
-            color: #555;
+        .invoice-type-text {
+            font-size: 20pt;
+            font-weight: 700;
+            letter-spacing: 3px;
             margin-bottom: 8px;
         }
 
-        .spec-line {
-            display: block;
-            margin-bottom: 2px;
+        .copy-type {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            font-size: 8pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.4);
         }
 
-        .serial-section {
-            background: #fff3e0;
-            border: 1px solid #ff9800;
-            padding: 6px 8px;
+        /* Info Grid - Using Table for Stability */
+        .info-section {
+            margin-bottom: 20px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+
+        .info-table td {
+            padding: 12px 15px;
+            border-right: 1px solid #dee2e6;
+            width: 25%;
+        }
+
+        .info-table td:last-child {
+            border-right: none;
+        }
+
+        .info-label {
+            font-size: 7pt;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* Address Section - Side by Side */
+        .address-container {
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .address-block {
+            width: 48%;
+            float: left;
+            border: 2px solid #0076CE;
+            background: #fff;
+        }
+
+        .address-block.billing {
+            margin-right: 4%;
+        }
+
+        .address-header {
+            background: #0076CE;
+            color: white;
+            padding: 8px 12px;
+            font-size: 9pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .address-body {
+            padding: 12px;
+        }
+
+        .customer-name {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #0076CE;
+            margin-bottom: 8px;
+        }
+
+        .address-text {
+            font-size: 10pt;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .phone-number {
             margin-top: 8px;
+            font-size: 10pt;
+            font-weight: 700;
+            color: #dc3545;
+        }
+
+        /* Product Table - Clean Professional */
+        .product-section {
+            margin-bottom: 20px;
+        }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9pt;
+            border: 1px solid #0076CE;
+        }
+
+        .items-table thead {
+            background: #0076CE;
+            color: white;
+        }
+
+        .items-table th {
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
             font-size: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid #0076CE;
+        }
+
+        .items-table th:last-child,
+        .items-table td:last-child {
+            text-align: right;
+        }
+
+        .items-table th:nth-child(2),
+        .items-table td:nth-child(2) {
+            text-align: center;
+        }
+
+        .items-table td {
+            padding: 12px 8px;
+            border: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+
+        .product-title {
+            font-weight: 700;
+            font-size: 11pt;
+            color: #0076CE;
+            margin-bottom: 8px;
+        }
+
+        .spec-list {
+            font-size: 9pt;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .spec-item {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .serial-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 8px;
+            margin-top: 8px;
+            font-size: 9pt;
         }
 
         .serial-label {
-            font-weight: bold;
-            color: #e65100;
+            font-weight: 700;
+            color: #856404;
         }
 
-        .serial-value {
+        .serial-number {
             font-family: "Courier New", monospace;
-            font-weight: bold;
+            font-weight: 700;
             color: #000;
             margin-left: 5px;
         }
 
-        .warranty-text {
-            margin-top: 5px;
-            font-size: 7pt;
-            color: #666;
+        .warranty-note {
+            margin-top: 6px;
+            font-size: 8pt;
+            color: #6c757d;
         }
 
-        .amount-cell {
+        .amount {
             font-family: "Courier New", monospace;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 10pt;
         }
 
         /* Summary Section */
-        .summary-section {
+        .summary-container {
             overflow: hidden;
-            margin-bottom: 12px;
+            margin-bottom: 20px;
         }
 
-        .amount-words {
+        .amount-in-words {
+            width: 58%;
             float: left;
-            width: 55%;
-            padding: 10px;
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            font-size: 9pt;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
         }
 
-        .amount-words-label {
-            font-weight: bold;
-            color: #1a237e;
-            margin-bottom: 5px;
+        .words-label {
             font-size: 8pt;
+            color: #6c757d;
             text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 5px;
         }
 
-        .summary-table {
+        .words-text {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #000;
+            line-height: 1.4;
+        }
+
+        .calculation-box {
+            width: 40%;
             float: right;
-            width: 42%;
-            border-collapse: collapse;
-            font-size: 9pt;
+            border: 2px solid #0076CE;
         }
 
-        .summary-table td {
-            padding: 5px 10px;
-            border-bottom: 1px solid #ddd;
+        .calc-row {
+            padding: 8px 12px;
+            border-bottom: 1px solid #dee2e6;
+            overflow: hidden;
+            font-size: 10pt;
         }
 
-        .summary-table td:first-child {
-            text-align: left;
+        .calc-row:last-child {
+            border-bottom: none;
         }
 
-        .summary-table td:last-child {
-            text-align: right;
-            font-weight: bold;
+        .calc-label {
+            float: left;
+            color: #333;
+        }
+
+        .calc-value {
+            float: right;
             font-family: "Courier New", monospace;
+            font-weight: 700;
         }
 
-        .summary-table .total-row {
-            background: #1a237e;
+        .calc-row.total {
+            background: #0076CE;
             color: white;
-            font-size: 11pt;
+            font-size: 12pt;
+            font-weight: 700;
         }
 
-        .summary-table .total-row td {
-            padding: 8px 10px;
-            border: none;
+        .calc-row.total .calc-value {
+            font-size: 13pt;
         }
 
         /* Footer Section */
-        .footer-section {
-            margin-top: 15px;
-            border-top: 2px solid #1a237e;
-            padding-top: 15px;
+        .footer-area {
+            border-top: 3px solid #0076CE;
+            padding-top: 20px;
         }
 
-        .computer-generated-notice {
+        .computer-notice {
+            background: #e7f3ff;
+            border: 2px dashed #0076CE;
+            padding: 15px;
             text-align: center;
-            background: #e8eaf6;
-            border: 1px dashed #1a237e;
-            padding: 12px;
             margin-bottom: 15px;
         }
 
-        .computer-generated-notice h3 {
+        .notice-title {
             font-size: 12pt;
-            color: #1a237e;
+            font-weight: 700;
+            color: #0076CE;
             margin-bottom: 5px;
         }
 
-        .computer-generated-notice p {
+        .notice-text {
             font-size: 9pt;
             color: #555;
         }
 
-        .terms-box {
-            font-size: 8pt;
-            color: #555;
-            text-align: center;
-            line-height: 1.5;
+        .terms-section {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 12px;
             margin-bottom: 15px;
-            padding: 10px;
-            background: #fafafa;
-            border: 1px solid #eee;
+            font-size: 8pt;
+            line-height: 1.5;
+            color: #555;
+            text-align: center;
         }
 
-        .contact-footer {
+        .terms-section strong {
+            color: #000;
+        }
+
+        .contact-bar {
+            background: #0076CE;
+            color: white;
+            padding: 12px;
             text-align: center;
-            font-size: 9pt;
-            color: #1a237e;
-            font-weight: bold;
-            padding: 10px;
-            background: #f5f5f5;
-            border: 1px solid #ddd;
             margin-bottom: 10px;
         }
 
         .contact-item {
             display: inline-block;
-            margin: 0 15px;
+            margin: 0 20px;
+            font-size: 9pt;
+            font-weight: 600;
         }
 
-        .page-footer {
+        .page-info {
             text-align: center;
             font-size: 8pt;
-            color: #666;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #ddd;
+            color: #6c757d;
         }
 
-        /* Print Button */
-        .print-btn {
+        /* Print Button - Screen Only */
+        .action-bar {
             text-align: center;
             padding: 20px;
             background: #f0f0f0;
         }
 
-        .print-btn button {
-            background: #1a237e;
+        .btn-print {
+            background: #0076CE;
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 12px 40px;
             font-size: 11pt;
+            font-weight: 600;
             cursor: pointer;
             border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
+        /* Print Media - Ensure Exact Match */
         @media print {
             body {
                 background: white;
             }
             
-            .invoice-wrapper {
+            .invoice-page {
+                box-shadow: none;
                 width: 100%;
             }
             
-            .print-btn {
+            .action-bar {
                 display: none !important;
             }
             
-            .product-table, .address-box, .summary-section, .footer-section {
+            .invoice-content {
+                padding: 10mm;
+            }
+            
+            .main-header {
+                margin: -10mm -10mm 15px -10mm;
+                padding: 15px;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .items-table, .calculation-box, .address-block, .amount-in-words {
                 page-break-inside: avoid;
             }
         }
     </style>
 </head>
 <body>
-    <div class="invoice-wrapper">
-        <!-- Header -->
-        <div class="top-header">
-            <div class="company-info">
-                <div class="company-name">TechNova Retail Solutions Pvt Ltd</div>
-                <div class="gst-info">
-                    Ship-from: 42B, Tech Park Avenue, Electronic City Phase II, Bangalore - 560100, Karnataka<br>
-                    GSTIN: 29AABCT1234N1ZV | PAN: AABCT1234N | CIN: U74999KA2021PTC123456<br>
-                    Email: support@technova.com | Phone: 1800-123-4567
+    <div class="invoice-page">
+        <div class="invoice-content">
+            <!-- Header -->
+            <div class="main-header">
+                <div class="header-brand">
+                    <div class="company-title">TechNova Retail Solutions Pvt Ltd</div>
+                    <div class="company-details">
+                        Ship-from: 42B, Tech Park Avenue, Electronic City Phase II, Bangalore - 560100, Karnataka<br>
+                        GSTIN: 29AABCT1234N1ZV | PAN: AABCT1234N | CIN: U74999KA2021PTC123456<br>
+                        Email: support@technova.com | Phone: 1800-123-4567
+                    </div>
+                </div>
+                <div class="header-invoice-type">
+                    <div class="invoice-type-text">TAX INVOICE</div>
+                    <div class="copy-type">Original for Recipient</div>
                 </div>
             </div>
-            <div class="invoice-type">
-                <h1>TAX INVOICE</h1>
-                <div class="original-copy">ORIGINAL FOR RECIPIENT</div>
+
+            <!-- Invoice Info -->
+            <div class="info-section">
+                <table class="info-table">
+                    <tr>
+                        <td>
+                            <div class="info-label">Invoice Number</div>
+                            <div class="info-value">INV-TN-2025-001234</div>
+                        </td>
+                        <td>
+                            <div class="info-label">Invoice Date</div>
+                            <div class="info-value">15-01-2025</div>
+                        </td>
+                        <td>
+                            <div class="info-label">Order ID</div>
+                            <div class="info-value">OD987654321098765</div>
+                        </td>
+                        <td>
+                            <div class="info-label">Order Date</div>
+                            <div class="info-value">15-01-2025</div>
+                        </td>
+                    </tr>
+                </table>
             </div>
-        </div>
-        
-        <!-- Invoice Details Bar -->
-        <div class="invoice-bar">
-            <div class="bar-item">
-                <div class="bar-label">Invoice Number</div>
-                <div class="bar-value">INV-TN-2025-001234</div>
-            </div>
-            <div class="bar-item">
-                <div class="bar-label">Invoice Date</div>
-                <div class="bar-value">15-01-2025</div>
-            </div>
-            <div class="bar-item">
-                <div class="bar-label">Order ID</div>
-                <div class="bar-value">OD987654321098765</div>
-            </div>
-            <div class="bar-item">
-                <div class="bar-label">Order Date</div>
-                <div class="bar-value">15-01-2025</div>
-            </div>
-        </div>
-        
-        <!-- Addresses -->
-        <div class="address-section">
-            <div class="address-box bill-to">
-                <div class="address-title">Bill To</div>
-                <div class="customer-name">Manoj Kumar</div>
-                <div class="address-text">
-                    Parvathipuram, Nearby Style Baazar,<br>
-                    Parvathipuram Town,<br>
-                    Parvathipuram Manyam District - 535501<br>
-                    Andhra Pradesh
-                </div>
-                <div class="contact-phone">Mobile: 7989322031</div>
-            </div>
-            <div class="address-box ship-to">
-                <div class="address-title">Ship To</div>
-                <div class="customer-name">Manoj Kumar</div>
-                <div class="address-text">
-                    Parvathipuram, Nearby Style Baazar,<br>
-                    Parvathipuram Town,<br>
-                    Parvathipuram Manyam District - 535501<br>
-                    Andhra Pradesh
-                </div>
-                <div class="contact-phone">Mobile: 7989322031</div>
-            </div>
-        </div>
-        
-        <!-- Product Table -->
-        <table class="product-table">
-            <thead>
-                <tr>
-                    <th style="width: 45%;">Description of Goods</th>
-                    <th style="width: 8%;">Qty</th>
-                    <th style="width: 12%;">Rate</th>
-                    <th style="width: 10%;">Discount</th>
-                    <th style="width: 12%;">Taxable Value</th>
-                    <th style="width: 13%;">Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="product-cell">
-                            <div class="product-name">MSI Titan 18 HX AI Gaming Laptop</div>
-                            <div class="product-specs">
-                                <span class="spec-line">• Intel Core Ultra 9 285HX Processor (Series 2)</span>
-                                <span class="spec-line">• NVIDIA GeForce RTX 5090 Laptop GPU 24GB GDDR6</span>
-                                <span class="spec-line">• 18" UHD+ (3840x2400) 120Hz Mini LED Display</span>
-                                <span class="spec-line">• 128GB DDR5-5600 RAM | 4TB NVMe Gen4 SSD</span>
-                                <span class="spec-line">• Windows 11 Pro | Cherry MX Mechanical Keyboard</span>
-                                <span class="spec-line">• FSN: LPTGYV98E5Z8NHTZ | HSN/SAC: 84713010</span>
-                            </div>
-                            <div class="serial-section">
-                                <span class="serial-label">Serial Number:</span>
-                                <span class="serial-value">862448051012514</span>
-                                <div class="warranty-text">
-                                    Warranty: 2 Years on Laptop, 1 Year on Battery & Adapter | IGST @ 18%
-                                </div>
-                            </div>
+
+            <!-- Addresses -->
+            <div class="address-container">
+                <div class="address-block billing">
+                    <div class="address-header">Bill To</div>
+                    <div class="address-body">
+                        <div class="customer-name">Manoj Kumar</div>
+                        <div class="address-text">
+                            Parvathipuram, Nearby Style Baazar,<br>
+                            Parvathipuram Town,<br>
+                            Parvathipuram Manyam District - 535501<br>
+                            Andhra Pradesh
                         </div>
-                    </td>
-                    <td>1 Nos</td>
-                    <td class="amount-cell">599,999.00</td>
-                    <td class="amount-cell">50,000.00</td>
-                    <td class="amount-cell">549,999.00</td>
-                    <td class="amount-cell">648,998.82</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <!-- Summary Section -->
-        <div class="summary-section">
-            <div class="amount-words">
-                <div class="amount-words-label">Amount Chargeable (in words)</div>
-                <div><strong>Indian Rupees Six Lakh Forty Eight Thousand Nine Hundred Ninety Eight and Eighty Two Paise Only</strong></div>
+                        <div class="phone-number">Mobile: 7989322031</div>
+                    </div>
+                </div>
+                <div class="address-block shipping">
+                    <div class="address-header">Ship To</div>
+                    <div class="address-body">
+                        <div class="customer-name">Manoj Kumar</div>
+                        <div class="address-text">
+                            Parvathipuram, Nearby Style Baazar,<br>
+                            Parvathipuram Town,<br>
+                            Parvathipuram Manyam District - 535501<br>
+                            Andhra Pradesh
+                        </div>
+                        <div class="phone-number">Mobile: 7989322031</div>
+                    </div>
+                </div>
             </div>
-            <table class="summary-table">
-                <tr>
-                    <td>Sub Total</td>
-                    <td>599,999.00</td>
-                </tr>
-                <tr>
-                    <td>Less: Discount</td>
-                    <td>-50,000.00</td>
-                </tr>
-                <tr>
-                    <td>Taxable Value</td>
-                    <td>549,999.00</td>
-                </tr>
-                <tr>
-                    <td>Add: IGST @ 18%</td>
-                    <td>98,999.82</td>
-                </tr>
-                <tr class="total-row">
-                    <td><strong>Grand Total</strong></td>
-                    <td><strong>₹ 648,998.82</strong></td>
-                </tr>
-            </table>
-        </div>
-        
-        <!-- Footer -->
-        <div class="footer-section">
-            <!-- Computer Generated Notice (No Signature) -->
-            <div class="computer-generated-notice">
-                <h3>✓ This is a Computer Generated Invoice</h3>
-                <p>No signature required | This invoice is valid without signature or stamp</p>
+
+            <!-- Product Table -->
+            <div class="product-section">
+                <table class="items-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 46%;">Description of Goods</th>
+                            <th style="width: 8%;">Qty</th>
+                            <th style="width: 12%;">Rate (₹)</th>
+                            <th style="width: 10%;">Discount</th>
+                            <th style="width: 12%;">Taxable Value</th>
+                            <th style="width: 12%;">Amount (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="product-title">MSI Titan 18 HX AI Gaming Laptop</div>
+                                <div class="spec-list">
+                                    <span class="spec-item">• Intel Core Ultra 9 285HX Processor (Series 2)</span>
+                                    <span class="spec-item">• NVIDIA GeForce RTX 5090 Laptop GPU 24GB GDDR6</span>
+                                    <span class="spec-item">• 18" UHD+ (3840x2400) 120Hz Mini LED Display</span>
+                                    <span class="spec-item">• 128GB DDR5-5600 RAM | 4TB NVMe Gen4 SSD</span>
+                                    <span class="spec-item">• Windows 11 Pro | Cherry MX Mechanical Keyboard</span>
+                                    <span class="spec-item">• FSN: LPTGYV98E5Z8NHTZ | HSN/SAC: 84713010</span>
+                                </div>
+                                <div class="serial-box">
+                                    <span class="serial-label">Serial Number:</span>
+                                    <span class="serial-number">862448051012514</span>
+                                    <div class="warranty-note">Warranty: 2 Years on Laptop, 1 Year on Battery & Adapter | IGST @ 18%</div>
+                                </div>
+                            </td>
+                            <td>1 Nos</td>
+                            <td class="amount">599,999.00</td>
+                            <td class="amount">50,000.00</td>
+                            <td class="amount">549,999.00</td>
+                            <td class="amount">648,998.82</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            
-            <div class="terms-box">
-                <strong>Terms & Conditions:</strong> Goods once sold will not be taken back or exchanged. Warranty claims must be accompanied by this original invoice. 
-                For returns, please ensure original brand box, price tag, and packing are intact. Products are intended for end user consumption only, not for resale. 
-                All disputes subject to Bangalore jurisdiction.
+
+            <!-- Summary -->
+            <div class="summary-container">
+                <div class="amount-in-words">
+                    <div class="words-label">Amount Chargeable (in words)</div>
+                    <div class="words-text">Indian Rupees Six Lakh Forty Eight Thousand Nine Hundred Ninety Eight and Eighty Two Paise Only</div>
+                </div>
+                <div class="calculation-box">
+                    <div class="calc-row">
+                        <span class="calc-label">Sub Total</span>
+                        <span class="calc-value">599,999.00</span>
+                    </div>
+                    <div class="calc-row">
+                        <span class="calc-label">Less: Discount</span>
+                        <span class="calc-value">-50,000.00</span>
+                    </div>
+                    <div class="calc-row">
+                        <span class="calc-label">Taxable Value</span>
+                        <span class="calc-value">549,999.00</span>
+                    </div>
+                    <div class="calc-row">
+                        <span class="calc-label">Add: IGST @ 18%</span>
+                        <span class="calc-value">98,999.82</span>
+                    </div>
+                    <div class="calc-row total">
+                        <span class="calc-label">Grand Total</span>
+                        <span class="calc-value">₹ 648,998.82</span>
+                    </div>
+                </div>
             </div>
-            
-            <div class="contact-footer">
-                <span class="contact-item">📞 1800-123-4567</span>
-                <span class="contact-item">✉️ support@technova.com</span>
-                <span class="contact-item">🌐 www.technova.com</span>
-            </div>
-            
-            <div class="page-footer">
-                Invoice Generated: 15-01-2025 | Page 1 of 1 | E. & O.E.<br>
-                TechNova Retail Solutions Pvt Ltd, Bangalore - 560100
+
+            <!-- Footer -->
+            <div class="footer-area">
+                <div class="computer-notice">
+                    <div class="notice-title">✓ This is a Computer Generated Invoice</div>
+                    <div class="notice-text">No signature required | This invoice is valid without signature or stamp</div>
+                </div>
+
+                <div class="terms-section">
+                    <strong>Terms & Conditions:</strong> Goods once sold will not be taken back or exchanged. Warranty claims must be accompanied by this original invoice. 
+                    For returns, please ensure original brand box, price tag, and packing are intact. Products are intended for end user consumption only, not for resale. 
+                    All disputes subject to Bangalore jurisdiction.
+                </div>
+
+                <div class="contact-bar">
+                    <span class="contact-item">📞 1800-123-4567</span>
+                    <span class="contact-item">✉️ support@technova.com</span>
+                    <span class="contact-item">🌐 www.technova.com</span>
+                </div>
+
+                <div class="page-info">
+                    Invoice Generated: 15-01-2025 | Page 1 of 1 | E. & O.E.<br>
+                    TechNova Retail Solutions Pvt Ltd, Bangalore - 560100
+                </div>
             </div>
         </div>
     </div>
-    
-    <div class="print-btn">
-        <button onclick="window.print()">🖨️ Print Invoice</button>
+
+    <div class="action-bar">
+        <button class="btn-print" onclick="window.print()">🖨️ Print Invoice</button>
     </div>
 </body>
 </html>
