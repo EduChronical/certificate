@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Certificate - Agooru Annapurnamma</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;700&family=Times+New+Roman&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .certificate-container {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            border: 2px solid #333;
+            padding: 15mm;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .inner-border {
+            border: 1px solid #333;
+            padding: 10mm;
+            min-height: 267mm;
+        }
+        
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .left-header {
+            text-align: center;
+        }
+        
+        .serial-no {
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+        
+        .serial-no-telugu {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            font-size: 12px;
+        }
+        
+        .govt-seal {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #999;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px auto;
+            font-size: 10px;
+            color: #666;
+            position: relative;
+        }
+        
+        .center-header {
+            text-align: center;
+            flex: 1;
+            padding: 0 20px;
+        }
+        
+        .emblem {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 5px;
+            position: relative;
+        }
+        
+        .emblem::before {
+            content: "♔";
+            font-size: 40px;
+            color: #333;
+        }
+        
+        .govt-name-telugu {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        
+        .govt-name {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        
+        .dept-name-telugu {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        .dept-name {
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+        
+        .panchayat-name {
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+        
+        .right-header {
+            text-align: center;
+        }
+        
+        .form-no-telugu {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            font-size: 12px;
+        }
+        
+        .form-no {
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+        
+        .form-icon {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .form-icon::before {
+            content: "C";
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .title-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .title-telugu {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .title-english {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .legal-text {
+            font-size: 9px;
+            text-align: justify;
+            margin: 15px 0;
+            line-height: 1.4;
+        }
+        
+        .legal-text-telugu {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            font-size: 10px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .main-content {
+            margin: 20px 0;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+        
+        .info-label {
+            font-size: 10px;
+            min-width: 180px;
+            line-height: 1.3;
+        }
+        
+        .info-label-telugu {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            display: block;
+        }
+        
+        .info-value {
+            font-size: 11px;
+            font-weight: bold;
+            flex: 1;
+            padding-left: 10px;
+        }
+        
+        .two-column {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .column {
+            flex: 1;
+        }
+        
+        .dotted-line {
+            border-bottom: 1px dotted #333;
+            min-width: 100px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+        
+        .signature-section {
+            margin-top: 30px;
+            text-align: right;
+        }
+        
+        .signature-box {
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .signature-line {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 24px;
+            margin-bottom: 5px;
+            transform: rotate(-5deg);
+        }
+        
+        .signature-label {
+            font-size: 9px;
+        }
+        
+        .signature-label-telugu {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            font-size: 10px;
+            display: block;
+        }
+        
+        .footer-section {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+        }
+        
+        .qr-section {
+            margin-top: 20px;
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+        }
+        
+        .qr-code {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            text-align: center;
+        }
+        
+        .update-info {
+            font-size: 9px;
+            margin-bottom: 10px;
+        }
+        
+        .legal-footer {
+            margin-top: 20px;
+            font-size: 9px;
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            line-height: 1.4;
+        }
+        
+        .legal-footer-telugu {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .barcode {
+            width: 200px;
+            height: 40px;
+            margin: 10px auto 0;
+            background: repeating-linear-gradient(
+                90deg,
+                #000 0px,
+                #000 2px,
+                #fff 2px,
+                #fff 4px
+            );
+        }
+        
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 60px;
+            color: rgba(200, 200, 200, 0.1);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .certificate-container {
+                box-shadow: none;
+                border: 2px solid #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <div class="watermark">SAMPLE</div>
+        <div class="inner-border">
+            <div class="content-wrapper">
+                <!-- Header Section -->
+                <div class="header-section">
+                    <div class="left-header">
+                        <div class="serial-no-telugu">సంఖ్య 1</div>
+                        <div class="serial-no">No. 1</div>
+                        <div class="govt-seal">SEAL</div>
+                    </div>
+                    
+                    <div class="center-header">
+                        <div class="emblem"></div>
+                        <div class="govt-name-telugu">ఆంధ్ర ప్రదేశ్ ప్రభుత్వము</div>
+                        <div class="govt-name">GOVERNMENT OF ANDHRA PRADESH</div>
+                        <div class="dept-name-telugu">వైద్యారోగ్య మరియు కుటుంబ సంక్షేమ శాఖ</div>
+                        <div class="dept-name">DEPARTMENT OF HEALTH, MEDICAL AND FAMILY WELFARE</div>
+                        <div class="panchayat-name">GRAMA PANCHAYAT MADALIGI</div>
+                    </div>
+                    
+                    <div class="right-header">
+                        <div class="form-no-telugu">ఫారం-6</div>
+                        <div class="form-no">FORM-6</div>
+                        <div class="form-icon"></div>
+                    </div>
+                </div>
+                
+                <!-- Title Section -->
+                <div class="title-section">
+                    <div class="title-telugu">మరణ ధృవీకరణ పత్రము</div>
+                    <div class="title-english">DEATH CERTIFICATE</div>
+                </div>
+                
+                <!-- Legal Text -->
+                <div class="legal-text">
+                    <span class="legal-text-telugu">(జనన మరణ నమోదు చట్టం 1969, 12/17 విధులను ప్రకారము, ఆంధ్ర ప్రదేశ్ జనన మరణ నమోదు నిబంధనలు 1999, 8/13 కింద జారీచేయబడినది)</span>
+                    (ISSUED UNDER SECTION 12/17 OF THE REGISTRATION OF BIRTHS & DEATHS ACT, 1969 AND RULE 8/13 OF THE ANDHRA PRADESH REGISTRATION OF BIRTHS & DEATHS RULES 1999.)
+                </div>
+                
+                <div class="legal-text">
+                    <span class="legal-text-telugu">ఈ క్రింది సమాచారాన్ని మరణం నమోదు మూలక అసలు రికార్డు రాష్ట్ర ముఖ్య... గ్రామ పంచాయతీ మదలిగి, పార్వతీపురం మన్యం జిల్లా, కోమరాడాతాలూకా / బ్లాక్ ఏండ్ తీసుకోబడింది అని ధృవీకరించబడింది</span>
+                    THIS IS TO CERTIFY THAT THE FOLLOWING INFORMATION HAS BEEN TAKEN FROM THE ORIGINAL RECORD OF DEATH WHICH IS THE REGISTER FOR GRAMA PANCHAYAT MADALIGI OF TAHSIL/BLOCK KOMARADA OF DISTRICT PARVATHIPURAM MANYAM OF STATE/UNION TERRITORY ANDHRA PRADESH, INDIA.
+                </div>
+                
+                <!-- Main Content -->
+                <div class="main-content">
+                    <div class="two-column">
+                        <div class="column">
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">మరణించిన వ్యక్తి పేరు</span>
+                                    NAME OF DECEASED :
+                                </div>
+                                <div class="info-value">
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif;">అగూరు అన్నపూర్ణమ్మ</span> / AGOORU ANNAPURNAMMA
+                                </div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">ఆధార్ సంఖ్య</span>
+                                    AADHAAR NO. :
+                                </div>
+                                <div class="info-value">XXXXXXXX0378</div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">మరణించిన తేదీ</span>
+                                    DATE OF DEATH :
+                                </div>
+                                <div class="info-value">
+                                    09-11-2023<br>
+                                    NINTH-NOVEMBER-TWO THOUSAND TWENTY THREE
+                                </div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">మరణించిన వ్యక్తి యొక్క వయస్సు</span>
+                                    AGE OF DECEASED :
+                                </div>
+                                <div class="info-value">75 YEARS</div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">తల్లి పేరు</span>
+                                    NAME OF MOTHER :
+                                </div>
+                                <div class="info-value">
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif;">ముగడా ఈశ్వరమ్మ</span> / MUGADA ESWARAMMA
+                                </div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">ఆధార్ సంఖ్య</span>
+                                    MOTHER'S AADHAAR NO. :
+                                </div>
+                                <div class="info-value"><span class="dotted-line"></span></div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">మరణించినప్పుడు ముఖ్యమైన చిరునామా</span>
+                                    ADDRESS OF THE DECEASED AT THE TIME OF DEATH :
+                                </div>
+                                <div class="info-value">
+                                    3-35, CHINNA NAIDU STREET,<br>
+                                    MADALANGI, MADALANGI, KOMARADA,<br>
+                                    PARVATHIPURAM MANYAM, ANDHRA PRADESH-<br>
+                                    535521<br>
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif; font-size: 10px;">
+                                        3-35, చిన్న నాయుడు స్ట్రీట్,<br>
+                                        మదలంగి, కోమరాడ, పార్వతీపురం మన్యం,<br>
+                                        535521
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">నమోదు సంఖ్య</span>
+                                    REGISTRATION NO :
+                                </div>
+                                <div class="info-value">D-2023: 28-01124-000021</div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">వివేచనాత్మకములు</span>
+                                    REMARKS (IF ANY) :
+                                </div>
+                                <div class="info-value">--</div>
+                            </div>
+                        </div>
+                        
+                        <div class="column">
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">లింగము</span>
+                                    SEX :
+                                </div>
+                                <div class="info-value">
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif;">స్త్రీ</span> / FEMALE
+                                </div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">మరణించిన ప్రదేశం</span>
+                                    PLACE OF DEATH :
+                                </div>
+                                <div class="info-value">
+                                    3-35, CHINNA NAIDU STREET, MADALANGI, MADALANGI, KOMARADA,<br>
+                                    PARVATHIPURAM MANYAM, ANDHRA PRADESH, 535521.<br>
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif; font-size: 10px;">
+                                        3-35, చిన్న నాయుడు స్ట్రీట్,<br>
+                                        మదలంగి, కోమరాడ, పార్వతీపురం మన్యం, 535521.
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">భర్త / భార్య పేరు</span>
+                                    NAME OF HUSBAND / WIFE :
+                                </div>
+                                <div class="info-value">
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif;">అగూరు సుధారసన్ రావు</span> / AGOORU SUDHARASAN RAO
+                                </div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">ఆధార్ సంఖ్య</span>
+                                    HUSBAND/WIFE AADHAAR NO. :
+                                </div>
+                                <div class="info-value"><span class="dotted-line"></span></div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">తండ్రి పేరు</span>
+                                    NAME OF FATHER :
+                                </div>
+                                <div class="info-value">
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif;">ముగడా వెంకట స్వామి</span> / MUGADA VENKATA SWAMY
+                                </div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">ఆధార్ సంఖ్య</span>
+                                    FATHER'S AADHAAR NO. :
+                                </div>
+                                <div class="info-value"><span class="dotted-line"></span></div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">ముఖ్యమైన శాశ్వత చిరునామా</span>
+                                    PERMANENT ADDRESS OF DECEASED :
+                                </div>
+                                <div class="info-value">
+                                    3-35, CHINNA NAIDU STREET, MADALANGI, MADALANGI, KOMARADA,<br>
+                                    PARVATHIPURAM MANYAM, ANDHRA PRADESH- 535521<br>
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif; font-size: 10px;">
+                                        కోమరాడ, పార్వతీపురం మన్యం - 535521
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <span class="info-label-telugu">నమోదు తేదీ</span>
+                                    DATE OF REGISTRATION :
+                                </div>
+                                <div class="info-value">27-11-2023</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Section -->
+                <div class="footer-section">
+                    <div class="left-footer">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-label-telugu">జారీ చేసిన తేదీ</span>
+                                DATE OF ISSUE :
+                            </div>
+                            <div class="info-value">27-11-2023</div>
+                        </div>
+                        
+                        <div class="update-info">
+                            <strong>UPDATED ON :</strong><br>
+                            27-11-2023 05:49:19
+                        </div>
+                        
+                        <div class="qr-code">QR<br>CODE</div>
+                    </div>
+                    
+                    <div class="right-footer">
+                        <div class="signature-section">
+                            <div class="signature-box">
+                                <div class="signature-line">S.Kish</div>
+                                <div class="signature-label-telugu">(జనన మరణ రిజిస్ట్రార్)</div>
+                                <div class="signature-label">REGISTRAR (BIRTH & DEATH)</div>
+                                <div class="signature-label" style="margin-top: 5px; font-weight: bold;">GRAMA PANCHAYAT MADALIGI</div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row" style="margin-top: 20px;">
+                            <div class="info-label">
+                                <span class="info-label-telugu">జారీ చేసిన అధికార సంస్థ</span>
+                                ISSUING AUTHORITY :
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Legal Footer -->
+                <div class="legal-footer">
+                    <em>"THIS IS A COMPUTER GENERATED CERTIFICATE WHICH CONTAINS FACSIMILE SIGNATURE OF THE ISSUING AUTHORITY"</em><br>
+                    THE GOVT. OF INDIA VIDE CIRCULAR NO. 1/12/2014-VS(CRS) DATED 27-JULY-2015 HAS<br>
+                    APPROVED THIS CERTIFICATE AS A VALID LEGAL DOCUMENT FOR ALL OFFICIAL PURPOSES.<br>
+                    <span class="legal-footer-telugu">
+                        "ప్రతి జననము, ప్రతి మరణము తప్పకుండా 21 రోజుల్లో నమోదు చేయండి" / ENSURE REGISTRATION OF EVERY BIRTH AND DEATH"
+                    </span>
+                    <div class="barcode"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
