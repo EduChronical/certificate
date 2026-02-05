@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Death Certificate - Agooru Annapurnamma</title>
+    <title>Tax Invoice - TechNova Retail Solutions</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;700&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
@@ -14,706 +12,655 @@
         }
         
         body {
-            font-family: 'Times New Roman', Times, serif;
-            background: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
             min-height: 100vh;
-            padding: 10px;
         }
         
-        .certificate {
-            width: 210mm;
-            min-height: 297mm;
-            background: white;
-            border: 1px solid #333;
-            padding: 12px;
+        .invoice-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 16px;
+            overflow: hidden;
             position: relative;
         }
         
-        .inner-border {
-            border: 1px solid #333;
-            padding: 12px;
-            min-height: 273mm;
+        .invoice-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
         }
         
-        /* Header Section */
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 8px;
-        }
-        
-        .left-section {
-            width: 90px;
-            text-align: center;
-        }
-        
-        .serial-telugu {
-            font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 13px;
-            font-weight: bold;
-        }
-        
-        .serial-no {
-            font-size: 11px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        /* Andhra Pradesh Government Seal */
-        .ap-seal {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto;
-        }
-        
-        .ap-seal img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
-        .center-section {
-            flex: 1;
-            text-align: center;
-            padding: 0 15px;
-        }
-        
-        /* National Emblem - Ashoka Pillar */
-        .national-emblem {
-            width: 50px;
-            height: 65px;
-            margin: 0 auto 5px;
-        }
-        
-        .national-emblem img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
-        .govt-telugu {
-            font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 1px;
-        }
-        
-        .govt-english {
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0.3px;
-        }
-        
-        .dept-telugu {
-            font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 10px;
-            margin-top: 2px;
-        }
-        
-        .dept-english {
-            font-size: 9px;
-            font-weight: bold;
-            margin-top: 1px;
-        }
-        
-        .panchayat {
-            font-size: 10px;
-            font-weight: bold;
-            margin-top: 6px;
-        }
-        
-        .right-section {
-            width: 90px;
-            text-align: center;
-        }
-        
-        .form-telugu {
-            font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 11px;
-            font-weight: bold;
-        }
-        
-        .form-no {
-            font-size: 10px;
-            font-weight: bold;
-            margin-bottom: 3px;
-        }
-        
-        /* FORM-6 Icon */
-        .form-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 30px;
+            position: relative;
             overflow: hidden;
         }
         
-        .form-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .header::after {
+            content: 'INVOICE';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: 80px;
+            opacity: 0.05;
+            font-weight: 900;
+            letter-spacing: 10px;
         }
         
-        /* Title */
-        .title-section {
-            text-align: center;
-            margin: 10px 0;
-        }
-        
-        .title-telugu {
-            font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 2px;
-        }
-        
-        .title-english {
+        .sold-by {
             font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #a0a0a0;
+            margin-bottom: 5px;
         }
         
-        /* Legal Text */
-        .legal-text {
-            font-size: 7.5px;
-            text-align: justify;
-            margin: 8px 0;
-            line-height: 1.3;
+        .company-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #fff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
-        .legal-telugu {
-            font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 8px;
+        .ship-from {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #c0c0c0;
+            max-width: 70%;
+        }
+        
+        .invoice-title {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            text-align: right;
+        }
+        
+        .invoice-title h1 {
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+        
+        .invoice-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 25px 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .meta-item {
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .meta-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .meta-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #6c757d;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .meta-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .addresses {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+            background: white;
+        }
+        
+        .address-box {
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .address-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .bill-to {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            border-left: 4px solid #667eea;
+        }
+        
+        .ship-to {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .address-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .bill-to .address-label { color: #667eea; }
+        .ship-to .address-label { color: #e53e3e; }
+        
+        .address-content {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #2d3748;
+        }
+        
+        .address-content strong {
+            font-size: 16px;
+            color: #1a202c;
             display: block;
-            margin-bottom: 2px;
-        }
-        
-        /* Content Fields */
-        .content {
-            margin-top: 10px;
-            font-size: 9px;
-        }
-        
-        .field-row {
-            display: flex;
             margin-bottom: 8px;
-            align-items: flex-start;
         }
         
-        .field {
-            margin-bottom: 6px;
-        }
-        
-        .field-label {
-            font-size: 8px;
-            color: #333;
-            margin-bottom: 1px;
-        }
-        
-        .field-label-telugu {
-            font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 9px;
-            display: inline;
-        }
-        
-        .field-value {
-            font-size: 9px;
-            font-weight: bold;
-            line-height: 1.2;
-        }
-        
-        .field-value-telugu {
-            font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 9px;
-        }
-        
-        .left-col {
-            width: 48%;
-            padding-right: 10px;
-        }
-        
-        .right-col {
-            width: 52%;
-        }
-        
-        .dotted {
-            border-bottom: 1px dotted #666;
-            display: inline-block;
-            min-width: 80px;
-        }
-        
-        .reg-no {
-            color: #8B0000;
-            font-weight: bold;
-            font-size: 10px;
-        }
-        
-        /* Bottom Layout */
-        .bottom-area {
+        .warranty-notice {
+            margin: 0 30px 20px;
+            padding: 15px 20px;
+            background: linear-gradient(90deg, #fffbeb 0%, #fef3c7 100%);
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
             display: flex;
-            margin-top: 15px;
+            align-items: center;
+            gap: 15px;
         }
         
-        .bottom-left {
-            width: 35%;
+        .warranty-icon {
+            width: 40px;
+            height: 40px;
+            background: #f59e0b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
         }
         
-        .bottom-right {
-            width: 65%;
+        .warranty-text {
+            font-size: 13px;
+            color: #92400e;
+            line-height: 1.5;
+        }
+        
+        .warranty-text strong {
+            display: block;
+            margin-bottom: 3px;
+            color: #78350f;
+        }
+        
+        .product-section {
+            padding: 0 30px 30px;
+        }
+        
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .product-table thead {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d3748 100%);
+            color: white;
+        }
+        
+        .product-table th {
+            padding: 18px 15px;
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .product-table th:last-child {
+            text-align: right;
+        }
+        
+        .product-table tbody tr {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.3s ease;
+        }
+        
+        .product-table tbody tr:hover {
+            background: #f7fafc;
+        }
+        
+        .product-table td {
+            padding: 20px 15px;
+            font-size: 14px;
+            color: #2d3748;
+        }
+        
+        .product-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .product-title {
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .product-specs {
+            font-size: 12px;
+            color: #718096;
+            line-height: 1.6;
+        }
+        
+        .product-specs span {
+            display: block;
+        }
+        
+        .imei-box {
+            background: #edf2f7;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #2d3748;
+            display: inline-block;
+        }
+        
+        .tax-breakdown {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        .tax-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #4a5568;
+            margin: 5px 0;
+        }
+        
+        .summary-section {
+            padding: 0 30px 30px;
             display: flex;
             justify-content: flex-end;
         }
         
-        .date-issue {
-            margin-bottom: 8px;
+        .summary-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d3748 100%);
+            color: white;
+            padding: 25px 35px;
+            border-radius: 12px;
+            min-width: 300px;
         }
         
-        .update-info {
-            font-size: 8px;
-            margin-bottom: 10px;
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 12px 0;
+            font-size: 14px;
+            color: #a0aec0;
         }
         
-        .qr-code {
-            width: 60px;
-            height: 60px;
-            border: 1px solid #333;
-        }
-        
-        .signature-block {
-            text-align: center;
-            border: 1px solid #ccc;
-            padding: 10px 15px;
-            width: 200px;
-        }
-        
-        .signature-img {
-            font-family: 'Brush Script MT', cursive;
-            font-size: 24px;
-            color: #000080;
-            margin-bottom: 3px;
-            border-bottom: 1px solid #333;
-            display: inline-block;
-            padding: 0 15px 3px;
-        }
-        
-        .sig-telugu {
-            font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 9px;
-        }
-        
-        .sig-text {
-            font-size: 8px;
-            font-weight: bold;
-        }
-        
-        .sig-place {
-            font-size: 9px;
-            font-weight: bold;
-            color: #8B0000;
-            margin-top: 4px;
-        }
-        
-        /* Footer */
-        .footer {
+        .summary-row.total {
             margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(255,255,255,0.2);
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer {
+            padding: 30px;
+            background: #f8f9fa;
+            border-top: 2px solid #e9ecef;
+        }
+        
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+        }
+        
+        .signature {
             text-align: center;
-            border-top: 2px solid #8B0000;
-            padding-top: 10px;
         }
         
-        .footer-text {
-            font-size: 7.5px;
-            font-style: italic;
-            line-height: 1.3;
-        }
-        
-        .footer-telugu {
-            font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 8px;
-            margin-top: 5px;
-        }
-        
-        .barcode {
+        .signature-line {
             width: 200px;
-            height: 30px;
-            margin: 10px auto 0;
-            background: repeating-linear-gradient(
-                90deg,
-                #000 0px,
-                #000 2px,
-                #fff 2px,
-                #fff 4px,
-                #000 4px,
-                #000 5px,
-                #fff 5px,
-                #fff 6px
-            );
+            height: 60px;
+            border-bottom: 2px solid #1a1a2e;
+            margin-bottom: 10px;
+            position: relative;
         }
         
-        .barcode-text {
-            font-size: 9px;
-            font-family: monospace;
-            margin-top: 3px;
+        .signature-line::after {
+            content: '✓';
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 30px;
+            color: #48bb78;
+            transform: rotate(-10deg);
+        }
+        
+        .signature-label {
+            font-size: 12px;
+            color: #4a5568;
+            font-weight: 600;
+        }
+        
+        .company-stamp {
+            width: 120px;
+            height: 120px;
+            border: 3px dashed #cbd5e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            font-size: 11px;
+            text-align: center;
+            transform: rotate(-15deg);
+        }
+        
+        .thank-you {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .thank-you h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .thank-you p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        
+        .terms {
+            font-size: 11px;
+            color: #718096;
+            line-height: 1.8;
+            text-align: center;
+        }
+        
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #4a5568;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .badge-gaming {
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .badge-intel {
+            background: #0071c5;
+            color: white;
         }
         
         @media print {
             body {
                 background: white;
-                padding: 0;
             }
-            .certificate {
-                border: 1px solid #000;
+            .invoice-container {
+                box-shadow: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="certificate">
-        <div class="inner-border">
-            
-            <!-- Header -->
-            <div class="header">
-                <div class="left-section">
-                    <div class="serial-telugu">సంఖ్య 1</div>
-                    <div class="serial-no">No. 1</div>
-                    <!-- Andhra Pradesh Government Seal -->
-                    <div class="ap-seal">
-                        <!-- REPLACE WITH: Andhra Pradesh Emblem -->
-                        <!-- Option A: Local file -->
-                        <img src="Emblem_of_Andhra_Pradesh.svg.png" alt="AP Government Seal">
-                        <!-- Option B: Direct URL (replace src above with your URL) -->
-                    </div>
+    <div class="invoice-container">
+        <div class="header">
+            <div class="sold-by">Sold By</div>
+            <div class="company-name">TechNova Retail Solutions Pvt Ltd</div>
+            <div class="ship-from">
+                Ship-from Address: 42B, Tech Park Avenue, Electronic City Phase II, 
+                Bangalore, Karnataka, India - 560100, IN-KA<br>
+                GSTIN - 29AABCT1234N1ZV | PAN: AABCT1234N | CIN: U74999KA2021PTC123456
+            </div>
+            <div class="invoice-title">
+                <h1>TAX INVOICE</h1>
+            </div>
+        </div>
+        
+        <div class="invoice-meta">
+            <div class="meta-item">
+                <div class="meta-label">Order ID</div>
+                <div class="meta-value">OD987654321098765000</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Order Date</div>
+                <div class="meta-value">15-01-2025</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Invoice Date</div>
+                <div class="meta-value">15-01-2025</div>
+            </div>
+        </div>
+        
+        <div class="addresses">
+            <div class="address-box bill-to">
+                <div class="address-label">Bill To</div>
+                <div class="address-content">
+                    <strong>R Sai Kiran</strong>
+                    Colony Street, Kannapudora Valasa,<br>
+                    Jiyyammavalasa Subdistrict,<br>
+                    Vizianagaram District 535526<br>
+                    Andhra Pradesh<br>
+                    Phone: xxxxxxxxxx
                 </div>
-                
-                <div class="center-section">
-                    <!-- National Emblem of India -->
-                    <div class="national-emblem">
-                        <!-- REPLACE WITH: National Emblem -->
-                        <!-- Option A: Local file -->
-                        <img src="national_emblem.png" alt="National Emblem">
-                        <!-- Option B: Direct URL (replace src above with your URL) -->
-                    </div>
-                    <div class="govt-telugu">ఆంధ్ర ప్రదేశ్ ప్రభుత్వము</div>
-                    <div class="govt-english">GOVERNMENT OF ANDHRA PRADESH</div>
-                    <div class="dept-telugu">వైద్యారోగ్య మరియు కుటుంబ సంక్షేమ శాఖ</div>
-                    <div class="dept-english">DEPARTMENT OF HEALTH, MEDICAL AND FAMILY WELFARE</div>
-                    <div class="panchayat">GRAMA PANCHAYAT MADALIGI</div>
+            </div>
+            <div class="address-box ship-to">
+                <div class="address-label">Ship To</div>
+                <div class="address-content">
+                    <strong>R Sai Kiran</strong>
+                    Colony Street, Kannapudora Valasa,<br>
+                    Jiyyammavalasa Subdistrict,<br>
+                    Vizianagaram District 535526<br>
+                    Andhra Pradesh<br>
+                    Phone: xxxxxxxxxx
                 </div>
-                
-                <div class="right-section">
-                    <div class="form-telugu">ఫారం-6</div>
-                    <div class="form-no">FORM-6</div>
-                    <!-- FORM-6 Icon -->
-                    <div class="form-icon">
-                        <!-- REPLACE WITH: FORM-6 Icon -->
-                        <!-- Option A: Local file -->
-                        <img src="form6_icon.jpg" alt="FORM-6">
-                        <!-- Option B: Direct URL (replace src above with your URL) -->
-                    </div>
+            </div>
+        </div>
+        
+        <div class="warranty-notice">
+            <div class="warranty-icon">⚡</div>
+            <div class="warranty-text">
+                <strong>Keep this invoice and manufacturer box for warranty</strong>
+                Serial Number: FAD1HM2200045119 | Total items: 1
+            </div>
+        </div>
+        
+        <div class="product-section">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Product Details</th>
+                        <th>Qty</th>
+                        <th>Gross Amount ₹</th>
+                        <th>Discount ₹</th>
+                        <th>Taxable Value ₹</th>
+                        <th>IGST ₹</th>
+                        <th>Total ₹</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="product-title">
+                                <span class="badge badge-gaming">Gaming</span>
+                                <span class="badge badge-intel">Intel</span><br><br>
+                                MSI Titan 18 HX AI (Intel Core Ultra 9, 128 GB)
+                            </div>
+                            <div class="product-specs">
+                                <span>• Intel Core Ultra 9 285HX Processor</span>
+                                <span>• NVIDIA GeForce RTX 5090 Laptop GPU 24GB</span>
+                                <span>• 18" UHD+ 120Hz Mini LED Display</span>
+                                <span>• 128GB DDR5 RAM | 4TB NVMe SSD</span>
+                                <span>• Windows 11 Pro | Cherry MX Mechanical Keyboard</span>
+                                <span>• FSN: LPTGYV98E5Z8NHTZ | HSN/SAC: 84713010</span>
+                                <div class="imei-box">
+                                    Serial No: 862448051012514
+                                </div>
+                            </div>
+                            <div class="tax-breakdown">
+                                <div class="tax-row">
+                                    <span>Warranty: 2 Years Warranty for Laptop and 1 Year for Battery/Adapter</span>
+                                </div>
+                                <div class="tax-row">
+                                    <span>IGST Rate: 18.0%</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>1</td>
+                        <td>599,999.00</td>
+                        <td>-50,000.00</td>
+                        <td>465,253.39</td>
+                        <td>83,745.61</td>
+                        <td>549,999.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="summary-section">
+            <div class="summary-box">
+                <div class="summary-row">
+                    <span>Total Items</span>
+                    <span>1</span>
+                </div>
+                <div class="summary-row">
+                    <span>Gross Amount</span>
+                    <span>₹ 599,999.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Discount</span>
+                    <span>- ₹ 50,000.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Taxable Value</span>
+                    <span>₹ 465,253.39</span>
+                </div>
+                <div class="summary-row">
+                    <span>IGST (18%)</span>
+                    <span>₹ 83,745.61</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Grand Total</span>
+                    <span>₹ 549,999.00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="signature-section">
+                <div class="signature">
+                    <div class="signature-line"></div>
+                    <div class="signature-label">Authorized Signatory</div>
+                </div>
+                <div class="company-stamp">
+                    TechNova<br>Retail<br>Solutions
                 </div>
             </div>
             
-            <!-- Title -->
-            <div class="title-section">
-                <div class="title-telugu">మరణ ధృవీకరణ పత్రము</div>
-                <div class="title-english">DEATH CERTIFICATE</div>
+            <div class="thank-you">
+                <h2>Thank You!</h2>
+                <p>for shopping with us</p>
             </div>
             
-            <!-- Legal Text -->
-            <div class="legal-text">
-                <span class="legal-telugu">(జనన మరణ నమోదు చట్టం 1969, 12/17 విధులను ప్రకారము, ఆంధ్ర ప్రదేశ్ జనన మరణ నమోదు నిబంధనలు 1999, 8/13 కింద జారీచేయబడినది)</span>
-                (ISSUED UNDER SECTION 12/17 OF THE REGISTRATION OF BIRTHS & DEATHS ACT, 1969 AND RULE 8/13 OF THE ANDHRA PRADESH REGISTRATION OF BIRTHS & DEATHS RULES 1999.)
+            <div class="terms">
+                At TechNova we try to deliver perfectly each and every time. But in the off-chance that you need to return the item,<br>
+                please do so with the <strong>Returns Policy</strong> original Brand box/price tag, original packing and invoice without which<br>
+                it will be really difficult for us to act on your request. Please help us in helping you. Terms and conditions apply.<br>
+                The goods sold as are intended for end user consumption and not for resale.
             </div>
             
-            <div class="legal-text">
-                <span class="legal-telugu">ఈ క్రింది సమాచారాన్ని మరణం నమోదు మూలక అసలు రికార్డు రాష్ట్ర ముఖ్య... గ్రామ పంచాయతీ మదలిగి, పార్వతీపురం మన్యం జిల్లా, కోమరాడా తాలూకా / బ్లాక్ ఏండ్ తీసుకోబడింది అని ధృవీకరించబడింది</span>
-                THIS IS TO CERTIFY THAT THE FOLLOWING INFORMATION HAS BEEN TAKEN FROM THE ORIGINAL RECORD OF DEATH WHICH IS THE REGISTER FOR GRAMA PANCHAYAT MADALIGI OF TAHSIL/BLOCK KOMARADA OF DISTRICT PARVATHIPURAM MANYAM OF STATE/UNION TERRITORY ANDHRA PRADESH, INDIA.
-            </div>
-            
-            <!-- Main Content -->
-            <div class="content">
-                <!-- Row 1 -->
-                <div class="field-row">
-                    <div class="left-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">మరణించిన వ్యక్తి పేరు /</span> NAME OF DECEASED :
-                            </div>
-                            <div class="field-value">
-                                <span class="field-value-telugu">అగూరు అన్నపూర్ణమ్మ</span> / AGOORU ANNAPURNAMMA
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">లింగము /</span> SEX :
-                            </div>
-                            <div class="field-value">
-                                <span class="field-value-telugu">స్త్రీ</span> / FEMALE
-                            </div>
-                        </div>
-                    </div>
+            <div class="contact-bar">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>Contact TechNova: 1800-123-4567</span>
                 </div>
-                
-                <!-- Aadhaar -->
-                <div class="field" style="margin-bottom: 6px;">
-                    <div class="field-label">
-                        <span class="field-label-telugu">ఆధార్ సంఖ్య /</span> AADHAAR NO. :
-                    </div>
-                    <div class="field-value">XXXXXXXX0378</div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <span>support@technova.com</span>
                 </div>
-                
-                <!-- Row 2 -->
-                <div class="field-row">
-                    <div class="left-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">మరణించిన తేదీ /</span> DATE OF DEATH :
-                            </div>
-                            <div class="field-value">
-                                09-11-2023<br>
-                                NINTH-NOVEMBER-TWO THOUSAND TWENTY THREE
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">మరణించిన ప్రదేశం /</span> PLACE OF DEATH :
-                            </div>
-                            <div class="field-value">
-                                3-35, CHINNA NAIDU STREET, MADALANGI, MADALANGI, KOMARADA,<br>
-                                PARVATHIPURAM MANYAM, ANDHRA PRADESH, 535521.<br>
-                                <span class="field-value-telugu">3-35, చిన్న నాయుడు స్ట్రీట్, మదలంగి, కోమరాడ, పార్వతీపురం మన్యం, 535521.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Row 3 -->
-                <div class="field-row">
-                    <div class="left-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">మరణించిన వ్యక్తి యొక్క వయస్సు /</span> AGE OF DECEASED :
-                            </div>
-                            <div class="field-value">75 YEARS</div>
-                        </div>
-                    </div>
-                    <div class="right-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">భర్త / భార్య పేరు /</span> NAME OF HUSBAND / WIFE :
-                            </div>
-                            <div class="field-value">
-                                <span class="field-value-telugu">అగూరు సుధారసన్ రావు</span> / AGOORU SUDHARASAN RAO
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Row 4 -->
-                <div class="field-row">
-                    <div class="left-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">తల్లి పేరు /</span> NAME OF MOTHER :
-                            </div>
-                            <div class="field-value">
-                                <span class="field-value-telugu">ముగడా ఈశ్వరమ్మ</span> / MUGADA ESWARAMMA
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">ఆధార్ సంఖ్య /</span> HUSBAND/WIFE AADHAAR NO. :
-                            </div>
-                            <div class="field-value"><span class="dotted"></span></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Row 5 -->
-                <div class="field-row">
-                    <div class="left-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">ఆధార్ సంఖ్య /</span> MOTHER'S AADHAAR NO. :
-                            </div>
-                            <div class="field-value"><span class="dotted"></span></div>
-                        </div>
-                    </div>
-                    <div class="right-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">తండ్రి పేరు /</span> NAME OF FATHER :
-                            </div>
-                            <div class="field-value">
-                                <span class="field-value-telugu">ముగడా వెంకట స్వామి</span> / MUGADA VENKATA SWAMY
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Row 6 -->
-                <div class="field-row">
-                    <div class="left-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">మరణించినప్పుడు ముఖ్యమైన చిరునామా /</span> ADDRESS OF THE DECEASED AT THE TIME OF DEATH :
-                            </div>
-                            <div class="field-value">
-                                3-35, CHINNA NAIDU STREET,<br>
-                                MADALANGI, MADALANGI, KOMARADA,<br>
-                                PARVATHIPURAM MANYAM, ANDHRA PRADESH- 535521<br>
-                                <span class="field-value-telugu">3-35, చిన్న నాయుడు స్ట్రీట్,<br>
-                                మదలంగి, కోమరాడ, పార్వతీపురం మన్యం,<br>
-                                535521</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">ఆధార్ సంఖ్య /</span> FATHER'S AADHAAR NO. :
-                            </div>
-                            <div class="field-value"><span class="dotted"></span></div>
-                        </div>
-                        <div class="field" style="margin-top: 8px;">
-                            <div class="field-label">
-                                <span class="field-label-telugu">ముఖ్యమైన శాశ్వత చిరునామా /</span> PERMANENT ADDRESS OF DECEASED :
-                            </div>
-                            <div class="field-value">
-                                3-35, CHINNA NAIDU STREET, MADALANGI, MADALANGI, KOMARADA,<br>
-                                PARVATHIPURAM MANYAM, ANDHRA PRADESH- 535521<br>
-                                <span class="field-value-telugu">కోమరాడ, పార్వతీపురం మన్యం - 535521</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Row 7 - Registration Info -->
-                <div class="field-row">
-                    <div class="left-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">నమోదు సంఖ్య /</span> REGISTRATION NO :
-                            </div>
-                            <div class="field-value reg-no">D-2023: 28-01124-000021</div>
-                        </div>
-                    </div>
-                    <div class="right-col">
-                        <div class="field">
-                            <div class="field-label">
-                                <span class="field-label-telugu">నమోదు తేదీ /</span> DATE OF REGISTRATION :
-                            </div>
-                            <div class="field-value">27-11-2023</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Remarks -->
-                <div class="field">
-                    <div class="field-label">
-                        <span class="field-label-telugu">వివేచనాత్మకములు /</span> REMARKS (IF ANY) :
-                    </div>
-                    <div class="field-value">--</div>
-                </div>
-                
-                <!-- CAUSE OF DEATH -->
-                <div class="field" style="margin-top: 8px;">
-                    <div class="field-label">
-                        <span class="field-label-telugu">మరణానికి గల కారణం /</span> CAUSE OF DEATH :
-                    </div>
-                    <div class="field-value" style="color: #8B0000;">
-                        <span class="field-value-telugu">ఆత్మహత్య</span> / SUICIDE
-                    </div>
+                <div class="contact-item">
+                    <span>🌐</span>
+                    <span>www.technova.com</span>
                 </div>
             </div>
             
-            <!-- Bottom Area -->
-            <div class="bottom-area">
-                <div class="bottom-left">
-                    <div class="date-issue">
-                        <div class="field-label">
-                            <span class="field-label-telugu">జారీ చేసిన తేదీ /</span> DATE OF ISSUE :
-                        </div>
-                        <div class="field-value">27-11-2023</div>
-                    </div>
-                    
-                    <div class="update-info">
-                        UPDATED ON : 27-11-2023 05:49:19
-                    </div>
-                    
-                    <div class="qr-code">
-                        <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="60" height="60" fill="white"/>
-                            <rect x="4" y="4" width="16" height="16" fill="black"/>
-                            <rect x="7" y="7" width="10" height="10" fill="white"/>
-                            <rect x="10" y="10" width="4" height="4" fill="black"/>
-                            
-                            <rect x="40" y="4" width="16" height="16" fill="black"/>
-                            <rect x="43" y="7" width="10" height="10" fill="white"/>
-                            <rect x="46" y="10" width="4" height="4" fill="black"/>
-                            
-                            <rect x="4" y="40" width="16" height="16" fill="black"/>
-                            <rect x="7" y="43" width="10" height="10" fill="white"/>
-                            <rect x="10" y="46" width="4" height="4" fill="black"/>
-                            
-                            <rect x="25" y="4" width="4" height="4" fill="black"/>
-                            <rect x="34" y="4" width="4" height="4" fill="black"/>
-                            <rect x="25" y="12" width="4" height="4" fill="black"/>
-                            <rect x="29" y="8" width="4" height="4" fill="black"/>
-                            
-                            <rect x="25" y="25" width="8" height="8" fill="black"/>
-                            <rect x="38" y="25" width="4" height="4" fill="black"/>
-                            <rect x="48" y="25" width="4" height="4" fill="black"/>
-                            <rect x="38" y="34" width="8" height="4" fill="black"/>
-                            
-                            <rect x="4" y="25" width="4" height="4" fill="black"/>
-                            <rect x="12" y="25" width="4" height="4" fill="black"/>
-                            <rect x="4" y="34" width="8" height="4" fill="black"/>
-                            
-                            <rect x="25" y="42" width="4" height="4" fill="black"/>
-                            <rect x="34" y="38" width="4" height="8" fill="black"/>
-                            <rect x="42" y="42" width="12" height="4" fill="black"/>
-                            <rect x="46" y="46" width="4" height="8" fill="black"/>
-                            <rect x="38" y="52" width="8" height="4" fill="black"/>
-                        </svg>
-                    </div>
-                </div>
-                
-                <div class="bottom-right">
-                    <div class="signature-block">
-                        <div class="signature-img">S. Kish</div>
-                        <div class="sig-telugu">(జనన మరణ రిజిస్ట్రార్)</div>
-                        <div class="sig-text">REGISTRAR (BIRTH & DEATH)</div>
-                        <div class="sig-place">GRAMA PANCHAYAT MADALIGI</div>
-                    </div>
-                </div>
+            <div style="text-align: center; margin-top: 15px; font-size: 11px; color: #a0aec0;">
+                E.& O.E. | Page 1 of 1
             </div>
-            
-            <!-- Footer -->
-            <div class="footer">
-                <div class="footer-text">
-                    "THIS IS A COMPUTER GENERATED CERTIFICATE WHICH CONTAINS FACSIMILE SIGNATURE OF THE ISSUING AUTHORITY"<br>
-                    THE GOVT. OF INDIA VIDE CIRCULAR NO. 1/12/2014-VS(CRS) DATED 27-JULY-2015 HAS<br>
-                    APPROVED THIS CERTIFICATE AS A VALID LEGAL DOCUMENT FOR ALL OFFICIAL PURPOSES.
-                </div>
-                <div class="footer-telugu">
-                    "ప్రతి జననము, ప్రతి మరణము తప్పకుండా 21 రోజుల్లో నమోదు చేయండి" / ENSURE REGISTRATION OF EVERY BIRTH AND DEATH"
-                </div>
-                <div class="barcode"></div>
-                <div class="barcode-text">D-2023-28-01124-000021</div>
-            </div>
-            
         </div>
     </div>
 </body>
