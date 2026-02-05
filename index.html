@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Death Certificate - Agooru Annapurnamma</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;700&family=Times+New+Roman&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;700&display=swap');
         
         * {
             margin: 0;
@@ -15,7 +15,7 @@
         
         body {
             font-family: 'Times New Roman', Times, serif;
-            background: #f5f5f5;
+            background: #e8e8e8;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,201 +27,261 @@
             width: 210mm;
             min-height: 297mm;
             background: white;
-            border: 2px solid #333;
-            padding: 15mm;
+            border: 3px double #1a1a1a;
+            padding: 12mm;
             position: relative;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 0 30px rgba(0,0,0,0.2);
         }
         
         .inner-border {
             border: 1px solid #333;
-            padding: 10mm;
-            min-height: 267mm;
+            padding: 8mm;
+            min-height: 273mm;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 19px,
+                    rgba(0,0,0,0.03) 20px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 19px,
+                    rgba(0,0,0,0.03) 20px
+                );
         }
         
         .header-section {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #8B0000;
+            padding-bottom: 15px;
         }
         
         .left-header {
             text-align: center;
+            width: 80px;
         }
         
         .serial-no {
-            font-size: 11px;
-            margin-bottom: 5px;
+            font-size: 10px;
+            margin-bottom: 3px;
+            font-weight: bold;
         }
         
         .serial-no-telugu {
             font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 12px;
+            font-size: 11px;
+            font-weight: bold;
         }
         
         .govt-seal {
-            width: 60px;
-            height: 60px;
-            border: 1px solid #999;
+            width: 55px;
+            height: 55px;
+            border: 2px solid #8B0000;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 5px auto;
-            font-size: 10px;
-            color: #666;
+            margin: 8px auto;
             position: relative;
+            background: radial-gradient(circle, transparent 40%, rgba(139,0,0,0.1) 100%);
+        }
+        
+        .govt-seal::before {
+            content: "GOVERNMENT OF ANDHRA PRADESH";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            font-size: 6px;
+            font-weight: bold;
+            color: #8B0000;
+            text-align: center;
+            line-height: 55px;
+            animation: none;
         }
         
         .center-header {
             text-align: center;
             flex: 1;
-            padding: 0 20px;
+            padding: 0 30px;
         }
         
         .emblem {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 5px;
+            width: 45px;
+            height: 55px;
+            margin: 0 auto 8px;
             position: relative;
-        }
-        
-        .emblem::before {
-            content: "♔";
-            font-size: 40px;
-            color: #333;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M50 10 L50 30 M30 25 Q50 15 70 25' stroke='%238B4513' stroke-width='2' fill='none'/%3E%3Cpath d='M50 30 L50 80' stroke='%238B4513' stroke-width='3'/%3E%3Cellipse cx='50' cy='85' rx='15' ry='8' fill='%238B4513'/%3E%3Cpath d='M35 85 L20 95 M65 85 L80 95 M50 93 L50 105' stroke='%238B4513' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='12' fill='none' stroke='%238B0000' stroke-width='2'/%3E%3Cpath d='M50 38 L50 62 M38 50 L62 50' stroke='%238B0000' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
         
         .govt-name-telugu {
             font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: bold;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
+            color: #000;
         }
         
         .govt-name {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            color: #000;
+            text-transform: uppercase;
         }
         
         .dept-name-telugu {
             font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 12px;
-            margin-top: 5px;
+            font-size: 13px;
+            margin-top: 6px;
+            font-weight: bold;
+            color: #333;
         }
         
         .dept-name {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: bold;
-            margin-top: 2px;
+            margin-top: 3px;
+            color: #333;
+            text-transform: uppercase;
         }
         
         .panchayat-name {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: bold;
-            margin-top: 8px;
+            margin-top: 10px;
             text-transform: uppercase;
+            color: #8B0000;
+            border: 1px solid #8B0000;
+            padding: 4px 12px;
+            display: inline-block;
+            background: rgba(139,0,0,0.05);
         }
         
         .right-header {
             text-align: center;
+            width: 80px;
         }
         
         .form-no-telugu {
             font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 12px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #8B0000;
         }
         
         .form-no {
-            font-size: 11px;
-            margin-bottom: 10px;
+            font-size: 12px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #8B0000;
         }
         
         .form-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border: 2px solid #333;
-            border-radius: 8px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto;
-            position: relative;
-        }
-        
-        .form-icon::before {
-            content: "C";
-            font-size: 30px;
+            background: #f9f9f9;
             font-weight: bold;
+            font-size: 24px;
             color: #333;
         }
         
         .title-section {
             text-align: center;
-            margin: 20px 0;
+            margin: 25px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 12px 0;
+            background: rgba(139,0,0,0.03);
         }
         
         .title-telugu {
             font-family: 'Noto Sans Telugu', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            color: #8B0000;
         }
         
         .title-english {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            color: #000;
         }
         
         .legal-text {
             font-size: 9px;
             text-align: justify;
-            margin: 15px 0;
-            line-height: 1.4;
+            margin: 18px 0;
+            line-height: 1.5;
+            color: #333;
+            font-style: italic;
         }
         
         .legal-text-telugu {
             font-family: 'Noto Sans Telugu', sans-serif;
             font-size: 10px;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            font-style: normal;
+            font-weight: 500;
         }
         
         .main-content {
-            margin: 20px 0;
+            margin: 25px 0;
         }
         
         .info-row {
             display: flex;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             align-items: flex-start;
+            border-bottom: 1px dotted #999;
+            padding-bottom: 8px;
         }
         
         .info-label {
             font-size: 10px;
-            min-width: 180px;
-            line-height: 1.3;
+            min-width: 200px;
+            line-height: 1.4;
+            color: #444;
+            font-weight: 600;
         }
         
         .info-label-telugu {
             font-family: 'Noto Sans Telugu', sans-serif;
             display: block;
+            font-size: 11px;
+            color: #000;
         }
         
         .info-value {
             font-size: 11px;
             font-weight: bold;
             flex: 1;
-            padding-left: 10px;
+            padding-left: 15px;
+            color: #000;
+            font-family: 'Times New Roman', serif;
         }
         
         .two-column {
             display: flex;
-            gap: 20px;
+            gap: 30px;
         }
         
         .column {
@@ -229,111 +289,165 @@
         }
         
         .dotted-line {
-            border-bottom: 1px dotted #333;
-            min-width: 100px;
+            border-bottom: 1px dotted #666;
+            min-width: 120px;
             display: inline-block;
             margin-left: 5px;
         }
         
         .signature-section {
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: right;
         }
         
         .signature-box {
             display: inline-block;
             text-align: center;
+            border: 1px solid #ccc;
+            padding: 15px;
+            background: #fafafa;
+            min-width: 200px;
         }
         
         .signature-line {
             font-family: 'Brush Script MT', cursive;
-            font-size: 24px;
-            margin-bottom: 5px;
-            transform: rotate(-5deg);
+            font-size: 28px;
+            margin-bottom: 8px;
+            transform: rotate(-3deg);
+            color: #000080;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
         }
         
         .signature-label {
             font-size: 9px;
+            font-weight: bold;
+            color: #333;
         }
         
         .signature-label-telugu {
             font-family: 'Noto Sans Telugu', sans-serif;
             font-size: 10px;
             display: block;
+            margin-bottom: 3px;
+            font-weight: bold;
         }
         
         .footer-section {
-            margin-top: 30px;
+            margin-top: 35px;
             display: flex;
             justify-content: space-between;
             font-size: 10px;
+            align-items: flex-end;
+        }
+        
+        .left-footer {
+            flex: 1;
         }
         
         .qr-section {
-            margin-top: 20px;
             display: flex;
             align-items: flex-end;
-            gap: 20px;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .qr-code {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border: 1px solid #333;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 8px;
             text-align: center;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .qr-code::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, #000 0px, #000 2px, transparent 2px, transparent 4px),
+                repeating-linear-gradient(90deg, #000 0px, #000 2px, transparent 2px, transparent 4px);
+            opacity: 0.8;
         }
         
         .update-info {
             font-size: 9px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            color: #666;
+            font-family: monospace;
         }
         
         .legal-footer {
-            margin-top: 20px;
-            font-size: 9px;
+            margin-top: 25px;
+            font-size: 8px;
             text-align: center;
-            border-top: 1px solid #333;
-            padding-top: 10px;
-            line-height: 1.4;
+            border-top: 2px solid #8B0000;
+            padding-top: 12px;
+            line-height: 1.5;
+            color: #555;
+            background: rgba(139,0,0,0.02);
+            padding: 12px;
         }
         
         .legal-footer-telugu {
             font-family: 'Noto Sans Telugu', sans-serif;
             display: block;
-            margin-top: 5px;
+            margin-top: 6px;
+            font-size: 9px;
+            color: #333;
         }
         
         .barcode {
-            width: 200px;
-            height: 40px;
-            margin: 10px auto 0;
+            width: 250px;
+            height: 35px;
+            margin: 12px auto 0;
             background: repeating-linear-gradient(
                 90deg,
                 #000 0px,
                 #000 2px,
                 #fff 2px,
-                #fff 4px
+                #fff 4px,
+                #000 4px,
+                #000 5px,
+                #fff 5px,
+                #fff 7px
             );
+            position: relative;
         }
         
-        .watermark {
+        .barcode::after {
+            content: "D-2023-28-01124-000021";
             position: absolute;
-            top: 50%;
+            bottom: -15px;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 60px;
-            color: rgba(200, 200, 200, 0.1);
-            pointer-events: none;
-            z-index: 0;
+            transform: translateX(-50%);
+            font-size: 9px;
+            font-family: monospace;
+            letter-spacing: 1px;
         }
         
         .content-wrapper {
             position: relative;
             z-index: 1;
+        }
+        
+        .security-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(139,0,0,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139,0,0,0.03) 0%, transparent 50%);
+            pointer-events: none;
         }
         
         @media print {
@@ -343,14 +457,19 @@
             }
             .certificate-container {
                 box-shadow: none;
-                border: 2px solid #000;
+                border: 3px double #000;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .inner-border {
+                background: white;
             }
         }
     </style>
 </head>
 <body>
     <div class="certificate-container">
-        <div class="watermark">SAMPLE</div>
+        <div class="security-pattern"></div>
         <div class="inner-border">
             <div class="content-wrapper">
                 <!-- Header Section -->
@@ -358,7 +477,7 @@
                     <div class="left-header">
                         <div class="serial-no-telugu">సంఖ్య 1</div>
                         <div class="serial-no">No. 1</div>
-                        <div class="govt-seal">SEAL</div>
+                        <div class="govt-seal"></div>
                     </div>
                     
                     <div class="center-header">
@@ -373,7 +492,7 @@
                     <div class="right-header">
                         <div class="form-no-telugu">ఫారం-6</div>
                         <div class="form-no">FORM-6</div>
-                        <div class="form-icon"></div>
+                        <div class="form-icon">C</div>
                     </div>
                 </div>
                 
@@ -423,7 +542,7 @@
                                 </div>
                                 <div class="info-value">
                                     09-11-2023<br>
-                                    NINTH-NOVEMBER-TWO THOUSAND TWENTY THREE
+                                    <span style="font-size: 9px; font-style: italic;">NINTH NOVEMBER TWO THOUSAND TWENTY THREE</span>
                                 </div>
                             </div>
                             
@@ -463,7 +582,7 @@
                                     MADALANGI, MADALANGI, KOMARADA,<br>
                                     PARVATHIPURAM MANYAM, ANDHRA PRADESH-<br>
                                     535521<br>
-                                    <span style="font-family: 'Noto Sans Telugu', sans-serif; font-size: 10px;">
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif; font-size: 9px;">
                                         3-35, చిన్న నాయుడు స్ట్రీట్,<br>
                                         మదలంగి, కోమరాడ, పార్వతీపురం మన్యం,<br>
                                         535521
@@ -476,7 +595,7 @@
                                     <span class="info-label-telugu">నమోదు సంఖ్య</span>
                                     REGISTRATION NO :
                                 </div>
-                                <div class="info-value">D-2023: 28-01124-000021</div>
+                                <div class="info-value" style="color: #8B0000; font-size: 12px;">D-2023: 28-01124-000021</div>
                             </div>
                             
                             <div class="info-row">
@@ -507,7 +626,7 @@
                                 <div class="info-value">
                                     3-35, CHINNA NAIDU STREET, MADALANGI, MADALANGI, KOMARADA,<br>
                                     PARVATHIPURAM MANYAM, ANDHRA PRADESH, 535521.<br>
-                                    <span style="font-family: 'Noto Sans Telugu', sans-serif; font-size: 10px;">
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif; font-size: 9px;">
                                         3-35, చిన్న నాయుడు స్ట్రీట్,<br>
                                         మదలంగి, కోమరాడ, పార్వతీపురం మన్యం, 535521.
                                     </span>
@@ -558,7 +677,7 @@
                                 <div class="info-value">
                                     3-35, CHINNA NAIDU STREET, MADALANGI, MADALANGI, KOMARADA,<br>
                                     PARVATHIPURAM MANYAM, ANDHRA PRADESH- 535521<br>
-                                    <span style="font-family: 'Noto Sans Telugu', sans-serif; font-size: 10px;">
+                                    <span style="font-family: 'Noto Sans Telugu', sans-serif; font-size: 9px;">
                                         కోమరాడ, పార్వతీపురం మన్యం - 535521
                                     </span>
                                 </div>
@@ -578,7 +697,7 @@
                 <!-- Footer Section -->
                 <div class="footer-section">
                     <div class="left-footer">
-                        <div class="info-row">
+                        <div class="info-row" style="border-bottom: none;">
                             <div class="info-label">
                                 <span class="info-label-telugu">జారీ చేసిన తేదీ</span>
                                 DATE OF ISSUE :
@@ -587,8 +706,7 @@
                         </div>
                         
                         <div class="update-info">
-                            <strong>UPDATED ON :</strong><br>
-                            27-11-2023 05:49:19
+                            <strong>UPDATED ON :</strong> 27-11-2023 05:49:19
                         </div>
                         
                         <div class="qr-code">QR<br>CODE</div>
@@ -600,14 +718,7 @@
                                 <div class="signature-line">S.Kish</div>
                                 <div class="signature-label-telugu">(జనన మరణ రిజిస్ట్రార్)</div>
                                 <div class="signature-label">REGISTRAR (BIRTH & DEATH)</div>
-                                <div class="signature-label" style="margin-top: 5px; font-weight: bold;">GRAMA PANCHAYAT MADALIGI</div>
-                            </div>
-                        </div>
-                        
-                        <div class="info-row" style="margin-top: 20px;">
-                            <div class="info-label">
-                                <span class="info-label-telugu">జారీ చేసిన అధికార సంస్థ</span>
-                                ISSUING AUTHORITY :
+                                <div class="signature-label" style="margin-top: 8px; font-weight: bold; color: #8B0000;">GRAMA PANCHAYAT MADALIGI</div>
                             </div>
                         </div>
                     </div>
