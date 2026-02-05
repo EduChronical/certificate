@@ -47,7 +47,7 @@
         }
         
         .left-section {
-            width: 80px;
+            width: 90px;
             text-align: center;
         }
         
@@ -63,12 +63,17 @@
             margin-bottom: 5px;
         }
         
-        /* Government Seal - Circular with text */
-        .govt-seal {
-            width: 55px;
-            height: 55px;
+        /* Andhra Pradesh Government Seal */
+        .ap-seal {
+            width: 70px;
+            height: 70px;
             margin: 0 auto;
-            position: relative;
+        }
+        
+        .ap-seal img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         
         .center-section {
@@ -79,9 +84,15 @@
         
         /* National Emblem - Ashoka Pillar */
         .national-emblem {
-            width: 45px;
-            height: 55px;
+            width: 50px;
+            height: 65px;
             margin: 0 auto 5px;
+        }
+        
+        .national-emblem img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         
         .govt-telugu {
@@ -116,7 +127,7 @@
         }
         
         .right-section {
-            width: 80px;
+            width: 90px;
             text-align: center;
         }
         
@@ -134,9 +145,18 @@
         
         /* FORM-6 Icon */
         .form-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .form-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         
         /* Title */
@@ -361,69 +381,22 @@
                 <div class="left-section">
                     <div class="serial-telugu">సంఖ్య 1</div>
                     <div class="serial-no">No. 1</div>
-                    <!-- Government of Andhra Pradesh Seal -->
-                    <div class="govt-seal">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Outer circle -->
-                            <circle cx="50" cy="50" r="48" fill="none" stroke="#333" stroke-width="2"/>
-                            <!-- Inner decorative border -->
-                            <circle cx="50" cy="50" r="42" fill="none" stroke="#666" stroke-width="1" stroke-dasharray="2,2"/>
-                            <!-- Center design -->
-                            <circle cx="50" cy="50" r="20" fill="none" stroke="#333" stroke-width="2"/>
-                            <circle cx="50" cy="50" r="12" fill="none" stroke="#666" stroke-width="1"/>
-                            <circle cx="50" cy="50" r="6" fill="#333"/>
-                            <!-- Decorative elements around -->
-                            <line x1="50" y1="10" x2="50" y2="25" stroke="#333" stroke-width="2"/>
-                            <line x1="50" y1="75" x2="50" y2="90" stroke="#333" stroke-width="2"/>
-                            <line x1="10" y1="50" x2="25" y2="50" stroke="#333" stroke-width="2"/>
-                            <line x1="75" y1="50" x2="90" y2="50" stroke="#333" stroke-width="2"/>
-                            <!-- Text path simulation -->
-                            <path id="textPath" d="M 50,15 A 35,35 0 1,1 49.9,15" fill="none"/>
-                        </svg>
+                    <!-- Andhra Pradesh Government Seal -->
+                    <div class="ap-seal">
+                        <!-- REPLACE WITH: Andhra Pradesh Emblem -->
+                        <!-- Option A: Local file -->
+                        <img src="Emblem_of_Andhra_Pradesh.svg.png" alt="AP Government Seal">
+                        <!-- Option B: Direct URL (replace src above with your URL) -->
                     </div>
                 </div>
                 
                 <div class="center-section">
-                    <!-- National Emblem of India - Ashoka Pillar -->
+                    <!-- National Emblem of India -->
                     <div class="national-emblem">
-                        <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Ashoka Chakra at top -->
-                            <circle cx="50" cy="20" r="12" fill="none" stroke="#000" stroke-width="2"/>
-                            <line x1="50" y1="8" x2="50" y2="32" stroke="#000" stroke-width="1.5"/>
-                            <line x1="38" y1="20" x2="62" y2="20" stroke="#000" stroke-width="1.5"/>
-                            <line x1="41.5" y1="11.5" x2="58.5" y2="28.5" stroke="#000" stroke-width="1"/>
-                            <line x1="58.5" y1="11.5" x2="41.5" y2="28.5" stroke="#000" stroke-width="1"/>
-                            
-                            <!-- Four Lions standing back to back -->
-                            <!-- Lion 1 (front) -->
-                            <ellipse cx="50" cy="50" rx="8" ry="12" fill="#000"/>
-                            <circle cx="50" cy="42" r="5" fill="#000"/>
-                            <path d="M45 38 L42 35 M55 38 L58 35 M48 40 L46 38 M52 40 L54 38" stroke="#000" stroke-width="2"/>
-                            <!-- Lion body -->
-                            <rect x="42" y="55" width="16" height="20" rx="3" fill="#000"/>
-                            <!-- Legs -->
-                            <rect x="44" y="75" width="4" height="15" fill="#000"/>
-                            <rect x="52" y="75" width="4" height="15" fill="#000"/>
-                            
-                            <!-- Lion 2 (left) -->
-                            <ellipse cx="25" cy="55" rx="6" ry="10" fill="#000" transform="rotate(-30 25 55)"/>
-                            <circle cx="22" cy="48" r="4" fill="#000"/>
-                            
-                            <!-- Lion 3 (right) -->
-                            <ellipse cx="75" cy="55" rx="6" ry="10" fill="#000" transform="rotate(30 75 55)"/>
-                            <circle cx="78" cy="48" r="4" fill="#000"/>
-                            
-                            <!-- Lion 4 (back) -->
-                            <ellipse cx="50" cy="30" rx="5" ry="8" fill="#000"/>
-                            
-                            <!-- Base of the pillar -->
-                            <rect x="30" y="90" width="40" height="8" fill="#000"/>
-                            <rect x="25" y="98" width="50" height="6" fill="#000"/>
-                            <rect x="20" y="104" width="60" height="8" fill="#000"/>
-                            
-                            <!-- Satyameva Jayate text representation -->
-                            <text x="50" y="118" text-anchor="middle" font-size="6" font-family="serif" fill="#000">సత్యమేవ జయతే</text>
-                        </svg>
+                        <!-- REPLACE WITH: National Emblem -->
+                        <!-- Option A: Local file -->
+                        <img src="national_emblem.png" alt="National Emblem">
+                        <!-- Option B: Direct URL (replace src above with your URL) -->
                     </div>
                     <div class="govt-telugu">ఆంధ్ర ప్రదేశ్ ప్రభుత్వము</div>
                     <div class="govt-english">GOVERNMENT OF ANDHRA PRADESH</div>
@@ -435,20 +408,12 @@
                 <div class="right-section">
                     <div class="form-telugu">ఫారం-6</div>
                     <div class="form-no">FORM-6</div>
-                    <!-- FORM-6 Icon - Circular arrow with dot -->
+                    <!-- FORM-6 Icon -->
                     <div class="form-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Rounded square border -->
-                            <rect x="5" y="5" width="90" height="90" rx="15" ry="15" fill="none" stroke="#000" stroke-width="3"/>
-                            <!-- Circular arrow design -->
-                            <path d="M50 20 C30 20, 15 35, 15 55 C15 75, 30 85, 50 85 C70 85, 85 75, 85 55 C85 35, 70 20, 50 20 Z" fill="none" stroke="#000" stroke-width="8"/>
-                            <!-- Inner white space -->
-                            <path d="M50 28 C35 28, 23 40, 23 55 C23 70, 35 77, 50 77 C65 77, 77 70, 77 55 C77 40, 65 28, 50 28 Z" fill="#fff"/>
-                            <!-- Arrow head -->
-                            <path d="M70 35 L75 25 L65 30 Z" fill="#000"/>
-                            <!-- Dot -->
-                            <circle cx="75" cy="25" r="8" fill="#000"/>
-                        </svg>
+                        <!-- REPLACE WITH: FORM-6 Icon -->
+                        <!-- Option A: Local file -->
+                        <img src="form6_icon.jpg" alt="FORM-6">
+                        <!-- Option B: Direct URL (replace src above with your URL) -->
                     </div>
                 </div>
             </div>
