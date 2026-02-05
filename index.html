@@ -12,452 +12,196 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f0f0f0;
             padding: 20px;
-            min-height: 100vh;
+            font-size: 12px;
+            line-height: 1.4;
         }
         
         .invoice-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             background: #ffffff;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .invoice-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            border: 1px solid #000;
+            padding: 0;
         }
         
         .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: #2c3e50;
             color: white;
-            padding: 30px;
-            position: relative;
+            padding: 15px 20px;
             overflow: hidden;
+            border-bottom: 2px solid #000;
         }
         
-        .header::after {
-            content: 'INVOICE';
-            position: absolute;
-            right: -20px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-90deg);
-            font-size: 80px;
-            opacity: 0.05;
-            font-weight: 900;
-            letter-spacing: 10px;
+        .header-left {
+            float: left;
+            width: 70%;
         }
         
-        .sold-by {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #a0a0a0;
-            margin-bottom: 5px;
-        }
-        
-        .company-name {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #fff, #a0a0a0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .ship-from {
-            font-size: 13px;
-            line-height: 1.6;
-            color: #c0c0c0;
-            max-width: 70%;
-        }
-        
-        .invoice-title {
-            position: absolute;
-            right: 30px;
-            top: 30px;
+        .header-right {
+            float: right;
+            width: 30%;
             text-align: right;
         }
         
-        .invoice-title h1 {
-            font-size: 36px;
-            font-weight: 300;
-            letter-spacing: 3px;
-        }
-        
-        .invoice-meta {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 25px 30px;
-            background: #f8f9fa;
-            border-bottom: 2px solid #e9ecef;
-        }
-        
-        .meta-item {
-            position: relative;
-            padding-left: 15px;
-        }
-        
-        .meta-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            bottom: 5px;
-            width: 4px;
-            background: linear-gradient(180deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-        
-        .meta-label {
-            font-size: 11px;
+        .sold-by {
+            font-size: 10px;
             text-transform: uppercase;
-            color: #6c757d;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
         
-        .meta-value {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1a1a2e;
-        }
-        
-        .addresses {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            padding: 30px;
-            background: white;
-        }
-        
-        .address-box {
-            padding: 25px;
-            border-radius: 12px;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-        
-        .address-box:hover {
-            transform: translateY(-5px);
-        }
-        
-        .bill-to {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
-            border-left: 4px solid #667eea;
-        }
-        
-        .ship-to {
-            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
-            border-left: 4px solid #e53e3e;
-        }
-        
-        .address-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        
-        .bill-to .address-label { color: #667eea; }
-        .ship-to .address-label { color: #e53e3e; }
-        
-        .address-content {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #2d3748;
-        }
-        
-        .address-content strong {
-            font-size: 16px;
-            color: #1a202c;
-            display: block;
+        .company-name {
+            font-size: 20px;
+            font-weight: bold;
             margin-bottom: 8px;
         }
         
-        .warranty-notice {
-            margin: 0 30px 20px;
-            padding: 15px 20px;
-            background: linear-gradient(90deg, #fffbeb 0%, #fef3c7 100%);
-            border-radius: 8px;
-            border-left: 4px solid #f59e0b;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .warranty-icon {
-            width: 40px;
-            height: 40px;
-            background: #f59e0b;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-        }
-        
-        .warranty-text {
-            font-size: 13px;
-            color: #92400e;
+        .ship-from {
+            font-size: 10px;
             line-height: 1.5;
         }
         
-        .warranty-text strong {
+        .invoice-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .meta-section {
+            background: #ecf0f1;
+            padding: 10px 20px;
+            border-bottom: 1px solid #000;
+            overflow: hidden;
+        }
+        
+        .meta-item {
+            float: left;
+            width: 33.33%;
+        }
+        
+        .meta-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 2px;
+        }
+        
+        .meta-value {
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .addresses {
+            overflow: hidden;
+            border-bottom: 1px solid #000;
+        }
+        
+        .address-box {
+            float: left;
+            width: 50%;
+            padding: 15px 20px;
+            min-height: 120px;
+        }
+        
+        .bill-to {
+            background: #f8f9fa;
+            border-right: 1px solid #000;
+        }
+        
+        .ship-to {
+            background: #fff;
+        }
+        
+        .address-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .address-content {
+            font-size: 11px;
+            line-height: 1.6;
+        }
+        
+        .address-content strong {
+            font-size: 13px;
             display: block;
-            margin-bottom: 3px;
-            color: #78350f;
+            margin-bottom: 5px;
+        }
+        
+        .warranty-bar {
+            background: #fff3cd;
+            padding: 10px 20px;
+            border-bottom: 1px solid #000;
+            font-size: 11px;
+        }
+        
+        .warranty-bar strong {
+            color: #856404;
         }
         
         .product-section {
-            padding: 0 30px 30px;
+            padding: 0;
         }
         
         .product-table {
             width: 100%;
             border-collapse: collapse;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            font-size: 11px;
         }
         
         .product-table thead {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2d3748 100%);
+            background: #34495e;
             color: white;
         }
         
         .product-table th {
-            padding: 18px 15px;
+            padding: 10px 8px;
             text-align: left;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
         }
         
         .product-table th:last-child {
             text-align: right;
         }
         
-        .product-table tbody tr {
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
-            transition: background 0.3s ease;
-        }
-        
-        .product-table tbody tr:hover {
-            background: #f7fafc;
-        }
-        
         .product-table td {
-            padding: 20px 15px;
-            font-size: 14px;
-            color: #2d3748;
+            padding: 12px 8px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
         }
         
         .product-table td:last-child {
             text-align: right;
-            font-weight: 600;
+            font-weight: bold;
         }
         
         .product-title {
-            font-weight: 700;
-            color: #1a202c;
+            font-weight: bold;
+            font-size: 12px;
             margin-bottom: 8px;
-            font-size: 15px;
         }
         
-        .product-specs {
-            font-size: 12px;
-            color: #718096;
-            line-height: 1.6;
-        }
-        
-        .product-specs span {
-            display: block;
-        }
-        
-        .imei-box {
-            background: #edf2f7;
-            padding: 8px 12px;
-            border-radius: 6px;
-            margin-top: 10px;
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            color: #2d3748;
-            display: inline-block;
-        }
-        
-        .tax-breakdown {
-            background: #f7fafc;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-        
-        .tax-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: #4a5568;
-            margin: 5px 0;
-        }
-        
-        .summary-section {
-            padding: 0 30px 30px;
-            display: flex;
-            justify-content: flex-end;
-        }
-        
-        .summary-box {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2d3748 100%);
-            color: white;
-            padding: 25px 35px;
-            border-radius: 12px;
-            min-width: 300px;
-        }
-        
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin: 12px 0;
-            font-size: 14px;
-            color: #a0aec0;
-        }
-        
-        .summary-row.total {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid rgba(255,255,255,0.2);
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .footer {
-            padding: 30px;
-            background: #f8f9fa;
-            border-top: 2px solid #e9ecef;
-        }
-        
-        .signature-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 30px;
-        }
-        
-        .signature {
-            text-align: center;
-        }
-        
-        .signature-line {
-            width: 200px;
-            height: 60px;
-            border-bottom: 2px solid #1a1a2e;
-            margin-bottom: 10px;
-            position: relative;
-        }
-        
-        .signature-line::after {
-            content: '✓';
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 30px;
-            color: #48bb78;
-            transform: rotate(-10deg);
-        }
-        
-        .signature-label {
-            font-size: 12px;
-            color: #4a5568;
-            font-weight: 600;
-        }
-        
-        .company-stamp {
-            width: 120px;
-            height: 120px;
-            border: 3px dashed #cbd5e0;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #a0aec0;
-            font-size: 11px;
-            text-align: center;
-            transform: rotate(-15deg);
-        }
-        
-        .thank-you {
-            text-align: center;
-            padding: 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .thank-you h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
-        
-        .thank-you p {
-            font-size: 13px;
-            opacity: 0.9;
-        }
-        
-        .terms {
-            font-size: 11px;
-            color: #718096;
-            line-height: 1.8;
-            text-align: center;
-        }
-        
-        .contact-bar {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: #4a5568;
+        .badges {
+            margin-bottom: 8px;
         }
         
         .badge {
             display: inline-block;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 700;
+            padding: 2px 8px;
+            font-size: 9px;
+            font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-right: 5px;
         }
         
         .badge-gaming {
-            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+            background: #e74c3c;
             color: white;
         }
         
@@ -466,32 +210,216 @@
             color: white;
         }
         
+        .product-specs {
+            font-size: 10px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .product-specs span {
+            display: block;
+        }
+        
+        .serial-box {
+            background: #ecf0f1;
+            padding: 5px 10px;
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            border: 1px solid #bdc3c7;
+            margin: 5px 0;
+        }
+        
+        .warranty-info {
+            font-size: 10px;
+            color: #555;
+            margin-top: 8px;
+        }
+        
+        .summary-section {
+            overflow: hidden;
+            border-top: 2px solid #000;
+        }
+        
+        .summary-left {
+            float: left;
+            width: 60%;
+            padding: 15px 20px;
+        }
+        
+        .summary-right {
+            float: right;
+            width: 40%;
+            background: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .summary-row {
+            overflow: hidden;
+            margin: 5px 0;
+            font-size: 11px;
+        }
+        
+        .summary-row.total {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .summary-label {
+            float: left;
+        }
+        
+        .summary-value {
+            float: right;
+        }
+        
+        .footer {
+            padding: 20px;
+            border-top: 1px solid #000;
+            background: #f8f9fa;
+        }
+        
+        .signature-section {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .signature-left {
+            float: left;
+            width: 50%;
+        }
+        
+        .signature-line {
+            width: 200px;
+            border-bottom: 1px solid #000;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+        
+        .signature-label {
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        .stamp {
+            float: right;
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #999;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            font-size: 10px;
+            color: #999;
+            transform: rotate(-15deg);
+        }
+        
+        .thank-you {
+            text-align: center;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .thank-you h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .thank-you p {
+            font-size: 11px;
+        }
+        
+        .terms {
+            font-size: 9px;
+            color: #555;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .contact-bar {
+            text-align: center;
+            font-size: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .contact-item {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        
+        .page-info {
+            text-align: center;
+            font-size: 9px;
+            color: #999;
+            margin-top: 10px;
+        }
+        
+        /* Print Styles */
         @media print {
             body {
                 background: white;
+                padding: 0;
+                margin: 0;
             }
+            
             .invoice-container {
+                border: 1px solid #000;
                 box-shadow: none;
+                max-width: 100%;
+                page-break-inside: avoid;
             }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            
+            .header, .meta-section, .addresses, .warranty-bar, 
+            .product-section, .summary-section, .footer {
+                page-break-inside: avoid;
+            }
+        }
+        
+        @page {
+            size: A4;
+            margin: 10mm;
         }
     </style>
 </head>
 <body>
     <div class="invoice-container">
+        <!-- Header -->
         <div class="header">
-            <div class="sold-by">Sold By</div>
-            <div class="company-name">TechNova Retail Solutions Pvt Ltd</div>
-            <div class="ship-from">
-                Ship-from Address: 42B, Tech Park Avenue, Electronic City Phase II, 
-                Bangalore, Karnataka, India - 560100, IN-KA<br>
-                GSTIN - 29AABCT1234N1ZV | PAN: AABCT1234N | CIN: U74999KA2021PTC123456
+            <div class="header-left">
+                <div class="sold-by">Sold By</div>
+                <div class="company-name">TechNova Retail Solutions Pvt Ltd</div>
+                <div class="ship-from">
+                    Ship-from Address: 42B, Tech Park Avenue, Electronic City Phase II,<br>
+                    Bangalore, Karnataka, India - 560100, IN-KA<br>
+                    GSTIN - 29AABCT1234N1ZV | PAN: AABCT1234N | CIN: U74999KA2021PTC123456
+                </div>
             </div>
-            <div class="invoice-title">
-                <h1>TAX INVOICE</h1>
+            <div class="header-right">
+                <div class="invoice-title">TAX INVOICE</div>
             </div>
         </div>
         
-        <div class="invoice-meta">
+        <!-- Meta Information -->
+        <div class="meta-section">
             <div class="meta-item">
                 <div class="meta-label">Order ID</div>
                 <div class="meta-value">OD987654321098765000</div>
@@ -506,6 +434,7 @@
             </div>
         </div>
         
+        <!-- Addresses -->
         <div class="addresses">
             <div class="address-box bill-to">
                 <div class="address-label">Bill To</div>
@@ -531,35 +460,34 @@
             </div>
         </div>
         
-        <div class="warranty-notice">
-            <div class="warranty-icon">⚡</div>
-            <div class="warranty-text">
-                <strong>Keep this invoice and manufacturer box for warranty</strong>
-                Serial Number: FAD1HM2200045119 | Total items: 1
-            </div>
+        <!-- Warranty Bar -->
+        <div class="warranty-bar">
+            <strong>Keep this invoice and manufacturer box for warranty</strong> | 
+            Serial Number: FAD1HM2200045119 | Total items: 1
         </div>
         
+        <!-- Product Section -->
         <div class="product-section">
             <table class="product-table">
                 <thead>
                     <tr>
-                        <th>Product Details</th>
-                        <th>Qty</th>
-                        <th>Gross Amount ₹</th>
-                        <th>Discount ₹</th>
-                        <th>Taxable Value ₹</th>
-                        <th>IGST ₹</th>
-                        <th>Total ₹</th>
+                        <th style="width: 45%;">Product Details</th>
+                        <th style="width: 8%;">Qty</th>
+                        <th style="width: 12%;">Gross Amount</th>
+                        <th style="width: 10%;">Discount</th>
+                        <th style="width: 12%;">Taxable Value</th>
+                        <th style="width: 8%;">IGST</th>
+                        <th style="width: 10%;">Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
-                            <div class="product-title">
+                            <div class="badges">
                                 <span class="badge badge-gaming">Gaming</span>
-                                <span class="badge badge-intel">Intel</span><br><br>
-                                MSI Titan 18 HX AI (Intel Core Ultra 9, 128 GB)
+                                <span class="badge badge-intel">Intel</span>
                             </div>
+                            <div class="product-title">MSI Titan 18 HX AI (Intel Core Ultra 9, 128 GB)</div>
                             <div class="product-specs">
                                 <span>• Intel Core Ultra 9 285HX Processor</span>
                                 <span>• NVIDIA GeForce RTX 5090 Laptop GPU 24GB</span>
@@ -567,68 +495,67 @@
                                 <span>• 128GB DDR5 RAM | 4TB NVMe SSD</span>
                                 <span>• Windows 11 Pro | Cherry MX Mechanical Keyboard</span>
                                 <span>• FSN: LPTGYV98E5Z8NHTZ | HSN/SAC: 84713010</span>
-                                <div class="imei-box">
-                                    Serial No: 862448051012514
-                                </div>
                             </div>
-                            <div class="tax-breakdown">
-                                <div class="tax-row">
-                                    <span>Warranty: 2 Years Warranty for Laptop and 1 Year for Battery/Adapter</span>
-                                </div>
-                                <div class="tax-row">
-                                    <span>IGST Rate: 18.0%</span>
-                                </div>
+                            <div class="serial-box">Serial No: 862448051012514</div>
+                            <div class="warranty-info">
+                                Warranty: 2 Years for Laptop, 1 Year for Battery/Adapter | IGST Rate: 18.0%
                             </div>
                         </td>
                         <td>1</td>
-                        <td>599,999.00</td>
-                        <td>-50,000.00</td>
-                        <td>465,253.39</td>
-                        <td>83,745.61</td>
-                        <td>549,999.00</td>
+                        <td>₹ 599,999.00</td>
+                        <td>- ₹ 50,000.00</td>
+                        <td>₹ 465,253.39</td>
+                        <td>₹ 83,745.61</td>
+                        <td>₹ 549,999.00</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         
+        <!-- Summary Section -->
         <div class="summary-section">
-            <div class="summary-box">
+            <div class="summary-left">
+                <div style="font-size: 11px; color: #555;">
+                    <strong>Amount in Words:</strong><br>
+                    Five Lakh Forty Nine Thousand Nine Hundred Ninety Nine Rupees Only
+                </div>
+            </div>
+            <div class="summary-right">
                 <div class="summary-row">
-                    <span>Total Items</span>
-                    <span>1</span>
+                    <span class="summary-label">Total Items:</span>
+                    <span class="summary-value">1</span>
                 </div>
                 <div class="summary-row">
-                    <span>Gross Amount</span>
-                    <span>₹ 599,999.00</span>
+                    <span class="summary-label">Gross Amount:</span>
+                    <span class="summary-value">₹ 599,999.00</span>
                 </div>
                 <div class="summary-row">
-                    <span>Discount</span>
-                    <span>- ₹ 50,000.00</span>
+                    <span class="summary-label">Discount:</span>
+                    <span class="summary-value">- ₹ 50,000.00</span>
                 </div>
                 <div class="summary-row">
-                    <span>Taxable Value</span>
-                    <span>₹ 465,253.39</span>
+                    <span class="summary-label">Taxable Value:</span>
+                    <span class="summary-value">₹ 465,253.39</span>
                 </div>
                 <div class="summary-row">
-                    <span>IGST (18%)</span>
-                    <span>₹ 83,745.61</span>
+                    <span class="summary-label">IGST (18%):</span>
+                    <span class="summary-value">₹ 83,745.61</span>
                 </div>
                 <div class="summary-row total">
-                    <span>Grand Total</span>
-                    <span>₹ 549,999.00</span>
+                    <span class="summary-label">Grand Total:</span>
+                    <span class="summary-value">₹ 549,999.00</span>
                 </div>
             </div>
         </div>
         
+        <!-- Footer -->
         <div class="footer">
             <div class="signature-section">
-                <div class="signature">
+                <div class="signature-left">
                     <div class="signature-line"></div>
                     <div class="signature-label">Authorized Signatory</div>
                 </div>
-                <div class="company-stamp">
-                    TechNova<br>Retail<br>Solutions
-                </div>
+                <div class="stamp">TechNova<br>Retail<br>Solutions</div>
             </div>
             
             <div class="thank-you">
@@ -644,24 +571,22 @@
             </div>
             
             <div class="contact-bar">
-                <div class="contact-item">
-                    <span>📞</span>
-                    <span>Contact TechNova: 1800-123-4567</span>
-                </div>
-                <div class="contact-item">
-                    <span>✉️</span>
-                    <span>support@technova.com</span>
-                </div>
-                <div class="contact-item">
-                    <span>🌐</span>
-                    <span>www.technova.com</span>
-                </div>
+                <span class="contact-item">📞 Contact TechNova: 1800-123-4567</span>
+                <span class="contact-item">✉️ support@technova.com</span>
+                <span class="contact-item">🌐 www.technova.com</span>
             </div>
             
-            <div style="text-align: center; margin-top: 15px; font-size: 11px; color: #a0aec0;">
-                E.& O.E. | Page 1 of 1
+            <div class="page-info">
+                E. & O.E. | Page 1 of 1
             </div>
         </div>
+    </div>
+    
+    <!-- Print Button -->
+    <div style="text-align: center; margin-top: 20px;" class="no-print">
+        <button onclick="window.print()" style="padding: 10px 30px; font-size: 14px; cursor: pointer;">
+            🖨️ Print Invoice
+        </button>
     </div>
 </body>
 </html>
