@@ -3,478 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax Invoice</title>
+    <title>Tax Invoice - TechNova Retail Solutions</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 9pt;
+            line-height: 1.3;
+            color: #000;
+            background: #fff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
-        
-        .invoice-container {
-            max-width: 800px;
-            width: 100%;
-            background: white;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            border-radius: 12px;
+
+        .invoice-box {
+            width: 194mm;
+            height: 277mm;
+            margin: 0 auto;
+            border: 2px solid #2980b9;
+            padding: 8mm;
             position: relative;
-            overflow: hidden;
+            background: #fff;
         }
-        
-        .invoice-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-        }
-        
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e0e0e0;
-        }
-        
-        .shop-info {
-            flex: 1;
-        }
-        
-        .shop-name {
-            font-size: 28px;
-            font-weight: 800;
-            color: #2c3e50;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-        
-        .shop-address {
-            font-size: 13px;
-            color: #555;
-            line-height: 1.5;
-        }
-        
-        .contact-info {
-            margin-top: 8px;
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .contact-info div {
-            margin: 2px 0;
-        }
-        
-        .invoice-title {
-            text-align: right;
-        }
-        
-        .invoice-title h1 {
-            font-size: 24px;
-            color: #667eea;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        
-        .bill-to {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .bill-to-label {
-            font-size: 11px;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-        
-        .bill-to-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-        
-        .invoice-details {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .detail-box {
-            background: #f8f9fa;
-            padding: 12px 15px;
-            border-radius: 8px;
-            flex: 1;
-            min-width: 120px;
-        }
-        
-        .detail-label {
-            font-size: 10px;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-        
-        .detail-value {
-            font-size: 14px;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            font-size: 13px;
-        }
-        
-        thead {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        th {
-            padding: 12px 10px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        td {
-            padding: 12px 10px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        tbody tr:hover {
-            background: #f8f9fa;
-        }
-        
-        .text-right {
-            text-align: right;
-        }
-        
-        .text-center {
-            text-align: center;
-        }
-        
-        .totals-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 20px;
-            gap: 30px;
-        }
-        
-        .amount-words {
-            flex: 1;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #764ba2;
-        }
-        
-        .amount-words-label {
-            font-size: 10px;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-        
-        .amount-words-value {
-            font-size: 14px;
-            font-weight: 700;
-            color: #2c3e50;
-            font-style: italic;
-        }
-        
-        .totals-table {
-            width: 250px;
-        }
-        
-        .totals-table td {
-            padding: 8px;
-            border: none;
-            font-size: 13px;
-        }
-        
-        .totals-table .total-row {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            font-size: 16px;
-            font-weight: 700;
-        }
-        
-        .totals-table .total-row td {
-            padding: 12px 10px;
-            border-radius: 6px;
-        }
-        
-        .footer {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px solid #e0e0e0;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-        
-        .terms {
-            font-size: 11px;
-            color: #666;
-            max-width: 250px;
-        }
-        
-        .terms h4 {
-            margin-bottom: 6px;
-            color: #333;
-            font-size: 12px;
-        }
-        
-        .signature {
-            text-align: center;
-        }
-        
-        .signature-line {
-            border-top: 1px solid #333;
-            width: 180px;
-            margin-bottom: 6px;
-            padding-top: 6px;
-        }
-        
-        .signature-text {
-            font-size: 12px;
-            color: #555;
-            font-weight: 600;
-        }
-        
+
+        /* Watermark */
         .watermark {
             position: absolute;
-            bottom: 15px;
-            right: 15px;
-            font-size: 10px;
-            color: #ccc;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 60pt;
+            font-weight: bold;
+            color: rgba(41, 128, 185, 0.08);
+            letter-spacing: 5px;
+            z-index: 0;
+            pointer-events: none;
         }
-        
-        /* Print Styles - Critical for proper A4 printing */
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Compact Header */
+        .header {
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .header-left {
+            float: left;
+            width: 75%;
+        }
+
+        .company-name {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 2px;
+        }
+
+        .company-sub {
+            font-size: 7pt;
+            color: #666;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .company-info {
+            font-size: 7pt;
+            line-height: 1.3;
+            color: #555;
+        }
+
+        .header-right {
+            float: right;
+            width: 22%;
+            text-align: center;
+        }
+
+        .invoice-circle {
+            width: 70px;
+            height: 70px;
+            border: 2px solid #2980b9;
+            border-radius: 50%;
+            margin: 0 auto;
+            background: #ebf5fb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .invoice-circle .line1 {
+            font-size: 7pt;
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        .invoice-circle .line2 {
+            font-size: 9pt;
+            font-weight: bold;
+            color: #2980b9;
+            line-height: 1;
+        }
+
+        .invoice-circle .line3 {
+            font-size: 6pt;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        /* Info Bar */
+        .info-bar {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 6px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .info-item {
+            float: left;
+            width: 25%;
+            text-align: center;
+            border-right: 1px solid #ddd;
+            padding: 0 5px;
+        }
+
+        .info-item:last-child {
+            border-right: none;
+        }
+
+        .info-label {
+            font-size: 6pt;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .info-value {
+            font-size: 9pt;
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* Addresses */
+        .address-section {
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .address-box {
+            float: left;
+            width: 48.5%;
+            border: 1px solid #2980b9;
+        }
+
+        .address-box:first-child {
+            margin-right: 3%;
+        }
+
+        .addr-header {
+            background: #2980b9;
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 8pt;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .addr-body {
+            padding: 6px 8px;
+            min-height: 60px;
+        }
+
+        .addr-name {
+            font-size: 10pt;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 2px;
+        }
+
+        .addr-text {
+            font-size: 8pt;
+            line-height: 1.3;
+            color: #333;
+        }
+
+        .addr-phone {
+            margin-top: 4px;
+            font-size: 8pt;
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        /* Product Table */
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            border: 1px solid #2980b9;
+        }
+
+        .product-table thead {
+            background: #2980b9;
+            color: #fff;
+        }
+
+        .product-table th {
+            padding: 5px 4px;
+            font-size: 7pt;
+            text-align: left;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 1px solid #2980b9;
+        }
+
+        .product-table th:last-child,
+        .product-table td:last-child {
+            text-align: right;
+        }
+
+        .product-table th:nth-child(2),
+        .product-table td:nth-child(2) {
+            text-align: center;
+        }
+
+        .product-table td {
+            padding: 6px 4px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+            font-size: 8pt;
+        }
+
+        .prod-title {
+            font-weight: bold;
+            font-size: 9pt;
+            color: #2980b9;
+            margin-bottom: 4px;
+        }
+
+        .prod-specs {
+            font-size: 7pt;
+            color: #555;
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .prod-specs span {
+            display: inline-block;
+            margin-right: 6px;
+            margin-bottom: 1px;
+        }
+
+        .prod-meta {
+            font-size: 7pt;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .serial-box {
+            background: #fff9e6;
+            border: 1px solid #f1c40f;
+            padding: 4px;
+            font-size: 8pt;
+        }
+
+        .serial-label {
+            font-weight: bold;
+            color: #b7950b;
+        }
+
+        .serial-num {
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .warranty-small {
+            font-size: 7pt;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .amt {
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+            font-size: 9pt;
+        }
+
+        /* Summary */
+        .summary-section {
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .words-box {
+            float: left;
+            width: 58%;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 8px;
+            min-height: 85px;
+        }
+
+        .words-label {
+            font-size: 7pt;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+
+        .words-text {
+            font-size: 9pt;
+            font-weight: bold;
+            color: #000;
+            line-height: 1.3;
+        }
+
+        .calc-box {
+            float: right;
+            width: 40%;
+            border: 2px solid #2980b9;
+        }
+
+        .calc-header {
+            background: #2980b9;
+            color: #fff;
+            padding: 4px;
+            text-align: center;
+            font-size: 8pt;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .calc-row {
+            padding: 4px 8px;
+            border-bottom: 1px solid #ddd;
+            overflow: hidden;
+            font-size: 9pt;
+        }
+
+        .calc-row:last-child {
+            border-bottom: none;
+        }
+
+        .calc-label {
+            float: left;
+        }
+
+        .calc-value {
+            float: right;
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+        }
+
+        .calc-row.total {
+            background: #27ae60;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .calc-row.total .calc-value {
+            font-size: 10pt;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid #2980b9;
+            padding-top: 8px;
+        }
+
+        .notice-box {
+            background: #ebf5fb;
+            border: 1px dashed #2980b9;
+            padding: 6px;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .notice-title {
+            font-size: 9pt;
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        .notice-text {
+            font-size: 7pt;
+            color: #666;
+        }
+
+        .terms-box {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 6px;
+            margin-bottom: 6px;
+            font-size: 7pt;
+            line-height: 1.3;
+            color: #555;
+            text-align: center;
+        }
+
+        .contact-bar {
+            background: #2c3e50;
+            color: #fff;
+            padding: 6px;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .contact-item {
+            display: inline-block;
+            margin: 0 15px;
+            font-size: 8pt;
+        }
+
+        .page-footer {
+            text-align: center;
+            font-size: 7pt;
+            color: #666;
+        }
+
+        /* Print Button */
+        .print-btn {
+            text-align: center;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        .print-btn button {
+            background: #2980b9;
+            color: #fff;
+            border: none;
+            padding: 10px 30px;
+            font-size: 10pt;
+            cursor: pointer;
+        }
+
         @media print {
-            @page {
-                size: A4;
-                margin: 10mm;
-            }
-            
             body {
-                background: white !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                min-height: auto !important;
-                display: block !important;
+                background: white;
             }
             
-            .invoice-container {
-                box-shadow: none !important;
-                max-width: 100% !important;
-                width: 100% !important;
-                padding: 15px !important;
-                margin: 0 !important;
-                border-radius: 0 !important;
-                page-break-inside: avoid;
+            .invoice-box {
+                border: 2px solid #2980b9;
+                width: 100%;
+                height: auto;
             }
             
-            .invoice-container::before {
-                height: 4px !important;
-            }
-            
-            .header {
-                margin-bottom: 15px !important;
-                padding-bottom: 10px !important;
-            }
-            
-            .shop-name {
-                font-size: 22px !important;
-            }
-            
-            .invoice-title h1 {
-                font-size: 20px !important;
-            }
-            
-            .bill-to {
-                margin-bottom: 15px !important;
-                padding: 12px !important;
-            }
-            
-            .invoice-details {
-                margin-bottom: 15px !important;
-                gap: 15px !important;
-            }
-            
-            .detail-box {
-                padding: 10px !important;
-            }
-            
-            table {
-                margin-bottom: 15px !important;
-                font-size: 12px !important;
-            }
-            
-            th, td {
-                padding: 8px 6px !important;
-            }
-            
-            .totals-section {
-                margin-top: 15px !important;
-                gap: 20px !important;
-            }
-            
-            .amount-words {
-                padding: 12px !important;
-            }
-            
-            .totals-table {
-                width: 200px !important;
-            }
-            
-            .footer {
-                margin-top: 20px !important;
-                padding-top: 15px !important;
-            }
-            
-            .watermark {
+            .print-btn {
                 display: none !important;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
         }
     </style>
 </head>
 <body>
-    <div class="invoice-container">
-        <div class="header">
-            <div class="shop-info">
-                <div class="shop-name">Apex Electronics Hub</div>
-                <div class="shop-address">
-                    DOOR No:13-452/2<br>
-                    Style Bazaar Building<br>
-                    Main Road, Parvathipuram
+    <div class="invoice-box">
+        <div class="watermark">TECHNOVA</div>
+        <div class="content">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-left">
+                    <div class="company-name">TechNova Retail Solutions Pvt Ltd</div>
+                    <div class="company-sub">Premium Technology Retail</div>
+                    <div class="company-info">
+                        Ship-from: 42B, Tech Park Avenue, Electronic City Phase II, Bangalore - 560100, Karnataka | 
+                        GSTIN: 29AABCT1234N1ZV | PAN: AABCT1234N | CIN: U74999KA2021PTC123456 | 
+                        Email: support@technova.com | Phone: 1800-123-4567
+                    </div>
                 </div>
-                <div class="contact-info">
-                    <div>Phone no.: 7901272796</div>
-                    <div>Email: apexhub24@gmail.com</div>
-                    <div>GSTIN: 37CNPPV3323R1ZY</div>
-                    <div>State: 37-Andhra Pradesh</div>
+                <div class="header-right">
+                    <div class="invoice-circle">
+                        <div class="line1">TAX</div>
+                        <div class="line2">INVOICE</div>
+                        <div class="line3">ORIGINAL</div>
+                    </div>
                 </div>
             </div>
-            <div class="invoice-title">
-                <h1>Tax Invoice</h1>
+
+            <!-- Info Bar -->
+            <div class="info-bar">
+                <div class="info-item">
+                    <div class="info-label">Invoice Number</div>
+                    <div class="info-value">INV-AP-2025-001276</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Invoice Date</div>
+                    <div class="info-value">06-02-2025</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Order ID</div>
+                    <div class="info-value">OD365528852238636</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Order Date</div>
+                    <div class="info-value">06-02-2025</div>
+                </div>
             </div>
-        </div>
-        
-        <div class="bill-to">
-            <div class="bill-to-label">Bill To</div>
-            <div class="bill-to-name">Manoj Kumar</div>
-        </div>
-        
-        <div class="invoice-details">
-            <div class="detail-box">
-                <div class="detail-label">Invoice No.</div>
-                <div class="detail-value">17</div>
+
+            <!-- Addresses -->
+            <div class="address-section">
+                <div class="address-box">
+                    <div class="addr-header">Bill To</div>
+                    <div class="addr-body">
+                        <div class="addr-name">Manoj Kumar</div>
+                        <div class="addr-text">
+                            Parvathipuram, Nearby Style Baazar,<br>
+                            Parvathipuram Town, Parvathipuram Manyam District - 535501,<br>
+                            Andhra Pradesh
+                        </div>
+                        <div class="addr-phone">Mobile: 7989322031</div>
+                    </div>
+                </div>
+                <div class="address-box">
+                    <div class="addr-header">Ship To</div>
+                    <div class="addr-body">
+                        <div class="addr-name">Manoj Kumar</div>
+                        <div class="addr-text">
+                            Parvathipuram, Nearby Style Baazar,<br>
+                            Parvathipuram Town, Parvathipuram Manyam District - 535501,<br>
+                            Andhra Pradesh
+                        </div>
+                        <div class="addr-phone">Mobile: 7989322031</div>
+                    </div>
+                </div>
             </div>
-            <div class="detail-box">
-                <div class="detail-label">Date</div>
-                <div class="detail-value">28-05-2025</div>
-            </div>
-            <div class="detail-box">
-                <div class="detail-label">Place of Supply</div>
-                <div class="detail-value">37-Andhra Pradesh</div>
-            </div>
-        </div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Item Name</th>
-                    <th>HSN/SAC</th>
-                    <th class="text-center">Qty</th>
-                    <th class="text-right">Price/Unit</th>
-                    <th class="text-right">GST</th>
-                    <th class="text-right">Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Lenovo Ac Adapter (type C)</td>
-                    <td></td>
-                    <td class="text-center">1</td>
-                    <td class="text-right">₹ 2,966.10</td>
-                    <td class="text-right">₹ 533.90 (18%)</td>
-                    <td class="text-right">₹ 3,500.00</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <div class="totals-section">
-            <div class="amount-words">
-                <div class="amount-words-label">Invoice Amount In Words</div>
-                <div class="amount-words-value">Three Thousand Five Hundred Rupees only</div>
-            </div>
-            
-            <table class="totals-table">
-                <tr>
-                    <td>Sub Total</td>
-                    <td class="text-right">₹ 2,966.10</td>
-                </tr>
-                <tr>
-                    <td>SGST @9.0%</td>
-                    <td class="text-right">₹ 266.95</td>
-                </tr>
-                <tr>
-                    <td>CGST @9.0%</td>
-                    <td class="text-right">₹ 266.95</td>
-                </tr>
-                <tr class="total-row">
-                    <td>Total</td>
-                    <td class="text-right">₹ 3,500.00</td>
-                </tr>
+
+            <!-- Product Table -->
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th style="width: 44%;">Description of Goods</th>
+                        <th style="width: 6%;">Qty</th>
+                        <th style="width: 12%;">Rate</th>
+                        <th style="width: 10%;">Discount</th>
+                        <th style="width: 13%;">Taxable Value</th>
+                        <th style="width: 15%;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="prod-title">Lenovo Yoga 9 14ITL5 2 in 1 Laptop</div>
+                            <div class="prod-specs">
+                                <span>• 35.6 cm (14") Full HD IPS Touch</span>
+                                <span>• Intel EVO Platform</span>
+                                <span>• Intel Core i7 11th Gen</span>
+                                <span>• 16GB DDR4 RAM</span>
+                                <span>• 1TB NVMe SSD</span>
+                                <span>• Integrated Intel Iris Xe Graphics</span>
+                                <span>• Windows 10 Home</span>
+                                <span>• MS Office Pre-installed</span>
+                                <span>• 360° Flip Design</span>
+                                <span>• Shadow Black</span>
+                                <span>• Weight: 1.44 kg</span>
+                            </div>
+                            <div class="prod-meta">Model: 14ITL5 | HSN/SAC: 84713010</div>
+                            <div class="serial-box">
+                                <span class="serial-label">Serial:</span>
+                                <span class="serial-num">PF1YV4XYZ78912345</span>
+                                <div class="warranty-small">Warranty: 1Y Lenovo Warranty, 1Y ADP | IGST @ 18%</div>
+                            </div>
+                        </td>
+                        <td>1<br>Nos</td>
+                        <td class="amt">124,990.00</td>
+                        <td class="amt">0.00</td>
+                        <td class="amt">105,923.73</td>
+                        <td class="amt">124,990.00</td>
+                    </tr>
+                </tbody>
             </table>
-        </div>
-        
-        <div class="footer">
-            <div class="terms">
-                <h4>Terms And Conditions</h4>
-                <p>Thank you for doing business with us.</p>
+
+            <!-- Summary -->
+            <div class="summary-section">
+                <div class="words-box">
+                    <div class="words-label">Amount Chargeable (in words)</div>
+                    <div class="words-text">Indian Rupees One Lakh Twenty Four Thousand Nine Hundred Ninety Only</div>
+                </div>
+                <div class="calc-box">
+                    <div class="calc-header">Bill Summary</div>
+                    <div class="calc-row">
+                        <span class="calc-label">Sub Total</span>
+                        <span class="calc-value">124,990.00</span>
+                    </div>
+                    <div class="calc-row">
+                        <span class="calc-label">Less: Discount</span>
+                        <span class="calc-value">0.00</span>
+                    </div>
+                    <div class="calc-row">
+                        <span class="calc-label">Taxable Value</span>
+                        <span class="calc-value">105,923.73</span>
+                    </div>
+                    <div class="calc-row">
+                        <span class="calc-label">Add: IGST @ 18%</span>
+                        <span class="calc-value">19,066.27</span>
+                    </div>
+                    <div class="calc-row total">
+                        <span class="calc-label">Grand Total</span>
+                        <span class="calc-value">₹ 124,990.00</span>
+                    </div>
+                </div>
             </div>
-            <div class="signature">
-                <div class="signature-line"></div>
-                <div class="signature-text">For: Apex Electronics Hub<br>Authorized Signatory</div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="notice-box">
+                    <div class="notice-title">✓ This is a Computer Generated Invoice</div>
+                    <div class="notice-text">No signature required | This invoice is valid without signature or stamp</div>
+                </div>
+
+                <div class="terms-box">
+                    <strong>Terms & Conditions:</strong> Goods once sold will not be taken back or exchanged. Warranty claims must be accompanied by this original invoice. 
+                    For returns, please ensure original brand box, price tag, and packing are intact. Products are intended for end user consumption only, not for resale. 
+                    All disputes subject to Bangalore jurisdiction.
+                </div>
+
+                <div class="contact-bar">
+                    <span class="contact-item">📞 1800-123-4567</span>
+                    <span class="contact-item">✉️ support@technova.com</span>
+                    <span class="contact-item">🌐 www.technova.com</span>
+                </div>
+
+                <div class="page-footer">
+                    <strong>Invoice Generated:</strong> 06-02-2025 | <strong>Page 1 of 1</strong> | E. & O.E.<br>
+                    TechNova Retail Solutions Pvt Ltd, Bangalore - 560100
+                </div>
             </div>
         </div>
-        
-        <div class="watermark">www.vyaparapp.in</div>
+    </div>
+
+    <div class="print-btn">
+        <button onclick="window.print()">🖨️ Print Invoice</button>
     </div>
 </body>
 </html>
