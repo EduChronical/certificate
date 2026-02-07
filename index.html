@@ -1,204 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fig. 1: Isometric View of A²WMM - Patent Drawing</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-  background: white; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.patent-sheet { 
-  width: 210mm; 
-  height: 297mm; 
-  background: white;
-  position: relative;
-}
-</style>
-</head>
-<body>
-<div class="patent-sheet">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595 842" width="100%" height="100%" style="background:white">
-<defs>
-<marker id="arrowstart" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
-<polygon points="8,0 0,3 8,6" fill="black"/>
-</marker>
-<marker id="arrowend" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-<polygon points="0,0 8,3 0,6" fill="black"/>
-</marker>
-</defs>
-<g transform="translate(297,400)">
-<!-- OUTER BOX - Main Module 15x15x7.5cm -->
-<!-- Front face -->
-<line stroke="black" stroke-width="1.0" fill="none" x1="-75" y1="37.5" x2="75" y2="37.5"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="75" y1="37.5" x2="75" y2="-37.5"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="75" y1="-37.5" x2="-75" y2="-37.5"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="-75" y1="-37.5" x2="-75" y2="37.5"/>
-<!-- Right face -->
-<line stroke="black" stroke-width="1.0" fill="none" x1="75" y1="37.5" x2="112.5" y2="18.75"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="112.5" y1="18.75" x2="112.5" y2="-56.25"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="112.5" y1="-56.25" x2="75" y2="-37.5"/>
-<!-- Top face -->
-<line stroke="black" stroke-width="1.0" fill="none" x1="-75" y1="-37.5" x2="75" y2="-37.5"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="75" y1="-37.5" x2="112.5" y2="-56.25"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="112.5" y1="-56.25" x2="-37.5" y2="-56.25"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="-37.5" y1="-56.25" x2="-75" y2="-37.5"/>
-<!-- Hidden edges (back) -->
-<line stroke="black" stroke-width="0.3" fill="none" stroke-dasharray="3,3" x1="-75" y1="37.5" x2="-37.5" y2="18.75"/>
-<line stroke="black" stroke-width="0.3" fill="none" stroke-dasharray="3,3" x1="-37.5" y1="18.75" x2="-37.5" y2="-56.25"/>
-<line stroke="black" stroke-width="0.3" fill="none" stroke-dasharray="3,3" x1="-37.5" y1="18.75" x2="112.5" y2="18.75"/>
-<!-- INNER HOLLOW (wall thickness 1.2cm) -->
-<line stroke="black" stroke-width="0.5" fill="none" x1="-63" y1="31.5" x2="63" y2="31.5"/>
-<line stroke="black" stroke-width="0.5" fill="none" x1="63" y1="31.5" x2="63" y2="-31.5"/>
-<line stroke="black" stroke-width="0.5" fill="none" x1="63" y1="-31.5" x2="-63" y2="-31.5"/>
-<line stroke="black" stroke-width="0.5" fill="none" x1="-63" y1="-31.5" x2="-63" y2="31.5"/>
-<line stroke="black" stroke-width="0.5" fill="none" x1="63" y1="-31.5" x2="91.5" y2="-45.75"/>
-<line stroke="black" stroke-width="0.5" fill="none" x1="91.5" y1="-45.75" x2="91.5" y2="-14.25"/>
-<line stroke="black" stroke-width="0.5" fill="none" x1="91.5" y1="-14.25" x2="63" y2="31.5"/>
-<line stroke="black" stroke-width="0.5" fill="none" x1="-63" y1="-31.5" x2="-34.5" y2="-45.75"/>
-<line stroke="black" stroke-width="0.5" fill="none" x1="-34.5" y1="-45.75" x2="91.5" y2="-45.75"/>
-<!-- MALE DOVETAIL GSLI (front face, protruding) -->
-<line stroke="black" stroke-width="1.0" fill="none" x1="-25" y1="37.5" x2="-30" y2="15"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="-30" y1="15" x2="30" y2="15"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="30" y1="15" x2="25" y2="37.5"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="-25" y1="52.5" x2="-30" y2="30"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="-30" y1="30" x2="30" y2="30"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="30" y1="30" x2="25" y2="52.5"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="-25" y1="37.5" x2="-25" y2="52.5"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="25" y1="37.5" x2="25" y2="52.5"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="-30" y1="15" x2="-30" y2="30"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="30" y1="15" x2="30" y2="30"/>
-<!-- FEMALE SLOT GSLI (right face, recessed) -->
-<line stroke="black" stroke-width="1.0" fill="none" x1="75" y1="-12.5" x2="63" y2="-18.75"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="63" y1="-18.75" x2="63" y2="-43.75"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="63" y1="-43.75" x2="75" y2="-37.5"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="75" y1="12.5" x2="63" y2="6.25"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="63" y1="6.25" x2="63" y2="-18.75"/>
-<line stroke="black" stroke-width="1.0" fill="none" x1="75" y1="-12.5" x2="75" y2="12.5"/>
-<line stroke="black" stroke-width="0.3" fill="none" stroke-dasharray="3,3" x1="63" y1="-43.75" x2="75" y2="-37.5"/>
-<line stroke="black" stroke-width="0.3" fill="none" stroke-dasharray="3,3" x1="63" y1="6.25" x2="75" y2="12.5"/>
-<!-- 13 - EPDM ELASTIC RIB (1mm) -->
-<line stroke="black" stroke-width="0.7" fill="none" x1="-27" y1="39.5" x2="-32" y2="17"/>
-<line stroke="black" stroke-width="0.7" fill="none" x1="-32" y1="17" x2="32" y2="17"/>
-<line stroke="black" stroke-width="0.7" fill="none" x1="32" y1="17" x2="27" y2="39.5"/>
-<line stroke="black" stroke-width="0.7" fill="none" x1="27" y1="39.5" x2="-27" y2="39.5"/>
-<!-- 14 - TFE LABYRINTH SEAL (0.5mm) -->
-<polyline stroke="black" stroke-width="0.4" fill="none" points="64,-41 65,-38 64,-35 65,-32 64,-29 65,-26 64,-23 65,-20 64,-17"/>
-<!-- 15 - STAINLESS STEEL SPRING PIN -->
-<circle stroke="black" stroke-width="1.0" fill="none" cx="69" cy="-25" r="2.5"/>
-<line stroke="black" stroke-width="0.4" fill="none" x1="67" y1="-25" x2="71" y2="-25"/>
-<!-- 16 - PEX UTILITY CHANNEL (20mm) -->
-<path stroke="black" stroke-width="0.5" fill="none" d="M -60,0 A 6,6 0 0,1 -48,0"/>
-<!-- 17 - COPPER UTILITY CHANNEL (16mm) -->
-<path stroke="black" stroke-width="0.5" fill="none" d="M 67.5,-33 A 5,5 0 0,1 77.5,-33"/>
-<!-- 18 - FOLD HINGE -->
-<line stroke="black" stroke-width="0.4" fill="none" x1="-75" y1="0" x2="-37.5" y2="-18.75"/>
-<!-- 19 - QR CODE CARBON TAG -->
-<rect stroke="black" stroke-width="0.5" fill="none" x="37.5" y="-52.5" width="10" height="10"/>
-<rect stroke="black" stroke-width="0.3" fill="none" x="39" y="-51" width="2.5" height="2.5"/>
-<rect stroke="black" stroke-width="0.3" fill="none" x="43.5" y="-51" width="2.5" height="2.5"/>
-<rect stroke="black" stroke-width="0.3" fill="none" x="39" y="-46.5" width="2.5" height="2.5"/>
-<!-- 20 - NEEM OIL COATING (dotted) -->
-<line stroke="black" stroke-width="0.25" fill="none" stroke-dasharray="2,2" x1="-75" y1="-37.5" x2="75" y2="-37.5"/>
-<line stroke="black" stroke-width="0.25" fill="none" stroke-dasharray="2,2" x1="75" y1="-37.5" x2="112.5" y2="-56.25"/>
-<line stroke="black" stroke-width="0.25" fill="none" stroke-dasharray="2,2" x1="112.5" y1="-56.25" x2="-37.5" y2="-56.25"/>
-<line stroke="black" stroke-width="0.25" fill="none" stroke-dasharray="2,2" x1="-37.5" y1="-56.25" x2="-75" y2="-37.5"/>
-<!-- DIMENSION LINES -->
-<line stroke="black" stroke-width="0.4" fill="none" marker-start="url(#arrowstart)" marker-end="url(#arrowend)" x1="-75" y1="65" x2="75" y2="65"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" x="0" y="75" text-anchor="middle">15 cm</text>
-<line stroke="black" stroke-width="0.4" fill="none" marker-start="url(#arrowstart)" marker-end="url(#arrowend)" x1="135" y1="37.5" x2="135" y2="-37.5"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" x="145" y="0" text-anchor="middle" transform="rotate(90,145,0)">7.5 cm</text>
-<line stroke="black" stroke-width="0.4" fill="none" marker-start="url(#arrowstart)" marker-end="url(#arrowend)" x1="135" y1="37.5" x2="172.5" y2="18.75"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" x="160" y="35" text-anchor="middle">15 cm</text>
-<!-- 1.5° TAPER ANGLE -->
-<path stroke="black" stroke-width="0.5" fill="none" d="M -40,55 A 8,8 0 0,0 -36,50"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="-50" y="60" text-anchor="middle">1.5° taper</text>
-<!-- REFERENCE NUMERALS WITH LEADER LINES -->
-<!-- 10 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="0" y1="0" x2="-130" y2="-180"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="-130" cy="-180" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="-130" y="-177" text-anchor="middle">10</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="-130" y="-168" text-anchor="middle">Module body (hollow, 15×15×7.5 cm)</text>
-<!-- 11 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="0" y1="30" x2="-160" y2="-100"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="-160" cy="-100" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="-160" y="-97" text-anchor="middle">11</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="-160" y="-88" text-anchor="middle">Male dovetail GSLI (1.5° taper)</text>
-<!-- 12 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="69" y1="-30" x2="160" y2="-100"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="160" cy="-100" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="160" y="-97" text-anchor="middle">12</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="160" y="-88" text-anchor="middle">Female slot GSLI (1.5° taper)</text>
-<!-- 13 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="-29" y1="28" x2="-180" y2="-40"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="-180" cy="-40" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="-180" y="-37" text-anchor="middle">13</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="-180" y="-28" text-anchor="middle">1 mm EPDM elastic rib</text>
-<!-- 14 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="64" y1="-30" x2="180" y2="-40"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="180" cy="-40" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="180" y="-37" text-anchor="middle">14</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="180" y="-28" text-anchor="middle">0.5 mm TFE labyrinth seal</text>
-<!-- 15 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="69" y1="-25" x2="140" y2="0"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="140" cy="0" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="140" y="3" text-anchor="middle">15</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="140" y="12" text-anchor="middle">304-grade stainless steel spring pin</text>
-<!-- 16 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="-54" y1="0" x2="-140" y2="50"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="-140" cy="50" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="-140" y="53" text-anchor="middle">16</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="-140" y="62" text-anchor="middle">20 mm PEX utility channel</text>
-<!-- 17 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="72" y1="-33" x2="140" y2="50"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="140" cy="50" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="140" y="53" text-anchor="middle">17</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="140" y="62" text-anchor="middle">16 mm copper utility channel</text>
-<!-- 18 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="-56" y1="-9" x2="-160" y2="100"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="-160" cy="100" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="-160" y="103" text-anchor="middle">18</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="-160" y="112" text-anchor="middle">Fold hinge (10,000 cycles)</text>
-<!-- 19 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="42.5" y1="-47.5" x2="140" y2="100"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="140" cy="100" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="140" y="103" text-anchor="middle">19</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="140" y="112" text-anchor="middle">QR code (2.3 kg CO₂)</text>
-<!-- 20 -->
-<line stroke="black" stroke-width="0.25" fill="none" x1="18.75" y1="-46.875" x2="0" y2="150"/>
-<circle stroke="black" stroke-width="0.5" fill="white" cx="0" cy="150" r="7"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" x="0" y="153" text-anchor="middle">20</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="7" x="0" y="162" text-anchor="middle">Neem oil coating (IS 6313:2022)</text>
-<!-- NESTED MODULE (4:1 nesting indication) -->
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="-75" y1="142.5" x2="75" y2="142.5"/>
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="75" y1="142.5" x2="75" y2="67.5"/>
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="75" y1="67.5" x2="-75" y2="67.5"/>
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="-75" y1="67.5" x2="-75" y2="142.5"/>
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="75" y1="142.5" x2="112.5" y2="123.75"/>
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="112.5" y1="123.75" x2="112.5" y2="48.75"/>
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="112.5" y1="48.75" x2="75" y2="67.5"/>
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="-75" y1="67.5" x2="-37.5" y2="48.75"/>
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="-37.5" y1="48.75" x2="112.5" y2="48.75"/>
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="-37.5" y1="48.75" x2="-37.5" y2="123.75"/>
-<line stroke="black" stroke-width="0.2" fill="none" stroke-dasharray="4,4" x1="-37.5" y1="123.75" x2="112.5" y2="123.75"/>
-<line stroke="black" stroke-width="0.3" fill="none" stroke-dasharray="3,3" marker-start="url(#arrowstart)" marker-end="url(#arrowend)" x1="0" y1="75" x2="0" y2="127.5"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="6" x="8" y="101.25" text-anchor="middle" transform="rotate(90,8,101.25)">4:1 nesting</text>
-<!-- NOTES -->
-<text font-family="Arial,Helvetica,sans-serif" font-size="9" font-style="italic" x="0" y="-230" text-anchor="middle">4:1 nestable</text>
-<line stroke="black" stroke-width="0.5" fill="none" marker-start="url(#arrowstart)" marker-end="url(#arrowend)" x1="-50" y1="-220" x2="50" y2="-220"/>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-style="italic" x="0" y="-210" text-anchor="middle">Hollow for weight reduction &amp; utility routing</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="8" font-style="italic" x="0" y="-200" text-anchor="middle">B1-class fire resistance (IS 1644:2021)</text>
-<!-- TITLE -->
-<text font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold" x="0" y="-260" text-anchor="middle">Fig. 1: Isometric View of A²WMM</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="10" x="0" y="-245" text-anchor="middle">Acetylated Agro-Waste Micro-Module</text>
-</g>
-</svg>
-</div>
-</body>
-</html>
+Create a PERFECTLY CLEAN, MESS-FREE, BLACK-AND-WHITE TECHNICAL PATENT LINE DRAWING for Fig.1 of a provisional patent. STRICTLY FOLLOW ALL RULES BELOW — NO EXCEPTIONS.
+
+### DRAWING STYLE & FORMAT (NON-NEGOTIABLE)
+- Only solid black vector lines (1pt uniform thickness) on PURE WHITE BACKGROUND
+- NO COLORS, NO SHADING, NO GRADIENTS, NO TEXTURES, NO 3D RENDERING, NO FILLS, NO FUZZY LINES, NO CLUTTER
+- NO extra objects, no background elements, no random lines, no overlapping messy details
+- Strict IPO / WIPO PCT patent illustration standard: minimal, precise, engineering draft
+- Perfect ISOMETRIC PROJECTION ONLY (30° tilt on X-axis, 45° rotation on Z-axis; NO perspective distortion)
+- Centered composition, balanced layout, large enough to see all details clearly
+- Clean, small, sans-serif text labels ONLY (no fancy fonts, no large text, no overlapping labels)
+- Bottom center: Bold, small title: "Fig.1 – Isometric View of Acetylated Agro-Waste Micro-Module (A²WMM)"
+
+### SUBJECT: ACETYLATED AGRO-WASTE MICRO-MODULE (A²WMM) — EXACT DIMENSIONS & STRUCTURE
+Draw a hollow rectangular micro-module with FIXED PROPORTIONS (15cm × 15cm × 7.5cm external size) — all lines straight, sharp, and aligned perfectly.
+
+Draw EVERY structural feature BELOW, in order, with zero clutter:
+1. MODULE MAIN BODY (Hollow Core)
+   - Closed rectangular prism (isometric view)
+   - Visible top face, front face, right-side face (3 faces only, clean lines)
+   - Hollow interior implied (no messy inner lines; only outer structural lines)
+
+2. 1.5° TAPERED DOVETAIL GEOMETRIC SELF-LOCKING INTERLOCK (GSLI) — CRITICAL FEATURE
+   - LEFT SIDE: Male dovetail joint (straight, 1.5° precise taper, matching module height)
+   - RIGHT SIDE: Female dovetail slot (exact matching 1.5° taper, clean recessed line)
+   - No extra lines, no thickening, no distortion — sharp, symmetrical taper
+
+3. PRE-FORMED UTILITY CHANNEL (For PEX/Copper Conduits)
+   - Single HORIZONTAL dashed black line (uniform dashed pattern, thin)
+   - Centered on the FRONT FACE of the module
+   - Length = 2/3 of module width; no extra lines, no breaks
+
+4. FOLD HINGE (For 4:1 Nesting)
+   - Single thin vertical solid black line on the FRONT FACE (left-of-center)
+   - Full height of module; simple, clean, no extra details
+
+5. QR CARBON SEQUESTRATION TAG
+   - Small, neat square (1/10th module size) on TOP-RIGHT CORNER of top face
+   - Simple minimal QR grid (4×4 small squares, only a few filled black squares — NO messy dense QR code)
+   - Clean square border, no extra lines
+
+### TEXT LABELS (MINIMAL, NO CLUTTER, PLACED NEATLY NEXT TO FEATURES)
+- Near male/female dovetail: "1.5° Taper GSLI"
+- Near dashed line: "Utility Channel"
+- Near vertical line: "Fold Hinge"
+- Near small square: "QR Carbon Tag"
+- Center above module: "A²WMM Module"
+- All labels: Small, horizontal, non-overlapping, spaced out, no crowding
+
+### FINAL HARD RULES TO AVOID MESS
+- All lines: Sharp, straight, uniform thickness, no wobbly lines
+- No overlapping lines, no extra decorative elements, no noise
+- Only the 5 required structural features + minimal labels + bottom title
+- Symmetrical, balanced, professional engineering patent diagram
+- Zero errors, zero mess, zero extra details
+
+Output only the clean line drawing — no extra text, no explanations, no borders around the image.
