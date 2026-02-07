@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fig.4 - A²WMM Assembly Sequence</title>
+    <title>Fig.5 - Wall Cross-Section</title>
     <style>
         * {
             margin: 0;
@@ -70,23 +70,16 @@
             fill: none;
         }
         
-        .line-phase {
-            stroke: black;
-            stroke-width: 0.5;
-            fill: none;
-            stroke-dasharray: 2, 2;
-        }
-        
         .text-main {
             font-family: "Arial", sans-serif;
-            font-size: 8pt;
+            font-size: 9pt;
             fill: black;
             text-anchor: middle;
         }
         
         .text-small {
             font-family: "Arial", sans-serif;
-            font-size: 6pt;
+            font-size: 7pt;
             fill: black;
             text-anchor: middle;
         }
@@ -94,14 +87,6 @@
         .text-title {
             font-family: "Times New Roman", serif;
             font-size: 10pt;
-            fill: black;
-            text-anchor: middle;
-            font-weight: bold;
-        }
-        
-        .text-phase {
-            font-family: "Arial", sans-serif;
-            font-size: 7pt;
             fill: black;
             text-anchor: middle;
             font-weight: bold;
@@ -122,195 +107,171 @@
     <div class="patent-sheet">
         <svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <pattern id="hatchSteel" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
-                    <line x1="0" y1="0" x2="0" y2="6" stroke="black" stroke-width="0.4"/>
+                <!-- Agro-Waste/Geopolymer Composite -->
+                <pattern id="hatchAgro" patternUnits="userSpaceOnUse" width="5" height="5">
+                    <circle cx="2.5" cy="2.5" r="0.8" fill="black"/>
+                    <line x1="0" y1="0" x2="5" y2="5" stroke="black" stroke-width="0.2"/>
                 </pattern>
                 
-                <pattern id="hatchConcrete" patternUnits="userSpaceOnUse" width="4" height="4">
-                    <circle cx="2" cy="2" r="0.5" fill="black"/>
+                <!-- TFE -->
+                <pattern id="hatchTfe" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(30)">
+                    <line x1="0" y1="0" x2="0" y2="3" stroke="black" stroke-width="0.3"/>
                 </pattern>
                 
-                <pattern id="hatchAgro" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)">
-                    <line x1="0" y1="0" x2="0" y2="5" stroke="black" stroke-width="0.3"/>
-                    <line x1="2.5" y1="0" x2="2.5" y2="5" stroke="black" stroke-width="0.3"/>
+                <!-- EPDM -->
+                <pattern id="hatchEpdm" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(60)">
+                    <line x1="0" y1="0" x2="0" y2="3" stroke="black" stroke-width="0.3"/>
+                </pattern>
+                
+                <!-- 304 SS -->
+                <pattern id="hatchSS" patternUnits="userSpaceOnUse" width="4" height="4">
+                    <line x1="0" y1="0" x2="4" y2="4" stroke="black" stroke-width="0.3"/>
+                    <line x1="4" y1="0" x2="0" y2="4" stroke="black" stroke-width="0.3"/>
+                </pattern>
+                
+                <!-- Neem Oil Coating -->
+                <pattern id="hatchCoating" patternUnits="userSpaceOnUse" width="2" height="2">
+                    <circle cx="1" cy="1" r="0.3" fill="black"/>
                 </pattern>
             </defs>
             
             <!-- ============================================ -->
-            <!-- TIMELINE BAR -->
-            <!-- ============================================ -->
-            <line class="line-thick" x1="80" y1="150" x2="520" y2="150"/>
-            <polygon points="520,145 530,150 520,155" fill="black"/>
-            <text class="text-small" x="305" y="140">7-14 Days Total Construction</text>
-            
-            <!-- ============================================ -->
-            <!-- PHASE 1: ZFRP INSTALLATION (Days 1-2) -->
+            <!-- WALL CROSS-SECTION -->
             <!-- ============================================ -->
             
-            <!-- Phase Box -->
-            <rect x="70" y="170" width="100" height="120" class="line-phase"/>
-            <text class="text-phase" x="120" y="185">Phase 1</text>
-            <text class="text-small" x="120" y="198">ZFRP Install</text>
-            <text class="text-small" x="120" y="210">Days 1-2</text>
+            <!-- Exterior Wall Surface -->
+            <rect x="150" y="200" width="300" height="400" fill="url(#hatchAgro)" class="line-thick"/>
             
-            <!-- Ground Screw -->
-            <line class="line-medium" x1="100" y1="280" x2="100" y2="230"/>
-            <ellipse cx="100" cy="285" rx="8" ry="3" class="line-thin"/>
+            <!-- Neem Oil Coating - Exterior -->
+            <rect x="148" y="198" width="4" height="404" fill="url(#hatchCoating)" class="line-thin"/>
             
-            <!-- Pad -->
-            <rect x="85" y="275" width="30" height="5" fill="url(#hatchConcrete)" class="line-thin"/>
+            <!-- Neem Oil Coating - Interior -->
+            <rect x="448" y="198" width="4" height="404" fill="url(#hatchCoating)" class="line-thin"/>
             
-            <!-- Worker Figure (Simplified) -->
-            <circle cx="115" cy="250" r="4" class="line-thin"/>
-            <line class="line-thin" x1="115" y1="254" x2="115" y2="270"/>
-            <line class="line-thin" x1="110" y1="260" x2="120" y2="260"/>
+            <!-- MODULE 1 (Bottom Left) -->
+            <rect x="150" y="500" width="150" height="100" fill="url(#hatchAgro)" class="line-medium"/>
+            <rect x="165" y="515" width="120" height="70" class="line-thin" fill="none"/>
             
-            <!-- Laser Level -->
-            <line class="line-thin" x1="130" y1="240" x2="140" y2="240"/>
-            <line class="line-thin" x1="135" y1="240" x2="135" y2="275"/>
+            <!-- MODULE 2 (Bottom Right) -->
+            <rect x="300" y="500" width="150" height="100" fill="url(#hatchAgro)" class="line-medium"/>
+            <rect x="315" y="515" width="120" height="70" class="line-thin" fill="none"/>
             
-            <!-- ============================================ -->
-            <!-- PHASE 2: MODULE STACKING (Days 3-6) -->
-            <!-- ============================================ -->
+            <!-- MODULE 3 (Top Left) -->
+            <rect x="150" y="400" width="150" height="100" fill="url(#hatchAgro)" class="line-medium"/>
+            <rect x="165" y="415" width="120" height="70" class="line-thin" fill="none"/>
             
-            <rect x="180" y="170" width="100" height="120" class="line-phase"/>
-            <text class="text-phase" x="230" y="185">Phase 2</text>
-            <text class="text-small" x="230" y="198">Module Stacking</text>
-            <text class="text-small" x="230" y="210">Days 3-6</text>
+            <!-- MODULE 4 (Top Right) -->
+            <rect x="300" y="400" width="150" height="100" fill="url(#hatchAgro)" class="line-medium"/>
+            <rect x="315" y="415" width="120" height="70" class="line-thin" fill="none"/>
             
-            <!-- Stacked Modules -->
-            <rect x="210" y="240" width="20" height="15" fill="url(#hatchAgro)" class="line-thin"/>
-            <rect x="210" y="225" width="20" height="15" fill="url(#hatchAgro)" class="line-thin"/>
-            <rect x="210" y="210" width="20" height="15" fill="url(#hatchAgro)" class="line-thin"/>
+            <!-- HORIZONTAL GSLI CONNECTION (Between Module 1-2 and 3-4) -->
+            <!-- TFE Seal -->
+            <rect x="298" y="500" width="2" height="100" fill="url(#hatchTfe)" class="line-thin"/>
+            <rect x="298" y="400" width="2" height="100" fill="url(#hatchTfe)" class="line-thin"/>
             
-            <!-- Pad Base -->
-            <rect x="205" y="275" width="30" height="5" fill="url(#hatchConcrete)" class="line-thin"/>
+            <!-- EPDM Rib -->
+            <rect x="300" y="505" width="2" height="90" fill="url(#hatchEpdm)" class="line-thin"/>
+            <rect x="300" y="405" width="2" height="90" fill="url(#hatchEpdm)" class="line-thin"/>
             
-            <!-- Worker -->
-            <circle cx="245" cy="250" r="4" class="line-thin"/>
-            <line class="line-thin" x1="245" y1="254" x2="245" y2="270"/>
+            <!-- Spring Pin Horizontal -->
+            <rect x="295" y="550" width="10" height="6" fill="url(#hatchSS)" class="line-thin"/>
+            <rect x="295" y="450" width="10" height="6" fill="url(#hatchSS)" class="line-thin"/>
             
-            <!-- ============================================ -->
-            <!-- PHASE 3: GSLI LOCKING (Days 3-6) -->
-            <!-- ============================================ -->
+            <!-- VERTICAL GSLI CONNECTION (Between Module 1-3 and 2-4) -->
+            <!-- TFE Seal -->
+            <rect x="150" y="498" width="150" height="2" fill="url(#hatchTfe)" class="line-thin"/>
+            <rect x="300" y="498" width="150" height="2" fill="url(#hatchTfe)" class="line-thin"/>
             
-            <rect x="290" y="170" width="100" height="120" class="line-phase"/>
-            <text class="text-phase" x="340" y="185">Phase 3</text>
-            <text class="text-small" x="340" y="198">GSLI Locking</text>
-            <text class="text-small" x="340" y="210">Days 3-6</text>
+            <!-- EPDM Rib -->
+            <rect x="155" y="500" width="140" height="2" fill="url(#hatchEpdm)" class="line-thin"/>
+            <rect x="305" y="500" width="140" height="2" fill="url(#hatchEpdm)" class="line-thin"/>
             
-            <!-- GSLI Detail -->
-            <rect x="320" y="240" width="15" height="20" fill="url(#hatchAgro)" class="line-thin"/>
-            <rect x="335" y="242" width="12" height="16" fill="url(#hatchAgro)" class="line-thin"/>
+            <!-- Spring Pin Vertical -->
+            <rect x="220" y="495" width="6" height="10" fill="url(#hatchSS)" class="line-thin"/>
+            <rect x="370" y="495" width="6" height="10" fill="url(#hatchSS)" class="line-thin"/>
             
-            <!-- Spring Pin -->
-            <circle cx="335" cy="250" r="2" class="line-thin" fill="black"/>
+            <!-- UTILITY CHANNELS -->
+            <!-- 20mm PEX Horizontal -->
+            <line class="line-dim" x1="150" y1="450" x2="450" y2="450"/>
+            <circle cx="225" cy="450" r="8" class="line-thin" fill="none"/>
+            <circle cx="375" cy="450" r="8" class="line-thin" fill="none"/>
             
-            <!-- Hand Force Indicator -->
-            <line class="line-thin" x1="350" y1="245" x2="360" y2="245"/>
-            <text class="text-small" x="370" y="248">&lt;5kg</text>
-            
-            <!-- ============================================ -->
-            <!-- PHASE 4: UTILITY INTEGRATION (Days 7-9) -->
-            <!-- ============================================ -->
-            
-            <rect x="400" y="170" width="100" height="120" class="line-phase"/>
-            <text class="text-phase" x="450" y="185">Phase 4</text>
-            <text class="text-small" x="450" y="198">Utility Integration</text>
-            <text class="text-small" x="450" y="210">Days 7-9</text>
-            
-            <!-- Module with Channels -->
-            <rect x="430" y="230" width="25" height="30" fill="url(#hatchAgro)" class="line-thin"/>
-            
-            <!-- Horizontal PEX Channel -->
-            <line class="line-dim" x1="430" y1="245" x2="455" y2="245"/>
-            <text class="text-small" x="485" y="248">20mm PEX</text>
-            
-            <!-- Vertical Copper Channel -->
-            <line class="line-dim" x1="442" y1="230" x2="442" y2="260"/>
-            <text class="text-small" x="470" y="225">16mm Cu</text>
+            <!-- 16mm Copper Vertical -->
+            <line class="line-dim" x1="300" y1="400" x2="300" y2="600"/>
+            <circle cx="300" cy="475" r="6" class="line-thin" fill="none"/>
+            <circle cx="300" cy="525" r="6" class="line-thin" fill="none"/>
             
             <!-- ============================================ -->
-            <!-- PHASE 5: FINISHING (Days 10-12) -->
+            <!-- DIMENSION LINES - EXACT TOUCH POINTS -->
             <!-- ============================================ -->
             
-            <rect x="70" y="310" width="430" height="120" class="line-phase"/>
-            <text class="text-phase" x="285" y="325">Phase 5: Finishing (Days 10-12)</text>
+            <!-- Wall Thickness 15cm -->
+            <line class="line-dim" x1="130" y1="200" x2="130" y2="600"/>
+            <line class="line-dim" x1="125" y1="200" x2="135" y2="200"/>
+            <line class="line-dim" x1="125" y1="600" x2="135" y2="600"/>
+            <text class="text-small" x="115" y="405">15cm</text>
             
-            <!-- Completed House Structure -->
-            <!-- Walls -->
-            <rect x="120" y="380" width="80" height="40" fill="url(#hatchAgro)" class="line-thin"/>
-            <rect x="200" y="380" width="80" height="40" fill="url(#hatchAgro)" class="line-thin"/>
+            <!-- Module Height 7.5cm -->
+            <line class="line-dim" x1="470" y1="400" x2="470" y2="500"/>
+            <line class="line-dim" x1="465" y1="400" x2="475" y2="400"/>
+            <line class="line-dim" x1="465" y1="500" x2="475" y2="500"/>
+            <text class="text-small" x="485" y="455">7.5cm</text>
             
-            <!-- Door -->
-            <rect x="140" y="395" width="20" height="25" class="line-thin"/>
-            
-            <!-- Window -->
-            <rect x="230" y="390" width="25" height="20" class="line-thin"/>
-            
-            <!-- Roof -->
-            <path class="line-medium" d="M 110 380 L 160 350 L 240 350 L 290 380"/>
-            
-            <!-- Floor -->
-            <rect x="110" y="420" width="180" height="5" fill="url(#hatchConcrete)" class="line-thin"/>
-            
-            <!-- Completed Label -->
-            <text class="text-main" x="200" y="445">300 sq.ft 1BHK Complete</text>
-            
-            <!-- ============================================ -->
-            <!-- ARROWS BETWEEN PHASES -->
-            <!-- ============================================ -->
-            
-            <!-- Arrow 1 to 2 -->
-            <line class="line-medium" x1="170" y1="230" x2="180" y2="230"/>
-            <polygon points="180,227 185,230 180,233" fill="black"/>
-            
-            <!-- Arrow 2 to 3 -->
-            <line class="line-medium" x1="280" y1="230" x2="290" y2="230"/>
-            <polygon points="290,227 295,230 290,233" fill="black"/>
-            
-            <!-- Arrow 3 to 4 -->
-            <line class="line-medium" x1="390" y1="230" x2="400" y2="230"/>
-            <polygon points="400,227 405,230 400,233" fill="black"/>
-            
-            <!-- Arrow 4 to 5 -->
-            <line class="line-medium" x1="450" y1="290" x2="450" y2="310"/>
-            <polygon points="447,310 450,315 453,310" fill="black"/>
-            
-            <!-- ============================================ -->
-            <!-- WORKER COUNT INDICATION -->
-            <!-- ============================================ -->
-            <text class="text-small" x="305" y="165">2 Unskilled Workers Throughout</text>
+            <!-- Module Width 15cm -->
+            <line class="line-dim" x1="150" y1="620" x2="300" y2="620"/>
+            <line class="line-dim" x1="150" y1="615" x2="150" y2="625"/>
+            <line class="line-dim" x1="300" y1="615" x2="300" y2="625"/>
+            <text class="text-small" x="225" y="635">15cm</text>
             
             <!-- ============================================ -->
             <!-- COMPONENT LABELS - EXACT TOUCH POINTS -->
             <!-- ============================================ -->
             
-            <!-- Ground Screw -->
-            <line class="line-leader" x1="100" y1="285" x2="60" y2="300"/>
-            <text class="text-small" x="50" y="310">1.8m Screw</text>
+            <!-- A²WMM Module -->
+            <line class="line-leader" x1="225" y1="550" x2="100" y2="580"/>
+            <text class="text-main" x="80" y="590">A²WMM Module</text>
+            <text class="text-small" x="80" y="605">15×15×7.5cm</text>
             
-            <!-- Pad -->
-            <line class="line-leader" x1="100" y1="280" x2="60" y2="270"/>
-            <text class="text-small" x="50" y="265">Fly-Ash Pad</text>
+            <!-- Agro-Waste/Geopolymer -->
+            <line class="line-leader" x1="200" y1="450" x2="80" y2="420"/>
+            <text class="text-small" x="60" y="410">80% Agro-Waste</text>
+            <text class="text-small" x="60" y="425">20% Geopolymer</text>
             
-            <!-- Module -->
-            <line class="line-leader" x1="220" y1="225" x2="180" y2="200"/>
-            <text class="text-small" x="165" y="195">A²WMM</text>
+            <!-- 20mm PEX Channel -->
+            <line class="line-leader" x1="225" y1="450" x2="100" y2="380"/>
+            <text class="text-small" x="80" y="370">20mm PEX</text>
             
-            <!-- GSLI -->
-            <line class="line-leader" x1="335" y1="250" x2="380" y2="270"/>
-            <text class="text-small" x="395" y="275">GSLI Lock</text>
+            <!-- 16mm Copper Channel -->
+            <line class="line-leader" x1="300" y1="475" x2="400" y2="380"/>
+            <text class="text-small" x="420" y="370">16mm Copper</text>
+            
+            <!-- TFE Seal -->
+            <line class="line-leader" x1="298" y1="550" x2="260" y2="520"/>
+            <text class="text-small" x="240" y="510">0.5mm TFE</text>
+            
+            <!-- EPDM Rib -->
+            <line class="line-leader" x1="300" y1="550" x2="340" y2="520"/>
+            <text class="text-small" x="360" y="510">1mm EPDM</text>
+            
+            <!-- Spring Pin -->
+            <line class="line-leader" x1="300" y1="553" x2="350" y2="580"/>
+            <text class="text-small" x="370" y="590">304-SS Pin</text>
+            
+            <!-- Neem Oil Coating -->
+            <line class="line-leader" x1="148" y1="400" x2="100" y2="320"/>
+            <text class="text-small" x="80" y="310">Neem Oil</text>
+            <text class="text-small" x="80" y="325">Coating</text>
             
             <!-- ============================================ -->
             <!-- PERFORMANCE ANNOTATIONS -->
             <!-- ============================================ -->
-            <text class="text-small" x="305" y="470">100 Screws/Hour | 10 Modules/Hour | No Drilling/Cutting</text>
+            <text class="text-small" x="300" y="660">IP67 Waterproof | Zone V Seismic | B1 Fire | Termite Proof</text>
+            <text class="text-small" x="300" y="680">10kN Axial | 45kN Shear | 10,000+ Cycles</text>
             
             <!-- ============================================ -->
             <!-- TITLE -->
             <!-- ============================================ -->
-            <text class="text-title" x="300" y="820">Fig.4 – A²WMM Assembly Sequence (7-14 Days Construction)</text>
+            <text class="text-title" x="300" y="820">Fig.5 – Wall Cross-Section (A²WMM Assembly)</text>
         </svg>
     </div>
 </body>
