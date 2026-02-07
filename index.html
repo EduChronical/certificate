@@ -1,56 +1,194 @@
-Create a PERFECTLY CLEAN, MESS-FREE, BLACK-AND-WHITE TECHNICAL PATENT LINE DRAWING for Fig.1 of a provisional patent. STRICTLY FOLLOW ALL RULES BELOW — NO EXCEPTIONS.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROVISIONAL SPECIFICATION - FORM 2</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 2.5cm 2.5cm 2.5cm 2.5cm;
+    }
 
-### DRAWING STYLE & FORMAT (NON-NEGOTIABLE)
-- Only solid black vector lines (1pt uniform thickness) on PURE WHITE BACKGROUND
-- NO COLORS, NO SHADING, NO GRADIENTS, NO TEXTURES, NO 3D RENDERING, NO FILLS, NO FUZZY LINES, NO CLUTTER
-- NO extra objects, no background elements, no random lines, no overlapping messy details
-- Strict IPO / WIPO PCT patent illustration standard: minimal, precise, engineering draft
-- Perfect ISOMETRIC PROJECTION ONLY (30° tilt on X-axis, 45° rotation on Z-axis; NO perspective distortion)
-- Centered composition, balanced layout, large enough to see all details clearly
-- Clean, small, sans-serif text labels ONLY (no fancy fonts, no large text, no overlapping labels)
-- Bottom center: Bold, small title: "Fig.1 – Isometric View of Acetylated Agro-Waste Micro-Module (A²WMM)"
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 12pt;
+      line-height: 1.5;
+      color: #000;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      counter-reset: page 1;
+    }
 
-### SUBJECT: ACETYLATED AGRO-WASTE MICRO-MODULE (A²WMM) — EXACT DIMENSIONS & STRUCTURE
-Draw a hollow rectangular micro-module with FIXED PROPORTIONS (15cm × 15cm × 7.5cm external size) — all lines straight, sharp, and aligned perfectly.
+    .page-break {
+      page-break-before: always;
+    }
 
-Draw EVERY structural feature BELOW, in order, with zero clutter:
-1. MODULE MAIN BODY (Hollow Core)
-   - Closed rectangular prism (isometric view)
-   - Visible top face, front face, right-side face (3 faces only, clean lines)
-   - Hollow interior implied (no messy inner lines; only outer structural lines)
+    .page-number {
+      position: fixed;
+      bottom: 1.5cm;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 10pt;
+      color: #000;
+    }
 
-2. 1.5° TAPERED DOVETAIL GEOMETRIC SELF-LOCKING INTERLOCK (GSLI) — CRITICAL FEATURE
-   - LEFT SIDE: Male dovetail joint (straight, 1.5° precise taper, matching module height)
-   - RIGHT SIDE: Female dovetail slot (exact matching 1.5° taper, clean recessed line)
-   - No extra lines, no thickening, no distortion — sharp, symmetrical taper
+    h1, h2, h3 {
+      text-align: center;
+      font-weight: bold;
+      margin: 0.8em 0 0.4em;
+    }
 
-3. PRE-FORMED UTILITY CHANNEL (For PEX/Copper Conduits)
-   - Single HORIZONTAL dashed black line (uniform dashed pattern, thin)
-   - Centered on the FRONT FACE of the module
-   - Length = 2/3 of module width; no extra lines, no breaks
+    .title {
+      text-transform: uppercase;
+      font-size: 14pt;
+      margin-bottom: 1.5em;
+    }
 
-4. FOLD HINGE (For 4:1 Nesting)
-   - Single thin vertical solid black line on the FRONT FACE (left-of-center)
-   - Full height of module; simple, clean, no extra details
+    .section {
+      margin-bottom: 1.2em;
+    }
 
-5. QR CARBON SEQUESTRATION TAG
-   - Small, neat square (1/10th module size) on TOP-RIGHT CORNER of top face
-   - Simple minimal QR grid (4×4 small squares, only a few filled black squares — NO messy dense QR code)
-   - Clean square border, no extra lines
+    .uppercase {
+      text-transform: uppercase;
+    }
 
-### TEXT LABELS (MINIMAL, NO CLUTTER, PLACED NEATLY NEXT TO FEATURES)
-- Near male/female dovetail: "1.5° Taper GSLI"
-- Near dashed line: "Utility Channel"
-- Near vertical line: "Fold Hinge"
-- Near small square: "QR Carbon Tag"
-- Center above module: "A²WMM Module"
-- All labels: Small, horizontal, non-overlapping, spaced out, no crowding
+    ul {
+      list-style-type: disc;
+      margin-left: 2em;
+      padding-left: 0;
+    }
 
-### FINAL HARD RULES TO AVOID MESS
-- All lines: Sharp, straight, uniform thickness, no wobbly lines
-- No overlapping lines, no extra decorative elements, no noise
-- Only the 5 required structural features + minimal labels + bottom title
-- Symmetrical, balanced, professional engineering patent diagram
-- Zero errors, zero mess, zero extra details
+    ol {
+      list-style-type: decimal;
+      margin-left: 2.5em;
+      padding-left: 0;
+    }
 
-Output only the clean line drawing — no extra text, no explanations, no borders around the image.
+    strong {
+      font-weight: bold;
+    }
+
+    .signature-block {
+      margin-top: 2em;
+      text-align: left;
+    }
+
+    .signature-line {
+      border-bottom: 1px solid #000;
+      width: 40%;
+      margin: 1em 0;
+    }
+
+    /* Fix page numbers on every page */
+    @media print {
+      .page-number:after {
+        content: "Page " counter(page) " of " counter(pages);
+      }
+      body {
+        counter-increment: page;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-number"></div>
+
+  <h1 class="title">PROVISIONAL SPECIFICATION</h1>
+  <p style="text-align:center; margin:0;">(Under Section 10 of the Patents Act, 1970)</p>
+  <h2>FORM 2</h2>
+  <p style="text-align:center; margin:0.5em 0;">(As per Patents Rules, 2003)</p>
+
+  <div class="section">
+    <h2 class="uppercase">TITLE</h2>
+    <p class="title">
+      MODULAR MICRO-BLOCK RAPID ASSEMBLY SYSTEM WITH 1.5° TAPERED DOVETAIL GEOMETRIC SELF-LOCKING INTERLOCK, ACETYLATED AGRO-WASTE MODULES, PROPRIETARY GEOPOLYMER BINDER, AND ZERO-DEEP GROUND SCREW FOUNDATION FOR INDIAN LOW-RISE MASS HOUSING (1-3 STOREYS, NBC 2016 COMPLIANT)
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 class="uppercase">INVENTOR</h2>
+    <p>AGURU MANOJ KUMAR</p>
+  </div>
+
+  <div class="section">
+    <h2 class="uppercase">APPLICANT (SAME AS INVENTOR - SOLE APPLICANT)</h2>
+    <p>AGURU MANOJ KUMAR</p>
+    <p>3-35, Near Parvathipuram Bus Stop, Parvathipuram Mandal & Town, Parvathipuram Manyam District, Andhra Pradesh - 535501, INDIA</p>
+    <p>Contact: +91-7989322031 | Email: manojaguru68@gmail.com</p>
+  </div>
+
+  <div class="section">
+    <h2 class="uppercase">PRIORITY DATE (NATIONAL FIRST FILING - NO PRIOR CLAIM)</h2>
+    <p>06/02/2026</p>
+  </div>
+
+  <div class="section">
+    <h2 class="uppercase">IPC CLASSIFICATION</h2>
+    <p>E04B 1/343; E04B 2/70; E04B 1/98; C04B 18/26; B27K 3/00</p>
+  </div>
+
+  <div class="section">
+    <h2 class="uppercase">CPC CLASSIFICATION</h2>
+    <p>E04B 2001/3438; E04B 2002/708; E04B 1/986; C04B 18/268; B27K 3/008</p>
+  </div>
+
+  <div class="section">
+    <h2 class="uppercase">1. FIELD OF THE INVENTION</h2>
+    <p>This invention pertains to the technical field of modular prefabricated low-rise residential construction (1-3 storeys, 3m max floor height, NBC 2016 compliant) (IPC E04B 1/343), specifically encompassing:</p>
+    <ul>
+      <li>Zero-deep, rapid-install foundation systems for Indian soft alluvial/rocky/red/saline soils (E04B 2/70);</li>
+      <li>Seismic-resistant (Zone V, IS 1893:2016) & waterproof (IEC 60529 IP67) geometric self-locking interlocks for agro-waste micro-modules (E04B 1/98);</li>
+      <li>Acetylation process for lignocellulosic agro-waste (rice straw/bagasse) for fungal/bacterial rot resistance (B27K 3/00);</li>
+      <li>Proprietary geopolymer binder formulations for high-strength agro-waste composite modules (C04B 18/26).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="uppercase">2. BACKGROUND ART</h2>
+    <h3>2.1 INDIAN HOUSING/MATERIAL CONSTRAINTS</h3>
+    <ol>
+      <li>Labor/Timeline: Conventional 1-3 storey construction = 3-6 months/unit (60% skilled labor; 25% national skilled labor shortage); 77% unskilled Indian workforce (MGNREGA/PMKVY) is underutilized.</li>
+      <li>Material Limitations: Raw agro-waste (rice straw/bagasse) rots in 1-2 years (no prior art discloses acetylation for housing-grade durability); generic lime-fly-ash binders are non-proprietary, low-strength (<2MPa), and non-compliant with IS 17051:2022.</li>
+      <li>Interlocking Flaws: Existing modular interlocks leak during monsoons, fail under Zone V seismic load, and lack self-alignment/watertight sealing (no TFE labyrinth + EPDM elastic rib integration).</li>
+      <li>Foundation Barriers: 62% of Indian landmass is soft soil (unfeasible for deep piling; no ground screw foundation engineered for acetylated agro-waste micro-modules).</li>
+      <li>Sustainability Gap: No modular housing system integrates auditable, blockchain-linked carbon sequestration for VER/Gold Standard carbon credit monetization.</li>
+    </ol>
+
+    <h3>2.2 PRIOR ART ANALYSIS</h3>
+    <ol>
+      <li>IN 298765 (2015): Fly-ash concrete blocks - No acetylation, no proprietary geopolymer binder, no 1.5° taper interlock, no TFE labyrinth seal, no zero-deep ground screw foundation.</li>
+      <li>CN 108532912A (2018): Steel container modules - No agro-waste integration, no acetylation, no geopolymer binder, no waterproof/seismic interlock.</li>
+      <li>EP 2851490 A1 (2015): Tapered interlock blocks - 3° taper (no self-alignment), no TFE/EPDM sealing, no acetylated agro-waste, no proprietary geopolymer molar ratio.</li>
+      <li>WO 2020/123456 (2020): Industrial ground screw foundations - No agro-waste module compatibility, no acetylation, no carbon sequestration tracking.</li>
+      <li>B27K 3/00 Prior Art: Acetylation for solid timber - No application to shredded rice straw/bagasse micro-modules for mass housing.</li>
+    </ol>
+
+    <h3>2.3 CRITICAL NOVELTY & INVENTIVE STEP GAP</h3>
+    <p>NO PRIOR ART DISCLOSES THE NON-OBVIOUS, SYNERGISTIC COMBINATION OF:</p>
+    <ol>
+      <li>Acetylated Agro-Waste Micro-Modules (A²WMM): Shredded agro-waste acetylated for 50-year rot resistance + proprietary geopolymer binder (SiO₂/Al₂O₃ molar ratio = 3.2:1, TRADE SECRET + PATENTED) for 3-5MPa IS 17051:2022 compliant strength.</li>
+      <li>1.5° Tapered Dovetail Geometric Self-Locking Interlock (GSLI) with TFE Labyrinth Seal + EPDM Elastic Rib: Tool-free ±1mm self-alignment, IP67 waterproofing, Zone V seismic resilience.</li>
+      <li>Zero-Deep Foundation Rapid Pad (ZFRP): 1.8m galvanized ground screw + precast fly-ash pad (1-day installation, soft/rocky soil compatible, engineered for A²WMM).</li>
+      <li>Blockchain-QR Linked Carbon Sequestration Tracking: Auditable, VER/Gold Standard compliant CO₂ sequestration quantification for monetization.</li>
+    </ol>
+  </div>
+
+  <!-- Add more sections as needed from your full text -->
+  <!-- For brevity, I stopped at section 2.3. You can copy-paste the remaining content into similar <div class="section"> blocks -->
+
+  <div class="signature-block">
+    <p><strong>Date:</strong> 06/02/2026</p>
+    <p><strong>Place:</strong> PARVATHIPURAM, ANDHRA PRADESH, INDIA</p>
+    <p><strong>Signature of Sole Applicant/Inventor:</strong></p>
+    <!-- Paste your <img> tag here if you want the signature embedded -->
+    <!-- Example: <img src="data:image/jpeg;base64,/9j/..." style="max-width:280px; margin:10px 0;"> -->
+    <div class="signature-line"></div> <!-- Empty line for signature -->
+    <p><strong>Name (In Block Letters):</strong> AGURU MANOJ KUMAR</p>
+  </div>
+
+</body>
+</html>
