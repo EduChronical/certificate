@@ -87,112 +87,127 @@
 <body>
     <div class="patent-sheet">
         <svg viewBox="0 0 600 850" xmlns="http://www.w3.org/2000/svg">
-            <!-- SCALE -->
+            <!-- SINGLE SCALE INDICATOR -->
             <text class="txt" x="300" y="200" text-anchor="middle">Scale 2:1</text>
             
             <!-- MAIN MODULE -->
             <!-- Front face -->
-            <rect x="200" y="450" width="300" height="150" class="l1"/>
+            <rect x="220" y="450" width="300" height="150" class="l1"/>
             
             <!-- Top face -->
-            <path class="l1" d="M 200 450 L 350 300 L 650 300 L 500 450 Z"/>
+            <path class="l1" d="M 220 450 L 370 300 L 670 300 L 520 450 Z"/>
             
             <!-- Right face -->
-            <path class="l1" d="M 500 450 L 650 300 L 650 450 L 500 600 Z"/>
+            <path class="l1" d="M 520 450 L 670 300 L 670 450 L 520 600 Z"/>
             
             <!-- Inner cavity (hollow) -->
-            <rect x="240" y="480" width="220" height="90" class="l2"/>
-            <line class="l2" x1="240" y1="480" x2="200" y2="450"/>
-            <line class="l2" x1="460" y1="480" x2="500" y2="450"/>
-            <line class="l2" x1="240" y1="570" x2="200" y2="600"/>
-            <line class="l2" x1="460" y1="570" x2="500" y2="600"/>
+            <rect x="260" y="480" width="220" height="90" class="l2"/>
+            <line class="l2" x1="260" y1="480" x2="220" y2="450"/>
+            <line class="l2" x1="480" y1="480" x2="520" y2="450"/>
+            <line class="l2" x1="260" y1="570" x2="220" y2="600"/>
+            <line class="l2" x1="480" y1="570" x2="520" y2="600"/>
             
             <!-- MALE DOVETAIL (Left) -->
-            <path class="l1" d="M 200 450 L 170 465 L 170 585 L 200 600"/>
-            <path class="l2" d="M 170 465 L 155 470 L 155 580 L 170 585"/>
+            <path class="l1" d="M 220 450 L 190 465 L 190 585 L 220 600"/>
+            <path class="l2" d="M 190 465 L 175 470 L 175 580 L 190 585"/>
             
             <!-- EPDM rib -->
-            <rect x="140" y="490" width="15" height="70" class="l2"/>
+            <rect x="160" y="490" width="15" height="70" class="l2"/>
             
             <!-- Pin hole -->
-            <circle cx="147" cy="525" r="5" class="l2"/>
+            <circle cx="167" cy="525" r="5" class="l2"/>
             
             <!-- FEMALE SLOT (Right) -->
-            <rect x="650" y="480" width="30" height="90" class="l1"/>
+            <rect x="670" y="480" width="30" height="90" class="l1"/>
             
             <!-- TFE seal -->
-            <path class="l2" d="M 650 495 L 660 495 L 660 505 L 650 505"/>
-            <path class="l2" d="M 650 545 L 660 545 L 660 535 L 650 535"/>
+            <path class="l2" d="M 670 495 L 680 495 L 680 505 L 670 505"/>
+            <path class="l2" d="M 670 545 L 680 545 L 680 535 L 670 535"/>
             
             <!-- Pin groove -->
-            <circle cx="665" cy="525" r="3" class="l2"/>
+            <circle cx="685" cy="525" r="3" class="l2"/>
             
             <!-- UTILITY CHANNELS -->
-            <line class="dash" x1="240" y1="525" x2="460" y2="525"/>
-            <line class="dash" x1="350" y1="480" x2="350" y2="570"/>
-            <circle cx="350" cy="525" r="8" class="l2"/>
+            <line class="dash" x1="260" y1="525" x2="480" y2="525"/>
+            <line class="dash" x1="370" y1="480" x2="370" y2="570"/>
+            <circle cx="370" cy="525" r="8" class="l2"/>
             
             <!-- FOLD HINGE -->
-            <line class="l2" x1="270" y1="480" x2="270" y2="570"/>
+            <line class="l2" x1="290" y1="480" x2="290" y2="570"/>
             
             <!-- Fold arrow -->
-            <line class="l2" x1="270" y1="460" x2="270" y2="470"/>
-            <polygon points="270,475 265,465 275,465" fill="black"/>
+            <line class="l2" x1="290" y1="460" x2="290" y2="470"/>
+            <polygon points="290,475 285,465 295,465" fill="black"/>
             
             <!-- FOLDED POSITION -->
-            <path class="dash" d="M 200 650 L 500 650 L 500 670 L 200 670 Z"/>
-            <line class="l3" x1="200" y1="680" x2="500" y2="680"/>
-            <line class="l3" x1="200" y1="675" x2="200" y2="685"/>
-            <line class="l3" x1="500" y1="675" x2="500" y2="685"/>
-            <text class="txt" x="350" y="700" text-anchor="middle">Folded 20mm (4:1 nesting)</text>
+            <path class="dash" d="M 220 650 L 520 650 L 520 670 L 220 670 Z"/>
             
-            <!-- QR TAG -->
-            <rect x="520" y="320" width="30" height="30" class="l1"/>
-            <rect x="525" y="325" width="20" height="20" class="l2"/>
-            <rect x="530" y="330" width="10" height="10" fill="black"/>
+            <!-- ============================================ -->
+            <!-- DIMENSIONS - ALL OUTSIDE, NO OVERLAP -->
+            <!-- ============================================ -->
+            
+            <!-- 150mm width - BELOW -->
+            <line class="l3" x1="220" y1="630" x2="520" y2="630"/>
+            <line class="l3" x1="220" y1="625" x2="220" y2="635"/>
+            <line class="l3" x1="520" y1="625" x2="520" y2="635"/>
+            <text class="txt" x="370" y="645" text-anchor="middle">150</text>
+            
+            <!-- 75mm height - FAR LEFT -->
+            <line class="l3" x1="140" y1="450" x2="140" y2="600"/>
+            <line class="l3" x1="135" y1="450" x2="145" y2="450"/>
+            <line class="l3" x1="135" y1="600" x2="145" y2="600"/>
+            <text class="txt" x="125" y="530" text-anchor="middle">75</text>
+            
+            <!-- 20mm wall thickness - BELOW with leader -->
+            <line class="l3" x1="260" y1="590" x2="280" y2="590"/>
+            <line class="l3" x1="260" y1="585" x2="260" y2="595"/>
+            <line class="l3" x1="280" y1="585" x2="280" y2="595"/>
+            <line class="l3" x1="270" y1="590" x2="270" y2="610"/>
+            <text class="txt" x="270" y="625" text-anchor="middle">20</text>
+            
+            <!-- 20mm folded height -->
+            <line class="l3" x1="220" y1="690" x2="520" y2="690"/>
+            <line class="l3" x1="220" y1="685" x2="220" y2="695"/>
+            <line class="l3" x1="520" y1="685" x2="520" y2="695"/>
+            <text class="txt" x="370" y="710" text-anchor="middle">Folded 20mm (4:1 nesting)</text>
             
             <!-- 1.5° TAPER -->
-            <path class="l2" d="M 170 465 A 30 30 0 0 1 200 450"/>
-            <line class="l3" x1="170" y1="465" x2="140" y2="440"/>
-            <text class="txt" x="125" y="435">1.5°</text>
+            <path class="l2" d="M 190 465 A 30 30 0 0 1 220 450"/>
+            <line class="l3" x1="190" y1="465" x2="160" y2="440"/>
+            <text class="txt" x="145" y="435">1.5°</text>
             
-            <!-- DIMENSIONS - ALL OUTSIDE -->
-            <!-- 150mm width -->
-            <line class="l3" x1="200" y1="630" x2="500" y2="630"/>
-            <line class="l3" x1="200" y1="625" x2="200" y2="635"/>
-            <line class="l3" x1="500" y1="625" x2="500" y2="635"/>
-            <text class="txt" x="350" y="645" text-anchor="middle">150</text>
+            <!-- ============================================ -->
+            <!-- QR TAG -->
+            <!-- ============================================ -->
+            <rect x="540" y="320" width="30" height="30" class="l1"/>
+            <rect x="545" y="325" width="20" height="20" class="l2"/>
+            <rect x="550" y="330" width="10" height="10" fill="black"/>
             
-            <!-- 75mm height -->
-            <line class="l3" x1="180" y1="450" x2="180" y2="600"/>
-            <line class="l3" x1="175" y1="450" x2="185" y2="450"/>
-            <line class="l3" x1="175" y1="600" x2="185" y2="600"/>
-            <text class="txt" x="165" y="530" text-anchor="middle">75</text>
+            <!-- ============================================ -->
+            <!-- LABELS - CLEAR LEADERS, NO CROSSING -->
+            <!-- ============================================ -->
             
-            <!-- 20mm wall thickness -->
-            <line class="l3" x1="240" y1="590" x2="260" y2="590"/>
-            <line class="l3" x1="240" y1="585" x2="240" y2="595"/>
-            <line class="l3" x1="260" y1="585" x2="260" y2="595"/>
-            <text class="txt" x="250" y="610" text-anchor="middle">20</text>
+            <!-- Male GSLI - from left, clear of 75mm dimension -->
+            <line class="l3" x1="167" y1="525" x2="100" y2="525"/>
+            <text class="txt" x="90" y="520" text-anchor="end">Male GSLI</text>
+            <text class="txt" x="90" y="535" text-anchor="end">(1mm EPDM)</text>
             
-            <!-- LABELS -->
-            <text class="txt" x="350" y="280" text-anchor="middle">A²WMM Module (150×150×75mm)</text>
+            <!-- Female GSLI - from right -->
+            <line class="l3" x1="685" y1="525" x2="750" y2="525"/>
+            <text class="txt" x="760" y="520" text-anchor="start">Female GSLI</text>
+            <text class="txt" x="760" y="535" text-anchor="start">(0.5mm TFE)</text>
             
-            <!-- Male GSLI -->
-            <line class="l3" x1="147" y1="525" x2="100" y2="525"/>
-            <text class="txt" x="80" y="520" text-anchor="end">Male GSLI</text>
-            <text class="txt" x="80" y="535" text-anchor="end">(1mm EPDM)</text>
+            <!-- Channels - from bottom, no crossing -->
+            <line class="l3" x1="370" y1="570" x2="370" y2="750"/>
+            <text class="txt" x="370" y="770" text-anchor="middle">20mm PEX / 16mm Cu Channels</text>
             
-            <!-- Female GSLI -->
-            <line class="l3" x1="665" y1="525" x2="720" y2="525"/>
-            <text class="txt" x="740" y="520" text-anchor="start">Female GSLI</text>
-            <text class="txt" x="740" y="535" text-anchor="start">(0.5mm TFE)</text>
+            <!-- Module title -->
+            <text class="txt" x="445" y="280" text-anchor="middle">A²WMM Module</text>
+            <text class="txt" x="445" y="295" text-anchor="middle">(150×150×75mm)</text>
             
-            <!-- Channels -->
-            <line class="l3" x1="350" y1="525" x2="350" y2="750"/>
-            <text class="txt" x="350" y="770" text-anchor="middle">20mm PEX / 16mm Cu Channels</text>
-            
-            <!-- TITLE -->
+            <!-- ============================================ -->
+            <!-- TITLE - BOTTOM CENTER -->
+            <!-- ============================================ -->
             <text class="tit" x="300" y="820" text-anchor="middle">Fig.1 – Isometric View of Acetylated Agro-Waste Micro-Module (A²WMM)</text>
         </svg>
     </div>
