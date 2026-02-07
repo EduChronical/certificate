@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fig.1 - A²WMM Isometric View</title>
+    <title>Fig.1 - A²WMM Isometric View - Patent Drawing</title>
     <style>
         * {
             margin: 0;
@@ -11,28 +11,36 @@
             box-sizing: border-box;
         }
         
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+        
         body {
-            background: white;
-            font-family: "Times New Roman", Times, serif;
+            background: #f0f0f0;
+            font-family: "Arial", "Helvetica", sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px;
         }
         
-        .patent-container {
+        .patent-sheet {
             width: 210mm;
             height: 297mm;
             background: white;
             position: relative;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            padding: 25mm;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            padding: 20mm;
+            overflow: hidden;
         }
         
-        .drawing-area {
+        .drawing-frame {
             width: 100%;
             height: 100%;
+            border: 0.5pt solid #ccc;
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -40,262 +48,282 @@
         }
         
         svg {
-            width: 100%;
-            height: auto;
-            max-height: 240mm;
+            width: 170mm;
+            height: 240mm;
         }
         
-        /* Patent line styles */
-        .main-line {
-            stroke: black;
+        /* Patent line styles - STRICT IPO COMPLIANT */
+        .line-main {
+            stroke: #000000;
             stroke-width: 1.2;
             fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
         }
         
-        .thin-line {
-            stroke: black;
+        .line-thin {
+            stroke: #000000;
             stroke-width: 0.8;
             fill: none;
         }
         
-        .dashed-line {
-            stroke: black;
-            stroke-width: 0.9;
-            fill: none;
-            stroke-dasharray: 8, 6;
-        }
-        
-        .leader-line {
-            stroke: black;
+        .line-hidden {
+            stroke: #000000;
             stroke-width: 0.6;
             fill: none;
+            stroke-dasharray: 4, 4;
         }
         
-        .label-text {
-            font-family: Arial, sans-serif;
+        .line-dashed {
+            stroke: #000000;
+            stroke-width: 0.9;
+            fill: none;
+            stroke-dasharray: 6, 4;
+        }
+        
+        .line-leader {
+            stroke: #000000;
+            stroke-width: 0.7;
+            fill: none;
+        }
+        
+        .text-label {
+            font-family: "Arial", sans-serif;
             font-size: 9pt;
-            fill: black;
+            fill: #000000;
             text-anchor: middle;
+            font-weight: normal;
         }
         
-        .label-bold {
-            font-family: Arial, sans-serif;
-            font-size: 11pt;
+        .text-title-main {
+            font-family: "Arial", sans-serif;
+            font-size: 12pt;
+            fill: #000000;
+            text-anchor: middle;
             font-weight: bold;
-            fill: black;
-            text-anchor: middle;
         }
         
-        .title-text {
-            font-family: Arial, sans-serif;
+        .text-title-bottom {
+            font-family: "Arial", sans-serif;
             font-size: 11pt;
+            fill: #000000;
+            text-anchor: middle;
             font-weight: bold;
-            fill: black;
+        }
+        
+        .text-dim {
+            font-family: "Arial", sans-serif;
+            font-size: 8pt;
+            fill: #000000;
             text-anchor: middle;
         }
         
-        .qr-fill {
-            fill: black;
+        .qr-cell {
+            fill: #000000;
         }
         
-        /* Print optimization */
+        .qr-empty {
+            fill: none;
+        }
+        
         @media print {
             body {
                 background: white;
                 padding: 0;
             }
             
-            .patent-container {
+            .patent-sheet {
                 box-shadow: none;
                 width: 210mm;
                 height: 297mm;
-                padding: 25mm;
+                padding: 20mm;
                 page-break-after: always;
             }
             
-            @page {
-                size: A4;
-                margin: 0;
+            .drawing-frame {
+                border: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="patent-container">
-        <div class="drawing-area">
-            <svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
-                <!-- Definitions for arrows -->
+    <div class="patent-sheet">
+        <div class="drawing-frame">
+            <svg viewBox="0 0 600 850" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
-                        <polygon points="0 0, 6 2, 0 4" fill="black"/>
+                    <!-- Arrowhead marker for leader lines -->
+                    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                        <path d="M 0 0 L 8 3 L 0 6 Z" fill="black"/>
                     </marker>
                 </defs>
                 
-                <!-- Isometric projection constants -->
+                <!-- ISOMETRIC PROJECTION SETUP -->
+                <!-- Center reference: X=300, Y=450 -->
                 <!-- Scale: 2px = 1mm -->
-                <!-- Module: 150mm x 150mm x 75mm = 300px x 300px x 150px -->
-                <!-- Isometric angle: 30 degrees -->
+                <!-- Module: 150mm(W) x 150mm(D) x 75mm(H) = 300px x 300px x 150px -->
+                <!-- Isometric angles: 30° from horizontal -->
                 
-                <!-- Center point -->
-                <!-- Center X: 300, Center Y: 400 -->
+                <!-- 
+                Isometric coordinate calculation:
+                - X axis: 30° up-right (cos 30° = 0.866, sin 30° = 0.5)
+                - Z axis: 30° up-left 
+                - Y axis: vertical
+                -->
                 
                 <!-- MAIN MODULE BODY - Isometric Rectangular Prism -->
-                <!-- Front face vertices -->
-                <!-- Bottom front left: (150, 475) -->
-                <!-- Bottom front right: (450, 475) -->
-                <!-- Top front right: (450, 325) -->
-                <!-- Top front left: (150, 325) -->
+                <!-- Front Face (facing viewer) -->
+                <!-- Bottom-Left: (150, 525), Bottom-Right: (450, 525) -->
+                <!-- Top-Left: (150, 375), Top-Right: (450, 375) -->
                 
-                <!-- Top face vertices -->
-                <!-- Top back left: (75, 250) -->
-                <!-- Top back right: (375, 250) -->
+                <!-- Top Face (tilted back) -->
+                <!-- Back-Left: (75, 300), Back-Right: (375, 300) -->
                 
-                <!-- Right face vertices -->
-                <!-- Bottom back right: (375, 400) -->
+                <!-- Right Face (tilted right) -->
+                <!-- Bottom-Back: (525, 450), Top-Back: (525, 300) -->
                 
-                <!-- FRONT FACE -->
-                <path class="main-line" d="M 150 475 L 450 475 L 450 325 L 150 325 Z"/>
+                <!-- VISIBLE FACES -->
+                <!-- Front Face -->
+                <path class="line-main" d="M 150 525 L 450 525 L 450 375 L 150 375 Z"/>
                 
-                <!-- TOP FACE -->
-                <path class="main-line" d="M 150 325 L 450 325 L 375 250 L 75 250 Z"/>
+                <!-- Top Face -->
+                <path class="line-main" d="M 150 375 L 450 375 L 375 300 L 75 300 Z"/>
                 
-                <!-- RIGHT FACE -->
-                <path class="main-line" d="M 450 475 L 525 400 L 525 250 L 450 325"/>
-                <path class="main-line" d="M 525 400 L 375 400"/>
-                <path class="main-line" d="M 375 250 L 375 400"/>
+                <!-- Right Face -->
+                <path class="line-main" d="M 450 525 L 525 450 L 525 300 L 450 375"/>
                 
-                <!-- Hidden edges (back) - thin lines -->
-                <path class="thin-line" d="M 75 250 L 150 325" style="opacity: 0.3;"/>
-                <path class="thin-line" d="M 75 250 L 75 400" style="opacity: 0.3;"/>
-                <path class="thin-line" d="M 75 400 L 150 475" style="opacity: 0.3;"/>
-                <path class="thin-line" d="M 75 400 L 375 400" style="opacity: 0.3;"/>
+                <!-- HIDDEN LINES (Back edges) -->
+                <path class="line-hidden" d="M 75 300 L 150 375"/>
+                <path class="line-hidden" d="M 75 300 L 75 450"/>
+                <path class="line-hidden" d="M 75 450 L 150 525"/>
+                <path class="line-hidden" d="M 75 450 L 525 450"/>
                 
-                <!-- 1.5° TAPERED DOVETAIL GSLI -->
+                <!-- 1.5° TAPERED DOVETAIL GSLI - LEFT SIDE (Male) -->
+                <!-- Extends from left edge of front face -->
+                <!-- Full height 75mm (150px), Base width 12mm (24px), Tip width 10mm (20px) -->
+                <!-- 1.5° taper over 75mm height = ~2mm width difference -->
                 
-                <!-- LEFT SIDE - Male Dovetail (Protruding left) -->
-                <!-- Base: 12mm (24px), Tip: 10mm (20px), Height: 75mm (150px) -->
-                <!-- Taper angle: 1.5° (subtle) -->
-                <!-- Attached to left edge of front face -->
+                <!-- Male dovetail geometry -->
+                <!-- Base attached to module: X=150 -->
+                <!-- Tip outer edge: X=126 (24px wide at base), X=130 (20px wide at tip) -->
+                <!-- Taper: 1.5° angle -->
                 
-                <!-- Male dovetail points -->
-                <!-- Top outer: (126, 325) -->
-                <!-- Bottom outer: (126, 475) -->
-                <!-- Tip top: (110, 335) -->
-                <!-- Tip bottom: (110, 465) -->
+                <path class="line-main" d="M 150 375 L 126 375 L 110 380"/>
+                <path class="line-main" d="M 150 525 L 126 525 L 110 520"/>
+                <path class="line-main" d="M 110 380 L 110 520"/>
+                <path class="line-main" d="M 126 375 L 126 525"/>
                 
-                <path class="main-line" d="M 150 325 L 126 325 L 110 335 L 110 465 L 126 475 L 150 475"/>
-                <!-- Top taper line -->
-                <path class="main-line" d="M 126 325 L 110 335"/>
-                <!-- Bottom taper line -->
-                <path class="main-line" d="M 126 475 L 110 465"/>
+                <!-- Taper edges (1.5° visible as slight angle) -->
+                <path class="line-main" d="M 126 375 L 110 380"/>
+                <path class="line-main" d="M 126 525 L 110 520"/>
                 
-                <!-- RIGHT SIDE - Female Dovetail Slot (Recessed) -->
-                <!-- Opening: 12mm (24px), Inner: 10mm (20px), Depth: 8mm (16px) -->
+                <!-- 1.5° TAPERED DOVETAIL GSLI - RIGHT SIDE (Female Slot) -->
                 <!-- Recessed into right face -->
+                <!-- Opening: 12mm (24px), Inner: 10mm (20px), Depth: 8mm (16px) -->
                 
-                <!-- Slot opening on right face edge -->
-                <!-- Positioned on the right edge extension -->
-                <path class="main-line" d="M 525 340 L 541 340"/>
-                <path class="main-line" d="M 525 410 L 541 410"/>
-                <path class="main-line" d="M 541 340 L 541 410"/>
-                <!-- Inner slot lines (recessed) -->
-                <path class="thin-line" d="M 541 345 L 533 348"/>
-                <path class="thin-line" d="M 541 405 L 533 402"/>
-                <path class="thin-line" d="M 533 348 L 533 402"/>
+                <!-- Female slot on right face -->
+                <!-- Position: Centered on right face vertical edge -->
+                <path class="line-main" d="M 525 405 L 541 405"/>
+                <path class="line-main" d="M 525 465 L 541 465"/>
+                <path class="line-main" d="M 541 405 L 541 465"/>
                 
-                <!-- Connection to main body -->
-                <path class="main-line" d="M 525 340 L 525 410"/>
+                <!-- Inner recess lines (hidden style for depth) -->
+                <path class="line-thin" d="M 541 408 L 533 410"/>
+                <path class="line-thin" d="M 541 462 L 533 460"/>
+                <path class="line-thin" d="M 533 410 L 533 460"/>
+                
+                <!-- Slot bottom (recessed back) -->
+                <path class="line-thin" d="M 533 410 L 525 412"/>
+                <path class="line-thin" d="M 533 460 L 525 458"/>
                 
                 <!-- PRE-FORMED UTILITY CHANNEL -->
                 <!-- Horizontal dashed line on front face -->
                 <!-- Centered, length 100mm (200px) -->
-                <!-- Y position: Center of front face = 400 -->
-                <!-- X start: 200, X end: 400 -->
-                <line class="dashed-line" x1="200" y1="400" x2="400" y2="400"/>
+                <!-- Y position: Center of front face = 450 -->
+                <line class="line-dashed" x1="200" y1="450" x2="400" y2="450"/>
                 
                 <!-- FOLD HINGE -->
-                <!-- Vertical line on front face, left of center (40% from left) -->
+                <!-- Vertical line on front face, left-of-center (40% from left) -->
                 <!-- X position: 150 + (300 * 0.4) = 270 -->
-                <line class="thin-line" x1="270" y1="325" x2="270" y2="475"/>
+                <line class="line-thin" x1="270" y1="375" x2="270" y2="525"/>
+                
+                <!-- Hinge detail marks (small horizontal ticks) -->
+                <line class="line-thin" x1="265" y1="400" x2="275" y2="400"/>
+                <line class="line-thin" x1="265" y1="500" x2="275" y2="500"/>
                 
                 <!-- QR CARBON SEQUESTRATION TAG -->
                 <!-- Top-right corner of top face -->
                 <!-- Size: 15mm x 15mm (30px x 30px) -->
-                <!-- Position: Near top-right of top face -->
+                <!-- Position: Offset from top-right corner of top face -->
                 
                 <!-- QR Square border -->
-                <rect class="main-line" x="420" y="260" width="30" height="30"/>
+                <rect class="line-main" x="390" y="270" width="30" height="30"/>
                 
-                <!-- 4x4 Grid lines -->
-                <!-- Vertical grid lines -->
-                <line class="thin-line" x1="427.5" y1="260" x2="427.5" y2="290"/>
-                <line class="thin-line" x1="435" y1="260" x2="435" y2="290"/>
-                <line class="thin-line" x1="442.5" y1="260" x2="442.5" y2="290"/>
+                <!-- 4x4 Grid - minimal lines -->
+                <!-- Vertical -->
+                <line class="line-thin" x1="397.5" y1="270" x2="397.5" y2="300"/>
+                <line class="line-thin" x1="405" y1="270" x2="405" y2="300"/>
+                <line class="line-thin" x1="412.5" y1="270" x2="412.5" y2="300"/>
                 
-                <!-- Horizontal grid lines -->
-                <line class="thin-line" x1="420" y1="267.5" x2="450" y2="267.5"/>
-                <line class="thin-line" x1="420" y1="275" x2="450" y2="275"/>
-                <line class="thin-line" x1="420" y1="282.5" x2="450" y2="282.5"/>
+                <!-- Horizontal -->
+                <line class="line-thin" x1="390" y1="277.5" x2="420" y2="277.5"/>
+                <line class="line-thin" x1="390" y1="285" x2="420" y2="285"/>
+                <line class="line-thin" x1="390" y1="292.5" x2="420" y2="292.5"/>
                 
-                <!-- Filled cells (minimal pattern - corners and center) -->
-                <!-- Top-left corner -->
-                <rect class="qr-fill" x="420" y="260" width="7.5" height="7.5"/>
-                <!-- Top-right corner -->
-                <rect class="qr-fill" x="442.5" y="260" width="7.5" height="7.5"/>
-                <!-- Bottom-left corner -->
-                <rect class="qr-fill" x="420" y="282.5" width="7.5" height="7.5"/>
-                <!-- Bottom-right corner -->
-                <rect class="qr-fill" x="442.5" y="282.5" width="7.5" height="7.5"/>
+                <!-- Filled cells - minimal pattern (6 cells) -->
+                <!-- Top-left -->
+                <rect class="qr-cell" x="390" y="270" width="7.5" height="7.5"/>
+                <!-- Top-right -->
+                <rect class="qr-cell" x="412.5" y="270" width="7.5" height="7.5"/>
+                <!-- Bottom-left -->
+                <rect class="qr-cell" x="390" y="292.5" width="7.5" height="7.5"/>
+                <!-- Bottom-right -->
+                <rect class="qr-cell" x="412.5" y="292.5" width="7.5" height="7.5"/>
                 <!-- Center -->
-                <rect class="qr-fill" x="435" y="275" width="7.5" height="7.5"/>
-                <!-- Additional pattern cell -->
-                <rect class="qr-fill" x="427.5" y="267.5" width="7.5" height="7.5"/>
+                <rect class="qr-cell" x="405" y="285" width="7.5" height="7.5"/>
+                <!-- One additional for pattern -->
+                <rect class="qr-cell" x="397.5" y="277.5" width="7.5" height="7.5"/>
                 
-                <!-- LABELS AND LEADER LINES -->
+                <!-- LABELS WITH LEADER LINES -->
                 
-                <!-- Main Title -->
-                <text class="label-bold" x="300" y="180">A²WMM Module</text>
+                <!-- Main Title - Centered above -->
+                <text class="text-title-main" x="300" y="220">A²WMM Module</text>
                 
                 <!-- 1.5° Taper GSLI Label -->
-                <text class="label-text" x="80" y="400">1.5° Taper GSLI</text>
-                <!-- Leader line -->
-                <line class="leader-line" x1="130" y1="400" x2="110" y2="400" marker-end="url(#arrowhead)"/>
+                <text class="text-label" x="80" y="450">1.5° Taper GSLI</text>
+                <!-- Leader line with arrow -->
+                <line class="line-leader" x1="130" y1="450" x2="110" y2="450" marker-end="url(#arrow)"/>
                 
                 <!-- Utility Channel Label -->
-                <text class="label-text" x="300" y="520">Utility Channel</text>
+                <text class="text-label" x="300" y="580">Utility Channel</text>
                 <!-- Leader line -->
-                <line class="leader-line" x1="300" y1="515" x2="300" y2="405" marker-end="url(#arrowhead)"/>
+                <line class="line-leader" x1="300" y1="575" x2="300" y2="455" marker-end="url(#arrow)"/>
                 
                 <!-- Fold Hinge Label -->
-                <text class="label-text" x="220" y="350">Fold Hinge</text>
+                <text class="text-label" x="220" y="330">Fold Hinge</text>
                 <!-- Leader line -->
-                <line class="leader-line" x1="265" y1="350" x2="270" y2="350" marker-end="url(#arrowhead)"/>
+                <line class="line-leader" x1="265" y1="335" x2="270" y2="375" marker-end="url(#arrow)"/>
                 
                 <!-- QR Carbon Tag Label -->
-                <text class="label-text" x="435" y="230">QR Carbon Tag</text>
+                <text class="text-label" x="435" y="250">QR Carbon Tag</text>
                 <!-- Leader line -->
-                <line class="leader-line" x1="435" y1="235" x2="435" y2="260" marker-end="url(#arrowhead)"/>
+                <line class="line-leader" x1="420" y1="255" x2="405" y2="270" marker-end="url(#arrow)"/>
                 
-                <!-- Dimension annotations -->
-                <text class="label-text" x="300" y="550" style="font-size: 8pt;">150 × 150 × 75 mm</text>
+                <!-- Dimension annotation -->
+                <text class="text-dim" x="300" y="560">150 × 150 × 75 mm</text>
                 
-                <!-- Bottom Title -->
-                <text class="title-text" x="300" y="720">Fig.1 – Isometric View of Acetylated Agro-Waste Micro-Module (A²WMM)</text>
+                <!-- Bottom Title - Patent standard -->
+                <text class="text-title-bottom" x="300" y="750">Fig.1 – Isometric View of Acetylated Agro-Waste Micro-Module (A²WMM)</text>
                 
-                <!-- Optional: Reference numbers for patent claims -->
-                <text class="label-text" x="60" y="750" style="font-size: 7pt; text-anchor: start;">10: Module Body | 20: GSLI | 30: Utility Channel | 40: Fold Hinge | 50: QR Tag</text>
+                <!-- Reference numerals (optional, for complete specification) -->
+                <text class="text-dim" x="300" y="780" style="font-size: 7pt;">10: Module Body | 20: GSLI | 30: Utility Channel | 40: Fold Hinge | 50: QR Tag</text>
+                
             </svg>
         </div>
     </div>
     
     <script>
-        // Auto-print dialog for PDF generation
-        window.onload = function() {
-            // Uncomment the line below to auto-trigger print dialog on load
-            // window.print();
-        };
+        // Auto-print for PDF generation (optional)
+        // window.onload = function() { window.print(); }
     </script>
 </body>
 </html>
