@@ -107,25 +107,31 @@
     <div class="patent-sheet">
         <svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
             <defs>
+                <!-- Galvanized Steel: 45° diagonal -->
                 <pattern id="hatchSteel" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
                     <line x1="0" y1="0" x2="0" y2="8" stroke="black" stroke-width="0.5"/>
                 </pattern>
                 
+                <!-- TFE: 30° diagonal, fine -->
                 <pattern id="hatchTfe" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(30)">
                     <line x1="0" y1="0" x2="0" y2="3" stroke="black" stroke-width="0.3"/>
                 </pattern>
                 
+                <!-- EPDM: 60° diagonal, fine -->
                 <pattern id="hatchEpdm" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(60)">
                     <line x1="0" y1="0" x2="0" y2="3" stroke="black" stroke-width="0.3"/>
                 </pattern>
                 
+                <!-- 304 SS: Cross-hatch -->
                 <pattern id="hatchSS" patternUnits="userSpaceOnUse" width="4" height="4">
                     <line x1="0" y1="0" x2="4" y2="4" stroke="black" stroke-width="0.3"/>
                     <line x1="4" y1="0" x2="0" y2="4" stroke="black" stroke-width="0.3"/>
                 </pattern>
             </defs>
             
-            <!-- CLEAN DRAWING - NO REFERENCE NUMBERS ON DIAGRAM -->
+            <!-- ============================================ -->
+            <!-- CLEAN DRAWING - NO REFERENCE NUMBERS -->
+            <!-- ============================================ -->
             
             <!-- Female Slot -->
             <path class="line-thick" d="M 180 480 L 320 480 L 320 320 L 180 320 Z"/>
@@ -165,13 +171,16 @@
             <rect x="319" y="390" width="3" height="20" fill="url(#hatchSS)"/>
             <rect x="330" y="390" width="3" height="20" fill="url(#hatchSS)"/>
             
-            <!-- CLEAR 1.5° ANGLE INDICATION -->
-            <!-- Angle arc and leader line -->
-            <path class="line-thin" d="M 460 480 A 50 50 0 0 1 460 320"/>
-            <line class="line-leader" x1="465" y1="400" x2="500" y2="400"/>
-            <text class="text-small" x="520" y="405">1.5° taper</text>
+            <!-- ============================================ -->
+            <!-- 1.5° TAPER ANGLE - CLEAR ARC -->
+            <!-- ============================================ -->
+            <path class="line-thin" d="M 460 480 A 60 60 0 0 1 460 320"/>
+            <line class="line-leader" x1="470" y1="400" x2="520" y2="400"/>
+            <text class="text-small" x="555" y="405">1.5° taper</text>
             
+            <!-- ============================================ -->
             <!-- DIMENSIONS - CLEAN, SEPARATED -->
+            <!-- ============================================ -->
             
             <!-- Width 150mm -->
             <line class="line-dim" x1="180" y1="510" x2="460" y2="510"/>
@@ -185,33 +194,39 @@
             <line class="line-dim" x1="150" y1="480" x2="160" y2="480"/>
             <text class="text-small" x="140" y="405">75 mm</text>
             
-            <!-- COMPONENT LABELS - CLEAR LEADERS -->
+            <!-- ============================================ -->
+            <!-- COMPONENT LABELS - FAR FROM DRAWING -->
+            <!-- ============================================ -->
             
             <!-- Female Slot -->
-            <line class="line-leader" x1="192" y1="400" x2="120" y2="280"/>
-            <text class="text-main" x="100" y="270">Female Slot</text>
+            <line class="line-leader" x1="192" y1="400" x2="100" y2="280"/>
+            <text class="text-main" x="80" y="270">Female Slot</text>
             
             <!-- Male Dovetail -->
-            <line class="line-leader" x1="402" y1="400" x2="520" y2="280"/>
-            <text class="text-main" x="540" y="270">Male Dovetail</text>
+            <line class="line-leader" x1="402" y1="400" x2="540" y2="280"/>
+            <text class="text-main" x="560" y="270">Male Dovetail</text>
             
             <!-- TFE Seal -->
             <line class="line-leader" x1="301" y1="400" x2="240" y2="280"/>
-            <text class="text-small" x="220" y="270">0.5mm TFE Seal</text>
+            <text class="text-small" x="210" y="270">0.5mm TFE Seal</text>
             
             <!-- EPDM Rib -->
             <line class="line-leader" x1="326" y1="400" x2="400" y2="280"/>
-            <text class="text-small" x="420" y="270">1mm EPDM Rib</text>
+            <text class="text-small" x="430" y="270">1mm EPDM Rib</text>
             
             <!-- Spring Pin -->
             <line class="line-leader" x1="326" y1="400" x2="400" y2="340"/>
-            <text class="text-small" x="430" y="330">0.6mm Spring Pin</text>
+            <text class="text-small" x="445" y="330">0.6mm Spring Pin</text>
             
-            <!-- Performance -->
+            <!-- ============================================ -->
+            <!-- PERFORMANCE - BOTTOM SEPARATE -->
+            <!-- ============================================ -->
             <text class="text-small" x="320" y="590">10kN Axial Load | 45kN Shear Load | 10,000+ Cycles</text>
             <text class="text-small" x="320" y="610">IP67 Waterproof | Zone V Seismic Resilient</text>
             
-            <!-- Single Title -->
+            <!-- ============================================ -->
+            <!-- SINGLE TITLE - BOTTOM -->
+            <!-- ============================================ -->
             <text class="text-title" x="320" y="820">Fig.2 – Cross-Section of Geometric Self-Locking Interlock (GSLI)</text>
         </svg>
     </div>
