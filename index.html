@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fig.3 - Exploded View of ZFRP</title>
+    <title>Fig.4 - A²WMM Assembly Sequence</title>
     <style>
         * {
             margin: 0;
@@ -70,23 +70,23 @@
             fill: none;
         }
         
-        .line-assembly {
+        .line-phase {
             stroke: black;
             stroke-width: 0.5;
             fill: none;
-            stroke-dasharray: 4, 2;
+            stroke-dasharray: 2, 2;
         }
         
         .text-main {
             font-family: "Arial", sans-serif;
-            font-size: 9pt;
+            font-size: 8pt;
             fill: black;
             text-anchor: middle;
         }
         
         .text-small {
             font-family: "Arial", sans-serif;
-            font-size: 7pt;
+            font-size: 6pt;
             fill: black;
             text-anchor: middle;
         }
@@ -94,6 +94,14 @@
         .text-title {
             font-family: "Times New Roman", serif;
             font-size: 10pt;
+            fill: black;
+            text-anchor: middle;
+            font-weight: bold;
+        }
+        
+        .text-phase {
+            font-family: "Arial", sans-serif;
+            font-size: 7pt;
             fill: black;
             text-anchor: middle;
             font-weight: bold;
@@ -114,169 +122,195 @@
     <div class="patent-sheet">
         <svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <!-- Galvanized Steel -->
                 <pattern id="hatchSteel" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
                     <line x1="0" y1="0" x2="0" y2="6" stroke="black" stroke-width="0.4"/>
                 </pattern>
                 
-                <!-- Fly-ash Concrete -->
                 <pattern id="hatchConcrete" patternUnits="userSpaceOnUse" width="4" height="4">
                     <circle cx="2" cy="2" r="0.5" fill="black"/>
                 </pattern>
                 
-                <!-- TFE -->
-                <pattern id="hatchTfe" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(30)">
-                    <line x1="0" y1="0" x2="0" y2="3" stroke="black" stroke-width="0.3"/>
+                <pattern id="hatchAgro" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)">
+                    <line x1="0" y1="0" x2="0" y2="5" stroke="black" stroke-width="0.3"/>
+                    <line x1="2.5" y1="0" x2="2.5" y2="5" stroke="black" stroke-width="0.3"/>
                 </pattern>
             </defs>
             
             <!-- ============================================ -->
-            <!-- GROUND SCREW (Left Side, Vertical) -->
-            <!-- 1.8m length scaled to fit -->
+            <!-- TIMELINE BAR -->
             <!-- ============================================ -->
-            
-            <!-- Screw Shaft (76mm diameter) -->
-            <rect x="150" y="200" width="30" height="360" fill="url(#hatchSteel)" class="line-medium"/>
-            <rect x="150" y="200" width="30" height="360" class="line-thick"/>
-            
-            <!-- Thread Pattern -->
-            <line class="line-thin" x1="150" y1="220" x2="180" y2="230"/>
-            <line class="line-thin" x1="150" y1="240" x2="180" y2="250"/>
-            <line class="line-thin" x1="150" y1="260" x2="180" y2="270"/>
-            <line class="line-thin" x1="150" y1="280" x2="180" y2="290"/>
-            <line class="line-thin" x1="150" y1="300" x2="180" y2="310"/>
-            <line class="line-thin" x1="150" y1="320" x2="180" y2="330"/>
-            <line class="line-thin" x1="150" y1="340" x2="180" y2="350"/>
-            <line class="line-thin" x1="150" y1="360" x2="180" y2="370"/>
-            <line class="line-thin" x1="150" y1="380" x2="180" y2="390"/>
-            <line class="line-thin" x1="150" y1="400" x2="180" y2="410"/>
-            <line class="line-thin" x1="150" y1="420" x2="180" y2="430"/>
-            <line class="line-thin" x1="150" y1="440" x2="180" y2="450"/>
-            <line class="line-thin" x1="150" y1="460" x2="180" y2="470"/>
-            <line class="line-thin" x1="150" y1="480" x2="180" y2="490"/>
-            <line class="line-thin" x1="150" y1="500" x2="180" y2="510"/>
-            <line class="line-thin" x1="150" y1="520" x2="180" y2="530"/>
-            
-            <!-- Helix Blade (100mm diameter) -->
-            <ellipse cx="165" cy="540" rx="25" ry="8" fill="url(#hatchSteel)" class="line-medium"/>
-            <ellipse cx="165" cy="540" rx="25" ry="8" class="line-thick"/>
-            
-            <!-- Hexagonal Drive Head (19mm) -->
-            <polygon points="165,180 175,185 175,195 165,200 155,195 155,185" fill="url(#hatchSteel)" class="line-thick"/>
+            <line class="line-thick" x1="80" y1="150" x2="520" y2="150"/>
+            <polygon points="520,145 530,150 520,155" fill="black"/>
+            <text class="text-small" x="305" y="140">7-14 Days Total Construction</text>
             
             <!-- ============================================ -->
-            <!-- PRECAST FLY-ASH PAD (Center, Horizontal) -->
-            <!-- 1m x 1m x 0.12m -->
+            <!-- PHASE 1: ZFRP INSTALLATION (Days 1-2) -->
             <!-- ============================================ -->
             
-            <!-- Pad Body -->
-            <rect x="250" y="550" width="200" height="24" fill="url(#hatchConcrete)" class="line-thick"/>
+            <!-- Phase Box -->
+            <rect x="70" y="170" width="100" height="120" class="line-phase"/>
+            <text class="text-phase" x="120" y="185">Phase 1</text>
+            <text class="text-small" x="120" y="198">ZFRP Install</text>
+            <text class="text-small" x="120" y="210">Days 1-2</text>
             
-            <!-- Pad Top Surface Detail -->
-            <line class="line-thin" x1="250" y1="556" x2="450" y2="556"/>
-            <line class="line-thin" x1="250" y1="562" x2="450" y2="562"/>
-            <line class="line-thin" x1="250" y1="568" x2="450" y2="568"/>
+            <!-- Ground Screw -->
+            <line class="line-medium" x1="100" y1="280" x2="100" y2="230"/>
+            <ellipse cx="100" cy="285" rx="8" ry="3" class="line-thin"/>
             
-            <!-- ============================================ -->
-            <!-- EMBEDDED GSLI RECEIVER (Top of Pad) -->
-            <!-- 15cm x 7.5cm -->
-            <!-- ============================================ -->
+            <!-- Pad -->
+            <rect x="85" y="275" width="30" height="5" fill="url(#hatchConcrete)" class="line-thin"/>
             
-            <!-- Receiver Housing -->
-            <rect x="340" y="535" width="45" height="15" fill="url(#hatchSteel)" class="line-medium"/>
-            <rect x="340" y="535" width="45" height="15" class="line-thick"/>
+            <!-- Worker Figure (Simplified) -->
+            <circle cx="115" cy="250" r="4" class="line-thin"/>
+            <line class="line-thin" x1="115" y1="254" x2="115" y2="270"/>
+            <line class="line-thin" x1="110" y1="260" x2="120" y2="260"/>
             
-            <!-- TFE Seal Detail -->
-            <path fill="url(#hatchTfe)" d="M 340 535 L 345 536 L 345 538 L 342 540 L 342 542 L 345 544 L 345 546 L 342 548 L 342 550 L 385 550 L 385 535 Z"/>
-            <path class="line-thin" d="M 340 535 L 345 536 L 345 538 L 342 540 L 342 542 L 345 544 L 345 546 L 342 548 L 342 550 L 385 550 L 385 535"/>
-            
-            <!-- Spring Pin Groove -->
-            <line class="line-thin" x1="362" y1="540" x2="368" y2="540"/>
-            <line class="line-thin" x1="362" y1="545" x2="368" y2="545"/>
+            <!-- Laser Level -->
+            <line class="line-thin" x1="130" y1="240" x2="140" y2="240"/>
+            <line class="line-thin" x1="135" y1="240" x2="135" y2="275"/>
             
             <!-- ============================================ -->
-            <!-- ASSEMBLY ARROWS -->
+            <!-- PHASE 2: MODULE STACKING (Days 3-6) -->
             <!-- ============================================ -->
             
-            <!-- Arrow 1: Screw into soil -->
-            <line class="line-assembly" x1="165" y1="560" x2="165" y2="620"/>
-            <polygon points="165,625 160,615 170,615" fill="black"/>
-            <text class="text-small" x="190" y="600">Soil</text>
+            <rect x="180" y="170" width="100" height="120" class="line-phase"/>
+            <text class="text-phase" x="230" y="185">Phase 2</text>
+            <text class="text-small" x="230" y="198">Module Stacking</text>
+            <text class="text-small" x="230" y="210">Days 3-6</text>
             
-            <!-- Arrow 2: Pad placement -->
-            <line class="line-assembly" x1="350" y1="580" x2="350" y2="630"/>
-            <polygon points="350,635 345,625 355,625" fill="black"/>
+            <!-- Stacked Modules -->
+            <rect x="210" y="240" width="20" height="15" fill="url(#hatchAgro)" class="line-thin"/>
+            <rect x="210" y="225" width="20" height="15" fill="url(#hatchAgro)" class="line-thin"/>
+            <rect x="210" y="210" width="20" height="15" fill="url(#hatchAgro)" class="line-thin"/>
             
-            <!-- Arrow 3: Module connection -->
-            <line class="line-assembly" x1="362" y1="520" x2="362" y2="480"/>
-            <polygon points="362,475 357,485 367,485" fill="black"/>
+            <!-- Pad Base -->
+            <rect x="205" y="275" width="30" height="5" fill="url(#hatchConcrete)" class="line-thin"/>
+            
+            <!-- Worker -->
+            <circle cx="245" cy="250" r="4" class="line-thin"/>
+            <line class="line-thin" x1="245" y1="254" x2="245" y2="270"/>
             
             <!-- ============================================ -->
-            <!-- DIMENSION LINES - EXACT TOUCH POINTS -->
+            <!-- PHASE 3: GSLI LOCKING (Days 3-6) -->
             <!-- ============================================ -->
             
-            <!-- Screw Length 1.8m -->
-            <line class="line-dim" x1="120" y1="180" x2="120" y2="560"/>
-            <line class="line-dim" x1="115" y1="180" x2="125" y2="180"/>
-            <line class="line-dim" x1="115" y1="560" x2="125" y2="560"/>
-            <text class="text-small" x="105" y="375">1.8m</text>
+            <rect x="290" y="170" width="100" height="120" class="line-phase"/>
+            <text class="text-phase" x="340" y="185">Phase 3</text>
+            <text class="text-small" x="340" y="198">GSLI Locking</text>
+            <text class="text-small" x="340" y="210">Days 3-6</text>
             
-            <!-- Shaft Diameter 76mm -->
-            <line class="line-dim" x1="145" y1="300" x2="185" y2="300"/>
-            <text class="text-small" x="165" y="295">76mm</text>
+            <!-- GSLI Detail -->
+            <rect x="320" y="240" width="15" height="20" fill="url(#hatchAgro)" class="line-thin"/>
+            <rect x="335" y="242" width="12" height="16" fill="url(#hatchAgro)" class="line-thin"/>
             
-            <!-- Helix Diameter 100mm -->
-            <line class="line-dim" x1="140" y1="555" x2="190" y2="555"/>
-            <text class="text-small" x="165" y="570">100mm</text>
+            <!-- Spring Pin -->
+            <circle cx="335" cy="250" r="2" class="line-thin" fill="black"/>
             
-            <!-- Pad Width 1m -->
-            <line class="line-dim" x1="250" y1="590" x2="450" y2="590"/>
-            <line class="line-dim" x1="250" y1="585" x2="250" y2="595"/>
-            <line class="line-dim" x1="450" y1="585" x2="450" y2="595"/>
-            <text class="text-small" x="350" y="610">1m</text>
+            <!-- Hand Force Indicator -->
+            <line class="line-thin" x1="350" y1="245" x2="360" y2="245"/>
+            <text class="text-small" x="370" y="248">&lt;5kg</text>
             
-            <!-- Pad Thickness 0.12m -->
-            <line class="line-dim" x1="230" y1="550" x2="230" y2="574"/>
-            <line class="line-dim" x1="225" y1="550" x2="235" y2="550"/>
-            <line class="line-dim" x1="225" y1="574" x2="235" y2="574"/>
-            <text class="text-small" x="215" y="565">0.12m</text>
+            <!-- ============================================ -->
+            <!-- PHASE 4: UTILITY INTEGRATION (Days 7-9) -->
+            <!-- ============================================ -->
+            
+            <rect x="400" y="170" width="100" height="120" class="line-phase"/>
+            <text class="text-phase" x="450" y="185">Phase 4</text>
+            <text class="text-small" x="450" y="198">Utility Integration</text>
+            <text class="text-small" x="450" y="210">Days 7-9</text>
+            
+            <!-- Module with Channels -->
+            <rect x="430" y="230" width="25" height="30" fill="url(#hatchAgro)" class="line-thin"/>
+            
+            <!-- Horizontal PEX Channel -->
+            <line class="line-dim" x1="430" y1="245" x2="455" y2="245"/>
+            <text class="text-small" x="485" y="248">20mm PEX</text>
+            
+            <!-- Vertical Copper Channel -->
+            <line class="line-dim" x1="442" y1="230" x2="442" y2="260"/>
+            <text class="text-small" x="470" y="225">16mm Cu</text>
+            
+            <!-- ============================================ -->
+            <!-- PHASE 5: FINISHING (Days 10-12) -->
+            <!-- ============================================ -->
+            
+            <rect x="70" y="310" width="430" height="120" class="line-phase"/>
+            <text class="text-phase" x="285" y="325">Phase 5: Finishing (Days 10-12)</text>
+            
+            <!-- Completed House Structure -->
+            <!-- Walls -->
+            <rect x="120" y="380" width="80" height="40" fill="url(#hatchAgro)" class="line-thin"/>
+            <rect x="200" y="380" width="80" height="40" fill="url(#hatchAgro)" class="line-thin"/>
+            
+            <!-- Door -->
+            <rect x="140" y="395" width="20" height="25" class="line-thin"/>
+            
+            <!-- Window -->
+            <rect x="230" y="390" width="25" height="20" class="line-thin"/>
+            
+            <!-- Roof -->
+            <path class="line-medium" d="M 110 380 L 160 350 L 240 350 L 290 380"/>
+            
+            <!-- Floor -->
+            <rect x="110" y="420" width="180" height="5" fill="url(#hatchConcrete)" class="line-thin"/>
+            
+            <!-- Completed Label -->
+            <text class="text-main" x="200" y="445">300 sq.ft 1BHK Complete</text>
+            
+            <!-- ============================================ -->
+            <!-- ARROWS BETWEEN PHASES -->
+            <!-- ============================================ -->
+            
+            <!-- Arrow 1 to 2 -->
+            <line class="line-medium" x1="170" y1="230" x2="180" y2="230"/>
+            <polygon points="180,227 185,230 180,233" fill="black"/>
+            
+            <!-- Arrow 2 to 3 -->
+            <line class="line-medium" x1="280" y1="230" x2="290" y2="230"/>
+            <polygon points="290,227 295,230 290,233" fill="black"/>
+            
+            <!-- Arrow 3 to 4 -->
+            <line class="line-medium" x1="390" y1="230" x2="400" y2="230"/>
+            <polygon points="400,227 405,230 400,233" fill="black"/>
+            
+            <!-- Arrow 4 to 5 -->
+            <line class="line-medium" x1="450" y1="290" x2="450" y2="310"/>
+            <polygon points="447,310 450,315 453,310" fill="black"/>
+            
+            <!-- ============================================ -->
+            <!-- WORKER COUNT INDICATION -->
+            <!-- ============================================ -->
+            <text class="text-small" x="305" y="165">2 Unskilled Workers Throughout</text>
             
             <!-- ============================================ -->
             <!-- COMPONENT LABELS - EXACT TOUCH POINTS -->
             <!-- ============================================ -->
             
-            <!-- Ground Screw - touches hex head at 165,190 -->
-            <line class="line-leader" x1="165" y1="190" x2="80" y2="150"/>
-            <text class="text-main" x="60" y="140">Ground Screw</text>
-            <text class="text-small" x="60" y="155">1.8m Galvanized</text>
+            <!-- Ground Screw -->
+            <line class="line-leader" x1="100" y1="285" x2="60" y2="300"/>
+            <text class="text-small" x="50" y="310">1.8m Screw</text>
             
-            <!-- Hex Head - touches at 165,190 -->
-            <line class="line-leader" x1="175" y1="190" x2="220" y2="150"/>
-            <text class="text-small" x="250" y="145">19mm Hex Head</text>
+            <!-- Pad -->
+            <line class="line-leader" x1="100" y1="280" x2="60" y2="270"/>
+            <text class="text-small" x="50" y="265">Fly-Ash Pad</text>
             
-            <!-- Helix - touches at 165,540 -->
-            <line class="line-leader" x1="190" y1="540" x2="230" y2="520"/>
-            <text class="text-small" x="260" y="515">100mm Helix</text>
+            <!-- Module -->
+            <line class="line-leader" x1="220" y1="225" x2="180" y2="200"/>
+            <text class="text-small" x="165" y="195">A²WMM</text>
             
-            <!-- Fly-ash Pad - touches at 350,562 -->
-            <line class="line-leader" x1="350" y1="562" x2="280" y2="650"/>
-            <text class="text-main" x="250" y="665">Fly-Ash Pad</text>
-            <text class="text-small" x="250" y="680">1m×1m×0.12m</text>
-            
-            <!-- GSLI Receiver - touches at 362,542 -->
-            <line class="line-leader" x1="362" y1="542" x2="450" y2="500"/>
-            <text class="text-small" x="500" y="495">GSLI Receiver</text>
-            <text class="text-small" x="500" y="510">15cm×7.5cm</text>
+            <!-- GSLI -->
+            <line class="line-leader" x1="335" y1="250" x2="380" y2="270"/>
+            <text class="text-small" x="395" y="275">GSLI Lock</text>
             
             <!-- ============================================ -->
-            <!-- PERFORMANCE SPECS -->
+            <!-- PERFORMANCE ANNOTATIONS -->
             <!-- ============================================ -->
-            <text class="text-small" x="300" y="700">20MPa Strength | 60Nm/40Nm Torque | 100 Screws/Hour | 1-Day Install</text>
+            <text class="text-small" x="305" y="470">100 Screws/Hour | 10 Modules/Hour | No Drilling/Cutting</text>
             
             <!-- ============================================ -->
             <!-- TITLE -->
             <!-- ============================================ -->
-            <text class="text-title" x="300" y="820">Fig.3 – Exploded View of Zero-Deep Foundation Rapid Pad (ZFRP)</text>
+            <text class="text-title" x="300" y="820">Fig.4 – A²WMM Assembly Sequence (7-14 Days Construction)</text>
         </svg>
     </div>
 </body>
