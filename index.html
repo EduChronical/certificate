@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fig.6 - Carbon Sequestration Flow</title>
+    <title>Fig.1 - Isometric View of A²WMM</title>
     <style>
         * {
             margin: 0;
@@ -58,11 +58,18 @@
             fill: none;
         }
         
-        .line-flow {
+        .line-hidden {
+            stroke: black;
+            stroke-width: 0.4;
+            fill: none;
+            stroke-dasharray: 4, 4;
+        }
+        
+        .line-dashed {
             stroke: black;
             stroke-width: 0.5;
             fill: none;
-            marker-end: url(#arrowhead);
+            stroke-dasharray: 6, 3;
         }
         
         .line-dim {
@@ -79,14 +86,14 @@
         
         .text-main {
             font-family: "Arial", sans-serif;
-            font-size: 8pt;
+            font-size: 9pt;
             fill: black;
             text-anchor: middle;
         }
         
         .text-small {
             font-family: "Arial", sans-serif;
-            font-size: 6pt;
+            font-size: 7pt;
             fill: black;
             text-anchor: middle;
         }
@@ -94,14 +101,6 @@
         .text-title {
             font-family: "Times New Roman", serif;
             font-size: 10pt;
-            fill: black;
-            text-anchor: middle;
-            font-weight: bold;
-        }
-        
-        .text-stage {
-            font-family: "Arial", sans-serif;
-            font-size: 7pt;
             fill: black;
             text-anchor: middle;
             font-weight: bold;
@@ -121,188 +120,161 @@
 <body>
     <div class="patent-sheet">
         <svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                    <polygon points="0 0, 8 3, 0 6" fill="black"/>
-                </marker>
-            </defs>
-            
             <!-- ============================================ -->
-            <!-- STAGE 1: QR CODE SCANNING -->
+            <!-- ISOMETRIC MODULE BODY -->
             <!-- ============================================ -->
             
-            <!-- Stage Box -->
-            <rect x="80" y="250" width="90" height="120" class="line-medium"/>
-            <text class="text-stage" x="125" y="270">Stage 1</text>
-            <text class="text-small" x="125" y="285">QR Scan</text>
+            <!-- Main Module - Front Face -->
+            <path class="line-thick" d="M 220 520 L 400 520 L 400 370 L 220 370 Z"/>
             
-            <!-- A²WMM Module -->
-            <rect x="100" y="300" width="50" height="30" class="line-thin"/>
+            <!-- Main Module - Top Face -->
+            <path class="line-thick" d="M 220 370 L 400 370 L 360 330 L 180 330 Z"/>
             
-            <!-- QR Code -->
-            <rect x="115" y="305" width="20" height="20" class="line-thin"/>
-            <rect x="118" y="308" width="5" height="5" fill="black"/>
-            <rect x="127" y="308" width="5" height="5" fill="black"/>
-            <rect x="118" y="317" width="5" height="5" fill="black"/>
-            <rect x="127" y="317" width="5" height="5" fill="black"/>
+            <!-- Main Module - Right Face -->
+            <path class="line-thick" d="M 400 520 L 440 480 L 440 330 L 400 370"/>
             
-            <!-- Scanner -->
-            <polygon points="125,295 135,295 130,305" class="line-thin"/>
-            <line class="line-thin" x1="130" y1="295" x2="130" y2="280"/>
+            <!-- Inner Cavity (Hollow) -->
+            <path class="line-medium" d="M 260 480 L 360 480 L 360 410 L 260 410 Z"/>
+            <path class="line-medium" d="M 260 410 L 360 410 L 320 370 L 220 370"/>
+            <path class="line-medium" d="M 360 480 L 400 480 L 400 410 L 360 410"/>
             
-            <!-- 2.3kg CO₂ Label -->
-            <text class="text-small" x="125" y="345">2.3kg CO₂</text>
+            <!-- Hidden Lines -->
+            <path class="line-hidden" d="M 180 330 L 220 370"/>
+            <path class="line-hidden" d="M 180 330 L 180 480"/>
+            <path class="line-hidden" d="M 180 480 L 220 520"/>
+            <path class="line-hidden" d="M 180 480 L 440 480"/>
             
             <!-- ============================================ -->
-            <!-- STAGE 2: BLOCKCHAIN LEDGER -->
+            <!-- LEFT SIDE: MALE DOVETAIL GSLI -->
             <!-- ============================================ -->
             
-            <rect x="180" y="250" width="90" height="120" class="line-medium"/>
-            <text class="text-stage" x="225" y="270">Stage 2</text>
-            <text class="text-small" x="225" y="285">Blockchain</text>
+            <!-- Male Dovetail Body -->
+            <path class="line-thick" d="M 220 370 L 200 370 L 185 375 L 185 515 L 200 520 L 220 520"/>
+            <path class="line-thin" d="M 200 370 L 185 375"/>
+            <path class="line-thin" d="M 200 520 L 185 515"/>
             
-            <!-- Blockchain Blocks -->
-            <rect x="195" y="300" width="25" height="15" class="line-thin"/>
-            <line class="line-thin" x1="205" y1="300" x2="205" y2="295"/>
-            <line class="line-thin" x1="210" y1="300" x2="210" y2="295"/>
+            <!-- EPDM Elastic Rib (1mm) -->
+            <rect x="170" y="420" width="15" height="40" class="line-medium" fill="none"/>
+            <line class="line-thin" x1="170" y1="430" x2="185" y2="430"/>
+            <line class="line-thin" x1="170" y1="450" x2="185" y2="450"/>
             
-            <rect x="225" y="305" width="25" height="15" class="line-thin"/>
-            <line class="line-thin" x1="235" y1="305" x2="235" y2="300"/>
-            <line class="line-thin" x1="240" y1="305" x2="240" y2="300"/>
-            
-            <rect x="195" y="325" width="25" height="15" class="line-thin"/>
-            <line class="line-thin" x1="205" y1="325" x2="205" y2="320"/>
-            <line class="line-thin" x1="210" y1="325" x2="210" y2="320"/>
-            
-            <!-- Distributed Nodes -->
-            <circle cx="215" cy="360" r="4" class="line-thin"/>
-            <circle cx="235" cy="360" r="4" class="line-thin"/>
-            <line class="line-thin" x1="219" y1="360" x2="231" y2="360"/>
+            <!-- Spring Pin Hole -->
+            <circle cx="177" cy="440" r="4" class="line-thin" fill="white"/>
             
             <!-- ============================================ -->
-            <!-- STAGE 3: VER/GOLD STANDARD -->
+            <!-- RIGHT SIDE: FEMALE DOVETAIL GSLI -->
             <!-- ============================================ -->
             
-            <rect x="280" y="250" width="90" height="120" class="line-medium"/>
-            <text class="text-stage" x="325" y="270">Stage 3</text>
-            <text class="text-small" x="325" y="285">Verification</text>
+            <!-- Female Slot -->
+            <path class="line-thick" d="M 440 400 L 460 400 L 460 480 L 440 480"/>
             
-            <!-- VER Checkmark -->
-            <circle cx="310" cy="315" r="12" class="line-thin"/>
-            <polyline points="304,315 308,320 316,310" class="line-thick"/>
-            <text class="text-small" x="310" y="335">VER</text>
+            <!-- TFE Labyrinth Seal (0.5mm) -->
+            <path class="line-thin" d="M 460 415 L 450 415 L 450 425 L 460 425"/>
+            <path class="line-thin" d="M 460 455 L 450 455 L 450 445 L 460 445"/>
             
-            <!-- Gold Standard -->
-            <circle cx="340" cy="315" r="12" class="line-thin"/>
-            <polyline points="334,315 338,320 346,310" class="line-thick"/>
-            <text class="text-small" x="340" y="335">Gold</text>
-            
-            <!-- Auditor -->
-            <circle cx="325" cy="360" r="5" class="line-thin"/>
-            <line class="line-thin" x1="325" y1="365" x2="325" y2="375"/>
-            <line class="line-thin" x1="320" y1="370" x2="330" y2="370"/>
+            <!-- Spring Pin Groove -->
+            <circle cx="450" cy="440" r="3" class="line-thin" fill="white"/>
             
             <!-- ============================================ -->
-            <!-- STAGE 4: CARBON CREDIT ISSUANCE -->
+            <!-- UTILITY CHANNELS -->
             <!-- ============================================ -->
             
-            <rect x="380" y="250" width="90" height="120" class="line-medium"/>
-            <text class="text-stage" x="425" y="270">Stage 4</text>
-            <text class="text-small" x="425" y="285">Credit Issuance</text>
+            <!-- 20mm PEX Horizontal -->
+            <line class="line-dashed" x1="260" y1="445" x2="360" y2="445"/>
+            <circle cx="310" cy="445" r="6" class="line-thin" fill="none"/>
             
-            <!-- Certificate -->
-            <rect x="400" y="300" width="50" height="35" class="line-thin"/>
-            <line class="line-thin" x1="405" y1="308" x2="445" y2="308"/>
-            <line class="line-thin" x1="405" y1="315" x2="430" y2="315"/>
-            <line class="line-thin" x1="405" y1="322" x2="440" y2="322"/>
-            <line class="line-thin" x1="405" y1="329" x2="435" y2="329"/>
-            
-            <!-- Seal -->
-            <circle cx="440" cy="325" r="6" class="line-thin"/>
-            
-            <!-- Value -->
-            <text class="text-small" x="425" y="345">2.3kg CO₂</text>
+            <!-- 16mm Copper Vertical -->
+            <line class="line-dashed" x1="310" y1="410" x2="310" y2="480"/>
+            <circle cx="310" cy="445" r="4" class="line-thin" fill="none"/>
             
             <!-- ============================================ -->
-            <!-- STAGE 5: MONETIZATION -->
+            <!-- FOLD HINGE -->
             <!-- ============================================ -->
             
-            <rect x="480" y="250" width="90" height="120" class="line-medium"/>
-            <text class="text-stage" x="525" y="270">Stage 5</text>
-            <text class="text-small" x="525" y="285">Monetization</text>
+            <!-- Hinge Line -->
+            <line class="line-medium" x1="280" y1="410" x2="280" y2="480"/>
             
-            <!-- Marketplace -->
-            <rect x="500" y="300" width="50" height="30" class="line-thin"/>
-            <line class="line-thin" x1="505" y1="308" x2="545" y2="308"/>
-            <line class="line-thin" x1="505" y1="315" x2="545" y2="315"/>
-            <line class="line-thin" x1="505" y1="322" x2="545" y2="322"/>
+            <!-- Hinge Detail Marks -->
+            <line class="line-thin" x1="275" y1="425" x2="285" y2="425"/>
+            <line class="line-thin" x1="275" y1="465" x2="285" y2="465"/>
             
-            <!-- Revenue Arrow -->
-            <line class="line-thin" x1="525" y1="330" x2="525" y2="350"/>
-            <polygon points="525,355 520,345 530,345" fill="black"/>
-            
-            <!-- Value -->
-            <text class="text-small" x="525" y="345">₹50-100/ton</text>
+            <!-- Fold Direction Arrow -->
+            <line class="line-thin" x1="280" y1="390" x2="280" y2="400"/>
+            <polygon points="280,405 275,395 285,395" fill="black"/>
             
             <!-- ============================================ -->
-            <!-- FLOW ARROWS BETWEEN STAGES -->
+            <!-- QR CARBON TAG -->
             <!-- ============================================ -->
             
-            <!-- Stage 1 to 2 -->
-            <line class="line-flow" x1="170" y1="310" x2="180" y2="310"/>
+            <!-- QR Square -->
+            <rect x="370" y="340" width="25" height="25" class="line-medium" fill="white"/>
             
-            <!-- Stage 2 to 3 -->
-            <line class="line-flow" x1="270" y1="310" x2="280" y2="310"/>
+            <!-- QR Pattern -->
+            <rect x="373" y="343" width="7" height="7" fill="black"/>
+            <rect x="385" y="343" width="7" height="7" fill="black"/>
+            <rect x="373" y="355" width="7" height="7" fill="black"/>
+            <rect x="385" y="355" width="7" height="7" fill="black"/>
+            <rect x="379" y="349" width="7" height="7" fill="black"/>
             
-            <!-- Stage 3 to 4 -->
-            <line class="line-flow" x1="370" y1="310" x2="380" y2="310"/>
+            <!-- ============================================ -->
+            <!-- DIMENSION LINES - EXACT TOUCH POINTS -->
+            <!-- ============================================ -->
             
-            <!-- Stage 4 to 5 -->
-            <line class="line-flow" x1="470" y1="310" x2="480" y2="310"/>
+            <!-- Width 150mm -->
+            <line class="line-dim" x1="220" y1="550" x2="400" y2="550"/>
+            <line class="line-dim" x1="220" y1="545" x2="220" y2="555"/>
+            <line class="line-dim" x1="400" y1="545" x2="400" y2="555"/>
+            <text class="text-small" x="310" y="570">150 mm</text>
+            
+            <!-- Height 75mm -->
+            <line class="line-dim" x1="195" y1="370" x2="195" y2="520"/>
+            <line class="line-dim" x1="190" y1="370" x2="200" y2="370"/>
+            <line class="line-dim" x1="190" y1="520" x2="200" y2="520"/>
+            <text class="text-small" x="180" y="450">75 mm</text>
+            
+            <!-- Wall Thickness 20mm -->
+            <line class="line-dim" x1="240" y1="500" x2="260" y2="500"/>
+            <text class="text-small" x="250" y="515">20 mm</text>
+            
+            <!-- 1.5° Taper -->
+            <line class="line-leader" x1="185" y1="375" x2="150" y2="350"/>
+            <text class="text-small" x="135" y="345">1.5°</text>
             
             <!-- ============================================ -->
             <!-- COMPONENT LABELS - EXACT TOUCH POINTS -->
             <!-- ============================================ -->
             
-            <!-- A²WMM Module QR -->
-            <line class="line-leader" x1="125" y1="330" x2="60" y2="360"/>
-            <text class="text-small" x="45" y="370">A²WMM</text>
-            <text class="text-small" x="45" y="382">Module QR</text>
+            <!-- A²WMM Module -->
+            <line class="line-leader" x1="310" y1="350" x2="310" y2="280"/>
+            <text class="text-main" x="310" y="265">A²WMM Module</text>
             
-            <!-- Blockchain Network -->
-            <line class="line-leader" x1="225" y1="340" x2="180" y2="380"/>
-            <text class="text-small" x="160" y="390">Distributed</text>
-            <text class="text-small" x="160" y="402">Ledger</text>
+            <!-- Male GSLI -->
+            <line class="line-leader" x1="177" y1="440" x2="100" y2="440"/>
+            <text class="text-small" x="70" y="435">Male GSLI</text>
+            <text class="text-small" x="70" y="450">(1mm EPDM)</text>
             
-            <!-- VER/Gold Standard -->
-            <line class="line-leader" x1="325" y1="340" x2="280" y2="380"/>
-            <text class="text-small" x="260" y="390">Third-Party</text>
-            <text class="text-small" x="260" y="402">Audit</text>
+            <!-- Female GSLI -->
+            <line class="line-leader" x1="450" y1="440" x2="520" y2="440"/>
+            <text class="text-small" x="550" y="435">Female GSLI</text>
+            <text class="text-small" x="550" y="450">(0.5mm TFE)</text>
             
-            <!-- Carbon Credit -->
-            <line class="line-leader" x1="425" y1="335" x2="470" y2="380"/>
-            <text class="text-small" x="490" y="390">Tradable</text>
-            <text class="text-small" x="490" y="402">Certificate</text>
+            <!-- Utility Channels -->
+            <line class="line-leader" x1="310" y1="445" x2="310" y2="600"/>
+            <text class="text-small" x="310" y="615">20mm PEX / 16mm Cu</text>
             
-            <!-- Revenue -->
-            <line class="line-leader" x1="525" y1="355" x2="570" y2="380"/>
-            <text class="text-small" x="590" y="390">Passive</text>
-            <text class="text-small" x="590" y="402">Revenue</text>
+            <!-- Fold Hinge -->
+            <line class="line-leader" x1="280" y1="445" x2="220" y2="380"/>
+            <text class="text-small" x="200" y="370">Fold Hinge</text>
             
-            <!-- ============================================ -->
-            <!-- PROCESS ANNOTATIONS -->
-            <!-- ============================================ -->
-            <text class="text-small" x="325" y="420">Real-Time Data | Immutable Record | Automated Verification</text>
-            
-            <!-- ============================================ -->
-            <!-- TOTAL CALCULATION -->
-            <!-- ============================================ -->
-            <text class="text-main" x="325" y="450">5,000 Modules = 11,500kg CO₂ = ₹57,500-1,15,000 Revenue</text>
+            <!-- QR Tag -->
+            <line class="line-leader" x1="382" y1="352" x2="450" y2="320"/>
+            <text class="text-small" x="480" y="310">QR Carbon Tag</text>
+            <text class="text-small" x="480" y="325">(2.3kg CO₂)</text>
             
             <!-- ============================================ -->
             <!-- TITLE -->
             <!-- ============================================ -->
-            <text class="text-title" x="325" y="820">Fig.6 – Carbon Sequestration Flow (Blockchain-Linked Credit Tracking)</text>
+            <text class="text-title" x="310" y="820">Fig.1 – Isometric View of Acetylated Agro-Waste Micro-Module (A²WMM)</text>
         </svg>
     </div>
 </body>
