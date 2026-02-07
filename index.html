@@ -107,22 +107,18 @@
     <div class="patent-sheet">
         <svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <!-- Galvanized Steel: 45° diagonal -->
                 <pattern id="hatchSteel" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
                     <line x1="0" y1="0" x2="0" y2="8" stroke="black" stroke-width="0.5"/>
                 </pattern>
                 
-                <!-- TFE: 30° diagonal, fine -->
                 <pattern id="hatchTfe" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(30)">
                     <line x1="0" y1="0" x2="0" y2="3" stroke="black" stroke-width="0.3"/>
                 </pattern>
                 
-                <!-- EPDM: 60° diagonal, fine -->
                 <pattern id="hatchEpdm" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(60)">
                     <line x1="0" y1="0" x2="0" y2="3" stroke="black" stroke-width="0.3"/>
                 </pattern>
                 
-                <!-- 304 SS: Cross-hatch -->
                 <pattern id="hatchSS" patternUnits="userSpaceOnUse" width="4" height="4">
                     <line x1="0" y1="0" x2="4" y2="4" stroke="black" stroke-width="0.3"/>
                     <line x1="4" y1="0" x2="0" y2="4" stroke="black" stroke-width="0.3"/>
@@ -130,7 +126,7 @@
             </defs>
             
             <!-- ============================================ -->
-            <!-- CLEAN DRAWING - NO REFERENCE NUMBERS -->
+            <!-- DRAWING -->
             <!-- ============================================ -->
             
             <!-- Female Slot -->
@@ -172,14 +168,14 @@
             <rect x="330" y="390" width="3" height="20" fill="url(#hatchSS)"/>
             
             <!-- ============================================ -->
-            <!-- 1.5° TAPER ANGLE - CLEAR ARC -->
+            <!-- 1.5° TAPER - EXACT TOUCH POINT -->
+            <!-- Leader touches the angled edge at 345,347 -->
             <!-- ============================================ -->
-            <path class="line-thin" d="M 460 480 A 60 60 0 0 1 460 320"/>
-            <line class="line-leader" x1="470" y1="400" x2="520" y2="400"/>
+            <line class="line-leader" x1="345" y1="347" x2="520" y2="400"/>
             <text class="text-small" x="555" y="405">1.5° taper</text>
             
             <!-- ============================================ -->
-            <!-- DIMENSIONS - CLEAN, SEPARATED -->
+            <!-- DIMENSIONS - EXACT EXTENSION LINES -->
             <!-- ============================================ -->
             
             <!-- Width 150mm -->
@@ -195,37 +191,37 @@
             <text class="text-small" x="140" y="405">75 mm</text>
             
             <!-- ============================================ -->
-            <!-- COMPONENT LABELS - FAR FROM DRAWING -->
+            <!-- COMPONENT LABELS - EXACT TOUCH POINTS -->
             <!-- ============================================ -->
             
-            <!-- Female Slot -->
-            <line class="line-leader" x1="192" y1="400" x2="100" y2="280"/>
+            <!-- Female Slot - touches outer left edge at 180,400 -->
+            <line class="line-leader" x1="180" y1="400" x2="100" y2="280"/>
             <text class="text-main" x="80" y="270">Female Slot</text>
             
-            <!-- Male Dovetail -->
-            <line class="line-leader" x1="402" y1="400" x2="540" y2="280"/>
+            <!-- Male Dovetail - touches outer right edge at 460,400 -->
+            <line class="line-leader" x1="460" y1="400" x2="540" y2="280"/>
             <text class="text-main" x="560" y="270">Male Dovetail</text>
             
-            <!-- TFE Seal -->
+            <!-- TFE Seal - touches seal at 301,400 -->
             <line class="line-leader" x1="301" y1="400" x2="240" y2="280"/>
             <text class="text-small" x="210" y="270">0.5mm TFE Seal</text>
             
-            <!-- EPDM Rib -->
+            <!-- EPDM Rib - touches rib at 326,400 -->
             <line class="line-leader" x1="326" y1="400" x2="400" y2="280"/>
             <text class="text-small" x="430" y="270">1mm EPDM Rib</text>
             
-            <!-- Spring Pin -->
+            <!-- Spring Pin - touches pin center at 326,400 -->
             <line class="line-leader" x1="326" y1="400" x2="400" y2="340"/>
             <text class="text-small" x="445" y="330">0.6mm Spring Pin</text>
             
             <!-- ============================================ -->
-            <!-- PERFORMANCE - BOTTOM SEPARATE -->
+            <!-- PERFORMANCE -->
             <!-- ============================================ -->
             <text class="text-small" x="320" y="590">10kN Axial Load | 45kN Shear Load | 10,000+ Cycles</text>
             <text class="text-small" x="320" y="610">IP67 Waterproof | Zone V Seismic Resilient</text>
             
             <!-- ============================================ -->
-            <!-- SINGLE TITLE - BOTTOM -->
+            <!-- TITLE -->
             <!-- ============================================ -->
             <text class="text-title" x="320" y="820">Fig.2 – Cross-Section of Geometric Self-Locking Interlock (GSLI)</text>
         </svg>
