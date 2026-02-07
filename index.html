@@ -3,192 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PROVISIONAL SPECIFICATION - FORM 2</title>
+  <title>Fig. 1 – Isometric View of A²WMM</title>
   <style>
     @page {
-      size: A4;
-      margin: 2.5cm 2.5cm 2.5cm 2.5cm;
+      size: A4 portrait;
+      margin: 25mm 25mm 25mm 25mm;
     }
 
     body {
       font-family: 'Times New Roman', Times, serif;
       font-size: 12pt;
-      line-height: 1.5;
-      color: #000;
-      background: #fff;
       margin: 0;
       padding: 0;
-      counter-reset: page 1;
+      background: white;
+      color: black;
+      line-height: 1.4;
     }
 
-    .page-break {
-      page-break-before: always;
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 20mm;
     }
 
-    .page-number {
-      position: fixed;
-      bottom: 1.5cm;
-      left: 0;
-      right: 0;
+    h1 {
       text-align: center;
-      font-size: 10pt;
-      color: #000;
-    }
-
-    h1, h2, h3 {
-      text-align: center;
-      font-weight: bold;
-      margin: 0.8em 0 0.4em;
-    }
-
-    .title {
-      text-transform: uppercase;
       font-size: 14pt;
-      margin-bottom: 1.5em;
-    }
-
-    .section {
-      margin-bottom: 1.2em;
-    }
-
-    .uppercase {
+      font-weight: bold;
+      margin: 0 0 15mm 0;
       text-transform: uppercase;
     }
 
-    ul {
-      list-style-type: disc;
-      margin-left: 2em;
-      padding-left: 0;
+    svg {
+      width: 160mm;
+      height: 200mm;
+      max-width: 100%;
+      background: white;
     }
 
-    ol {
-      list-style-type: decimal;
-      margin-left: 2.5em;
-      padding-left: 0;
+    text {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10pt;
+      fill: black;
+      pointer-events: none;
     }
 
-    strong {
+    .label {
+      font-size: 9pt;
       font-weight: bold;
     }
 
-    .signature-block {
-      margin-top: 2em;
-      text-align: left;
-    }
-
-    .signature-line {
-      border-bottom: 1px solid #000;
-      width: 40%;
-      margin: 1em 0;
-    }
-
-    /* Fix page numbers on every page */
-    @media print {
-      .page-number:after {
-        content: "Page " counter(page) " of " counter(pages);
-      }
-      body {
-        counter-increment: page;
-      }
+    .dim {
+      font-size: 9pt;
     }
   </style>
 </head>
 <body>
 
-  <div class="page-number"></div>
+<div class="container">
+  <h1>Fig. 1: Isometric View of Acetylated Agro-Waste Micro-Module (A²WMM)</h1>
+  <h2 style="font-size:11pt; margin-top:-5mm; margin-bottom:10mm;">
+    Nestable hollow structure, 1.5° tapered dovetail GSLI, pre-formed utility channels, fold hinge, QR carbon tag
+  </h2>
 
-  <h1 class="title">PROVISIONAL SPECIFICATION</h1>
-  <p style="text-align:center; margin:0;">(Under Section 10 of the Patents Act, 1970)</p>
-  <h2>FORM 2</h2>
-  <p style="text-align:center; margin:0.5em 0;">(As per Patents Rules, 2003)</p>
+  <svg viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+    <!-- Isometric grid helper (30° angles) -->
+    <g transform="translate(400,300) scale(1.8)">
+      <!-- Back face (left) -->
+      <rect x="-80" y="-40" width="160" height="80" fill="none" stroke="black" stroke-width="2"/>
 
-  <div class="section">
-    <h2 class="uppercase">TITLE</h2>
-    <p class="title">
-      MODULAR MICRO-BLOCK RAPID ASSEMBLY SYSTEM WITH 1.5° TAPERED DOVETAIL GEOMETRIC SELF-LOCKING INTERLOCK, ACETYLATED AGRO-WASTE MODULES, PROPRIETARY GEOPOLYMER BINDER, AND ZERO-DEEP GROUND SCREW FOUNDATION FOR INDIAN LOW-RISE MASS HOUSING (1-3 STOREYS, NBC 2016 COMPLIANT)
-    </p>
-  </div>
+      <!-- Bottom face -->
+      <polygon points="-80,-40 80,-40 120,0  -40,40" fill="none" stroke="black" stroke-width="2"/>
 
-  <div class="section">
-    <h2 class="uppercase">INVENTOR</h2>
-    <p>AGURU MANOJ KUMAR</p>
-  </div>
+      <!-- Right face -->
+      <polygon points="80,-40 120,0 120,80 80,40" fill="none" stroke="black" stroke-width="2"/>
 
-  <div class="section">
-    <h2 class="uppercase">APPLICANT (SAME AS INVENTOR - SOLE APPLICANT)</h2>
-    <p>AGURU MANOJ KUMAR</p>
-    <p>3-35, Near Parvathipuram Bus Stop, Parvathipuram Mandal & Town, Parvathipuram Manyam District, Andhra Pradesh - 535501, INDIA</p>
-    <p>Contact: +91-7989322031 | Email: manojaguru68@gmail.com</p>
-  </div>
+      <!-- Top open (hollow indication) -->
+      <rect x="-70" y="-30" width="140" height="60" fill="none" stroke="black" stroke-dasharray="4 2" stroke-width="1.5"/>
 
-  <div class="section">
-    <h2 class="uppercase">PRIORITY DATE (NATIONAL FIRST FILING - NO PRIOR CLAIM)</h2>
-    <p>06/02/2026</p>
-  </div>
+      <!-- Male dovetails (protruding on front & right) -->
+      <polygon points="0,40 30,55 30,75 -30,75 -30,55" fill="none" stroke="black" stroke-width="2"/> <!-- front male -->
+      <polygon points="80,0 110,15 110,35 50,35 50,15" fill="none" stroke="black" stroke-width="2"/> <!-- right male -->
 
-  <div class="section">
-    <h2 class="uppercase">IPC CLASSIFICATION</h2>
-    <p>E04B 1/343; E04B 2/70; E04B 1/98; C04B 18/26; B27K 3/00</p>
-  </div>
+      <!-- Female slots (recessed on left & back) -->
+      <rect x="-75" y="10" width="30" height="40" fill="none" stroke="black" stroke-width="2" stroke-dasharray="3 2"/>
+      <rect x="-40" y="-35" width="40" height="30" fill="none" stroke="black" stroke-width="2" stroke-dasharray="3 2"/>
 
-  <div class="section">
-    <h2 class="uppercase">CPC CLASSIFICATION</h2>
-    <p>E04B 2001/3438; E04B 2002/708; E04B 1/986; C04B 18/268; B27K 3/008</p>
-  </div>
+      <!-- EPDM rib on male (thin line) -->
+      <line x1="0" y1="40" x2="30" y2="55" stroke="black" stroke-width="1.2" stroke-dasharray="1 1"/>
 
-  <div class="section">
-    <h2 class="uppercase">1. FIELD OF THE INVENTION</h2>
-    <p>This invention pertains to the technical field of modular prefabricated low-rise residential construction (1-3 storeys, 3m max floor height, NBC 2016 compliant) (IPC E04B 1/343), specifically encompassing:</p>
-    <ul>
-      <li>Zero-deep, rapid-install foundation systems for Indian soft alluvial/rocky/red/saline soils (E04B 2/70);</li>
-      <li>Seismic-resistant (Zone V, IS 1893:2016) & waterproof (IEC 60529 IP67) geometric self-locking interlocks for agro-waste micro-modules (E04B 1/98);</li>
-      <li>Acetylation process for lignocellulosic agro-waste (rice straw/bagasse) for fungal/bacterial rot resistance (B27K 3/00);</li>
-      <li>Proprietary geopolymer binder formulations for high-strength agro-waste composite modules (C04B 18/26).</li>
-    </ul>
-  </div>
+      <!-- TFE labyrinth inside female (wavy) -->
+      <path d="M-75,20 Q-60,25 -75,30 Q-60,35 -75,40" stroke="black" stroke-width="1" fill="none"/>
 
-  <div class="section">
-    <h2 class="uppercase">2. BACKGROUND ART</h2>
-    <h3>2.1 INDIAN HOUSING/MATERIAL CONSTRAINTS</h3>
-    <ol>
-      <li>Labor/Timeline: Conventional 1-3 storey construction = 3-6 months/unit (60% skilled labor; 25% national skilled labor shortage); 77% unskilled Indian workforce (MGNREGA/PMKVY) is underutilized.</li>
-      <li>Material Limitations: Raw agro-waste (rice straw/bagasse) rots in 1-2 years (no prior art discloses acetylation for housing-grade durability); generic lime-fly-ash binders are non-proprietary, low-strength (<2MPa), and non-compliant with IS 17051:2022.</li>
-      <li>Interlocking Flaws: Existing modular interlocks leak during monsoons, fail under Zone V seismic load, and lack self-alignment/watertight sealing (no TFE labyrinth + EPDM elastic rib integration).</li>
-      <li>Foundation Barriers: 62% of Indian landmass is soft soil (unfeasible for deep piling; no ground screw foundation engineered for acetylated agro-waste micro-modules).</li>
-      <li>Sustainability Gap: No modular housing system integrates auditable, blockchain-linked carbon sequestration for VER/Gold Standard carbon credit monetization.</li>
-    </ol>
+      <!-- Spring pin (crossing joint example) -->
+      <line x1="30" y1="60" x2="50" y2="60" stroke="black" stroke-width="3"/>
+      <circle cx="40" cy="60" r="4" fill="none" stroke="black" stroke-width="2"/>
 
-    <h3>2.2 PRIOR ART ANALYSIS</h3>
-    <ol>
-      <li>IN 298765 (2015): Fly-ash concrete blocks - No acetylation, no proprietary geopolymer binder, no 1.5° taper interlock, no TFE labyrinth seal, no zero-deep ground screw foundation.</li>
-      <li>CN 108532912A (2018): Steel container modules - No agro-waste integration, no acetylation, no geopolymer binder, no waterproof/seismic interlock.</li>
-      <li>EP 2851490 A1 (2015): Tapered interlock blocks - 3° taper (no self-alignment), no TFE/EPDM sealing, no acetylated agro-waste, no proprietary geopolymer molar ratio.</li>
-      <li>WO 2020/123456 (2020): Industrial ground screw foundations - No agro-waste module compatibility, no acetylation, no carbon sequestration tracking.</li>
-      <li>B27K 3/00 Prior Art: Acetylation for solid timber - No application to shredded rice straw/bagasse micro-modules for mass housing.</li>
-    </ol>
+      <!-- Utility channels inside -->
+      <path d="M-50,-20 Q-40,-10 -50,0" stroke="black" stroke-width="2" fill="none"/> <!-- 20mm PEX -->
+      <path d="M50,-20 Q60,-10 50,0" stroke="black" stroke-width="2" fill="none"/> <!-- 16mm copper -->
 
-    <h3>2.3 CRITICAL NOVELTY & INVENTIVE STEP GAP</h3>
-    <p>NO PRIOR ART DISCLOSES THE NON-OBVIOUS, SYNERGISTIC COMBINATION OF:</p>
-    <ol>
-      <li>Acetylated Agro-Waste Micro-Modules (A²WMM): Shredded agro-waste acetylated for 50-year rot resistance + proprietary geopolymer binder (SiO₂/Al₂O₃ molar ratio = 3.2:1, TRADE SECRET + PATENTED) for 3-5MPa IS 17051:2022 compliant strength.</li>
-      <li>1.5° Tapered Dovetail Geometric Self-Locking Interlock (GSLI) with TFE Labyrinth Seal + EPDM Elastic Rib: Tool-free ±1mm self-alignment, IP67 waterproofing, Zone V seismic resilience.</li>
-      <li>Zero-Deep Foundation Rapid Pad (ZFRP): 1.8m galvanized ground screw + precast fly-ash pad (1-day installation, soft/rocky soil compatible, engineered for A²WMM).</li>
-      <li>Blockchain-QR Linked Carbon Sequestration Tracking: Auditable, VER/Gold Standard compliant CO₂ sequestration quantification for monetization.</li>
-    </ol>
-  </div>
+      <!-- Fold hinge (thin line on left edge) -->
+      <line x1="-80" y1="-40" x2="-80" y2="40" stroke="black" stroke-width="1.5" stroke-dasharray="5 3"/>
 
-  <!-- Add more sections as needed from your full text -->
-  <!-- For brevity, I stopped at section 2.3. You can copy-paste the remaining content into similar <div class="section"> blocks -->
+      <!-- QR tag on front face -->
+      <rect x="-20" y="10" width="40" height="40" fill="none" stroke="black" stroke-width="1.5"/>
+      <text x="-10" y="35" font-size="8pt">QR</text>
 
-  <div class="signature-block">
-    <p><strong>Date:</strong> 06/02/2026</p>
-    <p><strong>Place:</strong> PARVATHIPURAM, ANDHRA PRADESH, INDIA</p>
-    <p><strong>Signature of Sole Applicant/Inventor:</strong></p>
-    <!-- Paste your <img> tag here if you want the signature embedded -->
-    <!-- Example: <img src="data:image/jpeg;base64,/9j/..." style="max-width:280px; margin:10px 0;"> -->
-    <div class="signature-line"></div> <!-- Empty line for signature -->
-    <p><strong>Name (In Block Letters):</strong> AGURU MANOJ KUMAR</p>
-  </div>
+      <!-- Dimension lines -->
+      <line x1="-100" y1="100" x2="100" y2="100" stroke="black" stroke-width="1"/>
+      <line x1="-100" y1="95" x2="-100" y2="105" stroke="black" stroke-width="1"/>
+      <line x1="100" y1="95" x2="100" y2="105" stroke="black" stroke-width="1"/>
+      <text x="0" y="120" text-anchor="middle" class="dim">150 mm</text>
+
+      <line x1="140" y1="0" x2="140" y2="-80" stroke="black" stroke-width="1"/>
+      <text x="155" y="-40" text-anchor="middle" class="dim" transform="rotate(-90 155 -40)">75 mm</text>
+
+      <!-- 1.5° taper angle symbol -->
+      <path d="M30,55 L45,70" stroke="black" stroke-width="1"/>
+      <path d="M45,70 L60,55" stroke="black" stroke-width="1"/>
+      <text x="50" y="80" font-size="9pt">1.5°</text>
+
+      <!-- Reference numerals -->
+      <text x="-60" y="-60" class="label">10</text> <!-- body -->
+      <text x="20" y="65" class="label">11</text> <!-- male dovetail -->
+      <text x="-60" y="30" class="label">12</text> <!-- female slot -->
+      <text x="35" y="50" class="label">13</text> <!-- EPDM -->
+      <text x="-65" y="25" class="label">14</text> <!-- TFE -->
+      <text x="45" y="65" class="label">15</text> <!-- spring pin -->
+      <text x="-45" y="-10" class="label">16</text> <!-- 20mm channel -->
+      <text x="55" y="-10" class="label">17</text> <!-- 16mm channel -->
+      <text x="-85" y="0" class="label">18</text> <!-- fold hinge -->
+      <text x="-10" y="35" class="label">19</text> <!-- QR -->
+      <text x="0" y="-70" class="label">20</text> <!-- neem coating area -->
+
+      <!-- Extra labels -->
+      <text x="-30" y="110" text-anchor="middle" font-size="10pt">4:1 nestable</text>
+      <text x="0" y="-100" text-anchor="middle" font-size="10pt">Hollow for utility routing</text>
+      <text x="100" y="-100" text-anchor="middle" font-size="10pt">B1 fire resistance IS 1644:2021</text>
+    </g>
+  </svg>
+</div>
 
 </body>
 </html>
