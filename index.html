@@ -92,22 +92,6 @@
             font-weight: bold;
         }
         
-        .hatch-steel {
-            fill: url(#hatchSteel);
-        }
-        
-        .hatch-tfe {
-            fill: url(#hatchTfe);
-        }
-        
-        .hatch-epdm {
-            fill: url(#hatchEpdm);
-        }
-        
-        .hatch-ss {
-            fill: url(#hatchSS);
-        }
-        
         @media print {
             body {
                 background: white;
@@ -123,132 +107,134 @@
     <div class="patent-sheet">
         <svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <!-- Galvanized Steel: 45° diagonal, medium spacing -->
-                <pattern id="hatchSteel" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
-                    <line x1="0" y1="0" x2="0" y2="6" stroke="black" stroke-width="0.4"/>
+                <!-- Galvanized Steel: 45° diagonal -->
+                <pattern id="hatchSteel" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+                    <line x1="0" y1="0" x2="0" y2="8" stroke="black" stroke-width="0.5"/>
                 </pattern>
                 
-                <!-- TFE: 30° diagonal, fine spacing -->
-                <pattern id="hatchTfe" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="rotate(30)">
-                    <line x1="0" y1="0" x2="0" y2="4" stroke="black" stroke-width="0.3"/>
+                <!-- TFE: 30° diagonal, fine -->
+                <pattern id="hatchTfe" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(30)">
+                    <line x1="0" y1="0" x2="0" y2="3" stroke="black" stroke-width="0.3"/>
                 </pattern>
                 
-                <!-- EPDM: 60° diagonal, fine spacing -->
-                <pattern id="hatchEpdm" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="rotate(60)">
-                    <line x1="0" y1="0" x2="0" y2="4" stroke="black" stroke-width="0.3"/>
+                <!-- EPDM: 60° diagonal, fine -->
+                <pattern id="hatchEpdm" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(60)">
+                    <line x1="0" y1="0" x2="0" y2="3" stroke="black" stroke-width="0.3"/>
                 </pattern>
                 
-                <!-- 304 SS: Cross-hatch (45° + 135°) -->
-                <pattern id="hatchSS" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)">
-                    <line x1="0" y1="0" x2="0" y2="5" stroke="black" stroke-width="0.3"/>
-                    <line x1="0" y1="0" x2="5" y2="0" stroke="black" stroke-width="0.3"/>
+                <!-- 304 SS: Cross-hatch -->
+                <pattern id="hatchSS" patternUnits="userSpaceOnUse" width="4" height="4">
+                    <line x1="0" y1="0" x2="4" y2="4" stroke="black" stroke-width="0.3"/>
+                    <line x1="4" y1="0" x2="0" y2="4" stroke="black" stroke-width="0.3"/>
                 </pattern>
             </defs>
             
-            <!-- MAIN CROSS-SECTION DRAWING -->
-            <!-- Center: X=300, Y=400 -->
-            <!-- Scale: 3px = 1mm -->
-            <!-- Overall: 150mm x 75mm = 450px x 225px -->
+            <!-- MAIN CROSS-SECTION -->
+            <!-- Drawing area: centered -->
             
-            <!-- FEMALE SLOT COMPONENT (Left Side) -->
+            <!-- FEMALE SLOT (Left) - Component 21 -->
             <!-- Outer boundary -->
-            <path class="line-thick" d="M 150 512 L 300 512 L 300 287 L 150 287 Z"/>
+            <path class="line-thick" d="M 150 500 L 300 500 L 300 300 L 150 300 Z"/>
             
-            <!-- Female slot cavity (void - no hatching) -->
-            <path class="line-medium" d="M 180 482 L 270 482 L 270 317 L 180 317 Z"/>
+            <!-- Female cavity -->
+            <path class="line-medium" d="M 180 470 L 270 470 L 270 330 L 180 330 Z"/>
             
-            <!-- TFE Labyrinth Seal (0.5mm = 1.5px) -->
-            <!-- Position: Right edge of female slot -->
-            <path class="hatch-tfe" d="M 270 317 L 285 320 L 285 335 L 275 340 L 275 350 L 285 355 L 285 365 L 275 370 L 275 380 L 285 385 L 285 395 L 275 400 L 275 410 L 285 415 L 285 425 L 275 430 L 275 440 L 285 445 L 285 455 L 275 460 L 275 470 L 285 475 L 285 479 L 270 482 Z"/>
-            <path class="line-thin" d="M 270 317 L 285 320 L 285 335 L 275 340 L 275 350 L 285 355 L 285 365 L 275 370 L 275 380 L 285 385 L 285 395 L 275 400 L 275 410 L 285 415 L 285 425 L 275 430 L 275 440 L 285 445 L 285 455 L 275 460 L 275 470 L 285 475 L 285 479 L 270 482"/>
+            <!-- TFE Labyrinth Seal (22) - Tortuous path design -->
+            <!-- Right edge of female cavity -->
+            <path fill="url(#hatchTfe)" d="M 270 330 L 285 332 L 285 342 L 275 347 L 275 357 L 285 362 L 285 372 L 275 377 L 275 387 L 285 392 L 285 402 L 275 407 L 275 417 L 285 422 L 285 432 L 275 437 L 275 447 L 285 452 L 285 462 L 275 467 L 275 470 L 270 470 Z"/>
+            <path class="line-thin" d="M 270 330 L 285 332 L 285 342 L 275 347 L 275 357 L 285 362 L 285 372 L 275 377 L 275 387 L 285 392 L 285 402 L 275 407 L 275 417 L 285 422 L 285 432 L 275 437 L 275 447 L 285 452 L 285 462 L 275 467 L 275 470"/>
             
-            <!-- Spring pin groove in female (0.6mm = 1.8px) -->
-            <path class="line-thin" d="M 270 395 L 275 395 L 275 405 L 270 405"/>
+            <!-- Spring pin groove in female -->
+            <path class="line-thin" d="M 270 392 L 275 392 L 275 408 L 270 408"/>
             
-            <!-- Galvanized steel hatching for female body -->
-            <path class="hatch-steel" d="M 150 287 L 180 317 L 180 482 L 150 512 Z"/>
-            <path class="line-thin" d="M 150 287 L 180 317"/>
-            <path class="line-thin" d="M 150 512 L 180 482"/>
+            <!-- Steel hatching for female body -->
+            <path fill="url(#hatchSteel)" d="M 150 300 L 180 330 L 180 470 L 150 500 Z"/>
+            <path class="line-thin" d="M 150 300 L 180 330"/>
+            <path class="line-thin" d="M 150 500 L 180 470"/>
             
-            <!-- MALE DOVETAIL COMPONENT (Right Side) -->
-            <!-- Outer boundary with 1.5° taper -->
-            <!-- Taper over 75mm height: 2mm width difference -->
-            <path class="line-thick" d="M 300 512 L 450 512 L 450 287 L 300 287 Z"/>
+            <!-- MALE DOVETAIL (Right) - Component 20 -->
+            <!-- 1.5° taper: 2mm difference over 75mm height -->
+            <path class="line-thick" d="M 300 500 L 450 500 L 450 300 L 300 300 Z"/>
             
-            <!-- Male dovetail protrusion -->
-            <path class="line-thick" d="M 300 317 L 330 320 L 330 479 L 300 482 Z"/>
+            <!-- Male protrusion with taper -->
+            <path class="line-thick" d="M 300 330 L 330 332 L 330 468 L 300 470 Z"/>
             
-            <!-- EPDM Elastic Rib (1mm = 3px) -->
-            <!-- Position: Left edge of male dovetail -->
-            <path class="hatch-epdm" d="M 300 350 L 315 352 L 315 448 L 300 450 Z"/>
-            <path class="line-thin" d="M 300 350 L 315 352 L 315 448 L 300 450"/>
+            <!-- EPDM Elastic Rib (23) - 1mm thickness -->
+            <path fill="url(#hatchEpdm)" d="M 300 360 L 315 362 L 315 438 L 300 440 Z"/>
+            <path class="line-thin" d="M 300 360 L 315 362 L 315 438 L 300 440"/>
             
-            <!-- Spring pin hole in male (0.6mm = 1.8px) -->
-            <circle cx="315" cy="400" r="3" class="line-thin" fill="white"/>
+            <!-- Spring pin hole in male -->
+            <circle cx="307" cy="400" r="4" class="line-thin" fill="white"/>
             
-            <!-- Galvanized steel hatching for male body -->
-            <path class="hatch-steel" d="M 330 320 L 450 287 L 450 512 L 330 479 Z"/>
-            <path class="line-thin" d="M 330 320 L 450 287"/>
-            <path class="line-thin" d="M 330 479 L 450 512"/>
+            <!-- Steel hatching for male body -->
+            <path fill="url(#hatchSteel)" d="M 330 332 L 450 300 L 450 500 L 330 468 Z"/>
+            <path class="line-thin" d="M 330 332 L 450 300"/>
+            <path class="line-thin" d="M 330 468 L 450 500"/>
             
-            <!-- 304 STAINLESS STEEL SPRING PIN (Center) -->
-            <!-- Connecting both components -->
-            <rect x="312" y="395" width="6" height="10" class="hatch-ss"/>
-            <rect x="312" y="395" width="6" height="10" class="line-thin" fill="none"/>
+            <!-- 304-SS SPRING PIN (24) - Center -->
+            <rect x="303" y="392" width="8" height="16" fill="url(#hatchSS)"/>
+            <rect x="303" y="392" width="8" height="16" class="line-thin"/>
             
-            <!-- Pin head -->
-            <rect x="310" y="393" width="2" height="14" class="hatch-ss"/>
-            <rect x="318" y="393" width="2" height="14" class="hatch-ss"/>
+            <!-- Pin heads -->
+            <rect x="300" y="390" width="3" height="20" fill="url(#hatchSS)"/>
+            <rect x="311" y="390" width="3" height="20" fill="url(#hatchSS)"/>
             
-            <!-- DIMENSION LINES - ALL OUTSIDE DRAWING -->
+            <!-- Reference numerals on diagram -->
+            <text class="text-small" x="165" y="485" style="font-weight: bold;">21</text>
+            <text class="text-small" x="435" y="485" style="font-weight: bold;">20</text>
+            <text class="text-small" x="277" y="450" style="font-weight: bold;">22</text>
+            <text class="text-small" x="307" y="450" style="font-weight: bold;">23</text>
+            <text class="text-small" x="307" y="385" style="font-weight: bold;">24</text>
             
-            <!-- Overall Width 150mm -->
-            <line class="line-dim" x1="150" y1="540" x2="450" y2="540"/>
-            <line class="line-dim" x1="150" y1="535" x2="150" y2="545"/>
-            <line class="line-dim" x1="450" y1="535" x2="450" y2="545"/>
-            <text class="text-small" x="300" y="560">150 mm</text>
+            <!-- DIMENSION LINES - ALL OUTSIDE -->
             
-            <!-- Overall Height 75mm -->
-            <line class="line-dim" x1="120" y1="287" x2="120" y2="512"/>
-            <line class="line-dim" x1="115" y1="287" x2="125" y2="287"/>
-            <line class="line-dim" x1="115" y1="512" x2="125" y2="512"/>
+            <!-- Width 150mm - Below -->
+            <line class="line-dim" x1="150" y1="530" x2="450" y2="530"/>
+            <line class="line-dim" x1="150" y1="525" x2="150" y2="535"/>
+            <line class="line-dim" x1="450" y1="525" x2="450" y2="535"/>
+            <text class="text-small" x="300" y="550">150 mm</text>
+            
+            <!-- Height 75mm - Left -->
+            <line class="line-dim" x1="120" y1="300" x2="120" y2="500"/>
+            <line class="line-dim" x1="115" y1="300" x2="125" y2="300"/>
+            <line class="line-dim" x1="115" y1="500" x2="125" y2="500"/>
             <text class="text-small" x="105" y="405">75 mm</text>
             
-            <!-- 1.5° Taper Angle -->
-            <line class="line-dim" x1="450" y1="287" x2="480" y2="287"/>
-            <line class="line-dim" x1="450" y1="512" x2="480" y2="512"/>
-            <line class="line-dim" x1="480" y1="287" x2="480" y2="512"/>
+            <!-- 1.5° Taper - Right side -->
+            <line class="line-dim" x1="450" y1="300" x2="480" y2="300"/>
+            <line class="line-dim" x1="450" y1="500" x2="480" y2="500"/>
+            <line class="line-dim" x1="480" y1="300" x2="480" y2="500"/>
             <text class="text-small" x="495" y="405">1.5°</text>
             
-            <!-- TFE Seal Thickness 0.5mm -->
-            <line class="line-leader" x1="277" y1="400" x2="260" y2="380"/>
-            <text class="text-small" x="250" y="375">0.5mm TFE</text>
+            <!-- TFE 0.5mm - Leader line -->
+            <line class="line-leader" x1="277" y1="400" x2="240" y2="360"/>
+            <text class="text-small" x="220" y="355">0.5mm TFE</text>
             
-            <!-- EPDM Rib Thickness 1mm -->
-            <line class="line-leader" x1="307" y1="400" x2="330" y2="380"/>
-            <text class="text-small" x="350" y="375">1mm EPDM</text>
+            <!-- EPDM 1mm - Leader line -->
+            <line class="line-leader" x1="307" y1="400" x2="360" y2="360"/>
+            <text class="text-small" x="385" y="355">1mm EPDM</text>
             
-            <!-- Pin Diameter 0.6mm -->
-            <line class="line-leader" x1="315" y1="400" x2="315" y2="360"/>
-            <text class="text-small" x="315" y="350">0.6mm Pin</text>
+            <!-- Pin 0.6mm - Leader line -->
+            <line class="line-leader" x1="307" y1="400" x2="340" y2="340"/>
+            <text class="text-small" x="370" y="330">0.6mm Pin</text>
             
-            <!-- LABELS WITH LEADER LINES -->
+            <!-- COMPONENT LABELS WITH LEADERS -->
             
             <!-- Female Slot -->
-            <line class="line-leader" x1="225" y1="400" x2="150" y2="250"/>
-            <text class="text-main" x="120" y="240">Female Slot</text>
+            <line class="line-leader" x1="180" y1="400" x2="120" y2="250"/>
+            <text class="text-main" x="100" y="240">Female Slot (21)</text>
             
             <!-- Male Dovetail -->
-            <line class="line-leader" x1="375" y1="400" x2="450" y2="250"/>
-            <text class="text-main" x="480" y="240">Male Dovetail</text>
+            <line class="line-leader" x1="390" y1="400" x2="480" y2="250"/>
+            <text class="text-main" x="500" y="240">Male Dovetail (20)</text>
             
             <!-- Spring Pin -->
-            <line class="line-leader" x1="315" y1="400" x2="380" y2="300"/>
-            <text class="text-small" x="420" y="290">304-SS Spring Pin</text>
+            <line class="line-leader" x1="307" y1="400" x2="400" y2="280"/>
+            <text class="text-small" x="430" y="270">304-SS Spring Pin (24)</text>
             
-            <!-- Performance Specifications -->
-            <text class="text-small" x="300" y="620">10kN Axial Load | 45kN Shear Load | 10,000+ Cycles</text>
-            <text class="text-small" x="300" y="640">IP67 Waterproof | Zone V Seismic Resilient</text>
+            <!-- PERFORMANCE SPECS -->
+            <text class="text-small" x="300" y="610">10kN Axial Load | 45kN Shear Load | 10,000+ Cycles</text>
+            <text class="text-small" x="300" y="630">IP67 Waterproof | Zone V Seismic Resilient</text>
             
             <!-- MAIN TITLE -->
             <text class="text-main" x="300" y="200">GSLI Cross-Section</text>
@@ -259,7 +245,7 @@
             <!-- REFERENCE NUMERALS -->
             <text class="text-small" x="300" y="845">20: Male Dovetail | 21: Female Slot | 22: TFE Seal | 23: EPDM Rib | 24: Spring Pin</text>
             
-            <!-- Fig. 2 Label -->
+            <!-- Fig. 2 -->
             <text class="text-main" x="550" y="820" style="font-weight: bold;">Fig. 2</text>
         </svg>
     </div>
