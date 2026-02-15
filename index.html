@@ -1,199 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPO Form 2 - Aguru Manoj Kumar</title>
-    <style>
-        /* IPO Standard Formatting for A4 Paper */
-        @page {
-            size: A4;
-            margin: 0; /* Margins are handled by the container for line numbering alignment */
-        }
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #e0e0e0;
-            font-family: "Times New Roman", Times, serif;
-            font-size: 12pt;
-            color: black;
-        }
+# 1. Setup the Figure according to A4 dimensions (in inches)
+# A4 is approx 8.27 x 11.69 inches.
+fig, ax = plt.subplots(figsize=(8.27, 11.69), dpi=300)
 
-       .page-container {
-            width: 210mm;
-            min-height: 297mm;
-            margin: 20px auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            /* Statutory Margins: Top: 4cm, Left: 4cm, Bottom: 3cm, Right: 3cm */
-            padding: 4cm 3cm 3cm 4cm; 
-            box-sizing: border-box;
-            position: relative;
-            line-height: 1.5;
-            overflow: hidden;
-        }
+# 2. Define Margins (IPO Rule: Top/Left 4cm, Right/Bottom 3cm)
+# Converting cm to relative figure coordinates (approximate for display)
+plt.subplots_adjust(left=0.15, right=0.9, top=0.9, bottom=0.1)
 
-        /* Line Numbering Sidebar */
-       .line-numbers {
-            position: absolute;
-            left: 3.2cm; /* Placed in the right half of the left margin */
-            top: 4cm;
-            width: 0.5cm;
-            text-align: right;
-            font-size: 10pt;
-            color: #666;
-            line-height: 1.5; /* Must match content line-height */
-            user-select: none;
-        }
+# 3. Draw Pavement Layers (Cross-Section)
+# Layer 1: Sub-grade (Soil) - Bottom
+subgrade = patches.Rectangle((0, 0), 10, 2, linewidth=1.5, edgecolor='black', facecolor='white', hatch='...')
+ax.add_patch(subgrade)
 
-       .line-marker {
-            display: block;
-            height: 1.5em; /* Matches line-height */
-        }
+# Layer 2: Granular Sub-base - Middle
+subbase = patches.Rectangle((0, 2), 10, 1.5, linewidth=1.5, edgecolor='black', facecolor='white', hatch='ooo')
+ax.add_patch(subbase)
 
-       .content {
-            text-align: justify;
-        }
+# Layer 3: Dense Bituminous Macadam (DBM) - Top Base
+dbm = patches.Rectangle((0, 3.5), 10, 1.5, linewidth=1.5, edgecolor='black', facecolor='white', hatch='///')
+ax.add_patch(dbm)
 
-        /* Styling for Patent Sections */
-       .form-header {
-            text-align: center;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
+# Layer 4: Bituminous Concrete (BC) with Nanosilica - Surface Course
+bc_layer = patches.Rectangle((0, 5), 10, 1.2, linewidth=1.5, edgecolor='black', facecolor='white', hatch='xx')
+ax.add_patch(bc_layer)
 
-       .section-title {
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-top: 25px;
-            display: block;
-            border-bottom: 1px solid #000;
-            margin-bottom: 10px;
-        }
+# 4. Draw Vascular Network (Module C)
+# Draw hollow tubes embedded in the BC/DBM interface
+tube_positions = [1, 2, 3, 4]
+for x_pos in tube_positions:
+    # Outer Tube Wall
+    tube = patches.Circle((x_pos, 5.0), 0.25, linewidth=1.5, edgecolor='black', facecolor='white')
+    ax.add_patch(tube)
+    # Inner Hollow Channel
+    inner_tube = patches.Circle((x_pos, 5.0), 0.15, linewidth=1.0, edgecolor='black', facecolor='black') # Filled black to show fluid
+    ax.add_patch(inner_tube)
 
-       .subsection-title {
-            font-weight: bold;
-            margin-top: 15px;
-            display: block;
-        }
+# 5. Draw Schematic Crack and Healing Action
+# Draw a jagged line representing a crack
+crack_x = [4.0, 4.1, 3.9, 4.0]
+crack_y = [6.2, 5.8, 5.4, 5.0] # Cracking from surface down to the tube
+ax.plot(crack_x, crack_y, color='black', linewidth=1.5, linestyle='--')
 
-       .declaration-box {
-            font-style: italic;
-            margin: 15px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
+# 6. Add Reference Numerals (No Text labels allowed on drawing)
+def add_ref(x, y, text):
+    ax.text(x, y, text, fontsize=12, fontweight='bold', ha='center', va='center', 
+            bbox=dict(facecolor='white', edgecolor='none', pad=1))
 
-       .signature-section {
-            margin-top: 50px;
-            text-align: left;
-        }
+# Arrows and Numbers
+ax.annotate('104', xy=(1, 5.6), xytext=(0.5, 6.5), arrowprops=dict(facecolor='black', arrowstyle='->')) # BC Layer
+ax.annotate('103', xy=(1, 4.0), xytext=(0.5, 4.0), arrowprops=dict(facecolor='black', arrowstyle='->')) # DBM Layer
+ax.annotate('102', xy=(1, 2.7), xytext=(0.5, 2.7), arrowprops=dict(facecolor='black', arrowstyle='->')) # Sub-base
+ax.annotate('101', xy=(1, 1.0), xytext=(0.5, 1.0), arrowprops=dict(facecolor='black', arrowstyle='->')) # Sub-grade
+ax.annotate('105', xy=(6, 5.0), xytext=(6, 6.5), arrowprops=dict(facecolor='black', arrowstyle='->'))   # Vascular Tube
+ax.annotate('106', xy=(4, 5.8), xytext=(4.5, 7.0), arrowprops=dict(facecolor='black', arrowstyle='->')) # Crack (Healed)
 
-       .page-footer {
-            position: absolute;
-            bottom: 1.5cm;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 11pt;
-        }
+# 7. Formatting
+ax.set_xlim(-1, 11)
+ax.set_ylim(-1, 8)
+ax.set_aspect('equal')
+ax.axis('off') # Turn off chart axes
 
-        @media print {
-            body { background-color: white; }
-           .page-container {
-                margin: 0;
-                box-shadow: none;
-                width: 100%;
-                height: 100%;
-            }
-           .no-print { display: none; }
-        }
+# Figure Label
+plt.text(5, -0.5, "Figure 1", fontsize=14, fontweight='bold', ha='center')
 
-       .no-print-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background: #27ae60;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-    </style>
-</head>
-<body>
-
-<button class="no-print-btn" onclick="window.print()">Print to PDF</button>
-
-<div class="page-container">
-    <div class="line-numbers">
-        <span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker">5</span>
-        <span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker">10</span>
-        <span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker">15</span>
-        <span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker">20</span>
-        <span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker">25</span>
-        <span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker">30</span>
-        <span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker">35</span>
-        <span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker">40</span>
-        <span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker">45</span>
-        <span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker"></span><span class="line-marker">50</span>
-    </div>
-
-    <div class="content">
-        <div class="form-header">
-            FORM 2<br>
-            THE PATENTS ACT, 1970 (39 of 1970)<br>
-            & THE PATENTS RULES, 2003<br><br>
-            PROVISIONAL SPECIFICATION<br>
-            (See section 10 and rule 13)
-        </div>
-
-        <span class="section-title">1. TITLE OF THE INVENTION</span>
-        <p><strong>Modular Agro-Waste Assembly System with Self-Locking Interlock and Zero-Deep Ground Screw Foundation</strong></p>
-
-        <span class="section-title">2. APPLICANT(S)</span>
-        <p>
-            <strong>Name:</strong> AGURU MANOJ KUMAR<br>
-            <strong>Nationality:</strong> Indian<br>
-            <strong>Address:</strong> Plot No. 12-123, Near Kothavalasa Bus Stop, Kothavalasa Village, Parvathipuram Mandal & Town, Parvathipuram Manyam District, Andhra Pradesh – 535501, India
-        </p>
-
-        <span class="section-title">3. STATUTORY DECLARATION</span>
-        <div class="declaration-box">
-            To the best of my knowledge and belief, the information disclosed herein is true, complete, and accurate. No material fact relevant to the invention has been concealed or misrepresented. This specification contains no fabricated data or unvalidated certifications. The invention constitutes a technical mechanical/material construction system and is expressly not a business method or software per se.
-        </div>
-
-        <span class="section-title">4. PREAMBLE</span>
-        <p>The following specification particularly describes the invention and the manner in which it is to be performed.</p>
-
-        <span class="section-title">5. DESCRIPTION</span>
-
-        <span class="subsection-title">FIELD OF THE INVENTION</span>
-        <p>This invention relates to modular prefabricated low-rise residential construction. Specifically, it encompasses zero-deep rapid-install foundation systems, seismic-resistant and waterproof geometric self-locking interlocks for chemically modified agro-waste modules, and geopolymer binder formulations for high-strength composite modules.</p>
-
-        <span class="subsection-title">BACKGROUND OF THE INVENTION</span>
-        <p>Conventional low-rise construction in India faces a 25% national skilled labor shortage and material limitations where raw agro-waste rots within 1–2 years. Existing modular systems exhibit monsoon water ingress and failure under Zone V seismic loads. No prior art discloses the synergistic integration of acetylated agro-waste with proprietary binders and dual-seal interlocks.</p>
-
-        <span class="subsection-title">SUMMARY OF THE INVENTION</span>
-        <p>The invention provides a system comprising (a) Acetylated Agro-Waste Micro-Modules (A²WMM) with a 3.2:1 SiO₂/Al₂O₃ molar ratio binder; (b) a 1.5° Tapered Dovetail Geometric Self-Locking Interlock (GSLI) with TFE labyrinth seals and EPDM elastic ribs; and (c) a Zero-Deep Foundation Rapid Pad (ZFRP) using hot-dip galvanized ground screws.</p>
-
-        <span class="subsection-title">DETAILED DESCRIPTION</span>
-        <p>Chemical acetylation replaces hydroxyl groups in lignocellulosic fibers with acetyl groups, ensuring 50-year durability. The GSLI 1.5° taper angle enables tool-free engagement with under 5kg force. Ground screws are installed using soil-specific torque (60Nm for soft soil) to ensure stability without excavation. The integrated QR-blockchain tracking provides real-time auditing of structural integrity and carbon sequestration.</p>
-
-        <div class="signature-section">
-            <p>Dated this 6th day of February, 2026.</p><br><br>
-            <p>_________________________<br>
-            <strong>AGURU MANOJ KUMAR</strong><br>
-            (Applicant/Inventor)</p>
-        </div>
-    </div>
-    
-    <div class="page-footer">Page 1 of 1</div>
-</div>
-
-</body>
-</html>
+plt.title("Applicant: [User Name]   Sheet 1 of 4", fontsize=10, loc='right', y=0.98)
+plt.show()
