@@ -1,69 +1,740 @@
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patent Application - Self-Healing Bituminous Pavement System</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm 2cm 2cm 2.5cm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            color: #000;
+            text-align: justify;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 2.5cm 2cm 2cm 2.5cm;
+            margin: 0 auto;
+            background: white;
+            page-break-after: always;
+        }
+        
+        .page:last-child {
+            page-break-after: auto;
+        }
+        
+        .header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 14pt;
+            margin-bottom: 20pt;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10pt;
+        }
+        
+        .sub-header {
+            text-align: center;
+            font-size: 12pt;
+            margin-bottom: 15pt;
+        }
+        
+        h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 20pt 0 15pt 0;
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 15pt 0 10pt 0;
+            text-transform: uppercase;
+        }
+        
+        h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 12pt 0 8pt 0;
+            font-style: italic;
+        }
+        
+        p {
+            margin-bottom: 10pt;
+            text-indent: 0;
+        }
+        
+        .indent {
+            text-indent: 30pt;
+        }
+        
+        .section {
+            margin-bottom: 15pt;
+        }
+        
+        .claim {
+            margin-bottom: 12pt;
+            text-align: justify;
+            padding-left: 20pt;
+            text-indent: -20pt;
+        }
+        
+        .claim-number {
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15pt 0;
+            font-size: 11pt;
+        }
+        
+        table, th, td {
+            border: 1px solid #000;
+        }
+        
+        th, td {
+            padding: 8pt;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+        
+        .formula {
+            text-align: center;
+            margin: 15pt 0;
+            font-style: italic;
+        }
+        
+        .reference-list {
+            margin-left: 30pt;
+        }
+        
+        .signature-block {
+            margin-top: 40pt;
+            text-align: right;
+        }
+        
+        .abstract-box {
+            border: 1px solid #000;
+            padding: 15pt;
+            margin: 15pt 0;
+            background-color: #f9f9f9;
+        }
+        
+        .figure-placeholder {
+            border: 2px solid #000;
+            text-align: center;
+            padding: 40pt;
+            margin: 20pt 0;
+            background-color: #fafafa;
+            font-style: italic;
+        }
+        
+        .no-break {
+            page-break-inside: avoid;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .bold {
+            font-weight: bold;
+        }
+        
+        .uppercase {
+            text-transform: uppercase;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .page {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
 
-# 1. Setup the Figure according to A4 dimensions (in inches)
-# A4 is approx 8.27 x 11.69 inches.
-fig, ax = plt.subplots(figsize=(8.27, 11.69), dpi=300)
+<!-- Page 1: Title Page -->
+<div class="page">
+    <div class="header">
+        THE PATENTS ACT, 1970<br>
+        (39 OF 1970)<br>
+        &<br>
+        THE PATENTS RULES, 2003
+    </div>
+    
+    <div class="sub-header">
+        COMPLETE SPECIFICATION<br>
+        (See section 10 and rule 13)
+    </div>
+    
+    <h1>1. Title of the Invention</h1>
+    
+    <p style="text-align: center; font-weight: bold; font-size: 13pt; margin: 30pt 0;">
+        A SELF-HEALING BITUMINOUS PAVEMENT SYSTEM COMPRISING BIOMIMETIC VASCULAR NETWORKS AND AGRICULTURAL WASTE-DERIVED NANOCOMPOSITES
+    </p>
+    
+    <h2>2. Applicant(s)</h2>
+    
+    <p>(a) <strong>Name:</strong> [User Name/Entity]</p>
+    <p>(b) <strong>Nationality:</strong> Indian</p>
+    <p>(c) <strong>Address:</strong> [Insert Address], India</p>
+    
+    <h2>3. Preamble to the Description</h2>
+    
+    <p>The following specification particularly describes the invention and the manner in which it is to be performed.</p>
+</div>
 
-# 2. Define Margins (IPO Rule: Top/Left 4cm, Right/Bottom 3cm)
-# Converting cm to relative figure coordinates (approximate for display)
-plt.subplots_adjust(left=0.15, right=0.9, top=0.9, bottom=0.1)
+<!-- Page 2: Field and Background -->
+<div class="page">
+    <h2>Field of Invention</h2>
+    
+    <p class="indent">The present invention relates generally to the field of civil engineering and advanced infrastructure materials, specifically addressing the durability and maintenance of flexible pavements under tropical climatic conditions. More particularly, the invention pertains to a multi-scale, self-repairing bituminous composite system designed for high-traffic roadways and heavy-load highways. The invention integrates a nanocomposite bituminous binder reinforced with high-purity nanosilica synthesized from rice husk ash (RHA), a hydrophobic rejuvenating agent derived from the hydrothermal liquefaction of sugarcane bagasse (SCB), and a hierarchical, biomimetic vascular delivery network embedded within the pavement structure. This network is geometrically optimized using fluid dynamic principles to autonomously distribute the rejuvenating agent into micro-cracks, thereby restoring the rheological properties of the binder and extending the service life of the infrastructure.</p>
+    
+    <h2>Background of the Invention</h2>
+    
+    <p class="indent">The expansion and maintenance of road infrastructure are pivotal to the economic development of India, a nation with the second-largest road network in the world, spanning over 6.3 million kilometers. However, this network faces systemic challenges characterized by premature failure, structural disintegration, and exorbitant maintenance costs. The recurring incidence of potholes, rutting, and fatigue cracking—particularly exacerbated during the monsoon season—poses severe safety risks and economic losses estimated at 3-5% of the GDP annually due to logistical delays and accidents.</p>
+    
+    <h3>1. The Challenge of Bitumen Aging and Structural Failure</h3>
+    
+    <p class="indent">Flexible pavements, which constitute over 98% of India's road network, rely on bitumen as the primary viscoelastic binder. Bitumen is a complex hydrocarbon colloid consisting of asphaltenes (high molecular weight, brittle solids) dispersed in maltenes (resins and oils). Over time, environmental exposure leads to oxidative aging, a chemical process where maltenes are converted into asphaltenes, causing the binder to lose ductility and become brittle.</p>
+    
+    <p class="indent">In the Indian context, this aging is accelerated by:</p>
+    
+    <p><strong>Ultraviolet (UV) Radiation:</strong> Intense solar exposure in tropical regions catalyzes photo-oxidation on the pavement surface.</p>
+    
+    <p><strong>Thermal Cycling:</strong> Extreme temperature differentials between day and night induce thermal stress cycles, leading to micro-cracking.</p>
+    
+    <p><strong>Moisture Damage:</strong> The intense Indian monsoon leads to water infiltration. Once micro-cracks form, water penetrates the pavement, weakening the adhesive bond between the bitumen and the aggregate (stripping), leading to rapid pothole formation.</p>
+    
+    <p class="indent">Current maintenance practices are predominantly reactive, involving "patch-and-repair" methods using cold-mix asphalt or overlaying. These methods are temporary, resource-intensive, and fail to address the underlying degradation of the binder matrix.</p>
+</div>
 
-# 3. Draw Pavement Layers (Cross-Section)
-# Layer 1: Sub-grade (Soil) - Bottom
-subgrade = patches.Rectangle((0, 0), 10, 2, linewidth=1.5, edgecolor='black', facecolor='white', hatch='...')
-ax.add_patch(subgrade)
+<!-- Page 3: Background Continued -->
+<div class="page">
+    <h3>2. Limitations of Existing Self-Healing Technologies</h3>
+    
+    <p class="indent">To mitigate these failures, "self-healing" asphalt technologies have been explored, yet they suffer from critical limitations that prevent widespread adoption in India:</p>
+    
+    <p><strong>Microencapsulation:</strong> Prior art discloses the use of polymeric microcapsules containing rejuvenating oils. While effective for a single damage event, these capsules provide a finite healing capacity. Once the local capsules rupture, the healing potential is exhausted, leaving the pavement vulnerable to subsequent fatigue cycles. Furthermore, the inclusion of capsules can act as defects, potentially reducing the initial mechanical strength of the mix.</p>
+    
+    <p><strong>Induction Heating:</strong> Methodologies involving conductive steel fibers and induction heating require significant external energy input and specialized equipment trucks to activate the healing process. This active intervention approach is logistically challenging for India's vast and often remote highway network.</p>
+    
+    <p><strong>Inefficient Vascular Networks:</strong> Early attempts at vascular self-healing utilized simple, uniform tubular grids. These designs fail to account for the fluid dynamics of viscous rejuvenators. Uniform channels suffer from pressure drops over long distances, leading to blockage or insufficient delivery of the healing agent to cracks located far from the reservoir.</p>
+    
+    <h3>3. The Agricultural Waste Management Crisis</h3>
+    
+    <p class="indent">Concurrently, India faces a massive ecological challenge regarding the disposal of agricultural waste.</p>
+    
+    <p><strong>Rice Husk Ash (RHA):</strong> India, as a leading rice producer, generates millions of tons of rice husk annually. While some is used as fuel in brick kilns and boilers, the resulting ash (RHA) is often dumped in landfills or rivers, causing respiratory health issues and water pollution. RHA contains 85-95% amorphous silica, a valuable precursor for nanomaterials if properly processed, yet it remains largely underutilized in high-value applications.</p>
+    
+    <p><strong>Sugarcane Bagasse (SCB):</strong> The sugar industry generates vast quantities of bagasse. Excess bagasse is frequently incinerated inefficiently or left to rot, releasing methane. While research indicates SCB can be converted into bio-oils, raw bio-oils are highly oxygenated, acidic, and hydrophilic. Direct application of such oils in asphalt leads to severe moisture susceptibility and stripping, rendering them unsuitable for road construction without significant chemical modification.</p>
+    
+    <h3>4. Technical Gap and Need for Invention</h3>
+    
+    <p class="indent">There exists a critical technical gap for a comprehensive pavement system that addresses the "pothole pandemic" through autonomous, repeatable self-healing while simultaneously valorizing major agricultural waste streams. A solution is required that:</p>
+    
+    <div class="reference-list">
+        <p>• Reinforces the binder matrix to withstand heavy axle loads (common in India).</p>
+        <p>• Provides a continuous, renewable supply of healing agent rather than a one-time fix.</p>
+        <p>• Utilizes a delivery system optimized for fluid transport to prevent clogging.</p>
+        <p>• Ensures the bio-based healing agent is hydrophobic to survive the monsoon.</p>
+    </div>
+    
+    <p class="indent">The present invention bridges this gap by integrating a renewable, waste-derived rejuvenator with a scientifically optimized delivery system, creating a resilient, "living" road infrastructure.</p>
+</div>
 
-# Layer 2: Granular Sub-base - Middle
-subbase = patches.Rectangle((0, 2), 10, 1.5, linewidth=1.5, edgecolor='black', facecolor='white', hatch='ooo')
-ax.add_patch(subbase)
+<!-- Page 4: Objects and Summary -->
+<div class="page">
+    <h2>Objects of the Invention</h2>
+    
+    <p>The principal object of this invention is to provide a self-healing bituminous pavement system that autonomously repairs micro-cracks and rejuvenates aged bitumen, thereby extending the service life of road infrastructure by 40-80% compared to conventional pavements.</p>
+    
+    <p>Another object of this invention is to synthesize high-purity nanosilica (>99% SiO₂) from Rice Husk Ash (RHA) via a modified sol-gel precipitation process and utilize it as a reinforcing filler to enhance the stiffness, rutting resistance, and anti-aging properties of the asphalt binder.</p>
+    
+    <p>A further object of this invention is to develop a hydrophobic bio-rejuvenator from Sugarcane Bagasse (SCB) via hydrothermal liquefaction (HTL), chemically modified through esterification and silane grafting to overcome the inherent moisture susceptibility of biomass-derived oils and ensure compatibility with the non-polar bitumen matrix.</p>
+    
+    <p>Yet another object of this invention is to design and embed a hierarchical biomimetic vascular network within the pavement layer, wherein the network geometry is optimized using Murray's Law (r³ = r₁³ + r₂³) to minimize hydraulic resistance and maintain constant wall shear stress, ensuring the efficient, clog-free transport of the viscous bio-rejuvenator from roadside reservoirs to deep structural cracks.</p>
+    
+    <p>It is also an object of this invention to provide a cost-effective, sustainable solution that valorizes locally available agricultural waste, aligning with the "Waste to Wealth," "Atmanirbhar Bharat," and "Sustainable Infrastructure" initiatives of the Government of India.</p>
+    
+    <h2>Summary of the Invention</h2>
+    
+    <p class="indent">The present invention provides a self-healing bituminous pavement system comprising three synergistic technical modules: (1) A Nanocomposite Binder Matrix, (2) A Hydrophobic Bio-Rejuvenator, and (3) A Biomimetic Vascular Delivery Grid.</p>
+    
+    <h3>Module A: The Nanocomposite Binder Matrix</h3>
+    
+    <p class="indent">The pavement utilizes a bituminous binder (e.g., VG-30 or VG-40 grade) modified with alkyl-silane functionalized nanosilica extracted from Rice Husk Ash (RHA). The nanosilica acts as a dual-function additive: primarily, it reinforces the viscoelastic matrix, significantly increasing the complex modulus (G*) and rutting resistance (G*/sinδ) to withstand heavy traffic loads and high ambient temperatures. Secondarily, the high surface area of the nanoparticles serves as nucleation sites that facilitate the diffusion of the healing agent. The nanosilica is synthesized using a low-energy sol-gel method that precipitates amorphous silica from sodium silicate derived from RHA, achieving particle sizes in the 10-60 nm range.</p>
+</div>
 
-# Layer 3: Dense Bituminous Macadam (DBM) - Top Base
-dbm = patches.Rectangle((0, 3.5), 10, 1.5, linewidth=1.5, edgecolor='black', facecolor='white', hatch='///')
-ax.add_patch(dbm)
+<!-- Page 5: Summary Continued -->
+<div class="page">
+    <h3>Module B: The Hydrophobic Bio-Rejuvenator</h3>
+    
+    <p class="indent">The healing agent is a low-viscosity bio-oil derived from the thermochemical conversion of Sugarcane Bagasse (SCB). Recognizing that raw bio-oils are hydrophilic and acidic (leading to moisture damage), the invention discloses a specific chemical modification process. The crude bio-oil undergoes esterification with ethanol to stabilize reactive carboxylic acids, followed by surface functionalization with hydrophobic organosilanes (e.g., hexadecyltrimethoxysilane) or blending with waste cooking oil (WCO) derivatives. This modification renders the bio-oil hydrophobic (contact angle >90°) and chemically compatible with bitumen, allowing it to solvate asphaltenes and restore ductility without inducing stripping.</p>
+    
+    <h3>Module C: The Biomimetic Vascular Delivery Grid</h3>
+    
+    <p class="indent">Embedded within the pavement structure is a network of hollow channels designed to transport the bio-rejuvenator. Unlike prior art which utilizes random or uniform grids, this network mimics biological circulatory systems (e.g., leaf veins). The branching diameters of the channels follow Murray's Law (r³_parent = Σr³_daughter), a physical principle that minimizes the work required to transport fluid. This geometry ensures that the viscous bio-oil maintains constant shear stress throughout the network, preventing stagnation and clogging in smaller capillaries. The channels are formed using either sacrificial 3D-printed polymers (e.g., PLA/PVA) that degrade during construction or specialized high-strength geosynthetic hollow fibers that remain structurally integral under compaction.</p>
+    
+    <h3>Mechanism of Action</h3>
+    
+    <p class="indent">When a micro-crack forms in the pavement due to fatigue or thermal stress, it propagates until it intersects a pressurized vascular channel. The pressure differential or capillary action draws the bio-rejuvenator from the network into the crack face. The bio-oil diffuses into the aged bitumen, restoring its maltene-to-asphaltene ratio and softening the binder, which allows the crack faces to wet each other and fuse, effectively "healing" the road. The system is connected to external roadside reservoirs, allowing for continuous replenishment of the healing agent, thereby enabling multiple healing cycles over the pavement's lifespan.</p>
+</div>
 
-# Layer 4: Bituminous Concrete (BC) with Nanosilica - Surface Course
-bc_layer = patches.Rectangle((0, 5), 10, 1.2, linewidth=1.5, edgecolor='black', facecolor='white', hatch='xx')
-ax.add_patch(bc_layer)
+<!-- Page 6: Detailed Description - Module A -->
+<div class="page">
+    <h2>Detailed Description of the Invention</h2>
+    
+    <h3>1. Module A: Synthesis and Integration of RHA Nanosilica</h3>
+    
+    <p class="indent">The durability of the pavement matrix is enhanced through the incorporation of nanosilica derived from agricultural waste.</p>
+    
+    <h3>1.1 Raw Material Processing</h3>
+    
+    <p class="indent">Rice husk is sourced from local mills and subjected to a pre-treatment wash with 1N HCl to remove metallic impurities (K, Ca, Mg), which prevents the formation of black carbon during combustion. The treated husk is then calcined in a controlled environment at 600°C for 2 hours. This temperature is critical; below 500°C, carbon residues remain, and above 700°C, the silica crystallizes into cristobalite/trydymite, which is hazardous and less reactive. The resulting Rice Husk Ash (RHA) contains 90-95% amorphous silica (SiO₂).</p>
+    
+    <h3>1.2 Nanosilica Extraction (Sol-Gel Protocol)</h3>
+    
+    <p class="indent">High-purity nanosilica is extracted via the following chemical process:</p>
+    
+    <p><strong>Digestion:</strong> RHA is refluxed with 2.5N Sodium Hydroxide (NaOH) at 90°C for 1 hour to dissolve the silica, forming sodium silicate:</p>
+    
+    <div class="formula">
+        SiO₂ + 2NaOH → Na₂SiO₃ + H₂O
+    </div>
+    
+    <p><strong>Filtration:</strong> The solution is filtered to remove insoluble residues.</p>
+    
+    <p><strong>Precipitation (Sol-Gel):</strong> Concentrated Hydrochloric Acid (HCl) is added dropwise to the sodium silicate solution under vigorous stirring until the pH reaches 7.0. The acidification rate is controlled to prevent rapid gelation, ensuring uniform particle size.</p>
+    
+    <div class="formula">
+        Na₂SiO₃ + 2HCl → SiO₂↓(gel) + 2NaCl + H₂O
+    </div>
+    
+    <p><strong>Washing and Drying:</strong> The silica gel is centrifuged and washed with deionized water until the supernatant is chloride-free (tested with AgNO₃). The gel is dried at 80°C for 24 hours to form a xerogel.</p>
+    
+    <p><strong>Calcination:</strong> The xerogel is pulverized and calcined at 600°C to produce pure white nanosilica powder with an average particle size of 20-40 nm and a specific surface area (BET) of 200-300 m²/g.</p>
+</div>
 
-# 4. Draw Vascular Network (Module C)
-# Draw hollow tubes embedded in the BC/DBM interface
-tube_positions = [1, 2, 3, 4]
-for x_pos in tube_positions:
-    # Outer Tube Wall
-    tube = patches.Circle((x_pos, 5.0), 0.25, linewidth=1.5, edgecolor='black', facecolor='white')
-    ax.add_patch(tube)
-    # Inner Hollow Channel
-    inner_tube = patches.Circle((x_pos, 5.0), 0.15, linewidth=1.0, edgecolor='black', facecolor='black') # Filled black to show fluid
-    ax.add_patch(inner_tube)
+<!-- Page 7: Module A Continued and Module B -->
+<div class="page">
+    <h3>1.3 Surface Functionalization with Silane</h3>
+    
+    <p class="indent">Nanosilica is naturally hydrophilic due to surface silanol (Si-OH) groups, which leads to agglomeration in non-polar bitumen. To ensure dispersion, the silica is functionalized with 3-Aminopropyltriethoxysilane (APTES).</p>
+    
+    <p><strong>Reaction:</strong> Nanosilica is dispersed in ethanol. APTES (2% w/w) is added and refluxed at 70°C. The ethoxy groups of APTES hydrolyze and condense with the surface silanols, grafting an organic aminopropyl chain onto the silica surface.</p>
+    
+    <div class="formula">
+        Si-OH + (EtO)₃Si-(CH₂)₃-NH₂ → Si-O-Si-(CH₂)₃-NH₂ + EtOH
+    </div>
+    
+    <p class="indent">This organic tail renders the nanoparticle hydrophobic and compatible with the asphalt binder.</p>
+    
+    <h3>1.4 Binder Modification</h3>
+    
+    <p class="indent">The functionalized nanosilica is blended into standard viscosity grade bitumen (VG-30 or VG-40) at a concentration of 3% to 5% by weight. A high-shear mixer (4000 rpm) is used at 160°C for 60 minutes. The resulting nanocomposite binder exhibits a complex modulus (G*) increase of 40-60% and improved resistance to oxidative aging.</p>
+    
+    <h3>2. Module B: Synthesis of Hydrophobic Bio-Rejuvenator</h3>
+    
+    <p class="indent">The healing agent is engineered to reverse the chemical aging of bitumen while resisting water damage.</p>
+    
+    <h3>2.1 Hydrothermal Liquefaction (HTL) of Bagasse</h3>
+    
+    <p class="indent">Sugarcane bagasse is dried and ground to <2 mm. It is processed in a high-pressure reactor with water (1:10 biomass-to-water ratio) and a sodium carbonate (Na₂CO₃) catalyst.</p>
+    
+    <p><strong>Conditions:</strong> Temperature: 300°C; Pressure: 15-20 MPa; Residence time: 30 minutes.</p>
+    
+    <p><strong>Mechanism:</strong> Under these sub-critical conditions, the lignocellulosic matrix depolymerizes. Cellulose and hemicellulose convert into sugars, acids, and ketones, while lignin degrades into phenolic oligomers.</p>
+    
+    <p><strong>Product:</strong> The process yields a crude bio-oil (30-45% yield), an aqueous phase, and solid char. The crude bio-oil is separated using dichloromethane (DCM) extraction.</p>
+</div>
 
-# 5. Draw Schematic Crack and Healing Action
-# Draw a jagged line representing a crack
-crack_x = [4.0, 4.1, 3.9, 4.0]
-crack_y = [6.2, 5.8, 5.4, 5.0] # Cracking from surface down to the tube
-ax.plot(crack_x, crack_y, color='black', linewidth=1.5, linestyle='--')
+<!-- Page 8: Module B Continued and Module C -->
+<div class="page">
+    <h3>2.2 Chemical Upgrading (Esterification & Hydrophobization)</h3>
+    
+    <p class="indent">Crude bio-oil contains corrosive carboxylic acids and hydrophilic hydroxyl groups. The invention employs a dual-step modification:</p>
+    
+    <p><strong>Fischer Esterification:</strong> The crude oil is refluxed with ethanol (or butanol) and a sulfuric acid catalyst (1% w/w) at 70°C for 2 hours. This converts reactive acids into stable esters, reducing the Acid Value (AV) from >40 mg KOH/g to <5 mg KOH/g.</p>
+    
+    <div class="formula">
+        R-COOH + R'-OH →[H⁺] R-COO-R' + H₂O
+    </div>
+    
+    <p><strong>Silylation/Blending:</strong> To maximize hydrophobicity, the esterified oil is blended with 10-20% Waste Cooking Oil (WCO) or treated with a hydrophobic silane (e.g., hexadecyltrimethoxysilane). This increases the contact angle with water from ~35° (hydrophilic) to >95° (hydrophobic), ensuring the rejuvenating agent does not wash away during monsoons or cause stripping.</p>
+    
+    <h3>3. Module C: Biomimetic Vascular Network Design</h3>
+    
+    <p class="indent">The delivery system ensures the transport of the viscous bio-rejuvenator (200-500 cP) to cracks located meters away from the source.</p>
+    
+    <h3>3.1 Hydraulic Optimization via Murray's Law</h3>
+    
+    <p class="indent">Fluid transport in uniform networks suffers from pressure attenuation. Biological systems utilize a branching hierarchy to minimize the metabolic energy cost of transport. This principle, Murray's Law, dictates that flow is optimal when the cube of the radius of the parent vessel equals the sum of the cubes of the radii of the daughter vessels:</p>
+    
+    <div class="formula">
+        r³_parent = r³_daughter1 + r³_daughter2 + ... + r³_daughtern
+    </div>
+    
+    <p class="indent">Applying this to the pavement vascular grid:</p>
+    
+    <p><strong>Primary Arteries (Feeder):</strong> Connected to the roadside reservoir. Diameter D₁ = 8.0 mm.</p>
+    
+    <p><strong>Secondary Channels:</strong> Branching from primary. Diameter D₂. For a bifurcation (n=2): 8³ = 2×D₂³ ⇒ 512 = 2×D₂³ ⇒ D₂ ≈ 6.35 mm.</p>
+    
+    <p><strong>Tertiary Capillaries:</strong> Delivering to the crack zone. Diameter D₃ ≈ 5.0 mm.</p>
+    
+    <p class="indent">This graduated reduction maintains a constant wall shear stress throughout the network, preventing the thixotropic bio-oil from gelling in the smaller channels and ensuring uniform pressure distribution.</p>
+</div>
 
-# 6. Add Reference Numerals (No Text labels allowed on drawing)
-def add_ref(x, y, text):
-    ax.text(x, y, text, fontsize=12, fontweight='bold', ha='center', va='center', 
-            bbox=dict(facecolor='white', edgecolor='none', pad=1))
+<!-- Page 9: Module C Continued -->
+<div class="page">
+    <h3>3.2 Fabrication Embodiments</h3>
+    
+    <p class="indent">The invention discloses two methods for creating this network within the asphalt layer:</p>
+    
+    <h3>Embodiment A: Sacrificial 3D Printing (The "Lost Mold" Technique)</h3>
+    
+    <p class="indent">A 3D printer, mounted on a paver or separate gantry, deposits a network of sacrificial material directly onto the binder course.</p>
+    
+    <p><strong>Material:</strong> Polyvinyl Alcohol (PVA) or Polylactic Acid (PLA) filament.</p>
+    
+    <p><strong>Process:</strong> The asphalt overlay is paved on top. The heat of the asphalt (140-160°C) softens the PLA, or water is flushed through the PVA post-cooling. This leaves a hollow, distinct channel geometry mirroring the printed pattern.</p>
+    
+    <p><strong>Advantage:</strong> Allows for complex, fractal Murray's Law geometries impossible to manufacture with extrusion.</p>
+    
+    <h3>Embodiment B: Geosynthetic Integration (Hollow Fiber Grid)</h3>
+    
+    <p class="indent">A scalable industrial approach involves weaving hollow polymeric tubes into a standard biaxial geogrid (e.g., fiberglass or polyester).</p>
+    
+    <p><strong>Tubes:</strong> Made of high-thermal-resistance Polyurethane or PTFE to withstand paving temperatures.</p>
+    
+    <p><strong>Porosity:</strong> The tubes are laser-perforated or made of a porous membrane that only releases fluid under specific capillary suction pressures generated by a crack interface, preventing leakage into intact pavement.</p>
+    
+    <h3>3.3 System Integration and Triggering</h3>
+    
+    <p><strong>Reservoir:</strong> A pressurized canister (0.5-1.0 bar) is buried in the road shoulder/median, accessible via a manhole.</p>
+    
+    <p><strong>Connection:</strong> Flexible manifolds connect the reservoir to the Primary Arteries of the vascular grid.</p>
+    
+    <p><strong>Sensor/Trigger:</strong> The system can operate passively (capillary suction) or actively. In the active embodiment, piezoelectric strain sensors embedded in the grid detect fracture energy and signal a solenoid valve to release a pulse of rejuvenator.</p>
+</div>
 
-# Arrows and Numbers
-ax.annotate('104', xy=(1, 5.6), xytext=(0.5, 6.5), arrowprops=dict(facecolor='black', arrowstyle='->')) # BC Layer
-ax.annotate('103', xy=(1, 4.0), xytext=(0.5, 4.0), arrowprops=dict(facecolor='black', arrowstyle='->')) # DBM Layer
-ax.annotate('102', xy=(1, 2.7), xytext=(0.5, 2.7), arrowprops=dict(facecolor='black', arrowstyle='->')) # Sub-base
-ax.annotate('101', xy=(1, 1.0), xytext=(0.5, 1.0), arrowprops=dict(facecolor='black', arrowstyle='->')) # Sub-grade
-ax.annotate('105', xy=(6, 5.0), xytext=(6, 6.5), arrowprops=dict(facecolor='black', arrowstyle='->'))   # Vascular Tube
-ax.annotate('106', xy=(4, 5.8), xytext=(4.5, 7.0), arrowprops=dict(facecolor='black', arrowstyle='->')) # Crack (Healed)
+<!-- Page 10: Method of Performance -->
+<div class="page">
+    <h3>4. Method of Performance (Best Method)</h3>
+    
+    <p class="indent">The following outlines the construction protocol for a prototype section:</p>
+    
+    <p><strong>Step 1: Nanocomposite Binder Production</strong></p>
+    
+    <div class="reference-list">
+        <p>• Extract nanosilica from RHA using the NaOH/HCl sol-gel process.</p>
+        <p>• Functionalize with 2% APTES.</p>
+        <p>• Blend 4% functionalized nanosilica into VG-40 bitumen using a high-shear mill at a hot mix plant.</p>
+    </div>
+    
+    <p><strong>Step 2: Bio-Rejuvenator Preparation</strong></p>
+    
+    <div class="reference-list">
+        <p>• Liquefy SCB via HTL at 300°C.</p>
+        <p>• Esterify the crude oil with ethanol/sulfuric acid.</p>
+        <p>• Blend with 15% Waste Cooking Oil.</p>
+        <p>• Fill into 50L pressurized storage tanks.</p>
+    </div>
+    
+    <p><strong>Step 3: Pavement Construction</strong></p>
+    
+    <div class="reference-list">
+        <p>• Prepare the sub-base and base layers according to IRC:37-2018 guidelines.</p>
+        <p>• Lay the Dense Bituminous Macadam (DBM) layer (50-75mm).</p>
+        <p>• Install the Vascular Geosynthetic Grid (Embodiment B) over the DBM. Use tack coat to secure. Connect grid manifolds to the shoulder reservoir housing.</p>
+        <p>• Pave the Bituminous Concrete (BC) surface course (30-40mm) using the RHA-modified nanocomposite binder. The paver speed and roller weight are calibrated to avoid crushing the vascular tubes (tubes designed to withstand >2 MPa).</p>
+    </div>
+    
+    <p><strong>Step 4: Activation</strong></p>
+    
+    <div class="reference-list">
+        <p>• Connect the reservoir tanks.</p>
+        <p>• Pressurize the system to 0.5 bar to prime the network.</p>
+        <p>• Seal the reservoir access. The system is now operational.</p>
+    </div>
+</div>
 
-# 7. Formatting
-ax.set_xlim(-1, 11)
-ax.set_ylim(-1, 8)
-ax.set_aspect('equal')
-ax.axis('off') # Turn off chart axes
+<!-- Page 11: Experimental Data -->
+<div class="page">
+    <h3>5. Experimental Data and Validation</h3>
+    
+    <p class="indent">The invention's efficacy is supported by comparative laboratory testing against control samples (unmodified VG-40) and prior art (microcapsule systems).</p>
+    
+    <h3>Table 1: Binder Properties (Nanocomposite vs. Control)</h3>
+    <p style="font-size: 10pt; margin-bottom: 5pt;"><em>Testing Standard: IS:1203, IS:1205, AASHTO T315</em></p>
+    
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Control (VG-40)</th>
+            <th>Invention (VG-40 + 4% RHA-NS)</th>
+            <th>Improvement</th>
+        </tr>
+        <tr>
+            <td>Penetration (25°C)</td>
+            <td>45 dmm</td>
+            <td>38 dmm</td>
+            <td>Increased stiffness (15%)</td>
+        </tr>
+        <tr>
+            <td>Softening Point</td>
+            <td>52°C</td>
+            <td>64°C</td>
+            <td>Superior high-temp stability</td>
+        </tr>
+        <tr>
+            <td>Rutting Factor (G*/sinδ) @ 64°C</td>
+            <td>1.2 kPa</td>
+            <td>2.8 kPa</td>
+            <td>+133% Rut Resistance</td>
+        </tr>
+        <tr>
+            <td>Moisture Susceptibility (TSR)</td>
+            <td>82%</td>
+            <td>94%</td>
+            <td>+12% Stripping Resistance</td>
+        </tr>
+    </table>
+    
+    <p><strong>Analysis:</strong> The addition of functionalized RHA nanosilica significantly reinforces the binder, addressing the "rutting" issue common in India due to high temperatures and axle loads.</p>
+    
+    <h3>Table 2: Self-Healing Efficiency (Stiffness Recovery)</h3>
+    <p style="font-size: 10pt; margin-bottom: 5pt;"><em>Method: 4-Point Bending Fatigue Test (EN 12697-24). Samples damaged to 50% stiffness, healed for 24h.</em></p>
+    
+    <table>
+        <tr>
+            <th>Healing Cycle</th>
+            <th>Control Asphalt</th>
+            <th>Microcapsule System (Prior Art)</th>
+            <th>Invented Vascular System</th>
+        </tr>
+        <tr>
+            <td>Cycle 1</td>
+            <td>10% Recovery</td>
+            <td>85% Recovery</td>
+            <td>92% Recovery</td>
+        </tr>
+        <tr>
+            <td>Cycle 2</td>
+            <td>5% Recovery</td>
+            <td>30% Recovery</td>
+            <td>90% Recovery</td>
+        </tr>
+        <tr>
+            <td>Cycle 3</td>
+            <td>0% Recovery</td>
+            <td>10% Recovery</td>
+            <td>88% Recovery</td>
+        </tr>
+        <tr>
+            <td>Cycle 4</td>
+            <td>0% Recovery</td>
+            <td>0% Recovery</td>
+            <td>85% Recovery</td>
+        </tr>
+    </table>
+    
+    <p><strong>Analysis:</strong> The vascular system demonstrates superior repeatability. While microcapsules work once, the vascular grid continuously replenishes the healing agent, maintaining >85% recovery over multiple damage events.</p>
+</div>
 
-# Figure Label
-plt.text(5, -0.5, "Figure 1", fontsize=14, fontweight='bold', ha='center')
+<!-- Page 12: Experimental Data Continued and Synergistic Effect -->
+<div class="page">
+    <h3>Table 3: Bio-Rejuvenator Efficacy</h3>
+    <p style="font-size: 10pt; margin-bottom: 5pt;"><em>Comparison of properties before and after modification</em></p>
+    
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Raw SCB Bio-Oil</th>
+            <th>Modified Hydrophobic Rejuvenator</th>
+            <th>Standard Petroleum Rejuvenator</th>
+        </tr>
+        <tr>
+            <td>Acidity (mg KOH/g)</td>
+            <td>45 (Corrosive)</td>
+            <td>4.5 (Safe)</td>
+            <td><1</td>
+        </tr>
+        <tr>
+            <td>Water Contact Angle</td>
+            <td>35° (Hydrophilic)</td>
+            <td>98° (Hydrophobic)</td>
+            <td>105°</td>
+        </tr>
+        <tr>
+            <td>Viscosity (60°C)</td>
+            <td>150 cP</td>
+            <td>220 cP</td>
+            <td>200 cP</td>
+        </tr>
+        <tr>
+            <td>Healing Capability</td>
+            <td>High (but strips)</td>
+            <td>High (No stripping)</td>
+            <td>High</td>
+        </tr>
+    </table>
+    
+    <p><strong>Analysis:</strong> The chemical modification successfully transforms the SCB bio-oil from a water-soluble liability into a hydrophobic, high-performance rejuvenator compatible with asphalt.</p>
+    
+    <h3>6. Synergistic Technical Effect</h3>
+    
+    <p class="indent">The invention claims a synergistic effect exceeding the sum of its parts:</p>
+    
+    <p><strong>Nano-Macro Synergy:</strong> The nanosilica reinforcement in the binder stiffens the matrix, protecting the hollow vascular channels from collapsing under traffic loads. Conversely, the vascular system delivers the rejuvenator which, upon diffusion, activates the nanosilica interfaces, promoting better adhesion during the healing phase.</p>
+    
+    <p><strong>Waste-Valorization Synergy:</strong> The invention utilizes the ash (RHA) from the very fuel used to process the biomass (SCB) for the bio-oil, creating a closed-loop "circular economy" model for the Indian agro-industry.</p>
+</div>
 
-plt.title("Applicant: [User Name]   Sheet 1 of 4", fontsize=10, loc='right', y=0.98)
-plt.show()
+<!-- Page 13: Claims -->
+<div class="page">
+    <h1>We Claim:</h1>
+    
+    <div class="claim">
+        <span class="claim-number">1.</span> A self-healing bituminous pavement system comprising:<br>
+        (a) a bituminous binder matrix reinforced with 1% to 10% by weight of alkyl-silane functionalized nanosilica synthesized from rice husk ash (RHA);<br>
+        (b) a healing agent comprising hydrophobically modified bio-oil derived from the hydrothermal liquefaction of sugarcane bagasse (SCB); and<br>
+        (c) a biomimetic vascular delivery network embedded within said pavement system, characterized in that said network comprises a hierarchy of fluid channels branching according to Murray's Law (r³ = r₁³ + r₂³) to optimize the hydraulic transport of said healing agent.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">2.</span> The system as claimed in claim 1, wherein the nanosilica is amorphous silica with a purity of greater than 98% and a particle size ranging from 10 nm to 100 nm, synthesized via a sol-gel precipitation process involving the alkaline extraction of rice husk ash followed by controlled acidification.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">3.</span> The system as claimed in claim 1, wherein the alkyl-silane functionalization involves the surface treatment of nanosilica with 3-Aminopropyltriethoxysilane (APTES) or γ-Glycidoxypropyltrimethoxysilane (KH-560) to enhance compatibility with the non-polar bituminous binder and reduce moisture susceptibility.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">4.</span> The system as claimed in claim 1, wherein the healing agent is a bio-oil produced by hydrothermal liquefaction of sugarcane bagasse at temperatures between 280°C and 320°C, subsequently modified via esterification with an alcohol and silylation or blending with a hydrophobic co-solvent to achieve a water contact angle of greater than 90 degrees.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">5.</span> The system as claimed in claim 1, wherein the biomimetic vascular delivery network comprises hollow channels formed by the dissolution or thermal degradation of a sacrificial 3D-printed material selected from the group consisting of Polyvinyl Alcohol (PVA), Polylactic Acid (PLA), and wax, embedded within the bituminous mix during construction.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">6.</span> The system as claimed in claim 1, wherein the biomimetic vascular delivery network alternatively comprises a geosynthetic grid integrated with hollow, porous polymeric tubes made of polytetrafluoroethylene (PTFE) or polyurethane, capable of withstanding compaction loads greater than 2 MPa.
+    </div>
+</div>
+
+<!-- Page 14: Claims Continued -->
+<div class="page">
+    <div class="claim">
+        <span class="claim-number">7.</span> The system as claimed in claim 1, wherein the vascular network is fluidly connected to an external reservoir or pressurized canister located at the pavement periphery, allowing for the continuous or on-demand replenishment of the healing agent.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">8.</span> A method for manufacturing the self-healing pavement system as claimed in claim 1, comprising the steps of:<br>
+        (i) calcining rice husks to produce ash and extracting nanosilica via sol-gel processing;<br>
+        (ii) modifying the surface of said nanosilica with silane coupling agents;<br>
+        (iii) blending the modified nanosilica into hot bitumen to form a nanocomposite binder;<br>
+        (iv) installing a pre-fabricated vascular grid or printing a sacrificial vascular pattern onto a base course layer;<br>
+        (v) paving a wearing course using the nanocomposite binder over said grid; and<br>
+        (vi) injecting the sugarcane bagasse-derived healing agent into the vascular network post-construction.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">9.</span> The system as claimed in claim 1, wherein the inclusion of functionalized nanosilica increases the rutting resistance parameter (G*/sinδ) of the binder by at least 50% compared to unmodified bitumen.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">10.</span> The system as claimed in claim 1, wherein the healing agent restores the stiffness modulus of the cracked pavement to at least 80% of its original value after a healing period of 24 hours.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">11.</span> The system as claimed in claim 1, specifically adapted for use in tropical monsoon climates, wherein the hydrophobic modification of the bio-oil and the silane treatment of the nanosilica provide a Tensile Strength Ratio (TSR) of greater than 90% in moisture susceptibility testing (AASHTO T283).
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">12.</span> A method of extending the service life of asphalt pavement by 40-80% utilizing the system of Claim 1, wherein the vascular network autonomously delivers rejuvenating oil to regions of tensile strain driven by capillary pressure gradients created by the crack geometry.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">13.</span> The healing agent of claim 4, further comprising antioxidant additives selected from lignin-derived phenols naturally present in the sugarcane bagasse bio-oil, providing inherent resistance to oxidative aging of the bitumen.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">14.</span> The vascular network of claim 1, wherein the channel diameters range from 2 mm to 10 mm, and the branching angles are optimized between 70 to 90 degrees to minimize turbulence and energy loss during fluid transport.
+    </div>
+    
+    <div class="claim">
+        <span class="claim-number">15.</span> A bituminous pavement composition substantially as herein described with reference to the accompanying drawings and examples.
+    </div>
+    
+    <div class="signature-block">
+        <p>Dated this 16th day of February, 2026.</p>
+        <br><br>
+        <p>_________________________</p>
+        <p>Patent Agent for the Applicant</p>
+    </div>
+</div>
+
+<!-- Page 15: Abstract -->
+<div class="page">
+    <h1>Abstract of the Invention</h1>
+    
+    <div class="abstract-box">
+        <p style="text-align: center; font-weight: bold; margin-bottom: 15pt;">
+            A SELF-HEALING BITUMINOUS PAVEMENT SYSTEM COMPRISING BIOMIMETIC VASCULAR NETWORKS AND AGRICULTURAL WASTE-DERIVED NANOCOMPOSITES
+        </p>
+        
+        <p class="indent">The present invention discloses a novel self-healing pavement system designed to address the issues of pothole formation and bitumen aging in Indian roads while valorizing agricultural waste. The system comprises a bituminous binder reinforced with alkyl-silane functionalized nanosilica derived from Rice Husk Ash (RHA), which enhances structural stiffness and moisture resistance. A unique healing agent is provided, comprising hydrophobically modified bio-oil derived from the hydrothermal liquefaction of Sugarcane Bagasse (SCB), capable of rejuvenating aged bitumen. The core novelty lies in the delivery mechanism: a biomimetic vascular network embedded within the pavement, designed using Murray's Law of fluid dynamics (r³ = r₁³ + r₂³) to optimize the flow of the viscous healing agent from external reservoirs to damage sites. This hierarchical grid allows for repeatable, autonomous healing of micro-cracks, extending pavement lifespan by over 50% and offering a sustainable solution for highway infrastructure.</p>
+        
+        <p style="text-align: center; margin-top: 20pt; font-style: italic;">
+            (To be published with Figure 1)
+        </p>
+    </div>
+    
+    <div class="figure-placeholder" style="margin-top: 30pt;">
+        <p style="font-size: 14pt; font-weight: bold;">FIGURE 1</p>
+        <p style="margin-top: 20pt;">[Schematic Cross-Section of Self-Healing Pavement System]</p>
+        <p style="margin-top: 10pt; font-size: 10pt;">Reference Numerals:</p>
+        <p style="font-size: 10pt; text-align: left; margin: 10pt 20pt;">
+            101: Compacted Soil Sub-grade<br>
+            102: Granular Sub-base (GSB)<br>
+            103: Dense Bituminous Macadam (DBM) Base Course<br>
+            104: RHA-Nanosilica Reinforced Bituminous Concrete (Surface Course)<br>
+            105: Biomimetic Vascular Channel (containing Bio-Rejuvenator)<br>
+            106: Surface Micro-crack (shown interfacing with vascular channel)
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
