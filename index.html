@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patent Figure 1 - IPO Compliant</title>
+    <title>Patent Figure 2 - Vascular Network</title>
     <style>
-        /* 1. Global Reset for Printing */
         @page {
             size: A4;
-            margin: 0; /* We define margins inside the container to ensure exact cm measurements */
+            margin: 0;
         }
         body {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0; /* Light gray background for screen viewing */
-            font-family: 'Times New Roman', serif; /* Standard patent font */
+            background-color: #f0f0f0;
+            font-family: 'Times New Roman', serif;
             -webkit-print-color-adjust: exact;
         }
-
-        /* 2. A4 Sheet Simulation */
        .sheet {
             width: 210mm;
-            height: 296mm; /* Slight adjustment for browser rendering */
+            height: 296mm;
             background-color: white;
             margin: 20px auto;
             position: relative;
@@ -29,45 +26,34 @@
             overflow: hidden;
             box-sizing: border-box;
         }
-
-        /* 3. IPO Mandatory Margins (Rule 15) 
-           Top & Left: 4.0cm; Right & Bottom: 3.0cm */
+        /* IPO Rule 15 Margins: Top/Left 4cm, Bottom/Right 3cm */
        .drawing-area {
             position: absolute;
             top: 40mm;
             left: 40mm;
             right: 30mm;
             bottom: 30mm;
-            border: 1px dashed #ccc; /* Guide line for view, remove for final if needed */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            /* border: 1px dashed #ccc; Remove this comment to see print safe area */
         }
-        
-        /* Remove dashed border when printing */
         @media print {
             body { background-color: white; }
            .sheet { margin: 0; box-shadow: none; }
-           .drawing-area { border: none; }
         }
-
-        /* 4. Text Styles */
        .fig-label {
             text-align: center;
             font-size: 16pt;
             font-weight: bold;
-            margin-top: 10px;
-        }
-       .applicant-info {
-            text-align: right;
-            font-size: 10pt;
-            margin-bottom: 5px;
+            position: absolute;
+            bottom: 35mm;
+            width: 100%;
         }
        .signature {
+            position: absolute;
+            bottom: 40mm;
+            right: 30mm;
             text-align: right;
             font-size: 12pt;
             font-weight: bold;
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -76,86 +62,73 @@
 <div class="sheet">
     <div style="position: absolute; top: 15mm; right: 30mm; text-align: right;">
         <div style="font-size: 10pt;">[User Name/Applicant]</div>
-        <div style="font-size: 10pt;">Sheet 1 of 4</div>
+        <div style="font-size: 10pt;">Sheet 2 of 4</div>
     </div>
 
     <div class="drawing-area">
-        
-        <svg width="100%" height="85%" viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" height="90%" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
             
             <defs>
-                <pattern id="soil" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M 0,10 L 20,10 M 10,0 L 10,20" stroke="black" stroke-width="0.5" stroke-dasharray="2,2" fill="none"/>
-                </pattern>
-
-                <pattern id="gravel" width="15" height="15" patternUnits="userSpaceOnUse">
-                    <circle cx="5" cy="5" r="1.5" fill="none" stroke="black" stroke-width="1"/>
-                    <circle cx="12" cy="12" r="1" fill="none" stroke="black" stroke-width="1"/>
-                    <path d="M 10,2 L 12,5 L 8,5 Z" fill="none" stroke="black" stroke-width="1"/>
-                </pattern>
-
-                <pattern id="dbm" width="10" height="10" patternUnits="userSpaceOnUse">
-                    <path d="M-1,1 l2,-2 M0,10 l10,-10 M9,11 l2,-2" stroke="black" stroke-width="1"/>
-                </pattern>
-
-                <pattern id="surface" width="8" height="8" patternUnits="userSpaceOnUse">
-                    <path d="M0,0 L8,8 M8,0 L0,8" stroke="black" stroke-width="0.5"/>
-                </pattern>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="black" />
+                </marker>
             </defs>
 
-            <rect x="50" y="300" width="400" height="50" fill="url(#soil)" stroke="black" stroke-width="2"/>
+            <rect x="50" y="50" width="500" height="700" fill="none" stroke="black" stroke-width="1.5" stroke-dasharray="10,5"/>
+
+            <rect x="10" y="350" width="60" height="100" fill="white" stroke="black" stroke-width="2"/>
+            <line x1="15" y1="355" x2="65" y2="405" stroke="black" stroke-width="0.5"/>
+            <line x1="15" y1="375" x2="65" y2="425" stroke="black" stroke-width="0.5"/>
+            <line x1="15" y1="395" x2="55" y2="435" stroke="black" stroke-width="0.5"/>
+
+            <path d="M 70,400 L 150,400" fill="none" stroke="black" stroke-width="12" stroke-linecap="butt"/>
             
-            <rect x="50" y="250" width="400" height="50" fill="url(#gravel)" stroke="black" stroke-width="2"/>
+            <path d="M 150,400 Q 200,400 220,300 L 250,150" fill="none" stroke="black" stroke-width="8" stroke-linecap="round"/>
+            <path d="M 150,400 Q 200,400 220,500 L 250,650" fill="none" stroke="black" stroke-width="8" stroke-linecap="round"/>
+            <path d="M 150,400 L 350,400" fill="none" stroke="black" stroke-width="8" stroke-linecap="round"/>
+
+            <path d="M 250,150 L 350,100" fill="none" stroke="black" stroke-width="4"/>
+            <path d="M 250,150 L 350,200" fill="none" stroke="black" stroke-width="4"/>
+            <path d="M 220,300 L 320,300" fill="none" stroke="black" stroke-width="4"/>
             
-            <rect x="50" y="190" width="400" height="60" fill="url(#dbm)" stroke="black" stroke-width="2"/>
-            
-            <g id="tubes">
-                <circle cx="100" cy="190" r="8" fill="white" stroke="black" stroke-width="2"/>
-                <circle cx="100" cy="190" r="4" fill="black"/> <circle cx="200" cy="190" r="8" fill="white" stroke="black" stroke-width="2"/>
-                <circle cx="200" cy="190" r="4" fill="black"/>
+            <path d="M 250,650 L 350,700" fill="none" stroke="black" stroke-width="4"/>
+            <path d="M 250,650 L 350,600" fill="none" stroke="black" stroke-width="4"/>
+            <path d="M 220,500 L 320,500" fill="none" stroke="black" stroke-width="4"/>
 
-                <circle cx="300" cy="190" r="8" fill="white" stroke="black" stroke-width="2"/>
-                <circle cx="300" cy="190" r="4" fill="black"/>
+            <path d="M 350,400 L 450,350" fill="none" stroke="black" stroke-width="4"/>
+            <path d="M 350,400 L 450,450" fill="none" stroke="black" stroke-width="4"/>
+            <path d="M 250,400 L 300,320" fill="none" stroke="black" stroke-width="4"/>
+            <path d="M 250,400 L 300,480" fill="none" stroke="black" stroke-width="4"/>
 
-                <circle cx="400" cy="190" r="8" fill="white" stroke="black" stroke-width="2"/>
-                <circle cx="400" cy="190" r="4" fill="black"/>
-            </g>
-
-            <path d="M 50,150 L 450,150 L 450,190 L 50,190 Z" fill="url(#surface)" stroke="black" stroke-width="2"/>
-
-            <path d="M 200,150 L 202,160 L 198,170 L 200,182" fill="none" stroke="black" stroke-width="2.5" stroke-dasharray="5,2"/>
-
-            <g font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">
+            <g font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">
                 
-                <line x1="460" y1="170" x2="430" y2="170" stroke="black" stroke-width="1.5"/>
-                <text x="475" y="175">104</text>
+                <text x="40" y="340">205</text>
+                <line x1="40" y1="345" x2="40" y2="350" stroke="black" stroke-width="1.5"/>
 
-                <line x1="300" y1="190" x2="300" y2="120" stroke="black" stroke-width="1.5"/>
-                <text x="300" y="115">105</text>
+                <text x="110" y="370">204</text>
+                <line x1="110" y1="375" x2="110" y2="394" stroke="black" stroke-width="1.5"/>
 
-                <line x1="200" y1="160" x2="160" y2="120" stroke="black" stroke-width="1.5"/>
-                <text x="155" y="115">106</text>
+                <text x="180" y="425">201</text>
+                <line x1="150" y1="420" x2="130" y2="405" stroke="black" stroke-width="1.5"/>
 
-                <line x1="460" y1="220" x2="430" y2="220" stroke="black" stroke-width="1.5"/>
-                <text x="475" y="225">103</text>
+                <text x="280" y="660">202</text>
+                <line x1="265" y1="660" x2="250" y2="650" stroke="black" stroke-width="1.5"/>
 
-                <line x1="460" y1="275" x2="430" y2="275" stroke="black" stroke-width="1.5"/>
-                <text x="475" y="280">102</text>
+                <text x="460" y="340">203</text>
+                <line x1="445" y1="345" x2="420" y2="360" stroke="black" stroke-width="1.5"/>
+                
+                <text x="500" y="70">206</text>
+                <line x1="500" y1="75" x2="500" y2="100" stroke="black" stroke-width="1.5"/>
 
-                <line x1="460" y1="325" x2="430" y2="325" stroke="black" stroke-width="1.5"/>
-                <text x="475" y="330">101</text>
             </g>
-
         </svg>
 
-        <div>
-            <div class="fig-label">Figure 1</div>
-            <div class="signature">
-                <br><br>
-                _______________________<br>
-               <br>
-                (Applicant Name)
-            </div>
+        <div class="fig-label">Figure 2</div>
+        
+        <div class="signature">
+            <br>
+            _______________________<br>
+            (Applicant Name)
         </div>
     </div>
 </div>
