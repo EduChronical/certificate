@@ -3,133 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patent Figure 2 - Vascular Network</title>
+    <title>Figure 1 - Self-Healing Pavement System</title>
     <style>
         @page {
-            size: A4;
-            margin: 0;
+            size: A4 portrait;
+            margin: 4cm 3cm 3cm 4cm;
         }
-        body {
+        
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            font-family: 'Times New Roman', serif;
-            -webkit-print-color-adjust: exact;
-        }
-       .sheet {
-            width: 210mm;
-            height: 296mm;
-            background-color: white;
-            margin: 20px auto;
-            position: relative;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            overflow: hidden;
             box-sizing: border-box;
         }
-        /* IPO Rule 15 Margins: Top/Left 4cm, Bottom/Right 3cm */
-       .drawing-area {
-            position: absolute;
-            top: 40mm;
-            left: 40mm;
-            right: 30mm;
-            bottom: 30mm;
-            /* border: 1px dashed #ccc; Remove this comment to see print safe area */
+        
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background: white;
+            width: 210mm;
+            height: 297mm;
+            padding: 4cm 3cm 3cm 4cm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        @media print {
-            body { background-color: white; }
-           .sheet { margin: 0; box-shadow: none; }
-        }
-       .fig-label {
-            text-align: center;
-            font-size: 16pt;
-            font-weight: bold;
-            position: absolute;
-            bottom: 35mm;
+        
+        .sheet-header {
             width: 100%;
-        }
-       .signature {
-            position: absolute;
-            bottom: 40mm;
-            right: 30mm;
             text-align: right;
+            font-size: 10pt;
+            margin-bottom: 1cm;
+        }
+        
+        .drawing-container {
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        svg {
+            width: 100%;
+            max-width: 140mm;
+            height: auto;
+        }
+        
+        /* IPO Compliant Line Styles */
+        .boundary-line {
+            stroke: #000000;
+            stroke-width: 1.0;
+            fill: none;
+        }
+        
+        .hatch-line {
+            stroke: #000000;
+            stroke-width: 0.5;
+        }
+        
+        .leader-line {
+            stroke: #000000;
+            stroke-width: 0.6;
+            fill: none;
+        }
+        
+        .crack-line {
+            stroke: #000000;
+            stroke-width: 0.8;
+            fill: none;
+            stroke-dasharray: 3,2;
+        }
+        
+        /* Reference Numerals - IPO Standard */
+        .ref-num {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 10pt;
+            font-weight: bold;
+            fill: #000000;
+            text-anchor: middle;
+        }
+        
+        .figure-caption {
+            font-family: "Times New Roman", Times, serif;
             font-size: 12pt;
             font-weight: bold;
+            text-align: center;
+            margin-top: 0.8cm;
+        }
+        
+        /* Hatching Patterns */
+        .soil-fill { fill: url(#soilPattern); }
+        .gsb-fill { fill: url(#gsbPattern); }
+        .dbm-fill { fill: url(#dbmPattern); }
+        .bc-fill { fill: url(#bcPattern); }
+        
+        /* Reference Key Section */
+        .reference-key {
+            width: 100%;
+            margin-top: 1.5cm;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+        
+        .reference-key h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-bottom: 0.3cm;
+            text-transform: uppercase;
+        }
+        
+        .ref-item {
+            margin-bottom: 0.2cm;
+            text-indent: 0;
+        }
+        
+        .ref-number {
+            font-weight: bold;
+            display: inline-block;
+            width: 25pt;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 4cm 3cm 3cm 4cm;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="sheet">
-    <div style="position: absolute; top: 15mm; right: 30mm; text-align: right;">
-        <div style="font-size: 10pt;">[User Name/Applicant]</div>
-        <div style="font-size: 10pt;">Sheet 2 of 4</div>
-    </div>
+<div class="sheet-header">
+    Applicant: [User Name]&nbsp;&nbsp;&nbsp;&nbsp;Sheet 1 of 5
+</div>
 
-    <div class="drawing-area">
-        <svg width="100%" height="90%" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+<div class="drawing-container">
+    <svg viewBox="0 0 450 350" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <!-- Proper Arrow Marker -->
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                markerWidth="4" markerHeight="4" orient="auto">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000000" stroke="none"/>
+            </marker>
             
-            <defs>
-                <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
-                    <path d="M0,0 L0,6 L9,3 z" fill="black" />
-                </marker>
-            </defs>
-
-            <rect x="50" y="50" width="500" height="700" fill="none" stroke="black" stroke-width="1.5" stroke-dasharray="10,5"/>
-
-            <rect x="10" y="350" width="60" height="100" fill="white" stroke="black" stroke-width="2"/>
-            <line x1="15" y1="355" x2="65" y2="405" stroke="black" stroke-width="0.5"/>
-            <line x1="15" y1="375" x2="65" y2="425" stroke="black" stroke-width="0.5"/>
-            <line x1="15" y1="395" x2="55" y2="435" stroke="black" stroke-width="0.5"/>
-
-            <path d="M 70,400 L 150,400" fill="none" stroke="black" stroke-width="12" stroke-linecap="butt"/>
+            <!-- Soil Pattern: Fine dots -->
+            <pattern id="soilPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="0.6" fill="#000000"/>
+                <circle cx="3" cy="3" r="0.6" fill="#000000"/>
+            </pattern>
             
-            <path d="M 150,400 Q 200,400 220,300 L 250,150" fill="none" stroke="black" stroke-width="8" stroke-linecap="round"/>
-            <path d="M 150,400 Q 200,400 220,500 L 250,650" fill="none" stroke="black" stroke-width="8" stroke-linecap="round"/>
-            <path d="M 150,400 L 350,400" fill="none" stroke="black" stroke-width="8" stroke-linecap="round"/>
-
-            <path d="M 250,150 L 350,100" fill="none" stroke="black" stroke-width="4"/>
-            <path d="M 250,150 L 350,200" fill="none" stroke="black" stroke-width="4"/>
-            <path d="M 220,300 L 320,300" fill="none" stroke="black" stroke-width="4"/>
+            <!-- GSB Pattern: Scattered circles -->
+            <pattern id="gsbPattern" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.0" fill="none" stroke="#000000" stroke-width="0.4"/>
+                <circle cx="6" cy="3" r="0.7" fill="#000000"/>
+                <circle cx="4" cy="6" r="0.9" fill="none" stroke="#000000" stroke-width="0.4"/>
+            </pattern>
             
-            <path d="M 250,650 L 350,700" fill="none" stroke="black" stroke-width="4"/>
-            <path d="M 250,650 L 350,600" fill="none" stroke="black" stroke-width="4"/>
-            <path d="M 220,500 L 320,500" fill="none" stroke="black" stroke-width="4"/>
-
-            <path d="M 350,400 L 450,350" fill="none" stroke="black" stroke-width="4"/>
-            <path d="M 350,400 L 450,450" fill="none" stroke="black" stroke-width="4"/>
-            <path d="M 250,400 L 300,320" fill="none" stroke="black" stroke-width="4"/>
-            <path d="M 250,400 L 300,480" fill="none" stroke="black" stroke-width="4"/>
-
-            <g font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">
-                
-                <text x="40" y="340">205</text>
-                <line x1="40" y1="345" x2="40" y2="350" stroke="black" stroke-width="1.5"/>
-
-                <text x="110" y="370">204</text>
-                <line x1="110" y1="375" x2="110" y2="394" stroke="black" stroke-width="1.5"/>
-
-                <text x="180" y="425">201</text>
-                <line x1="150" y1="420" x2="130" y2="405" stroke="black" stroke-width="1.5"/>
-
-                <text x="280" y="660">202</text>
-                <line x1="265" y1="660" x2="250" y2="650" stroke="black" stroke-width="1.5"/>
-
-                <text x="460" y="340">203</text>
-                <line x1="445" y1="345" x2="420" y2="360" stroke="black" stroke-width="1.5"/>
-                
-                <text x="500" y="70">206</text>
-                <line x1="500" y1="75" x2="500" y2="100" stroke="black" stroke-width="1.5"/>
-
-            </g>
-        </svg>
-
-        <div class="fig-label">Figure 2</div>
+            <!-- DBM Pattern: 45 degree lines -->
+            <pattern id="dbmPattern" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="6" class="hatch-line"/>
+            </pattern>
+            
+            <!-- BC Pattern: Cross hatch -->
+            <pattern id="bcPattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="5" y2="5" class="hatch-line"/>
+                <line x1="5" y1="0" x2="0" y2="5" class="hatch-line"/>
+            </pattern>
+        </defs>
         
-        <div class="signature">
-            <br>
-            _______________________<br>
-            (Applicant Name)
-        </div>
+        <!-- ==================== PAVEMENT LAYERS ==================== -->
+        
+        <!-- Layer 101: Sub-grade (Bottom layer) -->
+        <rect x="100" y="250" width="250" height="50" class="soil-fill"/>
+        <rect x="100" y="250" width="250" height="50" class="boundary-line"/>
+        
+        <!-- Layer 102: Granular Sub-base -->
+        <rect x="100" y="210" width="250" height="40" class="gsb-fill"/>
+        <rect x="100" y="210" width="250" height="40" class="boundary-line"/>
+        
+        <!-- Layer 103: DBM -->
+        <rect x="100" y="170" width="250" height="40" class="dbm-fill"/>
+        <rect x="100" y="170" width="250" height="40" class="boundary-line"/>
+        
+        <!-- Layer 104: BC Surface Course -->
+        <rect x="100" y="130" width="250" height="40" class="bc-fill"/>
+        <rect x="100" y="130" width="250" height="40" class="boundary-line"/>
+        <!-- Road surface line -->
+        <line x1="100" y1="130" x2="350" y2="130" class="boundary-line" stroke-width="1.5"/>
+        
+        <!-- ==================== VASCULAR NETWORK (105) ==================== -->
+        
+        <!-- Vascular channels at DBM/BC interface (y=170) -->
+        <!-- Channel 1 -->
+        <circle cx="140" cy="170" r="8" fill="white" class="boundary-line"/>
+        <circle cx="140" cy="170" r="5" fill="#000000"/>
+        
+        <!-- Channel 2 -->
+        <circle cx="195" cy="170" r="8" fill="white" class="boundary-line"/>
+        <circle cx="195" cy="170" r="5" fill="#000000"/>
+        
+        <!-- Channel 3 (with crack) -->
+        <circle cx="250" cy="170" r="8" fill="white" class="boundary-line"/>
+        <circle cx="250" cy="170" r="5" fill="#000000"/>
+        
+        <!-- Channel 4 -->
+        <circle cx="305" cy="170" r="8" fill="white" class="boundary-line"/>
+        <circle cx="305" cy="170" r="5" fill="#000000"/>
+        
+        <!-- Connecting lines between channels -->
+        <line x1="148" y1="170" x2="187" y2="170" class="boundary-line" stroke-width="0.6"/>
+        <line x1="203" y1="170" x2="242" y2="170" class="boundary-line" stroke-width="0.6"/>
+        <line x1="258" y1="170" x2="297" y2="170" class="boundary-line" stroke-width="0.6"/>
+        
+        <!-- ==================== CRACK (106) ==================== -->
+        
+        <!-- Crack from surface to channel 3 -->
+        <path d="M 250 130 L 248 140 L 252 150 L 249 160 L 251 165 L 250 170" 
+              class="crack-line"/>
+        
+        <!-- ==================== REFERENCE LINES & NUMERALS ==================== -->
+        
+        <!-- 101 - Left side -->
+        <line x1="70" y1="275" x2="95" y2="275" class="leader-line" marker-end="url(#arrow)"/>
+        <text x="55" y="278" class="ref-num">101</text>
+        
+        <!-- 102 -->
+        <line x1="70" y1="230" x2="95" y2="230" class="leader-line" marker-end="url(#arrow)"/>
+        <text x="55" y="233" class="ref-num">102</text>
+        
+        <!-- 103 -->
+        <line x1="70" y1="190" x2="95" y2="190" class="leader-line" marker-end="url(#arrow)"/>
+        <text x="55" y="193" class="ref-num">103</text>
+        
+        <!-- 104 -->
+        <line x1="70" y1="150" x2="95" y2="150" class="leader-line" marker-end="url(#arrow)"/>
+        <text x="55" y="153" class="ref-num">104</text>
+        
+        <!-- 105 - Vascular (from above) -->
+        <line x1="195" y1="170" x2="195" y2="100" class="leader-line"/>
+        <line x1="195" y1="100" x2="220" y2="100" class="leader-line" marker-end="url(#arrow)"/>
+        <text x="240" y="103" class="ref-num">105</text>
+        
+        <!-- 106 - Crack (from upper left) -->
+        <line x1="248" y1="145" x2="220" y2="120" class="leader-line"/>
+        <line x1="220" y1="120" x2="195" y2="120" class="leader-line" marker-end="url(#arrow)"/>
+        <text x="175" y="123" class="ref-num">106</text>
+        
+        <!-- REMOVED: Right side vertical dimension line was here -->
+        
+    </svg>
+    
+    <div class="figure-caption">FIGURE 1</div>
+    
+    <!-- REFERENCE KEY - IPO Standard Format -->
+    <div class="reference-key">
+        <h3>Reference Numerals:</h3>
+        <div class="ref-item"><span class="ref-number">101</span>Compacted Soil Sub-grade</div>
+        <div class="ref-item"><span class="ref-number">102</span>Granular Sub-base (GSB)</div>
+        <div class="ref-item"><span class="ref-number">103</span>Dense Bituminous Macadam (DBM) Base Course</div>
+        <div class="ref-item"><span class="ref-number">104</span>RHA-Nanosilica Reinforced Bituminous Concrete (Surface Course)</div>
+        <div class="ref-item"><span class="ref-number">105</span>Biomimetic Vascular Channel (containing Bio-Rejuvenator)</div>
+        <div class="ref-item"><span class="ref-number">106</span>Surface Micro-crack (shown interfacing with vascular channel)</div>
     </div>
 </div>
 
