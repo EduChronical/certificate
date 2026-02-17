@@ -1,329 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Figure 1 - IPO Compliant Drawing</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f0f0f0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* A4 Page Setup */
-        .a4-page {
-            width: 210mm;
-            height: 297mm;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
-            position: relative;
-            padding: 25mm 25mm 10mm 25mm; /* Top:25mm, Left:25mm, Right:15mm, Bottom:10mm */
-            overflow: hidden;
-        }
-
-        /* Sheet Numbering - Top Center */
-        .sheet-number {
-            position: absolute;
-            top: 10mm;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 10pt;
-            text-align: center;
-        }
-
-        /* Drawing Area */
-        .drawing-container {
-            margin-top: 15mm;
-            width: 100%;
-            height: 220mm;
-            position: relative;
-        }
-        /* SVG Drawing Styles - IPO Compliant */
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Line Weights per IPO Standards */
-        .visible-edge {
-            stroke: #000000;
-            stroke-width: 0.8mm;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .hidden-edge {
-            stroke: #000000;
-            stroke-width: 0.3mm;
-            fill: none;
-            stroke-dasharray: 4,2;
-            stroke-linecap: round;
-        }
-
-        .center-line {
-            stroke: #000000;
-            stroke-width: 0.2mm;
-            fill: none;
-            stroke-dasharray: 8,2,2,2;
-        }
-
-        .dimension-line {
-            stroke: #000000;
-            stroke-width: 0.2mm;
-            fill: none;
-        }
-
-        .leader-line {
-            stroke: #000000;
-            stroke-width: 0.2mm;
-            fill: none;
-        }
-
-        /* Reference Numerals - 3-4mm height */
-        .numeral-circle {
-            fill: #ffffff;
-            stroke: #000000;
-            stroke-width: 0.3mm;
-        }
-
-        .numeral-text {            font-family: Arial, sans-serif;
-            font-size: 3.5mm;
-            font-weight: normal;
-            fill: #000000;
-            text-anchor: middle;
-            dominant-baseline: middle;
-        }
-
-        /* Figure Label - Below Drawing */
-        .figure-label {
-            position: absolute;
-            bottom: 15mm;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 11pt;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        /* Notes Section */
-        .notes {
-            position: absolute;
-            bottom: 5mm;
-            left: 0;
-            right: 15mm;
-            font-size: 8pt;
-            text-align: left;
-        }
-
-        /* Print Optimization */
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .a4-page {
-                box-shadow: none;
-                page-break-after: always;
-            }
-            
-            @page {
-                size: A4;
-                margin: 0;
-            }
-        }
-
-        /* Scale indicator */
-        .scale-indicator {
-            position: absolute;            bottom: 12mm;
-            right: 15mm;
-            font-size: 9pt;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Fig.1 Patent Drawing</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+    svg {
+        width: 210mm;
+        height: 297mm;
+    }
+    text {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        fill: black;
+    }
+    line, rect, polygon, circle, path {
+        stroke: black;
+        stroke-width: 1;
+        fill: none;
+    }
+</style>
 </head>
 <body>
-    <div class="a4-page">
-        <!-- Sheet Numbering -->
-        <div class="sheet-number">Sheet 1 of 7</div>
 
-        <!-- Main Drawing Container -->
-        <div class="drawing-container">
-            <svg viewBox="0 0 160 220" xmlns="http://www.w3.org/2000/svg">
-                
-                <!-- ==================== HIDDEN LINES (Internal Features) ==================== -->
-                <!-- Functional chamber back edges (dashed) -->
-                <line x1="50" y1="90" x2="110" y2="90" class="hidden-edge" />
-                <line x1="50" y1="90" x2="40" y2="110" class="hidden-edge" />
-                <line x1="110" y1="90" x2="120" y2="110" class="hidden-edge" />
-                <line x1="40" y1="110" x2="120" y2="110" class="hidden-edge" />
-                
-                <!-- IoT sensor cavity (hidden - dashed rectangle) -->
-                <rect x="72" y="95" width="26" height="18" class="hidden-edge" fill="none" />
-                
-                <!-- Microcapsules distribution (schematic dots - hidden) -->
-                <circle cx="55" cy="95" r="1.5" class="hidden-edge" fill="none" />
-                <circle cx="65" cy="92" r="1.2" class="hidden-edge" fill="none" />
-                <circle cx="75" cy="95" r="1.5" class="hidden-edge" fill="none" />
-                <circle cx="85" y="92" r="1.2" class="hidden-edge" fill="none" />
-                <circle cx="95" y="95" r="1.5" class="hidden-edge" fill="none" />
-                <circle cx="105" y="92" r="1.2" class="hidden-edge" fill="none" />
-                <circle cx="60" y="102" r="1.2" class="hidden-edge" fill="none" />
-                <circle cx="70" y="105" r="1.5" class="hidden-edge" fill="none" />
-                <circle cx="80" y="102" r="1.2" class="hidden-edge" fill="none" />
-                <circle cx="90" y="105" r="1.5" class="hidden-edge" fill="none" />
-                <circle cx="100" y="102" r="1.2" class="hidden-edge" fill="none" />
+<svg viewBox="0 0 800 1100">
 
-                <!-- ==================== VISIBLE EDGES (Thick Lines) ==================== -->
-                <!-- Bottom face parallelogram -->
-                <polygon points="30,120 80,145 130,120 80,95" class="visible-edge" />
-                
-                <!-- Left face -->
-                <polygon points="30,120 30,70 80,45 80,95" class="visible-edge" />
-                
-                <!-- Right face -->
-                <polygon points="80,95 80,45 130,70 130,120" class="visible-edge" />
-                
-                <!-- Top face -->
-                <polygon points="30,70 80,45 130,70 80,95" class="visible-edge" />
-                <!-- ==================== INTERLOCKING FEATURES ==================== -->
-                <!-- Protrusion on top (105) - small trapezoid -->
-                <polygon points="72,50 80,45 88,50 80,55" class="visible-edge" />
-                
-                <!-- Recess indication on bottom edge (106) -->
-                <path d="M 45,132 Q 62,138 80,132" class="visible-edge" fill="none" />
-                
-                <!-- Shear-key feature (107) - horizontal ridge -->
-                <line x1="55" y1="60" x2="105" y2="60" class="visible-edge" />
-                <line x1="55" y1="60" x2="55" y2="63" class="visible-edge" />
-                <line x1="105" y1="60" x2="105" y2="63" class="visible-edge" />
+<!-- Outer block (3D view) -->
+<polygon points="200,300 500,300 600,400 300,400" />
+<polygon points="200,300 200,600 300,700 300,400" />
+<polygon points="300,400 600,400 600,700 300,700" />
 
-                <!-- ==================== FUNCTIONAL CHAMBER (Cutaway View) ==================== -->
-                <!-- Internal cavity shown with dashed boundary -->
-                <polygon points="42,78 80,60 118,78 80,96" class="hidden-edge" fill="none" />
-                
-                <!-- Activation ports (109) - micro-channels -->
-                <line x1="42" y1="82" x2="35" y2="75" class="hidden-edge" />
-                <line x1="118" y1="82" x2="125" y2="75" class="hidden-edge" />
+<!-- Male interlock (1) -->
+<rect x="600" y="450" width="60" height="100" />
 
-                <!-- ==================== IoT SENSOR HOUSING (104) ==================== -->
-                <!-- Embedded cavity on side face -->
-                <rect x="88" y="88" width="22" height="16" rx="1" class="visible-edge" fill="none" />
-                <!-- Sensor label inside -->
-                <text x="99" y="97" font-family="Arial" font-size="4mm" fill="#000" text-anchor="middle">IoT</text>
+<!-- Female interlock (2) -->
+<rect x="140" y="450" width="60" height="100" />
 
-                <!-- ==================== QR/NFC TAG (108) ==================== -->
-                <!-- Small square on right face -->
-                <rect x="108" y="68" width="10" height="10" class="visible-edge" fill="none" />
-                <!-- QR pattern lines -->
-                <line x1="110" y1="70" x2="116" y2="70" class="visible-edge" stroke-width="0.3mm" />
-                <line x1="110" y1="72" x2="116" y2="72" class="visible-edge" stroke-width="0.3mm" />
-                <line x1="110" y1="74" x2="116" y2="74" class="visible-edge" stroke-width="0.3mm" />
-                <line x1="110" y1="76" x2="116" y2="76" class="visible-edge" stroke-width="0.3mm" />
+<!-- Healing chamber (3) -->
+<rect x="350" y="450" width="120" height="120" stroke-dasharray="5,5"/>
 
-                <!-- ==================== SURFACE TEXTURE (110) ==================== -->
-                <!-- Non-slip pattern on top surface -->
-                <line x1="40" y1="65" x2="48" y2="61" class="dimension-line" />
-                <line x1="58" y1="56" x2="66" y2="52" class="dimension-line" />
-                <line x1="94" y1="52" x2="102" y2="56" class="dimension-line" />
-                <line x1="112" y1="61" x2="120" y2="65" class="dimension-line" />
+<!-- Sensor cavity (4) -->
+<rect x="360" y="590" width="80" height="60" stroke-dasharray="5,5"/>
 
-                <!-- ==================== REFERENCE NUMERALS WITH LEADER LINES ==================== -->
-                
-                <!-- 100: Overall Block -->
-                <circle cx="75" cy="155" r="3.5" class="numeral-circle" />
-                <text x="75" y="155" class="numeral-text">100</text>
-                <line x1="75" y1="151.5" x2="75" y2="145" class="leader-line" />
-                                <!-- 101: Structural Chamber -->
-                <circle cx="15" cy="95" r="3.5" class="numeral-circle" />
-                <text x="15" y="95" class="numeral-text">101</text>
-                <line x1="18.5" y1="95" x2="28" y2="95" class="leader-line" />
-                
-                <!-- 102: Functional Chamber -->
-                <circle cx="75" cy="50" r="3.5" class="numeral-circle" />
-                <text x="75" y="50" class="numeral-text">102</text>
-                <line x1="75" y1="53.5" x2="75" y2="60" class="leader-line" />
-                
-                <!-- 103: Microcapsules -->
-                <circle cx="115" cy="85" r="3.5" class="numeral-circle" />
-                <text x="115" y="85" class="numeral-text">103</text>
-                <line x1="111.5" y1="85" x2="105" y2="85" class="leader-line" />
-                
-                <!-- 104: IoT Sensor -->
-                <circle cx="125" cy="100" r="3.5" class="numeral-circle" />
-                <text x="125" y="100" class="numeral-text">104</text>
-                <line x1="121.5" y1="100" x2="112" y2="100" class="leader-line" />
-                
-                <!-- 105: Interlocking Protrusion -->
-                <circle cx="75" cy="30" r="3.5" class="numeral-circle" />
-                <text x="75" y="30" class="numeral-text">105</text>
-                <line x1="75" y1="33.5" x2="78" y2="42" class="leader-line" />
-                
-                <!-- 106: Interlocking Recess -->
-                <circle cx="45" cy="155" r="3.5" class="numeral-circle" />
-                <text x="45" y="155" class="numeral-text">106</text>
-                <line x1="48.5" y1="155" x2="58" y2="142" class="leader-line" />
-                
-                <!-- 107: Shear-Key -->
-                <circle cx="25" cy="60" r="3.5" class="numeral-circle" />
-                <text x="25" y="60" class="numeral-text">107</text>
-                <line x1="28.5" y1="60" x2="52" y2="61" class="leader-line" />
-                
-                <!-- 108: QR/NFC Tag -->
-                <circle cx="135" cy="70" r="3.5" class="numeral-circle" />
-                <text x="135" y="70" class="numeral-text">108</text>
-                <line x1="131.5" y1="70" x2="120" y2="72" class="leader-line" />
-                
-                <!-- 109: Activation Ports -->
-                <circle cx="20" cy="80" r="3.5" class="numeral-circle" />
-                <text x="20" y="80" class="numeral-text">109</text>
-                <line x1="23.5" y1="80" x2="33" y2="78" class="leader-line" />
-                
-                <!-- 110: Surface Texture -->
-                <circle cx="110" cy="45" r="3.5" class="numeral-circle" />
-                <text x="110" y="45" class="numeral-text">110</text>
-                <line x1="106.5" y1="45" x2="98" y2="52" class="leader-line" />
-            </svg>
-        </div>
+<!-- Crack path (5) -->
+<path d="M420 300 L410 330 L430 360 L400 390 L420 420 L390 450" />
 
-        <!-- Figure Label -->
-        <div class="figure-label">Fig. 1</div>
-        
-        <!-- Scale Indicator -->
-        <div class="scale-indicator">Scale: 1:2</div>
+<!-- Healing capsule (6) -->
+<circle cx="410" cy="510" r="10" />
 
-        <!-- Notes Section -->
-        <div class="notes">
-            <strong>Notes:</strong><br>
-            1. Microcapsules (103) shown schematically; actual distribution is random within functional chamber (102).<br>
-            2. IoT sensor (104) not to scale; actual size ~25mm × 15mm × 10mm.<br>
-            3. Interlocking features (105, 106) repeat on all four vertical edges for multi-directional assembly.<br>
-            4. Hidden lines (dashed) indicate internal features not visible from this viewing angle.
-        </div>
-    </div>
+<!-- Reference numerals -->
+<text x="670" y="500">1</text>
+<text x="110" y="500">2</text>
+<text x="480" y="480">3</text>
+<text x="450" y="650">4</text>
+<text x="390" y="350">5</text>
+<text x="430" y="505">6</text>
 
-    <script>
-        // Print functionality
-        window.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.key === 'p') {
-                e.preventDefault();
-                window.print();
-            }
-        });
+<!-- Caption -->
+<text x="250" y="900">Fig. 1</text>
+<text x="250" y="930">Perspective view of a modular self-healing interlocking construction block</text>
 
-        // Auto-print dialog on load (optional)
-        window.addEventListener('load', function() {
-            console.log('IPO-compliant Figure 1 loaded. Press Ctrl+P to print/save as PDF.');
-        });
-    </script>
+</svg>
+
 </body>
 </html>
