@@ -1,70 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Fig.1 Patent Drawing</title>
+<title>Fig.1 IPO Drawing</title>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: white;
-    }
-    svg {
-        width: 210mm;
-        height: 297mm;
-    }
-    text {
-        font-family: Arial, sans-serif;
-        font-size: 12px;
-        fill: black;
-    }
-    line, rect, polygon, circle, path {
-        stroke: black;
-        stroke-width: 1;
-        fill: none;
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    font-family: Arial, sans-serif;
+  }
+  svg {
+    width: 100%;
+    height: 90vh;
+  }
+  .solid {
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+  }
+  .dashed {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5;
+    stroke-dasharray: 6,6;
+  }
+  .thin {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5;
+  }
+  text {
+    font-size: 16px;
+    fill: black;
+  }
 </style>
 </head>
 <body>
 
-<svg viewBox="0 0 800 1100">
+<svg viewBox="0 0 800 600">
 
-<!-- Outer block (3D view) -->
-<polygon points="200,300 500,300 600,400 300,400" />
-<polygon points="200,300 200,600 300,700 300,400" />
-<polygon points="300,400 600,400 600,700 300,700" />
+  <!-- Main block -->
+  <rect x="200" y="150" width="300" height="250" class="solid"/>
 
-<!-- Male interlock (1) -->
-<rect x="600" y="450" width="60" height="100" />
+  <!-- Left face (3D effect) -->
+  <polygon points="200,150 140,190 140,440 200,400" class="solid"/>
 
-<!-- Female interlock (2) -->
-<rect x="140" y="450" width="60" height="100" />
+  <!-- Top face -->
+  <polygon points="200,150 500,150 560,190 260,190" class="solid"/>
 
-<!-- Healing chamber (3) -->
-<rect x="350" y="450" width="120" height="120" stroke-dasharray="5,5"/>
+  <!-- Interlocking projections -->
+  <rect x="500" y="240" width="60" height="80" class="solid"/>
+  <rect x="80" y="240" width="60" height="80" class="solid"/>
 
-<!-- Sensor cavity (4) -->
-<rect x="360" y="590" width="80" height="60" stroke-dasharray="5,5"/>
+  <!-- Internal healing chamber -->
+  <rect x="270" y="210" width="160" height="120" class="dashed"/>
 
-<!-- Crack path (5) -->
-<path d="M420 300 L410 330 L430 360 L400 390 L420 420 L390 450" />
+  <!-- Sensor cavity -->
+  <rect x="300" y="340" width="100" height="70" class="dashed"/>
 
-<!-- Healing capsule (6) -->
-<circle cx="410" cy="510" r="10" />
+  <!-- Healing capsules -->
+  <circle cx="350" cy="260" r="10" class="thin"/>
+  <circle cx="380" cy="280" r="10" class="thin"/>
+  <circle cx="320" cy="280" r="10" class="thin"/>
 
-<!-- Reference numerals -->
-<text x="670" y="500">1</text>
-<text x="110" y="500">2</text>
-<text x="480" y="480">3</text>
-<text x="450" y="650">4</text>
-<text x="390" y="350">5</text>
-<text x="430" y="505">6</text>
+  <!-- Crack path -->
+  <polyline points="350,150 345,180 360,210 350,240 365,270" class="thin"/>
 
-<!-- Caption -->
-<text x="250" y="900">Fig. 1</text>
-<text x="250" y="930">Perspective view of a modular self-healing interlocking construction block</text>
+  <!-- Reference numerals -->
+  <text x="570" y="285">1</text>
+  <text x="60" y="285">2</text>
+  <text x="440" y="260">3</text>
+  <text x="410" y="380">4</text>
+  <text x="365" y="175">5</text>
+  <text x="395" y="300">6</text>
 
 </svg>
+
+<div style="text-align:center; margin-top:20px;">
+  <div>Fig. 1</div>
+  <div>Perspective view of a modular self-healing interlocking construction block</div>
+</div>
 
 </body>
 </html>
