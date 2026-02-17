@@ -12,7 +12,7 @@
   }
   svg {
     width: 100%;
-    height: 90vh;
+    height: 85vh;
   }
   .solid {
     fill: none;
@@ -28,7 +28,11 @@
   .thin {
     fill: none;
     stroke: black;
-    stroke-width: 1.5;
+    stroke-width: 1.2;
+  }
+  .leader {
+    stroke: black;
+    stroke-width: 1;
   }
   text {
     font-size: 16px;
@@ -41,43 +45,49 @@
 <svg viewBox="0 0 800 600">
 
   <!-- Main block -->
-  <rect x="200" y="150" width="300" height="250" class="solid"/>
+  <rect x="220" y="160" width="300" height="240" class="solid"/>
 
-  <!-- Left face (3D effect) -->
-  <polygon points="200,150 140,190 140,440 200,400" class="solid"/>
+  <!-- Left face -->
+  <polygon points="220,160 160,200 160,440 220,400" class="solid"/>
 
   <!-- Top face -->
-  <polygon points="200,150 500,150 560,190 260,190" class="solid"/>
+  <polygon points="220,160 520,160 580,200 280,200" class="solid"/>
 
   <!-- Interlocking projections -->
-  <rect x="500" y="240" width="60" height="80" class="solid"/>
-  <rect x="80" y="240" width="60" height="80" class="solid"/>
+  <rect x="520" y="250" width="60" height="80" class="solid"/>
+  <rect x="100" y="250" width="60" height="80" class="solid"/>
 
-  <!-- Internal healing chamber -->
-  <rect x="270" y="210" width="160" height="120" class="dashed"/>
-
-  <!-- Sensor cavity -->
-  <rect x="300" y="340" width="100" height="70" class="dashed"/>
+  <!-- Internal chambers -->
+  <rect x="300" y="230" width="160" height="110" class="dashed"/>
+  <rect x="320" y="350" width="120" height="70" class="dashed"/>
 
   <!-- Healing capsules -->
-  <circle cx="350" cy="260" r="10" class="thin"/>
-  <circle cx="380" cy="280" r="10" class="thin"/>
-  <circle cx="320" cy="280" r="10" class="thin"/>
+  <circle cx="340" cy="270" r="8" class="thin"/>
+  <circle cx="370" cy="290" r="8" class="thin"/>
+  <circle cx="400" cy="270" r="8" class="thin"/>
 
-  <!-- Crack path -->
-  <polyline points="350,150 345,180 360,210 350,240 365,270" class="thin"/>
+  <!-- Crack line -->
+  <polyline points="380,160 370,190 390,220 375,250 395,280" class="thin"/>
+
+  <!-- Leader lines -->
+  <line x1="580" y1="290" x2="550" y2="290" class="leader"/>
+  <line x1="100" y1="290" x2="130" y2="290" class="leader"/>
+  <line x1="460" y1="260" x2="440" y2="260" class="leader"/>
+  <line x1="460" y1="380" x2="440" y2="380" class="leader"/>
+  <line x1="390" y1="180" x2="380" y2="200" class="leader"/>
+  <line x1="430" y1="300" x2="410" y2="290" class="leader"/>
 
   <!-- Reference numerals -->
-  <text x="570" y="285">1</text>
-  <text x="60" y="285">2</text>
-  <text x="440" y="260">3</text>
-  <text x="410" y="380">4</text>
-  <text x="365" y="175">5</text>
-  <text x="395" y="300">6</text>
+  <text x="590" y="295">1</text>
+  <text x="80" y="295">2</text>
+  <text x="470" y="265">3</text>
+  <text x="470" y="385">4</text>
+  <text x="400" y="175">5</text>
+  <text x="440" y="305">6</text>
 
 </svg>
 
-<div style="text-align:center; margin-top:20px;">
+<div style="text-align:center; margin-top:15px;">
   <div>Fig. 1</div>
   <div>Perspective view of a modular self-healing interlocking construction block</div>
 </div>
