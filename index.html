@@ -3,271 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Figure 1 - Self-Healing Pavement System</title>
+    <title>Figure 1: Modular Micro-Block - Isometric View</title>
     <style>
-        @page {
-            size: A4 portrait;
-            margin: 4cm 3cm 3cm 4cm;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: "Times New Roman", Times, serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
             background: white;
-            width: 210mm;
-            height: 297mm;
-            padding: 4cm 3cm 3cm 4cm;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .sheet-header {
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 1200px;
             width: 100%;
-            text-align: right;
-            font-size: 10pt;
-            margin-bottom: 1cm;
         }
-        
-        .drawing-container {
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .drawing-area {
+            position: relative;
             width: 100%;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            height: 600px;            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            overflow: hidden;
         }
-        
+
+        /* Isometric Block Container */
+        .isometric-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+        }
+
+        /* SVG Styles */
         svg {
             width: 100%;
-            max-width: 140mm;
-            height: auto;
+            height: 100%;
         }
-        
-        /* IPO Compliant Line Styles */
-        .boundary-line {
-            stroke: #000000;
-            stroke-width: 1.0;
-            fill: none;
+
+        .block-outline {
+            fill: #e9ecef;
+            stroke: #495057;
+            stroke-width: 2;
         }
-        
-        .hatch-line {
-            stroke: #000000;
+
+        .block-surface {
+            fill: #dee2e6;
+            stroke: #495057;
+            stroke-width: 2;
+        }
+
+        .block-side {
+            fill: #ced4da;
+            stroke: #495057;
+            stroke-width: 2;
+        }
+
+        .internal-cavity {
+            fill: #fff3cd;
+            stroke: #ffc107;
+            stroke-width: 1.5;
+            stroke-dasharray: 5,3;
+        }
+
+        .microcapsule {
+            fill: #28a745;            stroke: #1e7e34;
             stroke-width: 0.5;
         }
-        
-        .leader-line {
-            stroke: #000000;
-            stroke-width: 0.6;
+
+        .iot-sensor {
+            fill: #007bff;
+            stroke: #0056b3;
+            stroke-width: 1.5;
+        }
+
+        .interlock-protrusion {
+            fill: #6c757d;
+            stroke: #495057;
+            stroke-width: 1.5;
+        }
+
+        .interlock-recess {
+            fill: #adb5bd;
+            stroke: #495057;
+            stroke-width: 1.5;
+        }
+
+        .qr-tag {
+            fill: #dc3545;
+            stroke: #c82333;
+            stroke-width: 1;
+        }
+
+        .hidden-line {
             fill: none;
+            stroke: #6c757d;
+            stroke-width: 1;
+            stroke-dasharray: 4,2;
         }
-        
-        .crack-line {
-            stroke: #000000;
-            stroke-width: 0.8;
+
+        .visible-edge {
             fill: none;
-            stroke-dasharray: 3,2;
+            stroke: #212529;
+            stroke-width: 2.5;
         }
-        
-        /* Reference Numerals - IPO Standard */
-        .ref-num {
-            font-family: "Times New Roman", Times, serif;
-            font-size: 10pt;
+
+        /* Reference Numeral Labels */
+        .numeral {
+            position: absolute;
+            background: #fff;
+            border: 2px solid #495057;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            fill: #000000;
-            text-anchor: middle;
+            font-size: 12px;
+            color: #212529;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        
-        .figure-caption {
-            font-family: "Times New Roman", Times, serif;
-            font-size: 12pt;
+
+        .numeral:hover {
+            background: #495057;
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .numeral-label {
+            position: absolute;
+            background: rgba(255,255,255,0.95);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #495057;
+            border: 1px solid #dee2e6;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            z-index: 100;
+        }
+
+        .numeral:hover + .numeral-label,
+        .numeral-label:hover {
+            opacity: 1;
+        }
+
+        /* Legend */
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+
+        .legend-item {
+            display: flex;            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #495057;
+            border-radius: 3px;
+        }
+
+        .legend-numeral {
+            background: #495057;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            text-align: center;
-            margin-top: 0.8cm;
+            font-size: 11px;
         }
-        
-        /* Hatching Patterns */
-        .soil-fill { fill: url(#soilPattern); }
-        .gsb-fill { fill: url(#gsbPattern); }
-        .dbm-fill { fill: url(#dbmPattern); }
-        .bc-fill { fill: url(#bcPattern); }
-        
-        /* Reference Key Section */
-        .reference-key {
-            width: 100%;
-            margin-top: 1.5cm;
-            font-size: 10pt;
-            line-height: 1.6;
+
+        /* Notes Section */
+        .notes {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #856404;
         }
-        
-        .reference-key h3 {
-            font-size: 11pt;
-            font-weight: bold;
-            margin-bottom: 0.3cm;
-            text-transform: uppercase;
+
+        .notes strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #856404;
         }
-        
-        .ref-item {
-            margin-bottom: 0.2cm;
-            text-indent: 0;
-        }
-        
-        .ref-number {
-            font-weight: bold;
-            display: inline-block;
-            width: 25pt;
-        }
-        
-        @media print {
-            body {
-                margin: 0;
-                padding: 4cm 3cm 3cm 4cm;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .drawing-area {
+                height: 500px;            }
+            
+            .numeral {
+                width: 24px;
+                height: 24px;
+                font-size: 10px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Figure 1: Isometric View of Modular Micro-Block</h1>
+        <p class="subtitle">Self-Healing Modular Micro-Block Construction System with Dual-Chamber Architecture</p>
+        
+        <div class="drawing-area">
+            <div class="isometric-container">
+                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Define gradients -->
+                    <defs>
+                        <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="sideGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#dee2e6;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ced4da;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
 
-<div class="sheet-header">
-    Applicant: [User Name]&nbsp;&nbsp;&nbsp;&nbsp;Sheet 1 of 5
-</div>
+                    <!-- HIDDEN LINES (Internal structure - dashed) -->
+                    <!-- Functional chamber back edges -->
+                    <line x1="140" y1="180" x2="260" y2="180" class="hidden-line" />
+                    <line x1="140" y1="180" x2="120" y2="220" class="hidden-line" />
+                    <line x1="260" y1="180" x2="280" y2="220" class="hidden-line" />
+                    
+                    <!-- IoT sensor cavity (hidden) -->
+                    <rect x="175" y="195" width="50" height="35" class="hidden-line" />
 
-<div class="drawing-container">
-    <svg viewBox="0 0 450 350" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <!-- Proper Arrow Marker -->
-            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
-                markerWidth="4" markerHeight="4" orient="auto">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000000" stroke="none"/>
-            </marker>
-            
-            <!-- Soil Pattern: Fine dots -->
-            <pattern id="soilPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
-                <circle cx="1" cy="1" r="0.6" fill="#000000"/>
-                <circle cx="3" cy="3" r="0.6" fill="#000000"/>
-            </pattern>
-            
-            <!-- GSB Pattern: Scattered circles -->
-            <pattern id="gsbPattern" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1.0" fill="none" stroke="#000000" stroke-width="0.4"/>
-                <circle cx="6" cy="3" r="0.7" fill="#000000"/>
-                <circle cx="4" cy="6" r="0.9" fill="none" stroke="#000000" stroke-width="0.4"/>
-            </pattern>
-            
-            <!-- DBM Pattern: 45 degree lines -->
-            <pattern id="dbmPattern" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <line x1="0" y1="0" x2="0" y2="6" class="hatch-line"/>
-            </pattern>
-            
-            <!-- BC Pattern: Cross hatch -->
-            <pattern id="bcPattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
-                <line x1="0" y1="0" x2="5" y2="5" class="hatch-line"/>
-                <line x1="5" y1="0" x2="0" y2="5" class="hatch-line"/>
-            </pattern>
-        </defs>
-        
-        <!-- ==================== PAVEMENT LAYERS ==================== -->
-        
-        <!-- Layer 101: Sub-grade (Bottom layer) -->
-        <rect x="100" y="250" width="250" height="50" class="soil-fill"/>
-        <rect x="100" y="250" width="250" height="50" class="boundary-line"/>
-        
-        <!-- Layer 102: Granular Sub-base -->
-        <rect x="100" y="210" width="250" height="40" class="gsb-fill"/>
-        <rect x="100" y="210" width="250" height="40" class="boundary-line"/>
-        
-        <!-- Layer 103: DBM -->
-        <rect x="100" y="170" width="250" height="40" class="dbm-fill"/>
-        <rect x="100" y="170" width="250" height="40" class="boundary-line"/>
-        
-        <!-- Layer 104: BC Surface Course -->
-        <rect x="100" y="130" width="250" height="40" class="bc-fill"/>
-        <rect x="100" y="130" width="250" height="40" class="boundary-line"/>
-        <!-- Road surface line -->
-        <line x1="100" y1="130" x2="350" y2="130" class="boundary-line" stroke-width="1.5"/>
-        
-        <!-- ==================== VASCULAR NETWORK (105) ==================== -->
-        
-        <!-- Vascular channels at DBM/BC interface (y=170) -->
-        <!-- Channel 1 -->
-        <circle cx="140" cy="170" r="8" fill="white" class="boundary-line"/>
-        <circle cx="140" cy="170" r="5" fill="#000000"/>
-        
-        <!-- Channel 2 -->
-        <circle cx="195" cy="170" r="8" fill="white" class="boundary-line"/>
-        <circle cx="195" cy="170" r="5" fill="#000000"/>
-        
-        <!-- Channel 3 (with crack) -->
-        <circle cx="250" cy="170" r="8" fill="white" class="boundary-line"/>
-        <circle cx="250" cy="170" r="5" fill="#000000"/>
-        
-        <!-- Channel 4 -->
-        <circle cx="305" cy="170" r="8" fill="white" class="boundary-line"/>
-        <circle cx="305" cy="170" r="5" fill="#000000"/>
-        
-        <!-- Connecting lines between channels -->
-        <line x1="148" y1="170" x2="187" y2="170" class="boundary-line" stroke-width="0.6"/>
-        <line x1="203" y1="170" x2="242" y2="170" class="boundary-line" stroke-width="0.6"/>
-        <line x1="258" y1="170" x2="297" y2="170" class="boundary-line" stroke-width="0.6"/>
-        
-        <!-- ==================== CRACK (106) ==================== -->
-        
-        <!-- Crack from surface to channel 3 -->
-        <path d="M 250 130 L 248 140 L 252 150 L 249 160 L 251 165 L 250 170" 
-              class="crack-line"/>
-        
-        <!-- ==================== REFERENCE LINES & NUMERALS ==================== -->
-        
-        <!-- 101 - Left side -->
-        <line x1="70" y1="275" x2="95" y2="275" class="leader-line" marker-end="url(#arrow)"/>
-        <text x="55" y="278" class="ref-num">101</text>
-        
-        <!-- 102 -->
-        <line x1="70" y1="230" x2="95" y2="230" class="leader-line" marker-end="url(#arrow)"/>
-        <text x="55" y="233" class="ref-num">102</text>
-        
-        <!-- 103 -->
-        <line x1="70" y1="190" x2="95" y2="190" class="leader-line" marker-end="url(#arrow)"/>
-        <text x="55" y="193" class="ref-num">103</text>
-        
-        <!-- 104 -->
-        <line x1="70" y1="150" x2="95" y2="150" class="leader-line" marker-end="url(#arrow)"/>
-        <text x="55" y="153" class="ref-num">104</text>
-        
-        <!-- 105 - Vascular (from above) -->
-        <line x1="195" y1="170" x2="195" y2="100" class="leader-line"/>
-        <line x1="195" y1="100" x2="220" y2="100" class="leader-line" marker-end="url(#arrow)"/>
-        <text x="240" y="103" class="ref-num">105</text>
-        
-        <!-- 106 - Crack (from upper left) -->
-        <line x1="248" y1="145" x2="220" y2="120" class="leader-line"/>
-        <line x1="220" y1="120" x2="195" y2="120" class="leader-line" marker-end="url(#arrow)"/>
-        <text x="175" y="123" class="ref-num">106</text>
-        
-        <!-- REMOVED: Right side vertical dimension line was here -->
-        
-    </svg>
-    
-    <div class="figure-caption">FIGURE 1</div>
-    
-    <!-- REFERENCE KEY - IPO Standard Format -->
-    <div class="reference-key">
-        <h3>Reference Numerals:</h3>
-        <div class="ref-item"><span class="ref-number">101</span>Compacted Soil Sub-grade</div>
-        <div class="ref-item"><span class="ref-number">102</span>Granular Sub-base (GSB)</div>
-        <div class="ref-item"><span class="ref-number">103</span>Dense Bituminous Macadam (DBM) Base Course</div>
-        <div class="ref-item"><span class="ref-number">104</span>RHA-Nanosilica Reinforced Bituminous Concrete (Surface Course)</div>
-        <div class="ref-item"><span class="ref-number">105</span>Biomimetic Vascular Channel (containing Bio-Rejuvenator)</div>
-        <div class="ref-item"><span class="ref-number">106</span>Surface Micro-crack (shown interfacing with vascular channel)</div>
+                    <!-- VISIBLE BLOCK STRUCTURE -->
+                    <!-- Bottom face -->
+                    <polygon points="100,240 200,290 300,240 200,190" class="block-surface" />
+                    
+                    <!-- Left face -->
+                    <polygon points="100,240 100,140 200,90 200,190" class="block-side" />
+                    
+                    <!-- Right face -->
+                    <polygon points="200,190 200,90 300,140 300,240" class="block-surface" />
+                    
+                    <!-- Top face -->                    <polygon points="100,140 200,90 300,140 200,190" fill="url(#topGrad)" stroke="#495057" stroke-width="2" />
+
+                    <!-- INTERLOCKING FEATURES -->
+                    <!-- Protrusion on top (105) -->
+                    <polygon points="180,100 200,90 220,100 200,110" class="interlock-protrusion" />
+                    
+                    <!-- Recess indication on bottom edge (106) -->
+                    <path d="M 150,265 Q 175,275 200,265" class="interlock-recess" fill="none" stroke-width="2" />
+
+                    <!-- Shear-key feature (107) -->
+                    <rect x="145" y="115" width="110" height="8" class="interlock-protrusion" opacity="0.7" />
+
+                    <!-- FUNCTIONAL CHAMBER (Internal - shown with cutaway) -->
+                    <polygon points="120,160 200,120 280,160 200,200" class="internal-cavity" opacity="0.6" />
+                    
+                    <!-- Microcapsules inside functional chamber (103) -->
+                    <circle cx="160" cy="160" r="4" class="microcapsule" />
+                    <circle cx="180" cy="150" r="3" class="microcapsule" />
+                    <circle cx="200" cy="160" r="4" class="microcapsule" />
+                    <circle cx="220" cy="150" r="3" class="microcapsule" />
+                    <circle cx="240" cy="160" r="4" class="microcapsule" />
+                    <circle cx="170" cy="175" r="3" class="microcapsule" />
+                    <circle cx="190" cy="185" r="4" class="microcapsule" />
+                    <circle cx="210" cy="175" r="3" class="microcapsule" />
+                    <circle cx="230" cy="185" r="4" class="microcapsule" />
+                    <circle cx="200" cy="170" r="3" class="microcapsule" />
+
+                    <!-- IoT SENSOR HOUSING (104) -->
+                    <rect x="175" y="210" width="50" height="35" rx="3" class="iot-sensor" />
+                    <text x="200" y="232" text-anchor="middle" fill="white" font-size="10" font-weight="bold">IoT</text>
+
+                    <!-- QR/NFC TAG (108) -->
+                    <rect x="240" y="120" width="25" height="25" class="qr-tag" />
+                    <line x1="245" y1="125" x2="260" y2="125" stroke="white" stroke-width="1" />
+                    <line x1="245" y1="130" x2="260" y2="130" stroke="white" stroke-width="1" />
+                    <line x1="245" y1="135" x2="260" y2="135" stroke="white" stroke-width="1" />
+                    <line x1="245" y1="140" x2="260" y2="140" stroke="white" stroke-width="1" />
+
+                    <!-- ACTIVATION PORTS (109) - micro-channels -->
+                    <line x1="130" y1="170" x2="115" y2="155" stroke="#ffc107" stroke-width="2" stroke-dasharray="3,2" />
+                    <line x1="270" y1="170" x2="285" y2="155" stroke="#ffc107" stroke-width="2" stroke-dasharray="3,2" />
+
+                    <!-- SURFACE TEXTURE (110) - pattern on top -->
+                    <g opacity="0.3">
+                        <line x1="120" y1="130" x2="140" y2="120" stroke="#6c757d" stroke-width="1" />
+                        <line x1="150" y1="115" x2="170" y2="105" stroke="#6c757d" stroke-width="1" />
+                        <line x1="230" y1="105" x2="250" y2="115" stroke="#6c757d" stroke-width="1" />
+                        <line x1="260" y1="120" x2="280" y2="130" stroke="#6c757d" stroke-width="1" />
+                    </g>
+                    <!-- BLOCK OUTLINE (thick visible edges) -->
+                    <polyline points="100,140 200,90 300,140 300,240 200,290 100,240 100,140" class="visible-edge" fill="none" />
+                    <line x1="200" y1="90" x2="200" y2="190" class="visible-edge" />
+                    <line x1="100" y1="240" x2="200" y2="190" class="visible-edge" />
+                    <line x1="300" y1="240" x2="200" y2="190" class="visible-edge" />
+                </svg>
+
+                <!-- REFERENCE NUMERALS (Positioned absolutely) -->
+                <!-- 100: Overall block -->
+                <div class="numeral" style="top: 280px; left: 180px;" title="100">100</div>
+                <div class="numeral-label" style="top: 310px; left: 165px;">Modular Micro-Block (Overall)</div>
+
+                <!-- 101: Structural chamber -->
+                <div class="numeral" style="top: 200px; left: 80px;" title="101">101</div>
+                <div class="numeral-label" style="top: 200px; left: 20px;">Structural Chamber</div>
+
+                <!-- 102: Functional chamber -->
+                <div class="numeral" style="top: 140px; left: 190px;" title="102">102</div>
+                <div class="numeral-label" style="top: 110px; left: 175px;">Functional Chamber</div>
+
+                <!-- 103: Microcapsules -->
+                <div class="numeral" style="top: 160px; left: 220px;" title="103">103</div>
+                <div class="numeral-label" style="top: 160px; left: 240px;">Microcapsules</div>
+
+                <!-- 104: IoT sensor -->
+                <div class="numeral" style="top: 230px; left: 210px;" title="104">104</div>
+                <div class="numeral-label" style="top: 260px; left: 195px;">IoT Sensor Housing</div>
+
+                <!-- 105: Interlocking protrusion -->
+                <div class="numeral" style="top: 70px; left: 190px;" title="105">105</div>
+                <div class="numeral-label" style="top: 40px; left: 175px;">Interlocking Protrusion</div>
+
+                <!-- 106: Interlocking recess -->
+                <div class="numeral" style="top: 290px; left: 160px;" title="106">106</div>
+                <div class="numeral-label" style="top: 320px; left: 120px;">Interlocking Recess</div>
+
+                <!-- 107: Shear-key -->
+                <div class="numeral" style="top: 110px; left: 130px;" title="107">107</div>
+                <div class="numeral-label" style="top: 80px; left: 80px;">Shear-Key Feature</div>
+
+                <!-- 108: QR/NFC tag -->
+                <div class="numeral" style="top: 130px; left: 270px;" title="108">108</div>
+                <div class="numeral-label" style="top: 130px; left: 290px;">QR/NFC Tag</div>
+
+                <!-- 109: Activation ports -->
+                <div class="numeral" style="top: 150px; left: 95px;" title="109">109</div>
+                <div class="numeral-label" style="top: 150px; left: 30px;">Activation Ports</div>
+
+                <!-- 110: Surface texture -->
+                <div class="numeral" style="top: 100px; left: 240px;" title="110">110</div>                <div class="numeral-label" style="top: 70px; left: 240px;">Surface Texture</div>
+            </div>
+        </div>
+
+        <!-- LEGEND -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-numeral">100</div>
+                <span>Modular micro-block (overall assembly)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-numeral">101</div>
+                <span>Structural chamber (outer concrete matrix)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-numeral">102</div>
+                <span>Functional chamber (internal cavity)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-numeral">103</div>
+                <span>Microcapsules (bacterial spores + nutrient)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-numeral">104</div>
+                <span>IoT sensor housing (embedded cavity)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-numeral">105</div>
+                <span>Interlocking protrusion (male connector)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-numeral">106</div>
+                <span>Interlocking recess (female connector)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-numeral">107</div>
+                <span>Shear-key feature (lateral alignment)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-numeral">108</div>
+                <span>QR/NFC tag (digital identifier)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-numeral">109</div>
+                <span>Activation ports (micro-channels)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-numeral">110</div>
+                <span>Surface texture (non-slip pattern)</span>
+            </div>        </div>
+
+        <!-- NOTES -->
+        <div class="notes">
+            <strong>Notes:</strong>
+            1. Microcapsules (103) shown schematically; actual distribution is random within functional chamber (102).<br>
+            2. IoT sensor (104) not to scale; actual size ~25mm × 15mm × 10mm.<br>
+            3. Interlocking features (105, 106) repeat on all four vertical edges for multi-directional assembly.<br>
+            4. Dimensions: Overall block 200mm (L) × 100mm (W) × 75mm (H).<br>
+            5. Hidden lines (dashed) indicate internal features not visible from this viewing angle.
+        </div>
     </div>
-</div>
 
+    <script>
+        // Add interactivity - highlight related elements on hover
+        document.querySelectorAll('.numeral').forEach(numeral => {
+            numeral.addEventListener('mouseenter', function() {
+                const num = this.textContent;
+                console.log('Viewing component:', num);
+            });
+        });
+
+        // Add print functionality
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
 </body>
 </html>
